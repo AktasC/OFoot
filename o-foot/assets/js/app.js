@@ -1,14 +1,22 @@
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
- */
+// == Import : npm
+import React from 'react';
+import { render } from 'react-dom';
 
-// any CSS you import will output into a single css file (app.css in this case)
-import '../css/app.css';
 
-// Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
-// import $ from 'jquery';
+// == Import : local
+// Styles de base
+// ERREUR : TODO
+// import '../public/styles/index.scss';
+// Composant racine
+import App from './components/App';
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+
+// == Render
+// 1. Le composant racine (celui qui contient l'ensemble de l'app)
+const rootComponent = <App />;
+
+// 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)
+const target = document.getElementById('root');
+
+// Le rendu de React => DOM
+render(rootComponent, target);
