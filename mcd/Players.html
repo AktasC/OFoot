@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+  #mld .relation { font-variant: small-caps; font-weight: bold }
+  #mld .primary { text-decoration: underline }
+  #mld .foreign { font-style: oblique }
+  #mld .normal { }
+</style>
+</head>
+<body>
+<div id='mld'>
+<div>
+  <span class='relation'>USER</span> (
+    <span class='primary'>username</span>,
+    <span class='normal'>email</span>,
+    <span class='normal'>password</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>updated_at</span>,
+    <span class='foreign'>user</span>
+  )
+</div>
+<div>
+  <span class='relation'>ROLE</span> (
+    <span class='primary'>user</span>,
+    <span class='normal'>admin</span>
+  )
+</div>
+<div>
+  <span class='relation'>TEAM</span> (
+    <span class='primary'>title</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>updated_at</span>,
+    <span class='foreign'>username</span>,
+    <span class='foreign'>name</span>
+  )
+</div>
+<div>
+  <span class='relation'>PLAYER</span> (
+    <span class='primary'>name</span>,
+    <span class='normal'>match</span>,
+    <span class='normal'>goal</span>,
+    <span class='normal'>decisive pass</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>updated_at</span>
+  )
+</div>
+<div>
+  <span class='relation'>EVENT</span> (
+    <span class='primary'>match</span>,
+    <span class='normal'>training</span>,
+    <span class='normal'>tournaments</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>updated_at</span>,
+    <span class='foreign'>name</span>
+  )
+</div>
+<div>
+  <span class='relation'>ADMIN</span> (
+    <span class='primary'>name</span>,
+    <span class='normal'>email</span>,
+    <span class='normal'>password</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>updated_at</span>,
+    <span class='foreign'>title</span>,
+    <span class='foreign'>name.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>CATEGORY</span> (
+    <span class='primary'>legal_mentions</span>,
+    <span class='normal'>about</span>,
+    <span class='normal'>page_create_team</span>,
+    <span class='normal'>create_event</span>,
+    <span class='normal'>manage_team</span>,
+    <span class='normal'>manage_stats</span>
+  )
+</div>
+</div>
+</body>
+</html>
