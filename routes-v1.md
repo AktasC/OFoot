@@ -15,30 +15,30 @@
 | `/register` | Inscription | traitement formulaire d'inscription | POST | UserController | register | MVP |
 | `/login` | Connexion | formulaire de connexion | GET | UserController | signin | MVP |
 | `/login` | Connexion | traitement formulaire de connexion | POST | UserController | signin | MVP |
-| `/logout` | - | Deconnexion | formulaire de deconnexion | GET | UserController | logout | MVP |
+| `/logout` | Deconnexion | formulaire de deconnexion | GET | UserController | logout | MVP |
 | `/user/profile` | Profil utilistateur | informations sur le profil connecté | GET | UserController | profile | MVP |
 | `/user/profile` | Profil utilistateur | traitement informations sur le profil connecté | POST | UserController | profile | MVP |
 | `/user/edit` | Modification compte utilisateur | modifier les informations du profil utilisateur | GET | UserController | edit | MVP |
 | `/user/edit` | Modification compte utilisateur | traitement des informations du profil utilisateur  | POST | UserController | edit | MVP |
 | `/user/edit-password` | Modification password utilisateur | modifier le password de l'utilisateur | GET | UserController | editPassword | MVP |
-| `/user/edit-password` | Modification password utilisateur | traitement pour modifier le password de l'utilisateur | Post | UserController | editPassword | MVP |
+| `/user/edit-password` | Modification password utilisateur | traitement pour modifier le password de l'utilisateur | POST | UserController | editPassword | MVP |
 |Dashboard|--|--|--|--|--|--|
 |`/dashboard/team/{id}`| Dashboard équipe | page principale de l'application O'Foot | GET | DashBoardController | home | MVP|
 |Event|--|--|--|--|--|--|
 |`/event/list`| Page liste des événements | page listant l'ensemble des événements créés | GET | EventController | list | MVP|
 |`/event/add`| Créer événement | formulaire création d'événements | GET | EventController | new | MVP|
 |`/event/add`| Créer événement | traitement formulaire création d'événements | POST | EventController | new | MVP|
-|`/event/edit/{id}`| Modifier un événement | formulaire création d'événements | GET | EventController | edit | MVP|
+|`/event/edit/{id}`| Modifier un événement | formulaire modification d'événements | GET | EventController | edit | MVP|
 |`/event/edit/{id}`| Modifier un événement | traitement formulaire modification événement | POST | EventController | edit | MVP|
 |`/event/delete/{id}`| Supprime un événement | traitement formulaire suppresion événement | POST | EventController | delete | MVP|
 |`/event/match/{id}`| Page évenement : match | page affichant un match en particulier | GET | EventController | showMatch | MVP|
 |`/event/training/{id}`| Page évenement : entrainement | page affichant un entrainement en particulier | GET | EventController | showTraining | MVP|
 |`/event/match/{id}/stats/update`| Ajout scores et stats : match | formulaire d'ajout du score et des stats du match| GET | EventController  | statsUpdate | MVP|
-|`/event/match/{id}/stats/update`| Ajout scores et stats : match | traitement formulaire d'ajout du score et des stats du match | Post | EventController  |statsUpdate | MVP|
-|`/event/match/{id}/players-selection`| Convocation match | formulaire affichant les joueurs à convoquer pour le match | GET | PlayerController | selectionMatch | MVP|
-|`/event/match/{id}/players-selection`| Convocation match | formulaire affichant les joueurs à convoquer pour le match | POST | PlayerController | selectionMatch | MVP|
-|`/event/training/{id}/players-selection`| Convocation entrainement | formulaire affichant les joueurs à convoquer pour l'entrainement | GET | PlayerController | selectionTraining | MVP|
-|`/event/training/{id}/players-selection`| Convocation entrainement | formulaire affichant les joueurs à convoquer pour l'entrainement  | POST | PlayerController | selectionTraining | MVP|
+|`/event/match/{id}/stats/update`| Ajout scores et stats : match | traitement formulaire d'ajout du score et des stats du match | POST | EventController  |statsUpdate | MVP|
+|`/event/match/{id}/players-selection`| Convocation match | formulaire affichant les joueurs à convoquer pour le match | GET | EventController  | selectionMatch | MVP|
+|`/event/match/{id}/players-selection`| Convocation match | formulaire affichant les joueurs à convoquer pour le match | POST | EventController | selectionMatch | MVP|
+|`/event/training/{id}/players-selection`| Convocation entrainement | formulaire affichant les joueurs à convoquer pour l'entrainement | GET | EventController  | selectionTraining | MVP|
+|`/event/training/{id}/players-selection`| Convocation entrainement | traitement formulaire affichant les joueurs à convoquer pour l'entrainement  | POST | EventController  | selectionTraining | MVP|
 |Team|--|--|--|--|--|--|
 |`/team/{id}`| Page équipe | page avec informations sur l'équipe | GET | TeamController | show | MVP |
 |`/team/add`| Création équipe | formulaire de création d'équipe | GET | TeamController | add | MVP |
@@ -50,7 +50,7 @@
 |`/event/match/{id}/line-up/update`| Faire composition | traitement page création de composition d'équipe | POST | TeamController | update | MVP|
 |Stats|--|--|--|--|--|--|
 |`/stats`| Page statistiques | page d'accueil statistiques | GET | StatController | home | MVP |
-|`/stats/team`| Page statistiques équipe | page d'accueil statistiques | GET | StatController | showStatsTeam | MVP |
+|`/stats/team`| Page statistiques équipe | page d'accueil statistiques de l'équipe | GET | StatController | showStatsTeam | MVP |
 |`/stats/players`| Page statistiques joueurs match | page avec l'ensemble des stats par joueurs | GET | StatController | showStatsPlayers | MVP |
 |Player|--|--|--|--|--|--|
 |`/player/list`| Page liste des événements | page listant l'ensemble des événements créés | GET | PlayerController | list | MVP|
@@ -60,4 +60,3 @@
 |`/player/edit/{id}`| Modification joueur | formulaire de modification de joueur | GET | PlayerController | edit | MVP |
 |`/player/edit/{id}`| Modification joueur | traitement formulaire de modification de joueur | POST | PlayerController | edit | MVP |
 |`/player/delete/{id}`| Supprime un joueur | traitement formulaire suppresion de joueur | POST | PlayerController | delete | MVP|
-|`/event/training/players-selected/{id}`| Page liste des joueurs | page listant des joueurs convoqués pour un entrainement  en particulier | GET | PlayerController | showPlayersTraining| MVP|
