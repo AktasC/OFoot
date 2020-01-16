@@ -1,11 +1,11 @@
 {
     "devDependencies": {
-        "@symfony/webpack-encore": "^0.28.2",
-    	"babel-loader": "*",
-    	"@babel/core":"^7.0.0-0",
-    	"@babel/preset-env": "*",
+        "@babel/core": "^7.0.0-0",
+        "@babel/preset-env": "*",
         "@babel/preset-react": "^7.7.4",
+        "@symfony/webpack-encore": "^0.28.2",
         "axios": "^0.19.1",
+        "babel-loader": "*",
         "core-js": "^3.0.0",
         "node-sass": "^4.13.0",
         "prop-types": "^15.7.2",
@@ -19,7 +19,7 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
-    	"start": "encore dev-server",
+        "start": "encore dev-server",
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
@@ -29,6 +29,7 @@
         "@babel/plugin-proposal-class-properties": "^7.7.4",
         "@babel/plugin-proposal-object-rest-spread": "*",
         "@babel/plugin-transform-runtime": "^7.7.6",
-        "reactstrap": "^8.2.0"
+        "reactstrap": "^8.2.0",
+        "semantic-ui-react": "^0.88.2"
     }
 }
