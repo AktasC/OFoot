@@ -1,4 +1,10 @@
 #header {
-    display: flex;
-    justify-content: space-between;    
+  display: flex;
+  justify-content: space-between;
+    & .header-title {
+      font-weight: bold;
+    }   
+    & img {
+      margin-right: 10px;
+    } 
 }

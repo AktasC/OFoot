@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Menu, Dropdown, Icon } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 // Import scss
 import './header.scss';
@@ -9,11 +10,15 @@ import './header.scss';
 const Header = () => (
     <Menu id="header">
 
-      <Menu.Item>
-        <img src="https://image.flaticon.com/icons/svg/861/861512.svg" alt="Logo" />
-        O'Foot
-      </Menu.Item>      
-      
+      <NavLink to="home" className="link">
+      <Menu.Item className="header-title">
+        
+          <img src="https://image.flaticon.com/icons/svg/861/861512.svg" alt="Logo" />
+          O'FOOT
+        
+      </Menu.Item>
+      </NavLink>
+
       <Menu.Menu position='right'>
         <Dropdown item icon='bars'>
           <Dropdown.Menu>
