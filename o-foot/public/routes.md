@@ -1,4 +1,6 @@
-# Routes - Projet O'Foot - V1
+# Routes
+
+Version 3.0
 
 | URL | Titre | Description de la page | Méthode HTTP | Controller | Méthode | commentaire |
 |--|--|--|--|--|--|--|
