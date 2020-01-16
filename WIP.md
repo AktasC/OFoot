@@ -20,7 +20,7 @@ Chercher la ligne où se trouve `.enableReactPreset()` et la "décommenter".
   - `yarn install`
 
 - Environnement de dev avec auto-reload lors d'un changement de fichier :
-  - `yarn encore dev --watch`
+  - `symfony serve -d ; yarn encore dev-server --watch`
 
 - Environnement de production :
   - `yarn encore production`
