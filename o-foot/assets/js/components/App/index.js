@@ -15,6 +15,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import MentionsLegales from '../MentionsLegales';
 import QuiSommesNous from '../QuiSommesNous';
+import Home from '../Home';
 
 // == Composant
 const App = () => (
@@ -29,7 +30,7 @@ const App = () => (
         <QuiSommesNous />
       </Route>
       <Route path='/home'>
-        <h2>Test</h2>
+        <Home />
       </Route>
     </Switch>
 

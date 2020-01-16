@@ -1,0 +1,15 @@
+#section {
+    background-color: lightgreen;
+    box-shadow: 1px 1px 10px #ccc;
+    padding: 1.5em 2em;
+    margin: .5em 0;
+    & .section-title {
+        text-align: left;
+        font-family: Poppins;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    & .section-content {
+        text-align: left;
+    }
+}
