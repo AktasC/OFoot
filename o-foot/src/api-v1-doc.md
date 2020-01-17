@@ -6,6 +6,12 @@ Version 1.0
 
 | Routes | Nom de la route | Méthodes (HTTP) |
 |---|---|---|
+|/api/v1/categories | api_v1_categories_list | GET  |
+|/api/v1/categories/{id}  | api_v1_categories_show | GET |
+|/api/v1/categories| api_v1_categoriesnew | POST |
+|/api/v1/categories/{id} | api_v1_categories_edit | PUT |
+|/api/v1/categories/{id} | api_v1_categories_delete | DELETE |
+|---|---|---|
 |/api/v1/compositions | api_v1_compositions_list | GET  |
 |/api/v1/compositions/{id}  | api_v1_compositions_show | GET |
 |/api/v1/compositions| api_v1_compositions_new | POST |
@@ -59,6 +65,12 @@ Version 1.0
 ## Les contrôleurs
 
 | Routes | Controller | ->méthode() |
+|---|---|---|
+|/api/v1/categories |Api\V1\CategoryController| ->list() |
+|/api/v1/categories/{id} |Api\V1\CategoryController| ->show() |
+|/api/v1/categories|Api\V1\CategoryController| ->new() |
+|/api/v1/categories/{id} |Api\V1\CategoryController| ->edit() |
+|/api/v1/categories/{id} |Api\V1\CategoryController| ->delete() |
 |---|---|---|
 |/api/v1/compositions |Api\V1\CompoController| ->list() |
 |/api/v1/compositions/{id} |Api\V1\CompoController| ->show() |
