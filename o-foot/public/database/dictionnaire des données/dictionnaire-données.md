@@ -122,3 +122,17 @@ Version 3.0
 |created_at	|TIMESTAMP |NOT NULL,DEFAULT CURRENT_TIMESTAMP|Date de création de la tactique|
 |updated_at|TIMESTAMP |	NULL|La date de la dernière mise à jour de la tactique|
 
+## Category (`Category`)
+
+|Champ|Type|Spécificités|Description|
+|-|-|-|-|
+|id| INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT| L'identifiant de la categorie|
+|content_category| TEXT |NOT NULL|Contenu de la catégorie|
+|h1_category| VARCHAR(128) |NOT NULL|h1 de la catégorie|
+|h2_category| VARCHAR(128) |NOT NULL|h2 de la catégorie|
+|image_category| VARCHAR(128) |NULL|Image de la catégorie|
+|name_category| VARCHAR(255) |NOT NULL|Nom de la catégorie|
+|short_description_category| TEXT |NOT NULL|Courte description de la catégorie|
+|title_category| VARCHAR(255) |NOT NULL|Title de la catégorie|
+|created_at	|TIMESTAMP |NOT NULL,DEFAULT CURRENT_TIMESTAMP|Date de création de la categorie|
+|updated_at|TIMESTAMP |	NULL|La date de la dernière mise à jour de la categorie|
