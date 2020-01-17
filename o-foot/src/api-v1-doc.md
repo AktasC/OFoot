@@ -72,11 +72,11 @@ Version 1.0
 |/api/v1/categories/{id} |Api\V1\CategoryController| ->edit() |
 |/api/v1/categories/{id} |Api\V1\CategoryController| ->delete() |
 |---|---|---|
-|/api/v1/compositions |Api\V1\CompoController| ->list() |
-|/api/v1/compositions/{id} |Api\V1\CompoController| ->show() |
-|/api/v1/compositions|Api\V1\CompoController| ->new() |
-|/api/v1/compositions/{id} |Api\V1\CompoController| ->edit() |
-|/api/v1/compositions/{id} |Api\V1\CompoController| ->delete() |
+|/api/v1/compositions |Api\V1\CompositionController| ->list() |
+|/api/v1/compositions/{id} |Api\V1\CompositionController| ->show() |
+|/api/v1/compositions|Api\V1\CompositionController| ->new() |
+|/api/v1/compositions/{id} |Api\V1\CompositionController| ->edit() |
+|/api/v1/compositions/{id} |Api\V1\CompositionController| ->delete() |
 |---|---|---|
 |/api/v1/matchs | Api\V1\MatchController | ->list() |
 |/api/v1/matchs /{id} | Api\V1\MatchController| ->show() |
