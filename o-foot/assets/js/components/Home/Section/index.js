@@ -18,10 +18,10 @@ const Section = (func) => {
 
     return (
 
-      <div id="section">
-
+      <div id="sections">
+        <div id="section" className={func.classColor}>
         <Container>
-          <Row>
+          <Row className={func.classPosition}>
             <Col lg={6} md={6} sm={6} xs={6}>
               <h2 className="section-title">{func.title}</h2>
               <p className="section-content">{func.content}</p>
@@ -31,7 +31,7 @@ const Section = (func) => {
             </Col>
           </Row>         
         </Container>
-
+        </div>
       </div>
 
     )

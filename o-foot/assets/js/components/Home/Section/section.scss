@@ -1,8 +1,5 @@
-#section {
-    background-color: lightgreen;
-    box-shadow: 1px 1px 10px #ccc;
-    padding: 1.5em 2em;
-    margin: .5em 0;
+#sections {
+
     & .section-title {
         text-align: left;
         font-family: Poppins;
@@ -11,5 +8,25 @@
     }
     & .section-content {
         text-align: left;
+    }
+
+    & .darken {
+        background-color: #212532;
+    }
+
+    & .lighten {
+        background-color: #414762;
+    }
+  
+
+}
+
+#section {
+    padding: 6em 2em;
+    margin:  0;
+
+    & .right {
+        display: flex;
+        flex-direction: row-reverse;
     }
 }
