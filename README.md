@@ -1,9 +1,21 @@
 # O'Foot
+----
 
 ## App aiming at improving amateur soccer clubs' management
-O'Foot provides a simple yet prowerful interface letting you manager your soccer club with ease.  
-You can create as many teams and invite as many people as you want, for now.  
+O'Foot provides a simple yet powerful interface to manage your soccer club with ease.  
 
+-----
+
+## Installation & Usage
+- Install dependencies :
+  - `composer install`
+  - `yarn install`
+
+- Run the Symfony & Webpack servers :
+  - `symfony serve -d`
+  - `yarn start`
+
+-----
 
 ## Team :
 - Béranger Benoit - Symfony - Lead Dev Back
