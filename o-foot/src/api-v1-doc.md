@@ -1,0 +1,110 @@
+# Api interne : O'Foot
+
+Version 1.0
+
+## Les routes
+
+| Routes | Nom de la route | Méthodes (HTTP) |
+|---|---|---|
+|/api/v1/compositions | api_v1_compositions_list | GET  |
+|/api/v1/compositions/{id}  | api_v1_compositions_show | GET |
+|/api/v1/compositions| api_v1_compositions_new | POST |
+|/api/v1/compositions/{id} | api_v1_compositions_edit | PUT |
+|/api/v1/compositions/{id} | api_v1_compositions_delete | DELETE |
+|---|---|---|
+|/api/v1/matchs| api_v1_matchs_list | GET  |
+|/api/v1/matchs/{id}| api_v1_matchs_show | GET |
+|/api/v1/matchs| api_v1_matchs_new | POST |
+|/api/v1/matchs /{id}| api_v1_matchs_info_edit | PUT |
+|/api/v1/matchs /{id}| api_v1_matchs_stats_edit | PUT |
+|/api/v1/matchs /{id}| api_v1_matchs_delete | DELETE |
+|---|---|---|
+|/api/v1/players | api_v1_players_list | GET  |
+|/api/v1/players /{id}  | api_v1_players_show | GET |
+|/api/v1/players  | api_v1_players_new | POST |
+|/api/v1/players /{id} | api_v1_players_edit | PUT |
+|/api/v1/players /{id} | api_v1_players_delete | DELETE |
+|---|---|---|
+|/api/v1/positions| api_v1_positions_list | GET  |
+|/api/v1/positions/{id}  | api_v1_positions_show | GET |
+|/api/v1/positions| api_v1_positions_new | POST |
+|/api/v1/positions/{id} | api_v1_positions_edit | PUT |
+|/api/v1/positions/{id} | api_v1_positions_delete | DELETE |
+|---|---|---|
+|/api/v1/practices| api_v1_practices_list | GET  |
+|/api/v1/practices{id}  | api_v1_practices_show | GET |
+|/api/v1/practices| api_v1_practices_new | POST |
+|/api/v1/practices/{id} | api_v1_practices_edit | PUT |
+|/api/v1/practices/{id} | api_v1_practices_delete | DELETE |
+|---|---|---|
+|/api/v1/tactics| api_v1_tactics_list | GET  |
+|/api/v1/tactics/{id}  | api_v1_tactics_show | GET |
+|/api/v1/tactics| api_v1_tactics_new | POST |
+|/api/v1/tactics/{id} | api_v1_tactics_edit | PUT |
+|/api/v1/tactics/{id} | api_v1_tactics_delete | DELETE |
+|---|---|---|
+|/api/v1/teams| api_v1_teams_list | GET  |
+|/api/v1/teams/{id}  | api_v1_teams_show | GET |
+|/api/v1/teams | api_v1_teams_new | POST |
+|/api/v1/teams/{id} | api_v1_teams_edit | PUT |
+|/api/v1/teams/{id} | api_v1_teams_delete | DELETE |
+|---|---|---|
+|/api/v1/users | api_v1_users_list | GET  |
+|/api/v1/users/{id}  | api_v1_users_show | GET |
+|/api/v1/users | api_v1_users_new | POST |
+|/api/v1/users/{id} | api_v1_users_edit | PUT |
+|/api/v1/users/{id} | api_v1_users_delete | DELETE |
+
+
+## Les contrôleurs
+
+| Routes | Controller | ->méthode() |
+|---|---|---|
+|/api/v1/compositions |Api\V1\CompoController| ->list() |
+|/api/v1/compositions/{id} |Api\V1\CompoController| ->show() |
+|/api/v1/compositions|Api\V1\CompoController| ->new() |
+|/api/v1/compositions/{id} |Api\V1\CompoController| ->edit() |
+|/api/v1/compositions/{id} |Api\V1\CompoController| ->delete() |
+|---|---|---|
+|/api/v1/matchs | Api\V1\MatchController | ->list() |
+|/api/v1/matchs /{id} | Api\V1\MatchController| ->show() |
+|/api/v1/matchs | Api\V1\MatchController| ->new() |
+|/api/v1/matchs /{id} | Api\V1\MatchController| ->editInfos() |
+|/api/v1/matchs /{id} | Api\V1\MatchController| ->editStats() |
+|/api/v1/matchs /{id} | Api\V1\MatchController| ->delete() |
+|---|---|---|
+|/api/v1/players| Api\V1\PlayerController | ->list() |
+|/api/v1/players/{id} | Api\V1\PlayerController| ->show() |
+|/api/v1/players| Api\V1\PlayerController| ->new() |
+|/api/v1/players/{id} | Api\V1\PlayerController| ->edit() |
+|/api/v1/players/{id} | Api\V1\PlayerController| ->delete() |
+|---|---|---|
+|/api/v1/positions| Api\V1\PositionController | ->list() |
+|/api/v1/positions/{id}| Api\V1\PositionController | ->show() |
+|/api/v1/positions| Api\V1\PositionController | ->new() |
+|/api/v1/positions/{id}| Api\V1\PositionController | ->edit() |
+|/api/v1/positions/{id}| Api\V1\PositionController | ->delete() |
+|---|---|---|
+|/api/v1/practices| Api\V1\PracticeController | ->list() |
+|/api/v1/practices/{id}| Api\V1\PracticeController  | ->show() |
+|/api/v1/practices| Api\V1\PracticeController | ->new() |
+|/api/v1/practices/{id}| Api\V1\PracticeController  | ->edit() |
+|/api/v1/practices/{id}| Api\V1\PracticeController | ->delete() |
+|---|---|---|
+|/api/v1/tactics| Api\V1\TactiqueController | ->list() |
+|/api/v1/tactics/{id}| Api\V1\TactiqueController | ->show() |
+|/api/v1/tactics| Api\V1\TactiqueController| ->new() |
+|/api/v1/tactics/{id}| Api\V1\TactiqueController  | ->edit() |
+|/api/v1/tactics/{id}| Api\V1\TactiqueController | ->delete() |
+|---|---|---|
+|/api/v1/teams| Api\V1\TeamController | ->list() |
+|/api/v1/teams/{id}| Api\V1\TeamController  | ->show() |
+|/api/v1/teams| Api\V1\TeamController | ->new() |
+|/api/v1/teams/{id}| Api\V1\TeamController  | ->edit() |
+|/api/v1/teams/{id}| Api\V1\TeamController | ->delete() |
+|---|---|---|
+|/api/v1/users| Api\V1\UserController| ->list() |
+|/api/v1/users/{id}| Api\V1\UserController | ->show() |
+|/api/v1/users| Api\V1\UserController| ->new() |
+|/api/v1/users/{id}| Api\V1\UserController | ->edit() |
+|/api/v1/users/{id}| Api\V1\UserController| ->delete() |
