@@ -4,8 +4,7 @@ Version 3.0
 
 | URL | Titre | Description de la page | Méthode HTTP | Controller | Méthode | commentaire |
 |--|--|--|--|--|--|--|
-| `/` | Home | page d'accueil| GET | HomeController | home | MVP|
-|Main|--|--|--|--|--|--|
+| `/` | Home | page d'accueil| GET | MainController | home | MVP|
 | `/mentions-legales` | Page mentions légales | contenu rédactionnel pour les mentions légales | GET | MainController | mentionsLegales | MVP |
 | `/notre-team` | Page notre team | liste membres de l'équipe | GET | MainController | team | MVP |
 |Category|--|--|--|--|--|--|
