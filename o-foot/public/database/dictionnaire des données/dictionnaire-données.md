@@ -71,8 +71,8 @@ Version 3.0
 |assist_match|SMALLINT|NULL|Nombre de passe par match|
 |date_time_match|DATETIME|NULL|Date du match|
 |domicile_exterieur|VARCHAR(128)|NULL|Distinction match à domicile et exterieur|
-|goal_conceded_team|SMALLINT|NULL|Nombre de but prit par match|
-|goal_scored_team|SMALLINT|	NULL|Nombre de but marqué par match|
+|goal_conceded_match|SMALLINT|NULL|Nombre de but prit par match|
+|goal_scored_match|SMALLINT|	NULL|Nombre de but marqué par match|
 |opponent_team|	VARCHAR(255)|NULL|Nom de l'équipe adverse pour le match|
 |presence_match|SMALLINT|NULL|Nombre de joueur présent par match|
 |red_card_match|TINYINT	|NULL|Nombre de carton rouge par match|
