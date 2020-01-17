@@ -23,3 +23,4 @@ const target = document.getElementById('root');
 
 // Le rendu de React => DOM
 render(rootComponent, target);
+
