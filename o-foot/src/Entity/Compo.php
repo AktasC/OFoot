@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +32,28 @@ class Compo
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Player", mappedBy="composition")
+     */
+    private $players;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Match", inversedBy="compositions")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $match_game;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Tactique", mappedBy="compo", orphanRemoval=true)
+     */
+    private $schema_tactique;
+
+    public function __construct()
+    {
+        $this->players = new ArrayCollection();
+        $this->schema_tactique = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -68,6 +92,77 @@ class Compo
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Player[]
+     */
+    public function getPlayers(): Collection
+    {
+        return $this->players;
+    }
+
+    public function addPlayer(Player $player): self
+    {
+        if (!$this->players->contains($player)) {
+            $this->players[] = $player;
+            $player->addComposition($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayer(Player $player): self
+    {
+        if ($this->players->contains($player)) {
+            $this->players->removeElement($player);
+            $player->removeComposition($this);
+        }
+
+        return $this;
+    }
+
+    public function getMatchGame(): ?Match
+    {
+        return $this->match_game;
+    }
+
+    public function setMatchGame(?Match $match_game): self
+    {
+        $this->match_game = $match_game;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Tactique[]
+     */
+    public function getSchemaTactique(): Collection
+    {
+        return $this->schema_tactique;
+    }
+
+    public function addSchemaTactique(Tactique $schemaTactique): self
+    {
+        if (!$this->schema_tactique->contains($schemaTactique)) {
+            $this->schema_tactique[] = $schemaTactique;
+            $schemaTactique->setCompo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSchemaTactique(Tactique $schemaTactique): self
+    {
+        if ($this->schema_tactique->contains($schemaTactique)) {
+            $this->schema_tactique->removeElement($schemaTactique);
+            // set the owning side to null (unless already changed)
+            if ($schemaTactique->getCompo() === $this) {
+                $schemaTactique->setCompo(null);
+            }
+        }
 
         return $this;
     }

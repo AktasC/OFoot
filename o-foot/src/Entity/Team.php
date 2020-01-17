@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -110,6 +112,34 @@ class Team
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="teams")
+     */
+    private $users;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Player", mappedBy="team", orphanRemoval=true)
+     */
+    private $players;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Match", mappedBy="team", orphanRemoval=true)
+     */
+    private $matchs;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Practice", mappedBy="team", orphanRemoval=true)
+     */
+    private $practices;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+        $this->players = new ArrayCollection();
+        $this->matchs = new ArrayCollection();
+        $this->practices = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -340,6 +370,127 @@ class Team
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addTeam($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeTeam($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Player[]
+     */
+    public function getPlayers(): Collection
+    {
+        return $this->players;
+    }
+
+    public function addPlayer(Player $player): self
+    {
+        if (!$this->players->contains($player)) {
+            $this->players[] = $player;
+            $player->setTeam($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayer(Player $player): self
+    {
+        if ($this->players->contains($player)) {
+            $this->players->removeElement($player);
+            // set the owning side to null (unless already changed)
+            if ($player->getTeam() === $this) {
+                $player->setTeam(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Match[]
+     */
+    public function getMatchs(): Collection
+    {
+        return $this->matchs;
+    }
+
+    public function addMatch(Match $match): self
+    {
+        if (!$this->matchs->contains($match)) {
+            $this->matchs[] = $match;
+            $match->setTeam($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMatch(Match $match): self
+    {
+        if ($this->matchs->contains($match)) {
+            $this->matchs->removeElement($match);
+            // set the owning side to null (unless already changed)
+            if ($match->getTeam() === $this) {
+                $match->setTeam(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Practice[]
+     */
+    public function getPractices(): Collection
+    {
+        return $this->practices;
+    }
+
+    public function addPractice(Practice $practice): self
+    {
+        if (!$this->practices->contains($practice)) {
+            $this->practices[] = $practice;
+            $practice->setTeam($this);
+        }
+
+        return $this;
+    }
+
+    public function removePractice(Practice $practice): self
+    {
+        if ($this->practices->contains($practice)) {
+            $this->practices->removeElement($practice);
+            // set the owning side to null (unless already changed)
+            if ($practice->getTeam() === $this) {
+                $practice->setTeam(null);
+            }
+        }
 
         return $this;
     }

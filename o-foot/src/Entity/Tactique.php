@@ -31,6 +31,12 @@ class Tactique
      */
     private $updated_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Compo", inversedBy="schema_tactique")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $compo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +74,18 @@ class Tactique
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getCompo(): ?Compo
+    {
+        return $this->compo;
+    }
+
+    public function setCompo(?Compo $compo): self
+    {
+        $this->compo = $compo;
 
         return $this;
     }

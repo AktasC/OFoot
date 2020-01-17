@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -80,6 +82,28 @@ class Match
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Player", mappedBy="matchs")
+     */
+    private $players;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="matchs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $team;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Compo", mappedBy="match_game", orphanRemoval=true)
+     */
+    private $compositions;
+
+    public function __construct()
+    {
+        $this->players = new ArrayCollection();
+        $this->compositions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -238,6 +262,77 @@ class Match
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Player[]
+     */
+    public function getPlayers(): Collection
+    {
+        return $this->players;
+    }
+
+    public function addPlayer(Player $player): self
+    {
+        if (!$this->players->contains($player)) {
+            $this->players[] = $player;
+            $player->addMatch($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayer(Player $player): self
+    {
+        if ($this->players->contains($player)) {
+            $this->players->removeElement($player);
+            $player->removeMatch($this);
+        }
+
+        return $this;
+    }
+
+    public function getTeam(): ?Team
+    {
+        return $this->team;
+    }
+
+    public function setTeam(?Team $team): self
+    {
+        $this->team = $team;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Compo[]
+     */
+    public function getCompositions(): Collection
+    {
+        return $this->compositions;
+    }
+
+    public function addComposition(Compo $composition): self
+    {
+        if (!$this->compositions->contains($composition)) {
+            $this->compositions[] = $composition;
+            $composition->setMatchGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComposition(Compo $composition): self
+    {
+        if ($this->compositions->contains($composition)) {
+            $this->compositions->removeElement($composition);
+            // set the owning side to null (unless already changed)
+            if ($composition->getMatchGame() === $this) {
+                $composition->setMatchGame(null);
+            }
+        }
 
         return $this;
     }

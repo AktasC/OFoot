@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -90,6 +92,45 @@ class Player
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="players")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="players")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $team;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Position", inversedBy="players")
+     */
+    private $position;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Compo", inversedBy="players")
+     */
+    private $composition;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Practice", inversedBy="players")
+     */
+    private $practices;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Match", inversedBy="players")
+     */
+    private $matchs;
+
+    public function __construct()
+    {
+        $this->composition = new ArrayCollection();
+        $this->practices = new ArrayCollection();
+        $this->matchs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -272,6 +313,120 @@ class Player
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getTeam(): ?Team
+    {
+        return $this->team;
+    }
+
+    public function setTeam(?Team $team): self
+    {
+        $this->team = $team;
+
+        return $this;
+    }
+
+    public function getPosition(): ?Position
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?Position $position): self
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Compo[]
+     */
+    public function getComposition(): Collection
+    {
+        return $this->composition;
+    }
+
+    public function addComposition(Compo $composition): self
+    {
+        if (!$this->composition->contains($composition)) {
+            $this->composition[] = $composition;
+        }
+
+        return $this;
+    }
+
+    public function removeComposition(Compo $composition): self
+    {
+        if ($this->composition->contains($composition)) {
+            $this->composition->removeElement($composition);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Practice[]
+     */
+    public function getPractices(): Collection
+    {
+        return $this->practices;
+    }
+
+    public function addPractice(Practice $practice): self
+    {
+        if (!$this->practices->contains($practice)) {
+            $this->practices[] = $practice;
+        }
+
+        return $this;
+    }
+
+    public function removePractice(Practice $practice): self
+    {
+        if ($this->practices->contains($practice)) {
+            $this->practices->removeElement($practice);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Match[]
+     */
+    public function getMatchs(): Collection
+    {
+        return $this->matchs;
+    }
+
+    public function addMatch(Match $match): self
+    {
+        if (!$this->matchs->contains($match)) {
+            $this->matchs[] = $match;
+        }
+
+        return $this;
+    }
+
+    public function removeMatch(Match $match): self
+    {
+        if ($this->matchs->contains($match)) {
+            $this->matchs->removeElement($match);
+        }
 
         return $this;
     }
