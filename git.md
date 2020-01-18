@@ -30,11 +30,16 @@
     - `git branch`
 
 - Create a branch :
-    - `git branch new_branch`
+    - `git branch my_branch`
+        - All branch names should start with `frontend || backend` followed by `/name_of_the_feature`
+        - If there are any special caracters you should use the `"` double quotes or escape the caracter    
+            Example : `git branch "frontend/user_&_dashboard"` OR `git branch frontend/user_\&_dashboard`
 
 - Switch to a branch :
     - `git checkout my_branch`
 
+- Create and switch to a branch simultaneously :
+    - `git checkout -b my_branch`
 - Delete a branch :
      - `git branch -d my_branch`
 
