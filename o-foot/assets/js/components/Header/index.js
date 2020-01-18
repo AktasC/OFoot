@@ -9,7 +9,7 @@ import './header.scss';
 
 const Header = () => (
 
-  <Navbar id="header" collapseOnSelect expand="lg">
+  <Navbar id="header" collapseOnSelect expand="lg" fixed="top">
     <NavLink to="home" className="link">
       <Navbar.Brand className="header-title">
           <img src="https://image.flaticon.com/icons/svg/861/861512.svg" alt="Logo" />
