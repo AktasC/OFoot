@@ -4,14 +4,18 @@
    justify-content: center;
 
    & .box {
-       padding: 2em;
-       background-color: red;
+       padding: 2em 4em;
+       background-color: #212532;
        border-radius: 5px;
        box-shadow: 2px 2px 15px #ccc;
+
+       & p {
+           padding: 0 5em 2em;
+       }
    }
 
    & .title {
     text-transform: uppercase;
-    margin: 2em 0 2em;    
+    margin: 1em 0 1em;    
    }
 }

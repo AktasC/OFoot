@@ -1,0 +1,10 @@
+#registerForm {
+
+  & .form-control {
+    margin: 10px 0;
+    box-shadow: 2px 2px 5px black;
+  }
+  & button {
+    margin-top: 2em;
+  }
+}
