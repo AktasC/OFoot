@@ -4,25 +4,41 @@ import { Form, Button, Col } from 'react-bootstrap';
 // Import scss
 import './register-form.scss';
 
-const RegisterForm = () => (
+const RegisterForm = ({ 
+  onValueChange,
+  inputLastnameValue,
+  inputFirstnameValue,
+  inputMailValue,
+  inputPasswordValue,
+}) => {
     
-    <div id="registerForm">     
+  const onSubmit = (event) => {
+    event.preventDefault()
+    console.log('form envoyé');
+  }
+
+  const handleChange = (event) => {
+    onValueChange(event.target.value, event.target.name);
+  };
+
+  return (   
+   <div id="registerForm">     
      
-    <Form>
+    <Form onSubmit={onSubmit}>
       <Form.Row>
         <Col>
-          <Form.Control placeholder="Nom" />
+          <Form.Control onChange={handleChange} value={inputLastnameValue} name="lastname" placeholder="Nom" />
         </Col>
         <Col>
-          <Form.Control placeholder="Prénom" />
+          <Form.Control onChange={handleChange} value={inputFirstnameValue} name="firstname" placeholder="Prénom" />
         </Col>
       </Form.Row>
       <Form.Row>
         <Col>
-          <Form.Control placeholder="Email" />
+          <Form.Control onChange={handleChange} value={inputMailValue} name="email" placeholder="Email" />
         </Col>
         <Col>
-          <Form.Control placeholder="Mot de Passe" />
+          <Form.Control onChange={handleChange} value={inputPasswordValue} name="password" placeholder="Mot de Passe" />
         </Col>
       </Form.Row>
       <Button variant="primary" type="submit">
@@ -31,7 +47,8 @@ const RegisterForm = () => (
     </Form>    
 
     </div>
- 
-);
+
+  ) 
+};
 
 export default RegisterForm;
