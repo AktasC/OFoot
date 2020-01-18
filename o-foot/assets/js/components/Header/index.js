@@ -1,7 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
 import { FaBar } from 'react-icons/fa';
 
 // Import scss

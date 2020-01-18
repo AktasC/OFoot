@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 
@@ -21,7 +22,11 @@ const Home = () => (
         <div className="30 home-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, ea libero esse voluptatibus atque deleniti, nostrum dolore facere tenetur corrupti adipisci amet tempore enim nulla accusantium harum veritatis. Voluptate, dolores.</div>
 
         <div className="home-buttons">
-            <Button>S'inscrire</Button>
+            
+              <NavLink to="enregistrement">
+                <Button>S'inscrire</Button>
+              </NavLink> 
+            
             <Button>Se Connecter</Button>
         </div>
       </div>

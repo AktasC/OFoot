@@ -26,4 +26,12 @@
   & .home-buttons {
     margin: 0 auto 2em;
   }
+  // Override Bootsrap CSS
+  & .home-buttons button a {
+    color: inherit;
+  }
+  // Override Bootsrap CSS
+  & .home-buttons button a:hover {
+    text-decoration: none;
+  }
 }
