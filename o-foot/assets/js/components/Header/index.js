@@ -23,9 +23,9 @@ const Header = () => (
       </Nav>
       
       <Nav>
-      <NavDropdown alignRight title="Par là !" id="collasible-nav-dropdown">
+        <NavDropdown alignRight title="Par là !" id="collasible-nav-dropdown">
           <NavDropdown.Item href="">
-            <NavLink to="enregistrement" className="dropdown-link">S'inscrire</NavLink>          
+            <NavLink to="register" className="dropdown-link">S'inscrire</NavLink>          
           </NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Se connecter</NavDropdown.Item>
         </NavDropdown>

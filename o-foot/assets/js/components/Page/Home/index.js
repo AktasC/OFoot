@@ -21,13 +21,14 @@ const Home = () => (
         
         <div className="30 home-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, ea libero esse voluptatibus atque deleniti, nostrum dolore facere tenetur corrupti adipisci amet tempore enim nulla accusantium harum veritatis. Voluptate, dolores.</div>
 
-        <div className="home-buttons">
-            
-              <NavLink to="enregistrement">
-                <Button>S'inscrire</Button>
-              </NavLink> 
-            
+        <div className="home-buttons">            
+          <NavLink to="register">
+            <Button>S'inscrire</Button>
+          </NavLink> 
+        
+          <NavLink to="login">
             <Button>Se Connecter</Button>
+          </NavLink>
         </div>
       </div>
 

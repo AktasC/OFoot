@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Import scss
-import './mentions-legales.scss';
+import './legals-mentions.scss';
 
 
-const MentionsLegales = () => (
+const LegalsMentions = () => (
     
     <h2 className="title">MentionsLégales</h2>
  
 );
 
-export default MentionsLegales;
+export default LegalsMentions;
