@@ -10,10 +10,10 @@ import PropTypes from 'prop-types';
 // Import scss
 import './page.scss';
 
-import Home from '../Home';
-import Enregistrement from '../Enregistrement';
-import MentionsLegales from '../MentionsLegales';
-import QuiSommesNous from '../QuiSommesNous';
+import Home from '../Page/Home';
+import Enregistrement from '../Page/Enregistrement';
+import MentionsLegales from '../Page/MentionsLegales';
+import QuiSommesNous from '../Page/QuiSommesNous';
 
 
 
