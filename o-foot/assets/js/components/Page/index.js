@@ -11,9 +11,9 @@ import PropTypes from 'prop-types';
 import './page.scss';
 
 import Home from '../Page/Home';
-import Enregistrement from '../Page/Enregistrement';
-import MentionsLegales from '../Page/MentionsLegales';
-import QuiSommesNous from '../Page/QuiSommesNous';
+import Register from '../Page/Register';
+import LegalsMentions from '../Page/LegalsMentions';
+import WhoAreWe from '../Page/WhoAreWe';
 
 
 
@@ -21,14 +21,14 @@ const Page = () => (
     
     <div id="page">
       <Switch> 
-        <Route path='/enregistrement'>
-          <Enregistrement />
+        <Route path='/register'>
+          <Register />
         </Route>
-        <Route path='/mentions-legales'>
-          <MentionsLegales />
+        <Route path='/legals-mentions'>
+          <LegalsMentions />
         </Route>
-        <Route path='/qui-sommes-nous'>
-          <QuiSommesNous />
+        <Route path='/who-are-we'>
+          <WhoAreWe />
         </Route>
         <Route path='/home'>
           <Home />

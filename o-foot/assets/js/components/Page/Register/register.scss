@@ -1,0 +1,17 @@
+#register {
+   display: flex;
+   align-content: center;
+   justify-content: center;
+
+   & .box {
+       padding: 2em;
+       background-color: red;
+       border-radius: 5px;
+       box-shadow: 2px 2px 15px #ccc;
+   }
+
+   & .title {
+    text-transform: uppercase;
+    margin: 2em 0 2em;    
+   }
+}
