@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { FaBar } from 'react-icons/fa';
 
 // Import scss
 import './header.scss';
@@ -22,8 +23,10 @@ const Header = () => (
       </Nav>
       
       <Nav>
-      <NavDropdown alignRight title="Dropdown" id="collasible-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">S'inscrire</NavDropdown.Item>
+      <NavDropdown alignRight title="Par là !" id="collasible-nav-dropdown">
+          <NavDropdown.Item href="">
+            <NavLink to="enregistrement" className="dropdown-link">S'inscrire</NavLink>          
+          </NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Se connecter</NavDropdown.Item>
         </NavDropdown>
       </Nav>

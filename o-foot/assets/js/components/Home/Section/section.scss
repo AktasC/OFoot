@@ -5,17 +5,18 @@
         font-family: Poppins;
         text-transform: uppercase;
         font-weight: normal;
+        color: #ef6c00;
     }
-    & .section-content {
+    & .section-text {
         text-align: left;
     }
 
     & .darken {
-        background-color: #212532;
+        background: linear-gradient( rgba(0, 0, 0, .9), rgba(0, 0, 0, 0.5) ),url("https://images.unsplash.com/photo-1507602368706-321eeafaf53b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
     }
 
-    & .lighten {
-        background-color: #414762;
+    & .lighten {        
+        background-color: rgb(251, 251, 251);
     }
   
 
@@ -28,5 +29,12 @@
     & .right {
         display: flex;
         flex-direction: row-reverse;
+        color: #222736;
+    }
+
+    & .align-with-pic {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }

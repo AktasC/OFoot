@@ -7,7 +7,7 @@ import './mentions-legales.scss';
 
 const MentionsLegales = () => (
     
-    <h1>MentionsLégales</h1>
+    <h2 className="title">MentionsLégales</h2>
  
 );
 

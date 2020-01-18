@@ -7,7 +7,7 @@ import './qui-sommes-nous.scss';
 
 const QuiSommesNous = () => (
     
-    <h1>QuiSommesNous</h1>
+    <h2 className="title">QuiSommesNous</h2>
      
 );
 

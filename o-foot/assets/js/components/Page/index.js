@@ -10,15 +10,20 @@ import PropTypes from 'prop-types';
 // Import scss
 import './page.scss';
 
+import Home from '../Home';
+import Enregistrement from '../Enregistrement';
 import MentionsLegales from '../MentionsLegales';
 import QuiSommesNous from '../QuiSommesNous';
-import Home from '../Home';
+
 
 
 const Page = () => (
     
     <div id="page">
-      <Switch>      
+      <Switch> 
+        <Route path='/enregistrement'>
+          <Enregistrement />
+        </Route>
         <Route path='/mentions-legales'>
           <MentionsLegales />
         </Route>

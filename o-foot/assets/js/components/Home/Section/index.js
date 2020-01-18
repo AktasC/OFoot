@@ -11,9 +11,11 @@ const Section = (func) => {
 
     var divStyle = {      
       backgroundImage: 'url(' + func.img + ')',
-      width: '100%',
-      height: '100%',
+      width: 'auto',
+      height: '350px',
       backgroundPosition: 'center',
+      backgroundColor: 'white',
+      backgroundSize: 'cover',
     };
 
     return (
@@ -22,9 +24,9 @@ const Section = (func) => {
         <div id="section" className={func.classColor}>
         <Container>
           <Row className={func.classPosition}>
-            <Col lg={6} md={6} sm={6} xs={6}>
+            <Col lg={6} md={6} sm={6} xs={6} className="align-with-pic">
               <h2 className="section-title">{func.title}</h2>
-              <p className="section-content">{func.content}</p>
+              <p className="section-text">{func.content}</p>
             </Col>
             <Col lg={6} md={6} sm={6} xs={6}>
               <div style={divStyle}></div>              

@@ -2,7 +2,7 @@
   font-family: Poppins;
   display: flex;
   justify-content: space-between;
-  background: rgba(33, 37, 50, .98);
+  background: linear-gradient(#101219, #222736);
   box-shadow: 1px 1px 10px black;
   color: white;
   padding: 0px 20px;
@@ -22,4 +22,12 @@
 
 #header .nav-link {
   color: white;
+}
+
+// Override Bootsrap CSS
+#header .dropdown-link {
+  color: inherit;
+}
+#header .dropdown-link:hover {
+  text-decoration: none;
 }
