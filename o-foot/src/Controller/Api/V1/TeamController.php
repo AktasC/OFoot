@@ -5,15 +5,50 @@ namespace App\Controller\Api\V1;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/api/v1/teams", name="api_v1_teams_")
+ */
 class TeamController extends AbstractController
 {
+    
+   
     /**
-     * @Route("/api/v1/team", name="api_v1_team")
+     * @Route("/", name="list", methods={"GET"})
      */
-    public function index()
+    public function list()
     {
-        return $this->render('api/v1/team/index.html.twig', [
-            'controller_name' => 'TeamController',
-        ]);
+        return;
+    }
+
+    /**
+     * @Route("/{id}", name="show", requirements={"id": "\d+"}, methods={"GET"})
+     */
+    public function show()
+    {
+        return;
+    }
+
+    /**
+     * @Route("/", name="new", methods={"POST"})
+     */
+    public function new()
+    {
+        return;
+    }
+
+    /**
+     * @Route("/{id}", name="edit", requirements={"id": "\d+"}, methods={"PUT"})
+     */
+    public function edit()
+    {
+        return;
+    }
+
+    /**
+     * @Route("/{id}", name="list", requirements={"id": "\d+"}, methods={"DELETE"})
+     */
+    public function delete()
+    {
+        return;
     }
 }
