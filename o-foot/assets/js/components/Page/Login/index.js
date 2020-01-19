@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 // Import scss
 import './login.scss';
-import LoginForm from './LoginForm';
+import LoginForm from '../../../containers/LoginForm';
 
 const Login = () => (
 
