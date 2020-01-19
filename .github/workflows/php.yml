@@ -10,12 +10,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    
-    - name: Changing directory
-      run: cd o-foot/
 
     - name: Validate composer.json and composer.lock
-      run: composer validate
+      run:
+        cd o-foot/
+        composer validate
 
     - name: Install composer dependencies
       run: |
