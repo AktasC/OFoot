@@ -6,7 +6,7 @@ import './app.scss';
 
 // == Import : components
 import Header from '../Header';
-import Page from '../Page';
+import Page from '../../containers/Page';
 import Footer from '../Footer';
 
 

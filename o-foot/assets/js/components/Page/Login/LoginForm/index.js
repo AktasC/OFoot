@@ -10,6 +10,7 @@ const LoginForm = ({
   email,
   changeInputPassword,
   password,
+  submitForm,
 }) => {
   const handleChangeEmail = (event) => {
     changeInputEmail(event.target.value);
@@ -19,20 +20,28 @@ const LoginForm = ({
     changeInputPassword(event.target.value);
   };
 
+  const onSubmitForm = (evt) => {
+    evt.preventDefault();
+    submitForm();
+  };
+
   return (
 
     <div id="loginForm">
 
-      <Form>
+      <Form onSubmit={onSubmitForm}>
         <Col>
           <Form.Control onChange={handleChangeEmail} value={email} name="email" placeholder="Email" />
         </Col>
         <Col>
           <Form.Control onChange={handleChangePassword} value={password} name="password" placeholder="Mot de Passe" />
         </Col>
+
         <Button variant="primary" type="submit">
           Se connecter
         </Button>
+
+
       </Form>
 
     </div>
@@ -45,6 +54,7 @@ LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   changeInputPassword: PropTypes.func.isRequired,
   password: PropTypes.string.isRequired,
+  submitForm: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

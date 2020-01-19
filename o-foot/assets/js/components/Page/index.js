@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
 } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 // Import scss
 import './page.scss';
@@ -15,9 +15,10 @@ import Register from './Register';
 import Login from './Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
+import UserHome from './UserHome'; 
 
 
-const Page = () => (
+const Page = ({ logged }) => (
 
   <div id="page">
     <Switch>
@@ -33,12 +34,18 @@ const Page = () => (
       <Route path="/who-are-we">
         <WhoAreWe />
       </Route>
+
       <Route path="/home">
-        <Home />
+        {!logged && <Home />}
+        {logged && <UserHome />}
       </Route>
     </Switch>
   </div>
 
 );
+
+Page.propTypes = {
+  logged: PropTypes.bool.isRequired,
+};
 
 export default Page;

@@ -1,8 +1,8 @@
 // --- initial state
 const initialState = {
   // la valeur courante de l'input
-  inputEmailValue: '',
-  inputPasswordValue: '',
+  EmailValue: '',
+  PasswordValue: '',
 };
 
 // --- action types
@@ -15,13 +15,13 @@ const reducer = (state = initialState, action = {}) => {
     case CHANGE_EMAIL_INPUT:
       return {
         ...state,
-        inputEmailValue: action.value,
+        EmailValue: action.value,
       };
 
     case CHANGE_PASSWORD_INPUT:
       return {
         ...state,
-        inputPasswordValue: action.value,
+        PasswordValue: action.value,
       };
 
     default: return state;
