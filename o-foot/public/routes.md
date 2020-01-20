@@ -17,8 +17,8 @@ Version 3.0
 | `/login` | Connexion | formulaire de connexion | GET | UserController | signin | MVP |
 | `/login` | Connexion | traitement formulaire de connexion | POST | UserController | signin | MVP |
 | `/logout` | Deconnexion | formulaire de deconnexion | GET | UserController | logout | MVP |
-| `/user/profile` | Profil utilistateur | informations sur le profil connecté | GET | UserController | profile | MVP |
-| `/user/profile` | Profil utilistateur | traitement informations sur le profil connecté | POST | UserController | profile | MVP |
+| `/user/profile/id` | Profil utilistateur | informations sur le profil connecté | GET | UserController | profile | MVP |
+| `/user/profile/id` | Profil utilistateur | traitement informations sur le profil connecté | POST | UserController | profile | MVP |
 | `/user/edit` | Modification compte utilisateur | formulaire modifier les informations du profil utilisateur | GET | UserController | edit | MVP |
 | `/user/edit` | Modification compte utilisateur | traitement formulaire modifier les informations du profil utilisateur  | POST | UserController | edit | MVP |
 | `/user/edit-password` | Modification password utilisateur | modifier le password de l'utilisateur | GET | UserController | editPassword | MVP |
