@@ -4,32 +4,40 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Validator\Constraints\Email;
+
 
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        // On crée le builder en renseignant les champs que nous souhaitons ajouté au formulaire
+        // Champs renseignés dans le formulaire d'inscription : Nom, Prénom, Email, Mot de passe
         $builder
-            ->add('email')
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
+            ->add('last_name', null, [
+                // Mise en place de contrainte : champs non vide
+                'constraints' => new NotBlank,
+            ])
+            ->add('first_name', null, [
+                // Mise en place de contrainte : champs non vide
+                'constraints' => new NotBlank,
+            ])
+            ->add('email', EmailType::class, [
+                // Mise en place de contraintes : champs non vide et nouveau mail obligatoire
                 'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
+                    new Email,
+                    new NotBlank,
                 ],
             ])
-            ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
+            ->add('password', PasswordType::class, [
                 'mapped' => false,
+                // Mise en place de contraintes : champs mot de passe non vide et longueur minimum : 6 caractères
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
@@ -49,6 +57,7 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'attr' => ['novalidate' => 'novalidate'],
         ]);
     }
 }
