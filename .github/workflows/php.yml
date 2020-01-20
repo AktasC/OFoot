@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - uses: php-actions/phpunit@latest
+    - uses: php-actions/phpunit@master
 
     - name: Validate composer.json and composer.lock
       run: composer validate
