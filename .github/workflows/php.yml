@@ -1,6 +1,6 @@
 name: PHP Composer & PHPUnit
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   phpunit:
@@ -12,21 +12,24 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Validate composer.json and composer.lock
-      run:
-        cd o-foot/
-        composer validate
+      run: composer validate
+      working-directory: ./o-foot
 
     - name: Install composer dependencies
-      run: |
-        composer install --prefer-dist --no-scripts -q -o;
+      run: composer install --prefer-dist --no-scripts -q -o;
+      working-directory: ./o-foot
 
     - name: Compile assets
       run: |
         yarn install --pure-lockfile
         yarn run production --progress false
+      working-directory: ./o-foot
+
 
     - name: Set custom php.ini settings
       run: echo 'short_open_tag=off' >> /usr/local/etc/php/php.ini
+      working-directory: ./o-foot
 
     - name: Run Tests
       run: vendor/bin/phpunit tests/
+      working-directory: ./o-foot
