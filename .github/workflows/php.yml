@@ -22,7 +22,7 @@ jobs:
     - name: Compile assets
       run: |
         yarn install --pure-lockfile
-        yarn run production --progress false
+        yarn encore production --progress false
       working-directory: ./o-foot
 
 
