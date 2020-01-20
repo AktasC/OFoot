@@ -5,6 +5,7 @@ import {
   Switch,
   Route,
   Link,
+  Redirect,
 } from 'react-router-dom';
 
 // Import scss
@@ -15,7 +16,7 @@ import Register from './Register';
 import Login from './Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
-import UserHome from './UserHome';
+import UserProfile from './UserProfile';
 
 
 const Page = ({ logged }) => (
@@ -23,7 +24,7 @@ const Page = ({ logged }) => (
   <div id="page">
     <Switch>
       <Route path='/user/profile'>
-        <UserHome />
+        <UserProfile />
       </Route>
 
       <Route path='/register'>
@@ -35,8 +36,11 @@ const Page = ({ logged }) => (
       <Route path='/who-are-we'>
         <WhoAreWe />
       </Route>
-      <Route path='/'>
-        <Home />
+      <Route exact path='/'>
+        {logged ? <Redirect to="/user/profile" /> : <Home />}        
+      </Route>
+      <Route path='/login'>
+        <Login />
       </Route>
     </Switch>
   </div>

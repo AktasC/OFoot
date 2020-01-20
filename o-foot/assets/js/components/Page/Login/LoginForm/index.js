@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button, Col } from 'react-bootstrap';
 
+
 // Import scss
 import './loginform.scss';
 
@@ -37,9 +38,11 @@ const LoginForm = ({
           <Form.Control onChange={handleChangePassword} value={password} name="password" placeholder="Mot de Passe" />
         </Col>
 
+        
         <Button variant="primary" type="submit">
           Se connecter
         </Button>
+        
 
 
       </Form>

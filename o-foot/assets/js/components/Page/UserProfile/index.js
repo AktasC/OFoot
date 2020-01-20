@@ -4,10 +4,10 @@ import React from 'react';
 import './userhome.scss';
 
 
-const UserHome = () => (
+const UserProfile = () => (
    
     <h1>Welcome</h1>
  
 );
 
-export default UserHome;
+export default UserProfile;

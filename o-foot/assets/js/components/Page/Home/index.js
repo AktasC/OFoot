@@ -9,10 +9,13 @@ import Section from './Section';
 import './home.scss';
 
 //Data
-import functionnalities from './fonctionnalities.json';
+/* import functionnalities from '/public/data/fonctionnalities.js'; */
 
 
-const Home = () => (
+const Home = () => {
+  console.log('coucou');
+  
+  return(
    
     <div id="home">
 
@@ -32,14 +35,16 @@ const Home = () => (
         </div>
       </div>
 
-      <div className="home-functionalities">
+      {/* <div className="home-functionalities">
         {functionnalities.map((func, i) => (
           <Section key={i} {...func} />
         ))}
-      </div>
+      </div> */}
 
     </div>
  
 );
+        }
+
 
 export default Home;
