@@ -14,7 +14,7 @@ O'Foot provides a simple yet powerful interface to manage your soccer club with 
 
 - Create .env.local :
     - `touch .env.local`
-    - Paste `DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/ofoot?serverVersion=5.7`
+    - Paste `DATABASE_URL=mysql://root:Ereul9Aeng@127.0.0.1:3306/ofoot?serverVersion=5.7`
     - Replace `db_user` & `db_password` with your SQL credentials
 
 - Create the database :

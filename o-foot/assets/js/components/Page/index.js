@@ -35,9 +35,8 @@ const Page = ({ logged }) => (
         <WhoAreWe />
       </Route>
 
-      <Route path="/home">
-        {!logged && <Home />}
-        {logged && <UserHome />}
+      <Route exact path="/user/profil">
+      <UserHome />
       </Route>
     </Switch>
   </div>
