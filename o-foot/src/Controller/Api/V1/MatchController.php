@@ -53,7 +53,7 @@ class MatchController extends AbstractController
 
 
     /**
-     * @Route("/{id}", name="list", requirements={"id": "\d+"}, methods={"DELETE"})
+     * @Route("/{id}", name="delete", requirements={"id": "\d+"}, methods={"DELETE"})
      */
     public function delete()
     {
