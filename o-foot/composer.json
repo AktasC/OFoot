@@ -1,5 +1,6 @@
 {
     "name": "o-clock-wave/projet-ofoot",
+    "description": "O'foot project",
     "type": "project",
     "license": "proprietary",
     "require": {
