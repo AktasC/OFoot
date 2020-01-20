@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/api/v1/composition", name="api_v1_composition_")
+ * @Route("/api/v1/compositions", name="api_v1_compositions_")
  */
 class CompositionController extends AbstractController
 {
