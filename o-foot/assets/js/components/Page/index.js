@@ -15,28 +15,28 @@ import Register from './Register';
 import Login from './Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
-import UserHome from './UserHome'; 
+import UserHome from './UserHome';
 
 
 const Page = ({ logged }) => (
-
+      
   <div id="page">
     <Switch>
-      <Route path="/register">
-        <Register />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/legals-mentions">
-        <LegalsMentions />
-      </Route>
-      <Route path="/who-are-we">
-        <WhoAreWe />
+      <Route path='/user/profile'>
+        <UserHome />
       </Route>
 
-      <Route exact path="/user/profil">
-      <UserHome />
+      <Route path='/register'>
+        <Register />
+      </Route>
+      <Route path='/legals-mentions'>
+        <LegalsMentions />
+      </Route>
+      <Route path='/who-are-we'>
+        <WhoAreWe />
+      </Route>
+      <Route path='/'>
+        <Home />
       </Route>
     </Switch>
   </div>
