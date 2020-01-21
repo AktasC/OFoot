@@ -20,10 +20,12 @@ const mapDispatchToProps = (dispatch) => ({
     const action = changeInput(value, name);
     dispatch(action);
   },
-  /* onSubmit: () => {
-    const action = connectUser();
-    dispatch(action);
-  } */
+  onSubmit: (event) => {
+    event.preventDefault();
+    console.log('form envoyé depuis containers:');
+    /* const action = registerUser();
+    dispatch(action); */
+  }
 });
 
 const RegisterFormContainer = connect(

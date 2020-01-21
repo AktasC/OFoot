@@ -1,6 +1,5 @@
 // --- initial state
-const initialState = {
-    // la valeur courante de l'input
+const initialState = {    
     inputLastnameValue: '',
     inputFirstnameValue: '',
     inputEmailValue: '',
@@ -26,7 +25,7 @@ const initialState = {
       case CHANGE_FIRSTNAME_INPUT:
         return {
           ...state,
-          inputFirstnameValue: action.value,
+          inputFirstnameValue: action.value,          
         };
       case CHANGE_EMAIL_INPUT:
         return {
