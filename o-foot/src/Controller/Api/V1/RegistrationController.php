@@ -22,7 +22,7 @@ class RegistrationController extends AbstractController
     {
         // Création d'un objet vide ($user) lié à notre formulaire
         $user = new User();
-
+ 
         // On crée un nouveau formulaire en se basant sur les informations renseignées dans le RegistrationFormType
         $form = $this->createForm(RegistrationFormType::class, $user, ['csrf_protection' => false]);
 
