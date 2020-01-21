@@ -6,59 +6,64 @@ import { Form, Button, Col } from 'react-bootstrap';
 // Import scss
 import './loginform.scss';
 
+export const checkValidity = (email) => {
+  const errors = {};
+  if (!email) {
+    errors.email = 'Required'
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+    errors.email = 'Invalid email address'
+  }
+  return errors;
+};
+
+
 const LoginForm = ({
   changeInputEmail,
   email,
   changeInputPassword,
   password,
   submitForm,
-  validated
+  checkValidity 
 }) => {
+
+
+  const check = (evt) => {
+    checkValidity(evt.target.value);
+  };
+  
 
   const handleChangeEmail = (event) => {
     changeInputEmail(event.target.value);
   };
+  
 
   const handleChangePassword = (event) => {
     changeInputPassword(event.target.value);
   };
 
   const onSubmitForm = (evt) => {
-    const form = evt.currentTarget;
-    if (form.checkValidity() === false){
-      evt.preventDefault();
-      evt.stopPropagation();
-      validated===false;
-      console.log('non valide');
-    } else {
     evt.preventDefault();
-    evt.stopPropagation();
-    validated===true;
     submitForm();
-    console.log('valide');
-    };
   };
 
   return (
 
     <div id="loginForm">
 
-      <Form noValidate validated={validated} onSubmit={onSubmitForm}>
+      <Form onSubmit={onSubmitForm}>
         <Col>
-        <Form.Group controlId="validationCustom01">
-          <Form.Control required type="email "onChange={handleChangeEmail} value={email} name="email" placeholder="Email" />
-          </Form.Group>
+          <Form.Control required type="email" onBlur={check}
+          onChange={handleChangeEmail} value={email} name="email" placeholder="Email" />
+          <div>erreur
+      </div>
         </Col>
-        <Form.Control.Feedback type="invalid">Looks bad!</Form.Control.Feedback>
-        
+          
         
         
         <Col>
-        <Form.Group controlId="validationCustom02">
           <Form.Control required type="password" onChange={handleChangePassword} value={password} name="password" placeholder="Mot de Passe" />
-          </Form.Group>
         </Col>
-        <Form.Control.Feedback type="invalid">Looks bad!</Form.Control.Feedback>
+      
 
 
         
@@ -81,7 +86,6 @@ LoginForm.propTypes = {
   changeInputPassword: PropTypes.func.isRequired,
   password: PropTypes.string.isRequired,
   submitForm: PropTypes.func.isRequired,
-  validated: PropTypes.bool,
 };
 
 export default LoginForm;

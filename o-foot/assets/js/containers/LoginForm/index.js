@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
   return {
     email: state.loginForm.EmailValue,
     password: state.loginForm.PasswordValue,
+    emailErrors: state.loginForm.EmailErrors
   };
 };
 
@@ -30,6 +31,11 @@ const mapDispatchToProps = (dispatch) => ({
     const action = connectUser();
     dispatch(action);
   },
+
+  checkValidity: (value) => {
+    const action = oncheckValidity(value);
+    dispatch(action);
+  }
 });
 
 const LoginFormContainer = connect(
