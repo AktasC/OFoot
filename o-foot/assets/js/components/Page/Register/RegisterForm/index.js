@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Button, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 // Import scss
 import './register-form.scss';
@@ -10,7 +11,7 @@ const RegisterForm = ({
   onSubmit,
   inputLastnameValue,
   inputFirstnameValue,
-  inputMailValue,
+  inputEmailValue,
   inputPasswordValue,
 }) => {
     
@@ -33,7 +34,7 @@ const RegisterForm = ({
       </Form.Row>
       <Form.Row>
         <Col>
-          <Form.Control onChange={handleChange} value={inputMailValue} name="email" placeholder="Email" />
+          <Form.Control onChange={handleChange} value={inputEmailValue} name="email" placeholder="Email" />
         </Col>
         <Col>
           <Form.Control onChange={handleChange} value={inputPasswordValue} name="password" placeholder="Mot de Passe" />
