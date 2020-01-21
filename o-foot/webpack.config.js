@@ -7,7 +7,7 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 }
 
 Encore
-    .setOutputPath('public/build/')
+    .setOutputPath('./public/build/')
 
     .setPublicPath('/build')
 
@@ -47,7 +47,7 @@ Encore
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
-    //.enableIntegrityHashes(Encore.isProduction())
+    .enableIntegrityHashes(Encore.isProduction())
 ;
 
 module.exports = Encore.getWebpackConfig();

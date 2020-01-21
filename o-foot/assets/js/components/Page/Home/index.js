@@ -9,10 +9,12 @@ import Section from './Section';
 import './home.scss';
 
 //Data
-import functionnalities from './fonctionnalities.json';
+import functionnalities from '../../../../../assets/data/fonctionnalities';
 
 
-const Home = () => (
+const Home = () => {
+  
+  return(
    
     <div id="home">
 
@@ -41,5 +43,7 @@ const Home = () => (
     </div>
  
 );
+        }
+
 
 export default Home;
