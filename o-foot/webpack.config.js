@@ -7,7 +7,7 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 }
 
 Encore
-    .setOutputPath('o-foot/public/build/')
+    .setOutputPath('./public/build/')
 
     .setPublicPath('/build')
 

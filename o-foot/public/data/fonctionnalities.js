@@ -1,4 +1,4 @@
-export default [  
+export default fonctionnalities [  
   {   
     id: 1,
     category: "create-team",

@@ -9,11 +9,10 @@ import Section from './Section';
 import './home.scss';
 
 //Data
-/* import functionnalities from '/public/data/fonctionnalities.js'; */
+import functionnalities from '../../../../../assets/data/fonctionnalities';
 
 
 const Home = () => {
-  console.log('coucou');
   
   return(
    
@@ -35,11 +34,11 @@ const Home = () => {
         </div>
       </div>
 
-      {/* <div className="home-functionalities">
+      <div className="home-functionalities">
         {functionnalities.map((func, i) => (
           <Section key={i} {...func} />
         ))}
-      </div> */}
+      </div>
 
     </div>
  
