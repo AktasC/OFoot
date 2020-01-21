@@ -2,7 +2,7 @@
 const initialState = {
   // la valeur courante de l'input
   EmailValue: '',
-  PasswordValue: '',
+  PasswordValue: '', 
 };
 
 // --- action types

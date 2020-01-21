@@ -5,6 +5,8 @@ const initialState = {
   username: 'Zizoudu13',
   avatar: '',
   logged: false,
+  validated: false, 
+  setValidates: false,
 };
 
 export const CONNECT_USER = 'CONNECT_USER';
@@ -15,6 +17,8 @@ const reducer = (state = initialState, action = {}) => {
     case CONNECT_USER:
       return {
         ...state,
+        validated: true,
+        setValidates:true,
         logged: true,
       };
     default: return state;

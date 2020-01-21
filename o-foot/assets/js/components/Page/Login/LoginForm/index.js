@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button, Col } from 'react-bootstrap';
+import { Form, Button, Col } from 'react-bootstrap'; 
 
 
 // Import scss
@@ -12,7 +12,9 @@ const LoginForm = ({
   changeInputPassword,
   password,
   submitForm,
+  validated
 }) => {
+
   const handleChangeEmail = (event) => {
     changeInputEmail(event.target.value);
   };
@@ -22,21 +24,42 @@ const LoginForm = ({
   };
 
   const onSubmitForm = (evt) => {
+    const form = evt.currentTarget;
+    if (form.checkValidity() === false){
+      evt.preventDefault();
+      evt.stopPropagation();
+      validated===false;
+      console.log('non valide');
+    } else {
     evt.preventDefault();
+    evt.stopPropagation();
+    validated===true;
     submitForm();
+    console.log('valide');
+    };
   };
 
   return (
 
     <div id="loginForm">
 
-      <Form onSubmit={onSubmitForm}>
+      <Form noValidate validated={validated} onSubmit={onSubmitForm}>
         <Col>
-          <Form.Control onChange={handleChangeEmail} value={email} name="email" placeholder="Email" />
+        <Form.Group controlId="validationCustom01">
+          <Form.Control required type="email "onChange={handleChangeEmail} value={email} name="email" placeholder="Email" />
+          </Form.Group>
         </Col>
+        <Form.Control.Feedback type="invalid">Looks bad!</Form.Control.Feedback>
+        
+        
+        
         <Col>
-          <Form.Control onChange={handleChangePassword} value={password} name="password" placeholder="Mot de Passe" />
+        <Form.Group controlId="validationCustom02">
+          <Form.Control required type="password" onChange={handleChangePassword} value={password} name="password" placeholder="Mot de Passe" />
+          </Form.Group>
         </Col>
+        <Form.Control.Feedback type="invalid">Looks bad!</Form.Control.Feedback>
+
 
         
         <Button variant="primary" type="submit">
@@ -58,6 +81,36 @@ LoginForm.propTypes = {
   changeInputPassword: PropTypes.func.isRequired,
   password: PropTypes.string.isRequired,
   submitForm: PropTypes.func.isRequired,
+  validated: PropTypes.bool,
 };
 
 export default LoginForm;
+
+/*/* const onSubmitForm = (evt) => {
+    //const form = {email, password};
+    const checkValidity = (email, password) => {
+    const errors = {};
+    if (!email) {
+      errors.email = 'Required'
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+      errors.email = 'Invalid email address'
+    };
+    if (!password) {
+      errors.password = 'Required'
+    } else if (password.length < 8) {
+      errors.password = 'Minimum be 8 characters or more'
+    } return errors; 
+  }; 
+    if (!errors.isEmpty){
+      evt.preventDefault();
+      evt.stopPropagation();
+      validated===false;
+      console.log('non valide');
+    } else {
+    evt.preventDefault();
+    evt.stopPropagation();
+    validated===true;
+    submitForm();
+    console.log('valide');
+    };
+  };*/

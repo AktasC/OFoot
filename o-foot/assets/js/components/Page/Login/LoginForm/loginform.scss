@@ -8,4 +8,9 @@
     & button {
       margin-top: 2em;
     }
+
+    &.invalid-feedback {
+      height: 20px; 
+      background-color: red; 
+    }
 }
