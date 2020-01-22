@@ -8,26 +8,24 @@ const initialState = {
   
 };
 
-const LOG_USER = 'LOG_USER';
+export const LOG_USER = 'LOG_USER';
 
 // ---- reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case LOG_USER:
+      console.log('logok');
       return {
         ...state,
-        username: action.username,
-        avatar: action.avatar,
         logged: true,
       };
     default: return state;
   }
 };
 
-export const logUser = (username, avatar) => ({
+export const logUser = () => (
+  {
   type: LOG_USER,
-  username,
-  avatar,
 });
 
 // ---- export

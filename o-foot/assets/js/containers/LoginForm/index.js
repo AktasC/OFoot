@@ -4,8 +4,6 @@ import LoginForm from '../../components/Page/Login/LoginForm';
 
 import { onChangeInputEmailLogin, onChangeInputPasswordLogin, connectUser } from '../../store/reducer/loginForm';
 
-// import { connectUser } from '../../store/reducer/user';
-
 
 // eslint-disable-next-line arrow-body-style
 const mapStateToProps = (state) => {

@@ -40,8 +40,6 @@ const LoginForm = ({
         <Col>
           <Form.Control required type="email"
           onChange={handleChangeEmail} value={email} name="email" placeholder="Email" />
-          <div>erreur
-      </div>
         </Col>
           
         

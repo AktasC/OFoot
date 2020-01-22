@@ -5,7 +5,9 @@ import { logUser } from '../reducer/user';
 const loginMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CONNECT_USER:
-      console.log('soumission');
+    const actionLogUser = logUser();
+    store.dispatch(actionLogUser);
+    
       break;
     default:
       next(action);
