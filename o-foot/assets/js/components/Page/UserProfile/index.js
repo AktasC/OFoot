@@ -7,6 +7,8 @@ import './user-profil.scss';
 
 import infos from './userInfos.json';
 
+import ShowMyTeams from './ShowMyTeams';
+
 
 const UserProfile = () => (
    
@@ -33,10 +35,10 @@ const UserProfile = () => (
         </>
       ))} 
 
-        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+        <Tabs defaultActiveKey="teams" id="uncontrolled-tab-example">
         <Tab eventKey="teams" title="Mes équipes">
           {/* On mettra ici notre composant ShowMyTeams */}
-          <div>Mes équipes</div>
+          <ShowMyTeams/>
         </Tab>
         <Tab eventKey="edit-profil" title="Éditer mon profil">
           {/* On mettra ici notre composant EditProfil */}
