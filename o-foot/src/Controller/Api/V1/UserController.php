@@ -2,8 +2,10 @@
 
 namespace App\Controller\Api\V1;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\User;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 /**
@@ -23,9 +25,15 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}", name="show", requirements={"id": "\d+"}, methods={"GET"})
      */
-    public function show()
+    public function show(User $user, SerializerInterface $serializer)
     {
-        return;
+        // On crée une nouvelle variable $data, qui stocke la sérialisation de $user
+        // On indique l'annotation a rajouté dans l'entité user en fonction du nom de l'api -> api_v1
+        // Ceci permet d'indiquer quelles types de propriétés nous aimerions envoyer en JSON
+        $data = $serializer->normalize($user, null, ['groups' => ['api_v1']]);
+        
+        // On retourne $user au format JSON
+        return $this->json($data);
     }
 
     /**
