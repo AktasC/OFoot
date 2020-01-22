@@ -15,17 +15,15 @@ const showMyTeams = ( teams ) => {
   var arrTeams = Object.values(teams);
 
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,    
+    slidesToShow: 2,
+    slidesToScroll: 2,   
   };  
 
   return (
    
-    <div id="showMyTeams"> 
-      <h4>Mes eeeeequipes</h4>
+    <div id="showMyTeams">      
       <Row>
         <Col md={12} > 
           <Slider {...settings}>          
@@ -40,7 +38,7 @@ const showMyTeams = ( teams ) => {
 };
 
 showMyTeams.propTypes = {
-  teams: PropTypes.object.isRequired,
+  /* teams: PropTypes.object.isRequired, */
 };
 
 export default showMyTeams;

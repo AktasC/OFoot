@@ -1,5 +1,10 @@
-#userProfile {
-    & .container {
-        margin: 1em auto;
-    }
+#showMyTeams {
+  padding: 1em;
+
+  & .slick-next:before, .slick-prev:before {
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: #212532;
+}
 }

@@ -20,11 +20,13 @@ const UserProfile = () => {
     <Container>      
       {infos.map((user) => (          
         <>
-          <h2>Welcome {user.first_name} !</h2>
+          <div className="sweatband">
+            <h2>Welcome {user.first_name} !</h2>
+          </div>          
           <Row className="">
             <Col lg={12} md={12} sm={12} xs={12}> 
               <Card>
-                <Card.Header >Mes informations</Card.Header>
+                <Card.Header >MES INFORMATIONS</Card.Header>
                 <Card.Body>
                   <Avatar className="avatar-custom" src={user.picture_user} size="100" round={true} />
                   <Card.Title>{user.last_name} {user.first_name} </Card.Title>
@@ -45,7 +47,7 @@ const UserProfile = () => {
       <Tabs defaultActiveKey="teams" id="uncontrolled-tab-example">
         <Tab eventKey="teams" title="Mes équipes">
           {/* On mettra ici notre composant ShowMyTeams */}
-          {infos.map((user) => (  
+          {infos.map((user, i) => (  
             <ShowMyTeams {...user.team}/>
           ))}
         </Tab>

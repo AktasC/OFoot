@@ -12,8 +12,8 @@ const TeamCard = ({ team_name, team_img }) => {
     <div id="teamCard">
 
       <img className="team-thumb" src={team_img} />
-      <h3>{team_name}</h3>
-      <Button>Accéder au Dashboard</Button>
+      <h5>{team_name}</h5>
+      <Button>Accéder au Dashboard Équipe</Button>
           
     </div>
   );
