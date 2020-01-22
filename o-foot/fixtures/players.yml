@@ -1,0 +1,7 @@
+
+App\Entity\Player:
+  player{1..20}:
+    number_jersey_player (unique): "<numberBetween(1, 99)>"
+    player_name: "<name()>"
+    role_player: "<jobTitle()>"
+    created_at: "<dateTime()>"

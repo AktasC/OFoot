@@ -1,0 +1,9 @@
+App\Entity\User:
+  user{1..23}:
+    email (unique): "<email()>"
+    first_name: "<firstName()>"
+    last_name: "<lastName()>"
+    password: "<word()>"
+    created_at: "<dateTime()>"
+    updated_at: '<dateTimeBetween($created_at, "now")>'
+
