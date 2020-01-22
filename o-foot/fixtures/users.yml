@@ -3,7 +3,6 @@ App\Entity\User:
     email (unique): "<email()>"
     first_name: "<firstName()>"
     last_name: "<lastName()>"
-    password: "<word()>"
+    password: "<password(5, false, true, false, true)>"
     created_at: "<dateTime()>"
-    updated_at: '<dateTimeBetween($created_at, "now")>'
-
+    updated_at: "<dateTimeBetween($created_at, 'now')>"
