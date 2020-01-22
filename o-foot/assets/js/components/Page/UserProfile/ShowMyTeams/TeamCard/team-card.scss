@@ -1,0 +1,8 @@
+#teamCard {
+  & .team-thumb {
+    max-width: 240px;
+    max-height: 240px;
+    margin: auto;
+    object-fit: cover;
+  }
+}

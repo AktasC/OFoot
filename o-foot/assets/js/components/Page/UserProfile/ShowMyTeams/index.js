@@ -1,44 +1,46 @@
 import React from 'react';
-import { Carousel, Col, Row } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { Col, Row } from 'react-bootstrap';
 
 // Import scss
 import './show-my-teams.scss';
 
-const showMyTeams = () => (
-   
-  <div id="showMyTeams"> 
-    <h4>Mes eeeeequipes</h4>
-    <Row>
-      <Col md={{ span: 6, offset: 3 }} > 
-        <Carousel>
-          <Carousel.Item>
-            <img
-            className="d-block w-100"
-            src="https://www.sportmag.fr/wp-content/uploads/2018/04/Logo-PSG.jpg"
-            alt="First slide"
-            />
-            <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-            className="d-block w-100"
-            src="https://www.sportmag.fr/wp-content/uploads/2018/04/Logo-PSG.jpg"
-            alt="Third slide"
-            />
+import Slider from 'react-slick';
+import TeamCard from './TeamCard';
 
-            <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>      
-        </Carousel>
-      </Col>
-    </Row>
-  </div>
- 
-);
+const showMyTeams = ( teams ) => {
+
+  console.log("depuis ShowMyTeam:", teams);
+  // On ne peut maper que sur un array [] je transforme donc mon objet recu de mon composant parent en array
+  var arrTeams = Object.values(teams);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,    
+  };  
+
+  return (
+   
+    <div id="showMyTeams"> 
+      <h4>Mes eeeeequipes</h4>
+      <Row>
+        <Col md={12} > 
+          <Slider {...settings}>          
+          {arrTeams.map((team, i) => ( 
+            <TeamCard key={i}  {...team} />                              
+          ))}
+          </Slider>
+        </Col>
+      </Row>
+    </div>
+  )
+};
+
+showMyTeams.propTypes = {
+  teams: PropTypes.object.isRequired,
+};
 
 export default showMyTeams;

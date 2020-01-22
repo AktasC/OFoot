@@ -10,8 +10,11 @@ import infos from './userInfos.json';
 import ShowMyTeams from './ShowMyTeams';
 
 
-const UserProfile = () => (
+const UserProfile = () => {
    
+  console.log("depuis UserProfile:", infos);
+  
+  return (
   <div id="userProfile">    
 
     <Container>      
@@ -35,10 +38,16 @@ const UserProfile = () => (
         </>
       ))} 
 
-        <Tabs defaultActiveKey="teams" id="uncontrolled-tab-example">
+    </Container>
+
+    <Container>
+
+      <Tabs defaultActiveKey="teams" id="uncontrolled-tab-example">
         <Tab eventKey="teams" title="Mes équipes">
           {/* On mettra ici notre composant ShowMyTeams */}
-          <ShowMyTeams/>
+          {infos.map((user) => (  
+            <ShowMyTeams {...user.team}/>
+          ))}
         </Tab>
         <Tab eventKey="edit-profil" title="Éditer mon profil">
           {/* On mettra ici notre composant EditProfil */}
@@ -48,10 +57,12 @@ const UserProfile = () => (
           {/* On mettra ici notre composant EditPassword */}
           <div>Éditer mon mot de passe</div>
         </Tab>
-      </Tabs>   
+      </Tabs> 
+
     </Container>
+
   </div>
- 
-);
+  )
+};
 
 export default UserProfile;
