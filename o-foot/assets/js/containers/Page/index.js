@@ -5,6 +5,7 @@ import Page from '../../components/Page';
 const mapStateToProps = (state) => {
   return {
     logged: state.user.logged,
+    signupDone: state.registerForm.signupDone,
   };
 };
 

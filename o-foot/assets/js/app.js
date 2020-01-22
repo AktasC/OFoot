@@ -17,8 +17,8 @@ import App from './components/App';
 // 1. Le composant racine (celui qui contient l'ensemble de l'app)
 const rootComponent = (
   <Provider store={store}>
-    <Router>
-      <App />
+    <Router>      
+      <App />      
     </Router>
   </Provider>    
 );

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
-import LoginForm from '../../components/Page/Login/LoginForm';
+import LoginForm from '../../../components/Page/Login/LoginForm';
 
-import { onChangeInputEmail, onChangeInputPassword } from '../../store/reducer/loginForm';
+import { onChangeInputEmail, onChangeInputPassword } from '../../../store/reducer/loginForm';
 
-import { connectUser } from '../../store/reducer/user';
+import { connectUser } from '../../../store/reducer/user';
 
 
 // eslint-disable-next-line arrow-body-style

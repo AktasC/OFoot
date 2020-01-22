@@ -1,11 +1,12 @@
 import axios from 'axios';
 import qs from 'qs';
-import { push } from 'react-redux';
 
-import { REGISTER_USER } from '../reducer/registerForm';
+import { REGISTER_USER, signupDone } from '../reducer/registerForm';
+import { addNotification } from '../addNotification';
 
 const registerMiddleware = (store) => (next) => (action) => {
-  switch (action.type) {
+
+  switch (action.type) {    
     case REGISTER_USER: 
       const {
         inputLastnameValue,
@@ -29,12 +30,13 @@ const registerMiddleware = (store) => (next) => (action) => {
       axios.post('http://localhost:8001/api/v1/register', qs.stringify(requestBody), config)
       
       .then(function (response) {
-        console.log('from then');
-        store.dispatch(push('/login'));
+        console.log('from then');        
+        store.dispatch(signupDone());
+        addNotification('success');
       })
       .catch(function (error) {
         console.log(error);
-        console.log('register via api dans le mal');
+        addNotification('error');
       });      
       break;   
 
