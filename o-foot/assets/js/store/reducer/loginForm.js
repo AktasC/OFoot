@@ -3,34 +3,27 @@ const initialState = {
   // la valeur courante de l'input
   EmailValue: '',
   PasswordValue: '', 
-  email:''
 };
 
 // --- action types
-const CHANGE_EMAIL_INPUT = 'CHANGE_EMAIL_INPUT';
-const CHANGE_PASSWORD_INPUT = 'CHANGE_PASSWORD_INPUT';
-const CHECK_VALIDITY = 'CHECK_VALIDITY';
+const CHANGE_EMAIL_INPUT_LOGIN = 'CHANGE_EMAIL_INPUT_LOGIN';
+const CHANGE_PASSWORD_INPUT_LOGIN = 'CHANGE_PASSWORD_INPUT_LOGIN';
 
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_EMAIL_INPUT:
+    case CHANGE_EMAIL_INPUT_LOGIN:
       return {
         ...state,
         EmailValue: action.value,
       };
 
-    case CHANGE_PASSWORD_INPUT:
+    case CHANGE_PASSWORD_INPUT_LOGIN:
       return {
         ...state,
         PasswordValue: action.value,
       };
-    
-    case CHECK_VALIDITY: 
-    return {
-      ...state, 
-      email: action.value,
-    }
+  
       
 
     default: return state;
@@ -39,18 +32,13 @@ const reducer = (state = initialState, action = {}) => {
 
 // --- action creators
 
-export const onChangeInputEmail = (value) => ({
-  type: CHANGE_EMAIL_INPUT,
+export const onChangeInputEmailLogin = (value) => ({
+  type: CHANGE_EMAIL_INPUT_LOGIN,
   value,
 });
 
-export const onChangeInputPassword = (value) => ({
-  type: CHANGE_PASSWORD_INPUT,
-  value,
-});
-
-export const oncheckValidity = (value) => ({
-  type: CHECK_VALIDITY, 
+export const onChangeInputPasswordLogin = (value) => ({
+  type: CHANGE_PASSWORD_INPUT_LOGIN,
   value,
 });
 

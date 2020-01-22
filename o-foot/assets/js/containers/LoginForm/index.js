@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import LoginForm from '../../components/Page/Login/LoginForm';
 
-import { onChangeInputEmail, onChangeInputPassword } from '../../store/reducer/loginForm';
+import { onChangeInputEmailLogin, onChangeInputPasswordLogin } from '../../store/reducer/loginForm';
 
 import { connectUser } from '../../store/reducer/user';
 
@@ -17,13 +17,13 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  changeInputEmail: (value) => {
-    const action = onChangeInputEmail(value);
+  changeInputEmailLogin: (value) => {
+    const action = onChangeInputEmailLogin(value);
     dispatch(action);
   },
 
-  changeInputPassword: (value) => {
-    const action = onChangeInputPassword(value);
+  changeInputPasswordLogin: (value) => {
+    const action = onChangeInputPasswordLogin(value);
     dispatch(action);
   },
 
@@ -31,11 +31,6 @@ const mapDispatchToProps = (dispatch) => ({
     const action = connectUser();
     dispatch(action);
   },
-
-  checkValidity: (value) => {
-    const action = oncheckValidity(value);
-    dispatch(action);
-  }
 });
 
 const LoginFormContainer = connect(
