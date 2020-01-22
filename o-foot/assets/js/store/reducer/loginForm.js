@@ -8,6 +8,7 @@ const initialState = {
 // --- action types
 const CHANGE_EMAIL_INPUT_LOGIN = 'CHANGE_EMAIL_INPUT_LOGIN';
 const CHANGE_PASSWORD_INPUT_LOGIN = 'CHANGE_PASSWORD_INPUT_LOGIN';
+export const CONNECT_USER = 'CONNECT_USER';
 
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -40,6 +41,10 @@ export const onChangeInputEmailLogin = (value) => ({
 export const onChangeInputPasswordLogin = (value) => ({
   type: CHANGE_PASSWORD_INPUT_LOGIN,
   value,
+});
+
+export const connectUser = () => ({
+  type: CONNECT_USER,
 });
 
 

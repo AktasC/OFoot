@@ -71,7 +71,7 @@ LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   changeInputPasswordLogin: PropTypes.func.isRequired,
   password: PropTypes.string.isRequired,
-  submitForm: PropTypes.func.isRequired,
+  submitForm: PropTypes.func,
 };
 
 export default LoginForm;

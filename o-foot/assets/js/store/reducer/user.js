@@ -8,22 +8,26 @@ const initialState = {
   
 };
 
-export const CONNECT_USER = 'CONNECT_USER';
+const LOG_USER = 'LOG_USER';
 
 // ---- reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CONNECT_USER:
+    case LOG_USER:
       return {
         ...state,
+        username: action.username,
+        avatar: action.avatar,
         logged: true,
       };
     default: return state;
   }
 };
 
-export const connectUser = () => ({
-  type: CONNECT_USER,
+export const logUser = (username, avatar) => ({
+  type: LOG_USER,
+  username,
+  avatar,
 });
 
 // ---- export

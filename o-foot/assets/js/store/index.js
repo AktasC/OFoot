@@ -3,6 +3,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 
 // import reducer(s)
 import reducer from './reducer';
+import loginMiddleware from './middlewares/loginMiddleware';
 
 // eslint-disable-next-line no-underscore-dangle
 // https://github.com/zalmoxisus/redux-devtools-extension
@@ -12,7 +13,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // Améliorations pour le store
 const enhancers = composeEnhancers(
   applyMiddleware(
-   // ajaxMiddleware,
+   loginMiddleware,
   ),
 );
 
