@@ -45,25 +45,7 @@ const Page = ({ logged, signupDone }) => (
         <Login />
       </Route>
     </Switch>
-
-    <button
-        onClick={() => {
-          store.addNotification({
-            title: 'Dropbox',
-            message: 'Files were synced',
-            type: 'default',                         // 'default', 'success', 'info', 'warning'
-            container: 'bottom-left',
-            animationIn: ["animated", "fadeIn"],     // animate.css classes
-            animationOut: ["animated", "fadeOut"],   // animate.css classes
-            dismiss: {
-              duration: 3000,
-              showIcon: true
-            }
-          })
-        }}
-      >
-        Add notification
-      </button>
+        
   </div>
  
 );
