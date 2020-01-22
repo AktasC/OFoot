@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button, Col } from 'react-bootstrap'; 
-import ErrorMessage from '../ErrorMessage'; 
+
 
 
 // Import scss
@@ -15,11 +15,19 @@ const LoginForm = ({
   submitForm,
   blurInputEmail, 
   EmailValidCheck,
-  errorMessageEmail
+  errorMessageEmail,
+  blurInputPassword,
+  PasswordValidCheck,
+  errorMessagePassword
+
 }) => {
   
   const onChangeInputEmail = (event) => {
     blurInputEmail(event.target.value);
+  }
+
+  const onChangeInputPassword = (event) => {
+    blurInputPassword(event.target.value);
   }
 
   const handleChangeEmail = (event) => {
@@ -42,20 +50,18 @@ const LoginForm = ({
 
       <Form onSubmit={onSubmitForm}>
         <Col>
-          <Form.Control type="email" onBlur={onChangeInputEmail}
+          <Form.Control className={!EmailValidCheck ? "wrong" : ""}  type="email" onBlur={onChangeInputEmail}
           onChange={handleChangeEmail} value={email} name="email" placeholder="Email" />
         </Col>
         {!EmailValidCheck && 
-        <div>{errorMessageEmail.email}</div>
-        } 
+        <div>{errorMessageEmail.email}</div>} 
         
         <Col>
-          <Form.Control type="password" onChange={handleChangePassword} value={password} name="password" placeholder="Mot de Passe" />
+          <Form.Control className={!PasswordValidCheck ? "wrong" : ""} type="password" onChange={handleChangePassword} value={password} name="password" placeholder="Mot de Passe" onBlur={onChangeInputPassword} />
         </Col>
+        {!PasswordValidCheck && 
+        <div>{errorMessagePassword.password}</div>} 
       
-
-
-        
         <Button variant="primary" type="submit">
           Se connecter
         </Button>

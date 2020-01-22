@@ -2,25 +2,11 @@ import { connect } from 'react-redux';
 
 import LoginForm from '../../components/Page/Login/LoginForm';
 
-import { onChangeInputEmailLogin, onChangeInputPasswordLogin, connectUser, emailInvalid, emailValid } from '../../store/reducer/loginForm';
+import { onChangeInputEmailLogin, onChangeInputPasswordLogin, connectUser, emailInvalid, emailValid, passwordlInvalid, passwordValid} from '../../store/reducer/loginForm';
 
-export const checkValidity = (email) => {
-  const errors = {};
-  if (!email) {
-    errors.email = 'Merci de renseigner votre adresse email'
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
-    errors.email = 'L\'adresse email saisie est invalide'
-  }
-  return errors;
-};
+/* Import checkings function */
 
-export const checkEmptiness = (table) => {
-  if (Object.keys(table).length === 0){
-    return true;
-  } else {
-    return false; 
-  }
-}
+import { checkValidity, checkEmptiness, checkValidityPassword } from '../../../utils/validation/loginPage.js'
 
 // eslint-disable-next-line arrow-body-style
 const mapStateToProps = (state) => {
@@ -28,7 +14,9 @@ const mapStateToProps = (state) => {
     email: state.loginForm.EmailValue,
     password: state.loginForm.PasswordValue,
     EmailValidCheck: state.loginForm.EmailValidCheck,
-    errorMessageEmail: state.loginForm.ErrorMessageInvalidEmail
+    errorMessageEmail: state.loginForm.ErrorMessageInvalidEmail,
+    PasswordValidCheck: state.loginForm.PasswordValidCheck,
+    errorMessagePassword: state.loginForm.ErrorMessageInvalidPassword
   };
 };
 
@@ -53,10 +41,19 @@ const mapDispatchToProps = (dispatch) => ({
     if (checkEmptiness(errorsEmail)===false){
       const action = emailInvalid(errorsEmail); 
       dispatch(action);
-      console.log('Non, il faut afficher une erreur')
     } else if (checkEmptiness(errorsEmail)===true) {
-      console.log('C\' est ok on passe');
       const action = emailValid(); 
+      dispatch(action);
+    }
+  },
+
+  blurInputPassword: (value) => {
+    const errorsPassword= checkValidityPassword(value);
+    if (checkEmptiness(errorsPassword)===false){
+      const action = passwordlInvalid(errorsPassword); 
+      dispatch(action);
+    } else if (checkEmptiness(errorsPassword)===true) {
+      const action = passwordValid(); 
       dispatch(action);
     }
   }

@@ -5,6 +5,8 @@ const initialState = {
   PasswordValue: '', 
   ErrorMessageInvalidEmail: '', 
   EmailValidCheck: true,
+  ErrorMessageInvalidPassword: '',
+  PasswordValidCheck: true, 
 };
 
 // --- action types
@@ -13,6 +15,8 @@ const CHANGE_PASSWORD_INPUT_LOGIN = 'CHANGE_PASSWORD_INPUT_LOGIN';
 export const CONNECT_USER = 'CONNECT_USER';
 const INVALID_EMAIL = 'INVALID_EMAIL';
 const VALID_EMAIL = 'VALID_EMAIL';
+const INVALID_PASSWORD = 'INVALID_PASSWORD';
+const VALID_PASSWORD = 'VALID_PASSWORD';
 
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -42,6 +46,20 @@ const reducer = (state = initialState, action = {}) => {
         ErrorMessageInvalidEmail: '',
         EmailValidCheck: true, 
       }
+
+    case INVALID_PASSWORD: 
+    return {
+      ...state, 
+        ErrorMessageInvalidPassword: action.value,
+        PasswordValidCheck: false, 
+    }
+
+    case VALID_PASSWORD: 
+    return {
+      ...state, 
+        ErrorMessageInvalidPassword: '',
+        PasswordValidCheck: true, 
+    }
       
 
     default: return state;
@@ -73,6 +91,14 @@ export const emailValid= () => ({
   type:VALID_EMAIL
 })
 
+export const passwordlInvalid = (values) => ({
+  type: INVALID_PASSWORD,
+  value: values
+})
+
+export const passwordValid = () => ({
+  type:VALID_PASSWORD,
+})
 
 // --- export
 export default reducer;
