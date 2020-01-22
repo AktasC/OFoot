@@ -1,0 +1,21 @@
+[  
+  {   
+    "id": 1,
+    "first_name": "Kylian",
+    "last_name": "M'Bappé",
+    "roles": "User",
+    "email": "Kykydu75@psg.fr",
+    "picture_user": "https://resize-elle.ladmedia.fr/r/300,,forcex/crop/300,386,center-middle,forcex,ffffff/img/var/plain_site/storage/images/personnalites/kylian-mbappe/87919214-1-fre-FR/Kylian-Mbappe.jpg",
+    "team": [
+      {
+        "team_name": "Paris Saint Germain"           
+      },
+      {
+        "team_name": "Équipe de France" 
+      }
+    ]
+  }  
+]
+  
+  
+  
