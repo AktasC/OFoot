@@ -27,30 +27,30 @@
 ## Branch management
 
 - List all branches :
-    - `git branch`
+    - `git branch -r`
 
 - Create a branch :
-    - `git branch my_branch`
+    - `git branch "my_branch"`
         - All branch names should start with `frontend || backend` followed by `/name_of_the_feature`
         - If there are any special caracters you should use the `"` double quotes or escape the caracter    
             Example : `git branch "frontend/user_&_dashboard"` OR `git branch frontend/user_\&_dashboard`
 
 - Switch to a branch :
-    - `git checkout my_branch`
+    - `git checkout "my_branch"`
 
 ![Create branch & Checkout](/img/new_branch.png)
 
 - Create and switch to a branch simultaneously :
-    - `git checkout -b my_branch`
+    - `git checkout -b "my_branch"`
 - Delete a branch :
-     - `git branch -d my_branch`
+     - `git branch -d "my_branch"`
 
 ## Pull Requests
 
 Once you've created a branch, you can create a pull request in order to merge it with the `master` branch.  
 
 - Navigate to `https://github.com/o-clock-wave/projet-ofoot/compare`
-    - Leave `base` (the target branch) as `master` and select **your branch** as `compare`
+    - Set `dev` (the target branch) as `base` and select **your branch** as `compare`
     - Click on `Create Pull Request`
 
 ![Compare branch before PR](/img/git_compare.png)
