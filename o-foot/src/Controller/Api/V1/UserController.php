@@ -17,14 +17,6 @@ class UserController extends AbstractController
 {
     
     /**
-     * @Route("/", name="list", methods={"GET"})
-     */
-    public function list()
-    {
-        return;
-    }
-
-    /**
      * @Route("/{id}", name="show", requirements={"id": "\d+"}, methods={"GET"})
      */
     public function show(User $user, SerializerInterface $serializer)
@@ -36,14 +28,6 @@ class UserController extends AbstractController
         
         // On retourne $user au format JSON
         return $this->json($data);
-    }
-
-    /**
-     * @Route("/", name="new", methods={"POST"})
-     */
-    public function new()
-    {
-        return;
     }
 
     /**
