@@ -2,13 +2,24 @@ import { connect } from 'react-redux';
 
 import LoginForm from '../../components/Page/Login/LoginForm';
 
-import { onChangeInputEmailLogin, onChangeInputPasswordLogin, connectUser, emailInvalid, emailValid, passwordlInvalid, passwordValid} from '../../store/reducer/loginForm';
+import {
+  onChangeInputEmailLogin,
+  onChangeInputPasswordLogin,
+  connectUser,
+  emailInvalid,
+  emailValid,
+  passwordlInvalid,
+  passwordValid,
+} from '../../store/reducer/loginForm';
 
 /* Import checkings function */
 
-import { checkValidity, checkEmptiness, checkValidityPassword } from '../../../utils/validation/loginPage.js'
+import {
+  checkValidity,
+  checkEmptiness,
+  checkValidityPassword,
+} from '../../../utils/validation/loginPage';
 
-// eslint-disable-next-line arrow-body-style
 const mapStateToProps = (state) => {
   return {
     email: state.loginForm.EmailValue,
@@ -16,7 +27,7 @@ const mapStateToProps = (state) => {
     EmailValidCheck: state.loginForm.EmailValidCheck,
     errorMessageEmail: state.loginForm.ErrorMessageInvalidEmail,
     PasswordValidCheck: state.loginForm.PasswordValidCheck,
-    errorMessagePassword: state.loginForm.ErrorMessageInvalidPassword
+    errorMessagePassword: state.loginForm.ErrorMessageInvalidPassword,
   };
 };
 
@@ -37,26 +48,28 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   blurInputEmail: (value) => {
-    const errorsEmail= checkValidity(value);  
-    if (checkEmptiness(errorsEmail)===false){
-      const action = emailInvalid(errorsEmail); 
+    const errorsEmail = checkValidity(value);
+    if (checkEmptiness(errorsEmail) === false) {
+      const action = emailInvalid(errorsEmail);
       dispatch(action);
-    } else if (checkEmptiness(errorsEmail)===true) {
-      const action = emailValid(); 
+    }
+    else if (checkEmptiness(errorsEmail) === true) {
+      const action = emailValid();
       dispatch(action);
     }
   },
 
   blurInputPassword: (value) => {
-    const errorsPassword= checkValidityPassword(value);
-    if (checkEmptiness(errorsPassword)===false){
-      const action = passwordlInvalid(errorsPassword); 
-      dispatch(action);
-    } else if (checkEmptiness(errorsPassword)===true) {
-      const action = passwordValid(); 
+    const errorsPassword = checkValidityPassword(value);
+    if (checkEmptiness(errorsPassword) === false) {
+      const action = passwordlInvalid(errorsPassword);
       dispatch(action);
     }
-  }
+    else if (checkEmptiness(errorsPassword) === true) {
+      const action = passwordValid();
+      dispatch(action);
+    }
+  },
 });
 
 const LoginFormContainer = connect(

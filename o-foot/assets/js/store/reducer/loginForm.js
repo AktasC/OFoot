@@ -2,11 +2,11 @@
 const initialState = {
   // la valeur courante de l'input
   EmailValue: '',
-  PasswordValue: '', 
-  ErrorMessageInvalidEmail: '', 
+  PasswordValue: '',
+  ErrorMessageInvalidEmail: '',
   EmailValidCheck: true,
   ErrorMessageInvalidPassword: '',
-  PasswordValidCheck: true, 
+  PasswordValidCheck: true,
 };
 
 // --- action types
@@ -32,35 +32,35 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         PasswordValue: action.value,
       };
-  
+
     case INVALID_EMAIL:
       return {
-        ...state, 
+        ...state,
         ErrorMessageInvalidEmail: action.value,
-        EmailValidCheck: false, 
-      }
-    
+        EmailValidCheck: false,
+      };
+
     case VALID_EMAIL:
       return {
-        ...state, 
+        ...state,
         ErrorMessageInvalidEmail: '',
-        EmailValidCheck: true, 
-      }
+        EmailValidCheck: true,
+      };
 
-    case INVALID_PASSWORD: 
-    return {
-      ...state, 
+    case INVALID_PASSWORD:
+      return {
+        ...state,
         ErrorMessageInvalidPassword: action.value,
-        PasswordValidCheck: false, 
-    }
+        PasswordValidCheck: false,
+      };
 
-    case VALID_PASSWORD: 
-    return {
-      ...state, 
+    case VALID_PASSWORD:
+      return {
+        ...state,
         ErrorMessageInvalidPassword: '',
-        PasswordValidCheck: true, 
-    }
-      
+        PasswordValidCheck: true,
+      };
+
 
     default: return state;
   }
@@ -83,22 +83,22 @@ export const connectUser = () => ({
 });
 
 export const emailInvalid = (values) => ({
-  type: INVALID_EMAIL, 
-  value: values
-})
+  type: INVALID_EMAIL,
+  value: values,
+});
 
-export const emailValid= () => ({
-  type:VALID_EMAIL
-})
+export const emailValid = () => ({
+  type: VALID_EMAIL,
+});
 
 export const passwordlInvalid = (values) => ({
   type: INVALID_PASSWORD,
-  value: values
-})
+  value: values,
+});
 
 export const passwordValid = () => ({
-  type:VALID_PASSWORD,
-})
+  type: VALID_PASSWORD,
+});
 
 // --- export
 export default reducer;
