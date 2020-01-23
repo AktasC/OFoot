@@ -1,25 +1,24 @@
 import React from 'react';
 import { Form, Button, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 // Import scss
 import './register-form.scss';
 
 const RegisterForm = ({ 
+  // Différents states traité depuis le reducer
   onValueChange,
+  onSubmit,
   inputLastnameValue,
   inputFirstnameValue,
-  inputMailValue,
+  inputEmailValue,
   inputPasswordValue,
 }) => {
     
-  const onSubmit = (event) => {
-    event.preventDefault()
-    console.log('form envoyé');
-  }
-
+  
   const handleChange = (event) => {
     onValueChange(event.target.value, event.target.name);
-  };
+  }
 
   return (   
    <div id="registerForm">     
@@ -35,7 +34,7 @@ const RegisterForm = ({
       </Form.Row>
       <Form.Row>
         <Col>
-          <Form.Control onChange={handleChange} value={inputMailValue} name="email" placeholder="Email" />
+          <Form.Control onChange={handleChange} value={inputEmailValue} name="email" placeholder="Email" />
         </Col>
         <Col>
           <Form.Control onChange={handleChange} value={inputPasswordValue} name="password" placeholder="Mot de Passe" />
@@ -49,6 +48,15 @@ const RegisterForm = ({
     </div>
 
   ) 
+};
+
+RegisterForm.propTypes = {
+  onValueChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  inputLastnameValue: PropTypes.string.isRequired,
+  inputFirstnameValue: PropTypes.string.isRequired,
+  inputEmailValue: PropTypes.string.isRequired,
+  inputPasswordValue: PropTypes.string.isRequired,
 };
 
 export default RegisterForm;
