@@ -14,7 +14,7 @@ class UserProfile extends React.Component {
 
   constructor(props) {
     super(props); 
-    console.log(props);
+    console.log('props from UserProfil Component: ', props);
   };
 
   componentWillMount() {
@@ -26,12 +26,12 @@ class UserProfile extends React.Component {
   render () {   
     console.log("depuis UserProfile:");
 
-    console.log(this.props);
+    
 
-    // Récupère les informations sur le joueurs depuis le state userProfil sous forme d'Objet
+    /* // Récupère les informations sur le joueurs depuis le state userProfil sous forme d'Objet
     const { infosObj } = this.props.infos;
     // Transforme l'objet récupéré en array
-    var infosArray = Object.values(infosObj);
+    var infosArray = Object.values(infosObj); */
     
     return (
       <div id="userProfile">    

@@ -4,7 +4,6 @@ import UserProfile from '../../components/Page/UserProfile';
 
 import { userProfilInfo } from '../../store/reducer/userProfil';
 
-// eslint-disable-next-line arrow-body-style
 const mapStateToProps = (state) => {
   return { 
     userInformations: state.userProfil.userInformations,
