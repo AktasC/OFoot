@@ -26,7 +26,7 @@ const Page = ({ logged, signupDone }) => (
   <div id="page">    
 
     <Switch>
-      <Route path='/user/profile'>
+      <Route exact path="/user/profile/:id">
         <UserProfile />
       </Route>
       <Route path='/register'>
