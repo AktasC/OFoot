@@ -13,6 +13,7 @@ const RegisterForm = ({
   inputFirstnameValue,
   inputEmailValue,
   inputPasswordValue,
+  meta,
 }) => {
     
   
@@ -37,9 +38,12 @@ const RegisterForm = ({
           <Form.Control onChange={handleChange} value={inputEmailValue} name="email" placeholder="Email" />
         </Col>
         <Col>
-          <Form.Control onChange={handleChange} value={inputPasswordValue} name="password" placeholder="Mot de Passe" />
+          <Form.Control onChange={handleChange} value={inputPasswordValue} type="password" name="password" placeholder="Mot de Passe" />
         </Col>
       </Form.Row>
+      {/* <Form.Row>
+        <input type="hidden" name="token" value={meta}></input>
+      </Form.Row> */}
       <Button variant="primary" type="submit">
           S'inscrire
       </Button>
