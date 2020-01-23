@@ -14,12 +14,13 @@ class UserProfile extends React.Component {
 
   constructor(props) {
     super(props); 
+    console.log(props);
   };
 
   componentWillMount() {
     // on va charger les données initiales => appel API avec 'react'
     console.log('componentDidMount');
-    this.loadUserInfo();
+    this.props.loadUserInfo();
   };
 
   render () {   
@@ -27,7 +28,10 @@ class UserProfile extends React.Component {
 
     console.log(this.props);
 
-    const { infosArray } = this.props.infos;
+    // Récupère les informations sur le joueurs depuis le state userProfil sous forme d'Objet
+    const { infosObj } = this.props.infos;
+    // Transforme l'objet récupéré en array
+    var infosArray = Object.values(infosObj);
     
     return (
       <div id="userProfile">    

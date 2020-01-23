@@ -1,21 +1,21 @@
 import axios from 'axios';
 
-import { USER_PROFIL_INFO } from '../reducer/userProfil';
+import { USER_PROFIL_INFO, loadInfoFromAxios } from '../reducer/userProfil';
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {    
     case USER_PROFIL_INFO:      
       console.log('coucou depuis le middleware');
-      /* axios.post('http://localhost:8001/api/v1/users/25')
+      axios.get('http://localhost:8001/api/v1/users/35')
       
       .then(function (response) {
-        console.log('from then', response);        
-        
+        console.log('from axios:', response.data); 
+        const actionLoadInfo = loadInfoFromAxios(response.data);  
+        store.dispatch(actionLoadInfo);
       })
       .catch(function (error) {
         console.log(error);
-      }); 
-    */   
+      });         
       break;    
 
     default:

@@ -7,15 +7,15 @@ import { userProfilInfo } from '../../store/reducer/userProfil';
 // eslint-disable-next-line arrow-body-style
 const mapStateToProps = (state) => {
   return { 
-    infos: state.userProfil.userInformations,
+    userInformations: state.userProfil.userInformations,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   loadUserInfo: () => {
-  console.log('je charge les données');
-  const action = userProfilInfo();
-  dispatch(action);
+    console.log('je charge les données');
+    const action = userProfilInfo();
+    dispatch(action);
   }
 });
 
