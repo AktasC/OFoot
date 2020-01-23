@@ -4,6 +4,7 @@ namespace App\Controller\Api\V1;
 
 use App\Entity\Team;
 use App\Repository\TeamRepository;
+use App\Repository\PlayerRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -22,6 +23,19 @@ class TeamController extends AbstractController
     public function list()
     {
         return;
+    }
+    /**
+     * @Route("/{id}/players", name="players", requirements={"id": "\d+"}, methods={"GET"})
+     */
+    public function playersByTeam(SerializerInterface $serializer,Team $team, PlayerRepository $playerRepository)
+    {
+        
+        $players = $playerRepository->findPlayersByTeam($team);
+
+        $data = $serializer->normalize($players, null, ['groups' => 'api_v1']);
+
+       
+        return $this->json($data);
     }
 
     /**

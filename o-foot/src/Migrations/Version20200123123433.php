@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200122161154 extends AbstractMigration
+final class Version20200123123433 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,8 +22,7 @@ final class Version20200122161154 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-       
-        $this->addSql('ALTER TABLE team CHANGE adress_team adress_team VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE team CHANGE address_team adress_team VARCHAR(255) NOT NULL, CHANGE manager_team team_match SMALLINT NOT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -31,7 +30,6 @@ final class Version20200122161154 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE team CHANGE adress_team address_team VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`');
-        $this->addSql('ALTER TABLE user ADD is_active TINYINT(1) NOT NULL');
+        $this->addSql('ALTER TABLE team CHANGE adress_team address_team VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, CHANGE team_match manager_team SMALLINT NOT NULL');
     }
 }

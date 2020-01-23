@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PlayerRepository")
@@ -55,11 +56,13 @@ class Player
 
     /**
      * @ORM\Column(type="string", length=128)
+     * @Groups("api_v1")
      */
     private $player_name;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $position_player;
 
@@ -70,6 +73,7 @@ class Player
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Groups("api_v1")
      */
     private $role_player;
 
