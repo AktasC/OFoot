@@ -25,7 +25,7 @@ class TeamController extends AbstractController
     }
 
     /**
-     * @Route("/show/{id}", name="show", requirements={"id": "\d+"}, methods={"GET"})
+     * @Route("/{id}", name="show", requirements={"id": "\d+"}, methods={"GET"})
      */
     public function show(SerializerInterface $serializer,Team $team)
     {
@@ -72,7 +72,7 @@ class TeamController extends AbstractController
 
 
         // On retourne $team au format JSON
-         return $this->json('Equipe bien créée');;
+         return $this->json('Equipe bien créée');
     }
 
     /**
