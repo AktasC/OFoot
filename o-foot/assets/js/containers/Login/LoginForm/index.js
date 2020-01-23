@@ -10,15 +10,13 @@ import {
   emailValid,
   passwordlInvalid,
   passwordValid,
-} from '../../store/reducer/loginForm';
-
-import { connectUser } from '../../../store/reducer/user';
+} from '../../../store/reducer/loginForm';
 
 import {
   checkValidity,
   checkEmptiness,
   checkValidityPassword,
-} from '../../../utils/validation/loginPage';
+} from '../../../../utils/validation/loginPage';
 
 const mapStateToProps = (state) => {
   return {
