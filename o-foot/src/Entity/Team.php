@@ -23,7 +23,7 @@ class Team
      * @ORM\Column(type="string", length=255)
      * @Groups("api_v1")
      */
-    private $adress_team;
+    private $address_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
@@ -155,14 +155,14 @@ class Team
         return $this->id;
     }
 
-    public function getAdressTeam(): ?string
+    public function getaddressTeam(): ?string
     {
-        return $this->adress_team;
+        return $this->address_team;
     }
 
-    public function setAdressTeam(string $adress_team): self
+    public function setaddressTeam(string $address_team): self
     {
-        $this->adress_team = $adress_team;
+        $this->address_team = $address_team;
 
         return $this;
     }
