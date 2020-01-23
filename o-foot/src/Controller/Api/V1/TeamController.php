@@ -3,6 +3,7 @@
 namespace App\Controller\Api\V1;
 
 use App\Entity\Team;
+use App\Repository\TeamRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -24,11 +25,19 @@ class TeamController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", requirements={"id": "\d+"}, methods={"GET"})
+     * @Route("/show/{id}", name="show", requirements={"id": "\d+"}, methods={"GET"})
      */
-    public function show()
+    public function show(SerializerInterface $serializer,Team $team)
     {
-        return;
+
+        /**
+         * On récupère dans la variable $data l'objet de la sérialisation des atttributs de team que l'on récupère
+         * via les attributs 'groups' => 'api_vi'
+         */
+        $data = $serializer->normalize($team, null, ['groups' => 'api_v1']);
+      
+        // on retourne $data au format json
+        return $this->json($data);
     }
 
     /**
