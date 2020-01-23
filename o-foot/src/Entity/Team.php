@@ -21,6 +21,7 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $adress_team;
 
@@ -31,11 +32,13 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $championship_team;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $city_team;
 
@@ -62,6 +65,7 @@ class Team
 
     /**
      * @ORM\Column(type="smallint")
+     * @Groups("api_v1")
      */
     private $manager_team;
 
@@ -82,6 +86,7 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $stadium_team;
 
