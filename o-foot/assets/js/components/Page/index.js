@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
 } from 'react-router-dom';
 
@@ -13,22 +12,25 @@ import './page.scss';
 
 import Home from './Home';
 import Register from './Register';
-import Login from './Login';
+import Login from '../../containers/Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
 import UserProfile from './UserProfile';
 
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css';
 
-const Page = ({ logged }) => (
-      
-  <div id="page">
+const Page = ({ logged, signupDone }) => (  
+
+  <div id="page">    
+
     <Switch>
       <Route path='/user/profile'>
         <UserProfile />
       </Route>
-
       <Route path='/register'>
-        <Register />
+        {signupDone ? <Redirect to="login" /> : <Register />}   
       </Route>
       <Route path='/legals-mentions'>
         <LegalsMentions />
@@ -43,12 +45,14 @@ const Page = ({ logged }) => (
         <Login />
       </Route>
     </Switch>
+        
   </div>
-
+ 
 );
 
 Page.propTypes = {
   logged: PropTypes.bool.isRequired,
+  signupDone: PropTypes.bool.isRequired,
 };
 
 export default Page;
