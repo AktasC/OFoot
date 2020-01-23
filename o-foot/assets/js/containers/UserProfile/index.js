@@ -11,11 +11,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  loadUserInfo: () => {
-    console.log('je charge les données');
-    const action = userProfilInfo();
-    dispatch(action);
-  }
 });
 
 const UserProfilContainer = connect(

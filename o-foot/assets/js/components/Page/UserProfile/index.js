@@ -10,29 +10,13 @@ import './user-profil.scss';
 import ShowMyTeams from './ShowMyTeams';
 
 
-class UserProfile extends React.Component {
+const UserProfile = ( infosObj ) => {
 
-  constructor(props) {
-    super(props); 
-    console.log('props from UserProfil Component: ', props);
-  };
-
-  componentWillMount() {
-    // on va charger les données initiales => appel API avec 'react'
-    console.log('componentDidMount');
-    this.props.loadUserInfo();
-  };
-
-  render () {   
-    console.log("depuis UserProfile:");
-
-    
-
-    /* // Récupère les informations sur le joueurs depuis le state userProfil sous forme d'Objet
-    const { infosObj } = this.props.infos;
+  
+    // Récupère les informations sur le joueurs depuis le state userProfil sous forme d'Objet
     // Transforme l'objet récupéré en array
-    var infosArray = Object.values(infosObj); */
-    
+    var infosArray = Object.values(infosObj);
+    console.log(infosObj);
     return (
       <div id="userProfile">    
 
@@ -65,10 +49,11 @@ class UserProfile extends React.Component {
 
           <Tabs defaultActiveKey="teams" id="uncontrolled-tab-example">
             <Tab eventKey="teams" title="Mes équipes">
-              {/* On mettra ici notre composant ShowMyTeams */}
-              {infos.map((user, i) => (  
-                <ShowMyTeams {...user.team}/>
+              {/* On mettra ici notre composant ShowMyTeams */}              
+              {infosArray.map((user, i) => (  
+                <ShowMyTeams {...user.team}/>                
               ))}
+              <div>Vous n'avez rejoint aucune team pour le moment</div>
             </Tab>
             <Tab eventKey="edit-profil" title="Éditer mon profil">
               {/* On mettra ici notre composant EditProfil */}
@@ -84,7 +69,6 @@ class UserProfile extends React.Component {
 
       </div>  
     )
-  }
-};
+}
 
 export default UserProfile;
