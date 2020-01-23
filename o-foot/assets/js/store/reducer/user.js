@@ -5,14 +5,16 @@ const initialState = {
   username: 'Zizoudu13',
   avatar: '',
   logged: false,
+  
 };
 
-export const CONNECT_USER = 'CONNECT_USER';
+export const LOG_USER = 'LOG_USER';
 
 // ---- reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CONNECT_USER:
+    case LOG_USER:
+      console.log('logok');
       return {
         ...state,
         logged: true,
@@ -21,8 +23,9 @@ const reducer = (state = initialState, action = {}) => {
   }
 };
 
-export const connectUser = () => ({
-  type: CONNECT_USER,
+export const logUser = () => (
+  {
+  type: LOG_USER,
 });
 
 // ---- export
