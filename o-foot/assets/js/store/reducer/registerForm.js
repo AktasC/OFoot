@@ -1,10 +1,10 @@
 // --- initial state
-const initialState = {
-    // la valeur courante de l'input
+const initialState = {    
     inputLastnameValue: '',
     inputFirstnameValue: '',
     inputEmailValue: '',
     inputPasswordValue: '',
+    signupDone: false,
   };
   
   // --- action types
@@ -14,6 +14,7 @@ const initialState = {
   const CHANGE_EMAIL_INPUT = 'CHANGE_EMAIL_INPUT';
   const CHANGE_PASSWORD_INPUT = 'CHANGE_PASSWORD_INPUT';
   export const REGISTER_USER = 'REGISTER_USER';
+  export const SIGNUP_DONE = 'SIGNUP_DONE';
   
   // --- Reducer
   const reducer = (state = initialState, action = {}) => {
@@ -26,7 +27,7 @@ const initialState = {
       case CHANGE_FIRSTNAME_INPUT:
         return {
           ...state,
-          inputFirstnameValue: action.value,
+          inputFirstnameValue: action.value,          
         };
       case CHANGE_EMAIL_INPUT:
         return {
@@ -38,6 +39,13 @@ const initialState = {
           ...state,
           inputPasswordValue: action.value,
         };
+      case SIGNUP_DONE:
+        return {
+          ...state,
+          signupDone: true,
+          inputPasswordValue: '',
+        };
+      
   
       default: return state;
     }
@@ -78,6 +86,10 @@ const initialState = {
   
   export const registerUser = () => ({
     type: REGISTER_USER,
+  });
+
+  export const signupDone = () => ({
+    type: SIGNUP_DONE,
   });
   
   // --- export
