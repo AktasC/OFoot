@@ -16,7 +16,7 @@ import Register from './Register';
 import Login from './Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
-import UserProfile from './UserProfile';
+import UserProfile from '../../containers/UserProfile';
 
 
 const Page = ({ logged }) => (

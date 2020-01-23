@@ -1,6 +1,8 @@
 // import npm : createStore
 import { createStore, applyMiddleware, compose } from 'redux';
 
+import userProfilMiddleware from '../store/middleware/userProfilMiddleware';
+
 // import reducer(s)
 import reducer from './reducer';
 
@@ -12,7 +14,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // Améliorations pour le store
 const enhancers = composeEnhancers(
   applyMiddleware(
-   // ajaxMiddleware,
+   userProfilMiddleware,
   ),
 );
 
