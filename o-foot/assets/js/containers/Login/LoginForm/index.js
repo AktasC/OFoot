@@ -16,7 +16,7 @@ import {
   checkValidity,
   checkEmptiness,
   checkValidityPassword,
-} from '../../../../utils/validation/loginPage';
+} from '../../../../utils/validation';
 
 const mapStateToProps = (state) => {
   return {
