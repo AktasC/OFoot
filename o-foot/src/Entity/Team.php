@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TeamRepository")
@@ -21,7 +22,7 @@ class Team
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $address_team;
+    private $adress_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
@@ -55,6 +56,7 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $logo_team;
 
@@ -85,6 +87,7 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $team_name;
 
@@ -139,6 +142,7 @@ class Team
         $this->players = new ArrayCollection();
         $this->matchs = new ArrayCollection();
         $this->practices = new ArrayCollection();
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int

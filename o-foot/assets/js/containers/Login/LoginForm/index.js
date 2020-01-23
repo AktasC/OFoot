@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import LoginForm from '../../components/Page/Login/LoginForm';
+import LoginForm from '../../../components/Page/Login/LoginForm';
 
 import {
   onChangeInputEmailLogin,
@@ -12,7 +12,7 @@ import {
   passwordValid,
 } from '../../store/reducer/loginForm';
 
-/* Import checkings function */
+import { connectUser } from '../../../store/reducer/user';
 
 import {
   checkValidity,

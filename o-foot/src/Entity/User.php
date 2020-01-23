@@ -38,7 +38,6 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Groups("api_v1")
      */
     private $password;
 
@@ -61,6 +60,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $picture_user;
 
@@ -81,6 +81,7 @@ class User implements UserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Team", inversedBy="users")
+     * @Groups("api_v1")
      */
     private $teams;
 
