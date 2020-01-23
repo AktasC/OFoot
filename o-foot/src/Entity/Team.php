@@ -22,7 +22,7 @@ class Team
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $address_team;
+    private $adress_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
@@ -56,6 +56,7 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $logo_team;
 
@@ -141,6 +142,7 @@ class Team
         $this->players = new ArrayCollection();
         $this->matchs = new ArrayCollection();
         $this->practices = new ArrayCollection();
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int
