@@ -61,14 +61,19 @@ const LoginForm = ({
             placeholder="Email"
           />
         </Col>
-        {!EmailValidCheck
-        && <div>{errorMessageEmail.email}</div>}
+        {!EmailValidCheck && <div>{errorMessageEmail.email}</div>}
 
         <Col>
-          <Form.Control className={!PasswordValidCheck ? 'wrong' : ''} type="password" onChange={handleChangePassword} value={password} name="password" placeholder="Mot de Passe" onBlur={onChangeInputPassword} />
+          <Form.Control 
+            className={!PasswordValidCheck ? 'wrong' : ''} 
+            type="password" 
+            onChange={handleChangePassword} 
+            value={password} 
+            name="password" 
+            placeholder="Mot de Passe" 
+            onBlur={onChangeInputPassword} />
         </Col>
-        {!PasswordValidCheck
-        && <div>{errorMessagePassword.password}</div>}
+        {!PasswordValidCheck && <div>{errorMessagePassword.password}</div>}
 
         <Button variant="primary" type="submit">
           Se connecter

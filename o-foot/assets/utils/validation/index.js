@@ -1,3 +1,20 @@
+/* Empty input validation */
+export const isInputEmpty = (input) => {
+  const errors = {}; 
+  if(!input) {
+    errors.input = 'Merci de renseigner un nom';
+  }
+  return errors; 
+}
+
+export const isInputEmptyFirstname = (input) => {
+  const errors = {}; 
+  if(!input) {
+    errors.input = 'Merci de renseigner un prénom';
+  }
+  return errors; 
+}
+
 /* Email Validation */
 
 export const checkValidity = (email) => {
