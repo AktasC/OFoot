@@ -5,6 +5,7 @@ const initialState = {
     inputEmailValue: '',
     inputPasswordValue: '',
     signupDone: false,
+    meta: '',
   };
   
   // --- action types
