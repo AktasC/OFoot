@@ -85,18 +85,12 @@ class User implements UserInterface
      */
     private $teams;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isActive;
-
     public function __construct()
     {
         $this->players = new ArrayCollection();
         $this->teams = new ArrayCollection();
         $this->roles = array('ROLE_USER');
         $this->created_at = new \DateTime();
-        $this->isActive = true;
     }
 
     public function getId(): ?int
@@ -302,18 +296,6 @@ class User implements UserInterface
         if ($this->teams->contains($team)) {
             $this->teams->removeElement($team);
         }
-
-        return $this;
-    }
-
-    public function getIsActive(): ?bool
-    {
-        return $this->isActive;
-    }
-
-    public function setIsActive(bool $isActive): self
-    {
-        $this->isActive = $isActive;
 
         return $this;
     }
