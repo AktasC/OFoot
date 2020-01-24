@@ -6,7 +6,7 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {    
     case USER_PROFIL_INFO:      
       console.log('coucou depuis le middleware');
-      axios.get('http://localhost:8001/api/v1/users/35')
+      axios.get('/api/v1/users/13')
       
       .then(function (response) {
         console.log('from axios:', response.data); 

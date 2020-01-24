@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button, Col } from 'react-bootstrap';
@@ -7,23 +8,41 @@ import { Form, Button, Col } from 'react-bootstrap';
 import './loginform.scss';
 
 const LoginForm = ({
-  changeInputEmail,
+  changeInputEmailLogin,
   email,
-  changeInputPassword,
+  changeInputPasswordLogin,
   password,
   submitForm,
+  blurInputEmail,
+  EmailValidCheck,
+  errorMessageEmail,
+  blurInputPassword,
+  PasswordValidCheck,
+  errorMessagePassword,
+
 }) => {
-  const handleChangeEmail = (event) => {
-    changeInputEmail(event.target.value);
+  const onChangeInputEmail = (event) => {
+    blurInputEmail(event.target.value);
   };
 
+  const onChangeInputPassword = (event) => {
+    blurInputPassword(event.target.value);
+  };
+
+  const handleChangeEmail = (event) => {
+    changeInputEmailLogin(event.target.value);
+  };
+
+
   const handleChangePassword = (event) => {
-    changeInputPassword(event.target.value);
+    changeInputPasswordLogin(event.target.value);
   };
 
   const onSubmitForm = (evt) => {
     evt.preventDefault();
-    submitForm();
+    if (EmailValidCheck === true && PasswordValidCheck === true) {
+      submitForm();
+    }
   };
 
   return (
@@ -32,17 +51,33 @@ const LoginForm = ({
 
       <Form onSubmit={onSubmitForm}>
         <Col>
-          <Form.Control onChange={handleChangeEmail} value={email} name="email" placeholder="Email" />
+          <Form.Control
+            className={!EmailValidCheck ? 'wrong' : ''}
+            type="email"
+            onBlur={onChangeInputEmail}
+            onChange={handleChangeEmail}
+            value={email}
+            name="email"
+            placeholder="Email"
+          />
         </Col>
-        <Col>
-          <Form.Control onChange={handleChangePassword} value={password} name="password" placeholder="Mot de Passe" />
-        </Col>
+        {!EmailValidCheck && <div>{errorMessageEmail.email}</div>}
 
-        
+        <Col>
+          <Form.Control 
+            className={!PasswordValidCheck ? 'wrong' : ''} 
+            type="password" 
+            onChange={handleChangePassword} 
+            value={password} 
+            name="password" 
+            placeholder="Mot de Passe" 
+            onBlur={onChangeInputPassword} />
+        </Col>
+        {!PasswordValidCheck && <div>{errorMessagePassword.password}</div>}
+
         <Button variant="primary" type="submit">
           Se connecter
         </Button>
-        
 
 
       </Form>
@@ -53,11 +88,15 @@ const LoginForm = ({
 };
 
 LoginForm.propTypes = {
-  changeInputEmail: PropTypes.func.isRequired,
+  changeInputEmailLogin: PropTypes.func.isRequired,
   email: PropTypes.string.isRequired,
-  changeInputPassword: PropTypes.func.isRequired,
+  changeInputPasswordLogin: PropTypes.func.isRequired,
   password: PropTypes.string.isRequired,
   submitForm: PropTypes.func.isRequired,
+  blurInputEmail: PropTypes.func.isRequired,
+  EmailValidCheck: PropTypes.bool.isRequired,
+  blurInputPassword: PropTypes.func.isRequired,
+  PasswordValidCheck: PropTypes.bool.isRequired,
 };
 
 export default LoginForm;

@@ -21,7 +21,7 @@ class Match
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $adress_match;
+    private $address_match;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
@@ -110,14 +110,14 @@ class Match
         return $this->id;
     }
 
-    public function getAdressMatch(): ?string
+    public function getaddressMatch(): ?string
     {
-        return $this->adress_match;
+        return $this->address_match;
     }
 
-    public function setAdressMatch(?string $adress_match): self
+    public function setaddressMatch(?string $address_match): self
     {
-        $this->adress_match = $adress_match;
+        $this->address_match = $address_match;
 
         return $this;
     }

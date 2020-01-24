@@ -21,6 +21,7 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $address_team;
 
@@ -31,11 +32,13 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $championship_team;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $city_team;
 
@@ -56,11 +59,13 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $logo_team;
 
     /**
      * @ORM\Column(type="smallint")
+     * @Groups("api_v1")
      */
     private $manager_team;
 
@@ -81,6 +86,7 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $stadium_team;
 
@@ -141,6 +147,7 @@ class Team
         $this->players = new ArrayCollection();
         $this->matchs = new ArrayCollection();
         $this->practices = new ArrayCollection();
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int
@@ -148,14 +155,14 @@ class Team
         return $this->id;
     }
 
-    public function getAdressTeam(): ?string
+    public function getaddressTeam(): ?string
     {
-        return $this->adress_team;
+        return $this->address_team;
     }
 
-    public function setAdressTeam(string $adress_team): self
+    public function setaddressTeam(string $address_team): self
     {
-        $this->adress_team = $adress_team;
+        $this->address_team = $address_team;
 
         return $this;
     }

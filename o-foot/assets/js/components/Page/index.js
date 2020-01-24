@@ -28,10 +28,6 @@ class Page extends React.Component {
     this.props.loadUserInfo();    
   }
 
-  componentDidMount() {
-    
-  }
-
   render() {
 
     const { signupDone, logged } = this.props;
@@ -41,7 +37,7 @@ class Page extends React.Component {
       <div id="page">    
 
         <Switch>
-          <Route exact path={`/user/profile/${this.props.userInformations.id}`}>
+          <Route exact path={`/user/profile/${this.props.userId}`}>
             <UserProfile />
           </Route>
           <Route path='/register'>
@@ -54,10 +50,10 @@ class Page extends React.Component {
             <WhoAreWe />
           </Route>
           <Route exact path='/'>
-            {logged ? <Redirect to={`/user/profile/${this.props.userInformations.id}`} /> : <Home />}        
+            {logged ? <Redirect to={`/user/profile/${this.props.userId}`} /> : <Home />}        
           </Route>
           <Route path='/login'>
-            <Login />
+            {logged ? <Redirect to={`/user/profile/${this.props.userId}`} /> : <Login />} 
           </Route>
         </Switch>
             
