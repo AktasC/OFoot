@@ -123,7 +123,7 @@ class TeamController extends AbstractController
     public function delete(Team $team)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($team);
+        $entityManager->remove($team);
         $entityManager->flush();
 
         return $this->json('Equipe supprimée!');
