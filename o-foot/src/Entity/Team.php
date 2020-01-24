@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TeamRepository")
@@ -20,6 +21,7 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $address_team;
 
@@ -30,11 +32,13 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $championship_team;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $city_team;
 
@@ -55,11 +59,13 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $logo_team;
 
     /**
      * @ORM\Column(type="smallint")
+     * @Groups("api_v1")
      */
     private $manager_team;
 
@@ -80,11 +86,13 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $stadium_team;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $team_name;
 
@@ -139,6 +147,7 @@ class Team
         $this->players = new ArrayCollection();
         $this->matchs = new ArrayCollection();
         $this->practices = new ArrayCollection();
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int
@@ -146,12 +155,12 @@ class Team
         return $this->id;
     }
 
-    public function getAddressTeam(): ?string
+    public function getaddressTeam(): ?string
     {
         return $this->address_team;
     }
 
-    public function setAddressTeam(string $address_team): self
+    public function setaddressTeam(string $address_team): self
     {
         $this->address_team = $address_team;
 

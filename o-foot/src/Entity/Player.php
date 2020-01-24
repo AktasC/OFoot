@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PlayerRepository")
@@ -20,66 +21,79 @@ class Player
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $assist_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $defeat_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $draw_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $goal_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $match_player;
 
     /**
      * @ORM\Column(type="smallint")
+     * @Groups("api_v1")
      */
     private $number_jersey_player;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $picture_player;
 
     /**
      * @ORM\Column(type="string", length=128)
+     * @Groups("api_v1")
      */
     private $player_name;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $position_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $red_card_player;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Groups("api_v1")
      */
     private $role_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $victory_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $yellow_card_player;
 
@@ -102,6 +116,7 @@ class Player
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="players")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("api_v1")
      */
     private $team;
 

@@ -1,11 +1,6 @@
 // == Import : npm
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink
-} from "react-router-dom";
+import ReactNotifications from 'react-notifications-component';
 
 // == Import : local
 import './app.scss';
@@ -19,6 +14,7 @@ import Footer from '../Footer';
 const App = () => (
   <div id="app">
     <Header />
+    <ReactNotifications />
     <Page />
     <Footer />
   </div>

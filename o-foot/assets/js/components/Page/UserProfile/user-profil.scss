@@ -1,0 +1,22 @@
+#userProfile {
+  margin: 2em 0;
+  color: #212532;
+
+  & .sweatband {
+    padding: 4em;
+    background: linear-gradient( rgba(0, 0, 0, .55), rgba(0, 0, 0, 0.70) ),url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/France_champion_of_the_Football_World_Cup_Russia_2018.jpg/1200px-France_champion_of_the_Football_World_Cup_Russia_2018.jpg');    
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2em;
+    color: white;
+  }
+
+  & .avatar-custom {
+    object-fit: cover;
+  }
+
+  & .container {
+    margin: 1em auto;
+}
+
+}
