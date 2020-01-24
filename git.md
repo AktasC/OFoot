@@ -26,7 +26,7 @@
 
 ## Branch management
 
-- List all branches :
+- List all branches (local + remote) :
     - `git branch -r`
 
 - Create a branch :
