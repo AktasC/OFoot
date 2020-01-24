@@ -16,6 +16,7 @@ import Login from '../../containers/Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
 import UserProfile from '../../containers/UserProfile';
+import TeamDashboard from './TeamDashboard';
 
 import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
@@ -37,6 +38,9 @@ class Page extends React.Component {
       <div id="page">    
 
         <Switch>
+          <Route path='/team'>
+            <TeamDashboard />
+          </Route>
           <Route exact path={`/user/profile/${this.props.userId}`}>
             <UserProfile />
           </Route>

@@ -9,7 +9,7 @@ const loginMiddleware = (store) => (next) => (action) => {
       const {
         EmailValue,
         PasswordValue,
-      } = store.getState().loginForm;
+      } = store.getState().loginForm;      
 
       axios.post('/api/login', {
           email: EmailValue,
