@@ -8,7 +8,13 @@ import { FaBar } from 'react-icons/fa';
 import './header.scss';
 
 
-const Header = ({ logged }) => (
+const Header = ({ logged, disconnect }) => {
+
+  const disconnectionRequested = () => {
+    disconnect();
+  };
+  
+  return(
 
   <Navbar id="header" collapseOnSelect expand="lg" fixed="top">
     <NavLink to="/" className="link">
@@ -44,7 +50,7 @@ const Header = ({ logged }) => (
           <NavLink to="/" className="dropdown-link">Voir son profil</NavLink>
         </NavDropdown.Item>
         <NavDropdown.Item href="">
-          <NavLink to="/" className="dropdown-link" onClick={console.log('je veux me deco')}>Se déconnecter</NavLink>
+          <NavLink to="/" className="dropdown-link" onClick={disconnectionRequested}>Se déconnecter</NavLink>
         </NavDropdown.Item>
       </NavDropdown>
     </Nav>
@@ -55,6 +61,7 @@ const Header = ({ logged }) => (
 
 
 );
+}
 
 export default Header;
 
