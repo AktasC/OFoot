@@ -20,16 +20,16 @@ Version 1.0
 |---|---|---|
 |/api/v1/games| api_v1_games_list | GET  |
 |/api/v1/games/{id}| api_v1_games_show | GET |
-|/api/v1/games| api_v1_games_new | POST |
-|/api/v1/games /{id}| api_v1_games_info_edit | PUT |
-|/api/v1/games /{id}| api_v1_games_stats_edit | PUT |
-|/api/v1/games /{id}| api_v1_games_delete | DELETE |
+|/api/v1/games/new| api_v1_games_new | POST |
+|/api/v1/games/edit/info/{id}| api_v1_games_info_edit | POST |
+|/api/v1/games/edit/stats/{id}| api_v1_games_stats_edit | POST |
+|/api/v1/games/delete/{id}| api_v1_games_delete | DELETE |
 |---|---|---|
 |/api/v1/players | api_v1_players_list | GET  |
-|/api/v1/players /{id}  | api_v1_players_show | GET |
-|/api/v1/players  | api_v1_players_new | POST |
-|/api/v1/players /{id} | api_v1_players_edit | PUT |
-|/api/v1/players /{id} | api_v1_players_delete | DELETE |
+|/api/v1/players/{id}  | api_v1_players_show | GET |
+|/api/v1/players/new  | api_v1_players_new | POST |
+|/api/v1/players/edit/{id} | api_v1_players_edit | POST |
+|/api/v1/players/delete/{id} | api_v1_players_delete | DELETE |
 |---|---|---|
 |/api/v1/positions| api_v1_positions_list | GET  |
 |/api/v1/positions/{id}  | api_v1_positions_show | GET |
@@ -51,15 +51,19 @@ Version 1.0
 |---|---|---|
 |/api/v1/teams| api_v1_teams_list | GET  |
 |/api/v1/teams/{id}  | api_v1_teams_show | GET |
-|/api/v1/teams | api_v1_teams_new | POST |
-|/api/v1/teams/{id} | api_v1_teams_edit | PUT |
-|/api/v1/teams/{id} | api_v1_teams_delete | DELETE |
+|/api/v1/teams/{id}/players  | api_v1_teams_player | GET |
+|/api/v1/teams/new | api_v1_teams_new | POST |
+|/api/v1/teams/edit/{id} | api_v1_teams_edit | POST |
+|/api/v1/teams/delete/{id} | api_v1_teams_delete | DELETE |
 |---|---|---|
 |/api/v1/users | api_v1_users_list | GET  |
 |/api/v1/users/{id}  | api_v1_users_show | GET |
-|/api/v1/users | api_v1_users_new | POST |
-|/api/v1/users/{id} | api_v1_users_edit | PUT |
-|/api/v1/users/{id} | api_v1_users_delete | DELETE |
+|/api/v1/users/new | api_v1_users_new | POST |
+|/api/v1/users/edit/{id} | api_v1_users_edit | POST |
+|/api/v1/users/delete/{id} | api_v1_users_delete | DELETE |
+|---|---|---|
+|/api/register | app_register | POST |
+|/api/login| app_login | GET |
 
 
 ## Les contrôleurs
@@ -80,16 +84,16 @@ Version 1.0
 |---|---|---|
 |/api/v1/games | Api\V1\GameController | ->list() |
 |/api/v1/games /{id} | Api\V1\GameController| ->show() |
-|/api/v1/games | Api\V1\GameController| ->new() |
-|/api/v1/games /{id} | Api\V1\GameController| ->editInfos() |
-|/api/v1/games /{id} | Api\V1\GameController| ->editStats() |
-|/api/v1/games /{id} | Api\V1\GameController| ->delete() |
+|/api/v1/games/news | Api\V1\GameController| ->new() |
+|/api/v1/games/edit/info/{id}| Api\V1\GameController| ->editInfos() |
+|/api/v1/games/edit/stats/{id}| Api\V1\GameController| ->editStats() |
+|/api/v1/games/delete/{id| Api\V1\GameController| ->delete() |
 |---|---|---|
 |/api/v1/players| Api\V1\PlayerController | ->list() |
 |/api/v1/players/{id} | Api\V1\PlayerController| ->show() |
-|/api/v1/players| Api\V1\PlayerController| ->new() |
-|/api/v1/players/{id} | Api\V1\PlayerController| ->edit() |
-|/api/v1/players/{id} | Api\V1\PlayerController| ->delete() |
+|/api/v1/players/new| Api\V1\PlayerController| ->new() |
+|/api/v1/players/edit/{id} | Api\V1\PlayerController| ->edit() |
+|/api/v1/players/delete/{id}| Api\V1\PlayerController| ->delete() |
 |---|---|---|
 |/api/v1/positions| Api\V1\PositionController | ->list() |
 |/api/v1/positions/{id}| Api\V1\PositionController | ->show() |
@@ -111,12 +115,16 @@ Version 1.0
 |---|---|---|
 |/api/v1/teams| Api\V1\TeamController | ->list() |
 |/api/v1/teams/{id}| Api\V1\TeamController  | ->show() |
-|/api/v1/teams| Api\V1\TeamController | ->new() |
-|/api/v1/teams/{id}| Api\V1\TeamController  | ->edit() |
-|/api/v1/teams/{id}| Api\V1\TeamController | ->delete() |
+|/api/v1/teams/{id}/players| Api\V1\TeamController  | ->playersByTeam() |
+|/api/v1/teams/new | Api\V1\TeamController | ->new() |
+|/api/v1/teams/edit/{id} | Api\V1\TeamController  | ->edit() |
+|/api/v1/teams/delete/{id}| Api\V1\TeamController | ->delete() |
 |---|---|---|
 |/api/v1/users| Api\V1\UserController| ->list() |
 |/api/v1/users/{id}| Api\V1\UserController | ->show() |
-|/api/v1/users| Api\V1\UserController| ->new() |
-|/api/v1/users/{id}| Api\V1\UserController | ->edit() |
-|/api/v1/users/{id}| Api\V1\UserController| ->delete() |
+|/api/v1/users/new | Api\V1\UserController| ->new() |
+|/api/v1/users/edit/{id}| Api\V1\UserController | ->edit() |
+|/api/v1/users/delete/{id}| Api\V1\UserController| ->delete() |
+|---|---|---|
+|/api/register | Api\RegistrationController | POST |
+|/api/login| Api\SecurityController | GET |
