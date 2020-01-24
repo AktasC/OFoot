@@ -8,7 +8,7 @@ import { FaBar } from 'react-icons/fa';
 import './header.scss';
 
 
-const Header = () => (
+const Header = ({ logged }) => (
 
   <Navbar id="header" collapseOnSelect expand="lg" fixed="top">
     <NavLink to="/" className="link">
@@ -18,20 +18,39 @@ const Header = () => (
       </Navbar.Brand>
     </NavLink>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-    <Navbar.Collapse id="responsive-navbar-nav">
-      <Nav className="mr-auto" />
 
-      <Nav>
-        <NavDropdown alignRight title="Par là !" id="collasible-nav-dropdown">
-          <NavDropdown.Item href="">
-            <NavLink to="register" className="dropdown-link">S'inscrire</NavLink>
-          </NavDropdown.Item>
-          <NavDropdown.Item href="">
-            <NavLink to="login" className="dropdown-link">Se connecter</NavLink>
-          </NavDropdown.Item>
-        </NavDropdown>
-      </Nav>
-    </Navbar.Collapse>
+    {!logged && 
+    <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="mr-auto" />
+    <Nav>
+      <NavDropdown alignRight title="Par là !" id="collasible-nav-dropdown">
+        <NavDropdown.Item href="">
+          <NavLink to="register" className="dropdown-link">S'inscrire</NavLink>
+        </NavDropdown.Item>
+        <NavDropdown.Item href="">
+          <NavLink to="login" className="dropdown-link">Se connecter</NavLink>
+        </NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
+  </Navbar.Collapse>
+    }
+
+  {logged && 
+    <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="mr-auto" />
+    <Nav>
+      <NavDropdown alignRight title="Zone User" id="collasible-nav-dropdown">
+        <NavDropdown.Item href="">
+          <NavLink to="/" className="dropdown-link">Voir son profil</NavLink>
+        </NavDropdown.Item>
+        <NavDropdown.Item href="">
+          <NavLink to="/" className="dropdown-link" onClick={console.log('je veux me deco')}>Se déconnecter</NavLink>
+        </NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
+  </Navbar.Collapse>
+    }
+    
   </Navbar>
 
 
