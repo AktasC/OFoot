@@ -5,6 +5,7 @@ const initialState = {
   username: 'Zizoudu13',
   avatar: '',
   logged: false,
+  id:'',
   
 };
 
@@ -18,14 +19,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
+        id: action.value,
       };
     default: return state;
   }
 };
 
-export const logUser = () => (
+export const logUser = (value) => (
   {
   type: LOG_USER,
+  value
 });
 
 // ---- export

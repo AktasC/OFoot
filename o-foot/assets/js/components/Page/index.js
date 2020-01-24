@@ -21,13 +21,13 @@ import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 
-const Page = ({ logged, signupDone }) => (  
+const Page = ({ logged, signupDone, id }) => (  
 
   <div id="page">    
 
     <Switch>
-      <Route exact path="/user/profile/:id">
-        <UserProfile />
+    <Route exact path={`/user/profile/${id}`}>
+        {!logged ? <Redirect to='/' /> : <UserProfile />} 
       </Route>
       <Route path='/register'>
         {signupDone ? <Redirect to="login" /> : <Register />}   
@@ -39,10 +39,10 @@ const Page = ({ logged, signupDone }) => (
         <WhoAreWe />
       </Route>
       <Route exact path='/'>
-        {logged ? <Redirect to="/user/profile" /> : <Home />}        
+        {logged ? <Redirect to={`/user/profile/${id}`} /> : <Home />}        
       </Route>
       <Route path='/login'>
-        <Login />
+        {logged ? <Redirect to={`/user/profile/${id}`} /> : <Login />} 
       </Route>
     </Switch>
         
