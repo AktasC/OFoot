@@ -7,9 +7,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
- * @Route("/api/v1/matchs", name="api_v1_matchs_")
+ * @Route("/api/v1/games", name="api_v1_games_")
  */
-class MatchController extends AbstractController
+class GameController extends AbstractController
 {
    /**
      * @Route("/", name="list", methods={"GET"})

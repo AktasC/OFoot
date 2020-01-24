@@ -118,10 +118,13 @@ class TeamController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="delete", requirements={"id": "\d+"}, methods={"DELETE"})
+     * @Route("/delete/{id}", name="delete", requirements={"id": "\d+"}, methods={"POST"})
      */
-    public function delete()
+    public function delete(Team $team)
     {
-        return;
-    }
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($team);
+        $entityManager->flush();
+        return $this->json('Équipe bien supprimée!');
+    } 
 }

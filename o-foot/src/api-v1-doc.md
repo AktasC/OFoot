@@ -18,12 +18,12 @@ Version 1.0
 |/api/v1/compositions/{id} | api_v1_compositions_edit | PUT |
 |/api/v1/compositions/{id} | api_v1_compositions_delete | DELETE |
 |---|---|---|
-|/api/v1/matchs| api_v1_matchs_list | GET  |
-|/api/v1/matchs/{id}| api_v1_matchs_show | GET |
-|/api/v1/matchs| api_v1_matchs_new | POST |
-|/api/v1/matchs /{id}| api_v1_matchs_info_edit | PUT |
-|/api/v1/matchs /{id}| api_v1_matchs_stats_edit | PUT |
-|/api/v1/matchs /{id}| api_v1_matchs_delete | DELETE |
+|/api/v1/games| api_v1_games_list | GET  |
+|/api/v1/games/{id}| api_v1_games_show | GET |
+|/api/v1/games| api_v1_games_new | POST |
+|/api/v1/games /{id}| api_v1_games_info_edit | PUT |
+|/api/v1/games /{id}| api_v1_games_stats_edit | PUT |
+|/api/v1/games /{id}| api_v1_games_delete | DELETE |
 |---|---|---|
 |/api/v1/players | api_v1_players_list | GET  |
 |/api/v1/players /{id}  | api_v1_players_show | GET |
@@ -78,12 +78,12 @@ Version 1.0
 |/api/v1/compositions/{id} |Api\V1\CompositionController| ->edit() |
 |/api/v1/compositions/{id} |Api\V1\CompositionController| ->delete() |
 |---|---|---|
-|/api/v1/matchs | Api\V1\MatchController | ->list() |
-|/api/v1/matchs /{id} | Api\V1\MatchController| ->show() |
-|/api/v1/matchs | Api\V1\MatchController| ->new() |
-|/api/v1/matchs /{id} | Api\V1\MatchController| ->editInfos() |
-|/api/v1/matchs /{id} | Api\V1\MatchController| ->editStats() |
-|/api/v1/matchs /{id} | Api\V1\MatchController| ->delete() |
+|/api/v1/games | Api\V1\GameController | ->list() |
+|/api/v1/games /{id} | Api\V1\GameController| ->show() |
+|/api/v1/games | Api\V1\GameController| ->new() |
+|/api/v1/games /{id} | Api\V1\GameController| ->editInfos() |
+|/api/v1/games /{id} | Api\V1\GameController| ->editStats() |
+|/api/v1/games /{id} | Api\V1\GameController| ->delete() |
 |---|---|---|
 |/api/v1/players| Api\V1\PlayerController | ->list() |
 |/api/v1/players/{id} | Api\V1\PlayerController| ->show() |
