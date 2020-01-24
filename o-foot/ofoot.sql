@@ -279,13 +279,13 @@ INSERT INTO `user` (`id`, `email`, `roles`, `password`, `birthdate`, `first_name
 (3, 'pedro@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$NWGjvzZVpgLQMR2J0rE9iQ$WGvxvN5EehH+pRyC0wR6bmY6xGEX/W6hMmPAYcxyS+s', NULL, 'Pedro', 'Cascao', NULL, '2020-01-24 12:57:58', NULL),
 (4, 'cebrail@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$jNilvbzIXSCwHp4waqhQew$MFE1vueZPUY2jJjIs+p8R6KPMYZemfnHX37Mt8ZSDgg', NULL, 'Cebrail', 'Aktas', NULL, '2020-01-24 12:58:28', NULL),
 (5, 'marine@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$mPIwQNus5rgTJNPItOUyfA$6AOn3bClZkAJT+nsF4Gb4akY9cmYkwhq/nJfqnTCFFY', NULL, 'Marine', 'Berthier', NULL, '2020-01-24 12:58:59', NULL),
-(6, 'Mickael@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$rQ4AlYjmbKjNdHYzYenJEQ$RVQktJFg7MaQ6g3iYzhjE/z9Ivv/uChoqpHaqCuwdq4', NULL, 'Mickael', 'Rassicot', NULL, '2020-01-24 12:59:15', NULL),
+(6, 'mickael@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$rQ4AlYjmbKjNdHYzYenJEQ$RVQktJFg7MaQ6g3iYzhjE/z9Ivv/uChoqpHaqCuwdq4', NULL, 'Mickael', 'Rassicot', NULL, '2020-01-24 12:59:15', NULL),
 (7, 'marco@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$eTjHYWLYR7QLrl+MdfaYlg$QrvxscWwIWZv4g2HS14YvgMxB6xnVAHojePuA5HQi3M', NULL, 'Marco', 'Verratti', NULL, '2020-01-24 13:05:02', NULL),
 (8, 'dimitri@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$OqWtx5ILwt4TbSK8BZ+bxQ$tX9LXYuTFWSslMQ745EZNn1m7zp3n4FkkImYueY1btE', NULL, 'Dimitri', 'Payet', NULL, '2020-01-24 13:06:15', NULL),
-(9, 'Steve@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$daaxhEyOeMT8maYf5gfwhg$mxhW4+BJY3TkBNrTDDd5o7Og5DYfhR9s1fQXeQeWYPo', NULL, 'Steve', 'Mandanda', NULL, '2020-01-24 13:07:44', NULL),
-(10, 'Kevin@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$H21sh3wsJRdlJ05liEowfg$DFvW1uAuBft0lKp2DNxwFNE34QfyOHRdYfyD6Um7QRE', NULL, 'Kevin', 'Strootman', NULL, '2020-01-24 13:08:50', NULL),
-(11, 'Boubacar@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$LOUIqXBX7RLLF41YFE6ELg$rojs/g2Rz4VbdQFe0j9hlCmmIi93CE2Z9VnSPmQq1Os', NULL, 'Boubacar', 'Kamara', NULL, '2020-01-24 13:09:47', NULL),
-(12, 'Florian@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$cbHS5qM+xuXAlEI+gVlElg$RdP1LkVTZ8HD4meWM7xGUhobVlRH+j0yWhaobj86lNs', NULL, 'Florian', 'Thauvin', NULL, '2020-01-24 13:10:51', NULL);
+(9, 'steve@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$daaxhEyOeMT8maYf5gfwhg$mxhW4+BJY3TkBNrTDDd5o7Og5DYfhR9s1fQXeQeWYPo', NULL, 'Steve', 'Mandanda', NULL, '2020-01-24 13:07:44', NULL),
+(10, 'kevin@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$H21sh3wsJRdlJ05liEowfg$DFvW1uAuBft0lKp2DNxwFNE34QfyOHRdYfyD6Um7QRE', NULL, 'Kevin', 'Strootman', NULL, '2020-01-24 13:08:50', NULL),
+(11, 'boubacar@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$LOUIqXBX7RLLF41YFE6ELg$rojs/g2Rz4VbdQFe0j9hlCmmIi93CE2Z9VnSPmQq1Os', NULL, 'Boubacar', 'Kamara', NULL, '2020-01-24 13:09:47', NULL),
+(12, 'florian@gmail.com', '["ROLE_USER"]', '$argon2id$v=19$m=65536,t=4,p=1$cbHS5qM+xuXAlEI+gVlElg$RdP1LkVTZ8HD4meWM7xGUhobVlRH+j0yWhaobj86lNs', NULL, 'Florian', 'Thauvin', NULL, '2020-01-24 13:10:51', NULL);
 
 -- --------------------------------------------------------
 
