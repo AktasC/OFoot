@@ -100,6 +100,7 @@ class TeamController extends AbstractController
         ->setChampionshipTeam($data->getChampionshipTeam())
         ->setCityTeam($data->getCityTeam())
         ->setStadiumTeam($data->getStadiumTeam())
+        ->setLogoTeam($data->getLogoTeam())
         ->setTeamName($data->getTeamName())
         ->setUpdatedAt(new \DateTime);
 
