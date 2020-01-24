@@ -73,11 +73,21 @@ class PlayerController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="delete", requirements={"id": "\d+"}, methods={"DELETE"})
+     * @Route("/delete/{id}", name="delete", requirements={"id": "\d+"}, methods={"DELETE"})
      */
-    public function delete()
+    public function delete(Player $player)
     {
-        return;
-    }
+        // Pour supprimer le player , il nous faut l'entity manager
+        // On récupére donc l'EntityManager
+        $entityManager = $this->getDoctrine()->getManager();
 
+        // On supprime l'entinté $player avec la fonction remove
+        $entityManager->remove($player);
+
+        // On flushe tout ce qui a été persisté avant pour être sûr que cela soit enregistré en base de données
+        $entityManager->flush();
+
+        // On retourne $user au format JSON
+        return $this->json('Player bien supprimé');
+    }
 }
