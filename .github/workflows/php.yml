@@ -5,15 +5,7 @@ on: [push, pull_request]
 jobs:
   phpunit:
     runs-on: ubuntu-latest
-    container:
-      image: mattiasgeniar/php73
-
-    steps:
-    - uses: actions/checkout@v1
-    - uses: php-actions/phpunit@master
-      with:
-        config: ./phpunit.xml
-
+    
     - name: Validate composer.json and composer.lock
       run: composer validate
       working-directory: ./o-foot
