@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mattiasgeniar/php73
-    working-directory: ./o-foot
 
     steps:
+    working-directory: ./o-foot
     - uses: actions/checkout@v1
     - uses: php-actions/phpunit@master
       with:
-        config: o-foot/phpunit.xml
+        config: ./phpunit.xml
 
     - name: Validate composer.json and composer.lock
       run: composer validate
