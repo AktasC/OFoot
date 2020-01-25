@@ -12,22 +12,19 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Validate composer.json and composer.lock
-      run: composer validate
       working-directory: ./o-foot
+      run: composer validate
 
     - name: Install composer dependencies
-      run: composer install --prefer-dist --no-scripts -q -o;
       working-directory: ./o-foot
+      run: composer install --prefer-dist --no-scripts -q -o;
 
     - name: Compile assets
+      working-directory: ./o-foot
       run: |
         yarn install --pure-lockfile
         yarn encore production --progress false
-      working-directory: ./o-foot
-
-    - name: Set custom php.ini settings
-      run: echo 'short_open_tag=off' >> /usr/local/etc/php/php.ini
-      working-directory: ./o-foot
 
     - name: Run Tests
+      working-directory: ./o-foot
       run: bin/phpunit -c phpunit.xml tests/
