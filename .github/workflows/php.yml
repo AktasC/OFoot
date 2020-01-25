@@ -30,5 +30,5 @@ jobs:
       working-directory: ./o-foot
 
     - name: Run Tests
-      run: bin/phpunit tests/
+      run: bin/phpunit -c phpunit.xml tests/
       working-directory: ./o-foot
