@@ -7,30 +7,27 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mattiasgeniar/php73
+    working-directory: ./o-foot
 
     steps:
     - uses: actions/checkout@v1
     - uses: php-actions/phpunit@master
       with:
-        config: ./o-foot/phpunit.xml
+        config: o-foot/phpunit.xml
 
     - name: Validate composer.json and composer.lock
       run: composer validate
-      working-directory: ./o-foot
 
     - name: Install composer dependencies
       run: composer install --prefer-dist --no-scripts -q -o;
-      working-directory: ./o-foot
 
     - name: Compile assets
       run: |
         yarn install --pure-lockfile
         yarn encore production --progress false
-      working-directory: ./o-foot
 
     - name: Set custom php.ini settings
       run: echo 'short_open_tag=off' >> /usr/local/etc/php/php.ini
 
     - name: Run Tests
       run: vendor/bin/phpunit tests/
-      working-directory: ./o-foot
