@@ -11,6 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: php-actions/phpunit@master
+      with:
+        config: ./o-foot/phpunit.xml
 
     - name: Validate composer.json and composer.lock
       run: composer validate
@@ -26,10 +28,8 @@ jobs:
         yarn encore production --progress false
       working-directory: ./o-foot
 
-
     - name: Set custom php.ini settings
       run: echo 'short_open_tag=off' >> /usr/local/etc/php/php.ini
-      working-directory: ./o-foot
 
     - name: Run Tests
       run: vendor/bin/phpunit tests/
