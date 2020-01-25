@@ -6,48 +6,64 @@ import { Form, Button, Col } from 'react-bootstrap';
 
 // Import scss
 import './loginform.scss';
+//import { isInputEmpty } from '../../../../../utils/validation';
 
-const LoginForm = ({
-  changeInputEmailLogin,
-  email,
-  changeInputPasswordLogin,
-  password,
-  submitForm,
-  blurInputEmail,
-  EmailValidCheck,
-  errorMessageEmail,
-  blurInputPassword,
-  PasswordValidCheck,
-  errorMessagePassword,
+class LoginForm extends React.Component {
 
-}) => {
-  const onChangeInputEmail = (event) => {
-    blurInputEmail(event.target.value);
-  };
+  constructor(props) {
+    super(props);
+  }
 
-  const onChangeInputPassword = (event) => {
-    blurInputPassword(event.target.value);
-  };
+  componentDidUpdate () {
+    console.log('cdm');
+  }
 
-  const handleChangeEmail = (event) => {
-    changeInputEmailLogin(event.target.value);
-  };
+  render() {
 
+    const {
+      changeInputEmailLogin,
+      email,
+      changeInputPasswordLogin,
+      password,
+      submitForm,
+      blurInputEmail,
+      EmailValidCheck,
+      errorMessageEmail,
+      blurInputPassword,
+      PasswordValidCheck,
+      errorMessagePassword,
+      emptyInputs
+    } = this.props;
 
-  const handleChangePassword = (event) => {
-    changeInputPasswordLogin(event.target.value);
-  };
+    const onChangeInputEmail = (event) => {
+      blurInputEmail(event.target.value);
+    };
+  
+    const onChangeInputPassword = (event) => {
+      blurInputPassword(event.target.value);
+    };
+  
+    const handleChangeEmail = (event) => {
+      changeInputEmailLogin(event.target.value);
+    };
+  
+  
+    const handleChangePassword = (event) => {
+      changeInputPasswordLogin(event.target.value);
+    };
+  
+    const onSubmitForm = (evt, email, password) => {
+      evt.preventDefault();
+      console.log(email, password); 
+      if (EmailValidCheck === true && PasswordValidCheck === true && email !== undefined && password !== undefined) {
+        submitForm();
+      } /*else {
+        emptyInputs();
+      }*/
+    };
 
-  const onSubmitForm = (evt) => {
-    evt.preventDefault();
-    if (EmailValidCheck === true && PasswordValidCheck === true) {
-      submitForm();
-    }
-  };
-
-  return (
-
-    <div id="loginForm">
+    return (
+      <div id="loginForm">
 
       <Form onSubmit={onSubmitForm}>
         <Col>
@@ -84,7 +100,9 @@ const LoginForm = ({
 
     </div>
 
-  );
+    )
+
+  }
 };
 
 LoginForm.propTypes = {

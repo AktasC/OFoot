@@ -10,6 +10,7 @@ import {
   emailValid,
   passwordlInvalid,
   passwordValid,
+  dontConnectUser
 } from '../../../store/reducer/loginForm';
 
 import {
@@ -42,6 +43,11 @@ const mapDispatchToProps = (dispatch) => ({
 
   submitForm: () => {
     const action = connectUser();
+    dispatch(action);
+  },
+
+  emptyInputs: () => {
+    const action = dontConnectUser();
     dispatch(action);
   },
 
