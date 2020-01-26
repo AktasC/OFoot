@@ -11,17 +11,20 @@ import './header.scss';
 const Header = () => (
 
   <Navbar id="header" collapseOnSelect expand="lg" fixed="top">
+    
     <NavLink to="/" className="link">
       <Navbar.Brand className="header-title">
         <img src="https://image.flaticon.com/icons/svg/861/861512.svg" alt="Logo" />
           O'FOOT
       </Navbar.Brand>
     </NavLink>
+
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
-      <Nav className="mr-auto" />
+    <Nav className="mr-auto" />
 
-      <Nav>
+    
+      
         <NavDropdown alignRight title="Par là !" id="collasible-nav-dropdown">
           <NavDropdown.Item href="">
             <NavLink to="register" className="dropdown-link">S'inscrire</NavLink>
@@ -30,7 +33,7 @@ const Header = () => (
             <NavLink to="login" className="dropdown-link">Se connecter</NavLink>
           </NavDropdown.Item>
         </NavDropdown>
-      </Nav>
+       
     </Navbar.Collapse>
   </Navbar>
 

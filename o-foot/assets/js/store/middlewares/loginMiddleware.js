@@ -16,7 +16,7 @@ const loginMiddleware = (store) => (next) => (action) => {
                 password: PasswordValue
             })
             .then(function (response) {
-                console.log(response.data.user);
+                console.log('ok'+ response.data.user);
                 store.dispatch(logUser(response.data.user));
             })
             .catch(function (error) {

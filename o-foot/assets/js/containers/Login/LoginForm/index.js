@@ -42,13 +42,13 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   submitForm: () => {
-    const action = connectUser();
-    dispatch(action);
-  },
+      const action = connectUser();
+      dispatch(action);
+    },
 
   emptyInputs: () => {
     const action = dontConnectUser();
-    dispatch(action);
+    dispatch(action)
   },
 
   blurInputEmail: (value) => {

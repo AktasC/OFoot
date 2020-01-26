@@ -52,14 +52,12 @@ class LoginForm extends React.Component {
       changeInputPasswordLogin(event.target.value);
     };
   
-    const onSubmitForm = (evt, email, password) => {
-      evt.preventDefault();
-      console.log(email, password); 
-      if (EmailValidCheck === true && PasswordValidCheck === true && email !== undefined && password !== undefined) {
-        submitForm();
-      } /*else {
-        emptyInputs();
-      }*/
+    const onSubmitForm = (evt) => {
+      evt.preventDefault(); 
+      if (email === "" && password === "") {
+        emptyInputs(); 
+      } else if (EmailValidCheck === true && PasswordValidCheck === true) {
+        submitForm();}
     };
 
     return (
