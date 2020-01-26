@@ -1,0 +1,16 @@
+{
+  "event": [
+    {
+      "id": "1",
+      "event": "Entrainement",
+      "date_time_match": "01/02/2020"    
+    },
+    {
+      "id": "2",
+      "event": "Match",
+      "date_time_match": "12/02/2020",
+      "opponent_team": "Marseille"
+    }
+  ]
+}
+

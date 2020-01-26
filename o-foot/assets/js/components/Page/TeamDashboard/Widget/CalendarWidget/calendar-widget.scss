@@ -1,0 +1,36 @@
+#calendarWidget {
+
+  width: 100%;
+  height: 70%;
+  font-size: .7em;
+    
+  & .container {
+    display: flex;
+    justify-content: space-evenly; 
+
+    & .event-card {
+      display: flex;
+      flex-direction: column;
+      height: 100px;
+      width: 150px;
+      background-color: white;
+      color: #212532;
+      border-radius: 5px;
+      box-shadow: 1px 1px 10px black;
+
+      & .buttons-col {
+        display: flex;
+        padding: 0;
+        align-items: flex-end; 
+      }
+
+      & .btn {
+        padding: 0;
+        font-size: 1em;
+        width: 50%;
+        height: 40%;
+      }
+
+    }
+  }
+}

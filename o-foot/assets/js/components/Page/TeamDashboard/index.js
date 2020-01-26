@@ -3,6 +3,7 @@ import React from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
 
 import TeamInfosCard from './TeamInfosCard';
+import CalendarWidget from './Widget/CalendarWidget';
 
 // Import scss
 import './team-dashboard.scss';
@@ -25,18 +26,22 @@ const TeamDashboard = () => {
               <TeamInfosCard teamData={teamData}/> 
             </Col>              
             <Col className="func-part">
-              <Row>
-                <div className="calendar">Calendrier</div>
-              </Row>
-              <Row>
-                <div className="effectif">Effectif</div>
-              </Row>
-              <Row className="statistics">
-                <Col>
-                  <div className="statistic-players">Statistiques Joueurs</div>
+              <Row className="func-part-row calendar">
+                <Col className="func-part-col">
+                  <CalendarWidget />
                 </Col>
-                <Col>
-                <div className="statistic-team">Statistiques Équipes</div>
+              </Row>
+              <Row className="func-part-row effectif">
+                <Col className="func-part-col">
+                  <div></div>
+                </Col>
+              </Row>
+              <Row className="func-part-row statistics">
+                <Col className="func-part-col">
+                  <div className="statistic-players"></div>
+                </Col>
+                <Col className="func-part-col">
+                <div className="statistic-team"></div>
                 </Col>
               </Row>
             </Col>
