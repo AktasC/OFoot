@@ -34,6 +34,7 @@ const initialState = {
   const VALID_EMAIL = 'VALID_EMAIL';
   const INVALID_PASSWORD = 'INVALID_PASSWORD';
   const VALID_PASSWORD = 'VALID_PASSWORD';
+  const DONT_REGISTER_USER = 'DONT_REGISTER_USER';
   
   // --- Reducer
   const reducer = (state = initialState, action = {}) => {
@@ -120,6 +121,19 @@ const initialState = {
             PasswordRegisterValidCheck: true,
             ErrorMessageInvalidPasswordRegister: '',
           }
+
+          case DONT_REGISTER_USER : 
+          return {
+            ...state,
+            ErrorMessageInvalidPasswordRegister: {password: 'Merci de renseigner votre mot de passe'},
+            PasswordRegisterValidCheck: false,
+            ErrorMessageInvalidEmailRegister: {email: 'Merci de renseigner votre adresse email'},
+            EmailRegisterValidCheck: false,
+            ErrorMessageInvalidLastname: {input: 'Merci de renseigner un nom'},
+            LastnameValidCheck : false, 
+            ErrorMessageInvalidFirstname: {input: 'Merci de renseigner un prénom'},
+            FirstnameValidCheck: false,
+          }
       
   
       default: return state;
@@ -163,6 +177,10 @@ const initialState = {
     type: REGISTER_USER,
   });
 
+  export const dontRegisterUser = () => ({
+    type: DONT_REGISTER_USER,
+  });
+
   export const signupDone = () => ({
     type: SIGNUP_DONE,
   });
@@ -170,20 +188,20 @@ const initialState = {
   export const LastNameInvalid = (value) => ({
     type: INVALID_LASTNAME,
     value,
-  })
+  });
 
   export const LastNameValid = () => ({
     type:VALID_LASTNAME
-  })
+  });
 
   export const FirstNameInvalid = (value) => ({
     type: INVALID_FIRSTNAME,
     value,
-  })
+  });
 
   export const FirstNameValid = () => ({
     type:VALID_FIRSTNAME
-  })
+  });
 
   export const emailRegisterInvalid = (value) => ({
     type: INVALID_EMAIL,
@@ -192,16 +210,16 @@ const initialState = {
 
   export const emailRegisterValid = (value) => ({
     type: VALID_EMAIL,
-  })
+  });
 
   export const PasswordRegisterInvalid = (value) => ({
     type: INVALID_PASSWORD,
     value, 
-  })
+  });
 
   export const PasswordRegisterValid = () => ({
     type: VALID_PASSWORD,
-  })
+  });
   
   // --- export
   export default reducer;

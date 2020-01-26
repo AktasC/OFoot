@@ -6,62 +6,50 @@ import { Form, Button, Col } from 'react-bootstrap';
 
 // Import scss
 import './loginform.scss';
-//import { isInputEmpty } from '../../../../../utils/validation';
 
-class LoginForm extends React.Component {
+const LoginForm = ({
+  changeInputEmailLogin,
+  email,
+  changeInputPasswordLogin,
+  password,
+  submitForm,
+  blurInputEmail,
+  EmailValidCheck,
+  errorMessageEmail,
+  blurInputPassword,
+  PasswordValidCheck,
+  errorMessagePassword,
+  emptyInputs
 
-  constructor(props) {
-    super(props);
-  }
+}) => {
+  const onChangeInputEmail = (event) => {
+    blurInputEmail(event.target.value);
+  };
 
-  componentDidUpdate () {
-    console.log('cdm');
-  }
+  const onChangeInputPassword = (event) => {
+    blurInputPassword(event.target.value);
+  };
 
-  render() {
+  const handleChangeEmail = (event) => {
+    changeInputEmailLogin(event.target.value);
+  };
 
-    const {
-      changeInputEmailLogin,
-      email,
-      changeInputPasswordLogin,
-      password,
-      submitForm,
-      blurInputEmail,
-      EmailValidCheck,
-      errorMessageEmail,
-      blurInputPassword,
-      PasswordValidCheck,
-      errorMessagePassword,
-      emptyInputs
-    } = this.props;
 
-    const onChangeInputEmail = (event) => {
-      blurInputEmail(event.target.value);
-    };
-  
-    const onChangeInputPassword = (event) => {
-      blurInputPassword(event.target.value);
-    };
-  
-    const handleChangeEmail = (event) => {
-      changeInputEmailLogin(event.target.value);
-    };
-  
-  
-    const handleChangePassword = (event) => {
-      changeInputPasswordLogin(event.target.value);
-    };
-  
-    const onSubmitForm = (evt) => {
-      evt.preventDefault(); 
+  const handleChangePassword = (event) => {
+    changeInputPasswordLogin(event.target.value);
+  };
+
+  const onSubmitForm = (evt) => {
+     evt.preventDefault(); 
       if (email === "" && password === "") {
         emptyInputs(); 
       } else if (EmailValidCheck === true && PasswordValidCheck === true) {
         submitForm();}
     };
 
-    return (
-      <div id="loginForm">
+  return (
+
+    <div id="loginForm">
 
       <Form onSubmit={onSubmitForm}>
         <Col>
@@ -98,9 +86,7 @@ class LoginForm extends React.Component {
 
     </div>
 
-    )
-
-  }
+  );
 };
 
 LoginForm.propTypes = {
@@ -113,6 +99,7 @@ LoginForm.propTypes = {
   EmailValidCheck: PropTypes.bool.isRequired,
   blurInputPassword: PropTypes.func.isRequired,
   PasswordValidCheck: PropTypes.bool.isRequired,
+  emptyInputs: PropTypes.func.isRequired
 };
 
 export default LoginForm;

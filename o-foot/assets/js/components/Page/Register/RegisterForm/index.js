@@ -25,6 +25,8 @@ const RegisterForm = ({
   blurInputPasswordRegister,
   PasswordRegisterValidCheck,
   ErrorMessageInvalidPasswordRegister,
+  emptyInputsRegister,
+  submitFormRegister,
   meta,
 }) => {
   
@@ -48,10 +50,18 @@ const RegisterForm = ({
     onValueChange(event.target.value, event.target.name);
   }
 
+  const onSubmitRegister = (evt) => {
+    evt.preventDefault(); 
+     if (inputEmailValue === "" && inputPasswordValue === "" && inputLastnameValue === "" && inputFirstnameValue === "") {
+       emptyInputsRegister(); 
+     } else if (EmailRegisterValidCheck === true && PasswordRegisterValidCheck === true && LastnameValidCheck === true && FirstnameValidCheck === true) {
+       submitFormRegister();}
+   };
+
   return (   
    <div id="registerForm">     
      
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmitRegister}>
       <Form.Row>
         <Col>
           <Form.Control 
@@ -137,6 +147,8 @@ RegisterForm.propTypes = {
   EmailRegisterValidCheck: PropTypes.bool.isRequired,
   blurInputPasswordRegister:PropTypes.func.isRequired,
   PasswordRegisterValidCheck: PropTypes.bool.isRequired,
+  emptyInputsRegister : PropTypes.func.isRequired,
+  submitFormRegister : PropTypes.func.isRequired
 };
 
 export default RegisterForm;
