@@ -10,6 +10,7 @@ const initialState = {
 };
 
 export const LOG_USER = 'LOG_USER';
+export const DISCONNECT_USER = 'DISCONNECT_USER';
 export const UPDATE_TOKEN = 'UPDATE_TOKEN';
 
 // ---- reducer
@@ -20,6 +21,13 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         logged: true,
         id: action.value,
+      };
+    case DISCONNECT_USER:
+      console.log('lognotok');
+      return {
+        ...state,
+        logged: false,
+        id: '',
       };
     break;
     case UPDATE_TOKEN:      
@@ -38,6 +46,11 @@ export const logUser = (value) => (
   value
 });
 
+export const disconnectUser = () => (
+  {
+    type: DISCONNECT_USER,
+  }
+);
 export const updateToken = (value) => (
   {
   type: UPDATE_TOKEN,
