@@ -16,6 +16,7 @@ class Team
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("api_v1")
      */
     private $id;
 
