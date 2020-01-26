@@ -10,27 +10,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - uses: php-actions/phpunit@master
 
     - name: Validate composer.json and composer.lock
+      working-directory: ${{ github.workspace }}/o-foot
       run: composer validate
-      working-directory: ./o-foot
 
     - name: Install composer dependencies
+      working-directory: ${{ github.workspace }}/o-foot
       run: composer install --prefer-dist --no-scripts -q -o;
-      working-directory: ./o-foot
 
     - name: Compile assets
+      working-directory: ${{ github.workspace }}/o-foot
       run: |
         yarn install --pure-lockfile
         yarn encore production --progress false
-      working-directory: ./o-foot
-
-
-    - name: Set custom php.ini settings
-      run: echo 'short_open_tag=off' >> /usr/local/etc/php/php.ini
-      working-directory: ./o-foot
 
     - name: Run Tests
-      run: vendor/bin/phpunit tests/
-      working-directory: ./o-foot
+      working-directory: ${{ github.workspace }}/o-foot
+      run: bin/phpunit -c phpunit.xml tests/
