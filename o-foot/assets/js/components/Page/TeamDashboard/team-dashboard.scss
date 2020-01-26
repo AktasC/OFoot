@@ -1,13 +1,36 @@
 #teamDashboard {
   margin: 2em 0;
   color: #212532;
+  height: 30vh;
 
   & .sweatband {
     padding: 4em;
-    background: linear-gradient( rgba(0, 0, 0, .55), rgba(0, 0, 0, 0.70) ),url('/img/team_dashboard.jpg');    
+    background: linear-gradient( rgba(0, 0, 0, .55), rgba(0, 0, 0, 0.70) ),url('/img/team/team_dashboard.jpg');    
     background-size: cover;
     background-position: center;
     margin-bottom: 2em;
     color: white;
+  }
+
+  & .infos-part {
+    padding: 2em 1em;
+  }
+
+  & .full-dashboard {
+    box-shadow: 1px 1px 10px #ccc;
+  }
+
+  & .func-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    & .row {
+      height: 150px;
+    }
+  }
+
+  & .statistics {
+    background: linear-gradient( rgba(0, 0, 0, .55), rgba(0, 0, 0, 0.70) ),url('/img/team/team_statistics.jpg');  
   }
 }

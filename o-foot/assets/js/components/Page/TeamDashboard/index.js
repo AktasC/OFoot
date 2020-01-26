@@ -20,11 +20,26 @@ const TeamDashboard = () => {
             <h2>DASHBOARD ÉQUIPE</h2>
           </div>
 
-          <Row>
-            <Col>
+          <Row className="full-dashboard">
+            <Col className="infos-part">
               <TeamInfosCard teamData={teamData}/> 
             </Col>              
-            <Col>2 of 2</Col>
+            <Col className="func-part">
+              <Row>
+                <div className="calendar">Calendrier</div>
+              </Row>
+              <Row>
+                <div className="effectif">Effectif</div>
+              </Row>
+              <Row className="statistics">
+                <Col>
+                  <div className="statistic-players">Statistiques Joueurs</div>
+                </Col>
+                <Col>
+                <div className="statistic-team">Statistiques Équipes</div>
+                </Col>
+              </Row>
+            </Col>
           </Row> 
         </Container>
           
