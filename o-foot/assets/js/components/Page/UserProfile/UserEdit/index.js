@@ -12,43 +12,45 @@ const UserEdit = () => {
   return (
     <div id="userEdit">
 
-<Form id="userEditForm">
+<Form>
     
-    <Row>
-        <Col>
+    <Row className="editUserInputs">
+        <Col className="colUserEdit">
         <Form.Label>Modifier l'avatar</Form.Label>
           <Form.Control
+            className="editUserInput"
             type="file"
             name="name"
             placeholder=""
           />
         </Col>
     
-        <Col>
+        <Col className="colUserEdit">
         <Form.Label>Modifier le nom d'utilisateur</Form.Label>
           <Form.Control
+            className="editUserInput"
             type="text"
             name="name"
             placeholder=""
           />
         
-        <Form.Label>Modifier l'adresse email</Form.Label>
+        <Form.Label> Modifier l'adresse email</Form.Label>
           <Form.Control 
+            className="editUserInput"
             type="email" 
             name="email" 
             placeholder="" 
              />
         </Col>
+        </Row>
     
-
+        <Row>
         <Col>
-        <Button variant="primary" type="submit">
+        <Button className="editButton" variant="primary" type="submit">
           Enregistrer les modifications
         </Button>
         </Col>
-    </Row>
-
-
+        </Row>
       </Form>
 
           
