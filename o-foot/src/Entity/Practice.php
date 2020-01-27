@@ -71,6 +71,7 @@ class Practice
     public function __construct()
     {
         $this->players = new ArrayCollection();
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int
