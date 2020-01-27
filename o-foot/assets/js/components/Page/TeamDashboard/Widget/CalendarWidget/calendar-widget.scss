@@ -1,7 +1,6 @@
 #calendarWidget {
 
-  width: 100%;
-  height: 70%;  
+  width: 100%;    
     
   & .container {
     display: flex;
@@ -22,12 +21,50 @@
     & .event-card {
       display: flex;
       flex-direction: column;
-      height: 120px;
-      width: 150px;
+      height: 130px;
+      width: 160px;
       background-color: white;
       color: #212532;
       border-radius: 5px;
       box-shadow: 1px 1px 10px black;
+
+      & .infos-col {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        & .date {
+          text-transform: uppercase;
+        }
+      }
+
+      & .opponent-col {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+
+        & .opponent {
+          text-transform: uppercase;
+          font-weight: 700;
+          font-size: 1em;
+        }
+  
+        & .opponent::before {
+          content: 'Vs';
+          position: absolute;
+          font-size: 55px;
+          color: #000000;
+          font-weight: 900;
+          left: 0px;
+          top: -40px;
+          font-family: Poppins;
+          mix-blend-mode: overlay;
+          text-shadow: 1px 1px 5px #000000;
+        } 
+      }
 
       & .participate-col {
         display: flex;
