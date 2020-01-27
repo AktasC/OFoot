@@ -9,6 +9,7 @@ import './user-profil.scss';
 
 import ShowMyTeams from './ShowMyTeams';
 import UserEdit from './UserEdit';
+import PasswordEdit from './PasswordEdit';
 
 
 const UserProfile = ( infosObj ) => {
@@ -50,7 +51,7 @@ const UserProfile = ( infosObj ) => {
       <Tabs defaultActiveKey="teams" id="uncontrolled-tab-example">
         <Tab eventKey="teams" title="Mes équipes">
           {/* On mettra ici notre composant ShowMyTeams */}
-          {infos.map((user, i) => (  
+          {infosArray.map((user, i) => (  
             <ShowMyTeams {...user.team}/>
           ))}
         </Tab>
@@ -60,7 +61,7 @@ const UserProfile = ( infosObj ) => {
         </Tab>
         <Tab eventKey="edit-password" title="Éditer mon mot de passe">
           {/* On mettra ici notre composant EditPassword */}
-          <div>Éditer mon mot de passe</div>
+          <PasswordEdit />
         </Tab>
       </Tabs> 
 

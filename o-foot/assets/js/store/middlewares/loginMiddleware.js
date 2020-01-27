@@ -15,16 +15,23 @@ const loginMiddleware = (store) => (next) => (action) => {
         username: EmailValue,
         password: PasswordValue
       })
-      .then( (response) => {
-        store.dispatch(updateToken(response.data.token));             
+      .then( (response) => {        
+        localStorage.setItem('token', response.data.token);           
       })
       .catch(function (error) {
         console.log(error);
-      });
+      });      
 
-      axios.post('/api/login', {
-        email: EmailValue,
-        password: PasswordValue
+      const token = localStorage.getItem('token');
+
+      axios({
+        method: 'post',
+        url: '/api/login',
+        headers: { 'Authorization': `Bearer ${token}` },
+        data: {
+          email: EmailValue,
+          password: PasswordValue
+        }
       })
       .then(function (response) {                
         store.dispatch(logUser(response.data.user));
