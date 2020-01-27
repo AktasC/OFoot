@@ -3,6 +3,7 @@
 namespace App\Controller\Api\V1;
 
 use App\Entity\Team;
+use App\Entity\Practice;
 use App\Repository\PlayerRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -86,6 +87,35 @@ class TeamController extends AbstractController
 
         // On retourne $team au format JSON
          return $this->json('Equipe bien créée');
+    }
+
+    
+    /**
+     * @Route("/{id}/practice", name="new_practice", methods={"POST"})
+     */
+    public function newPractice(Request $request,SerializerInterface $serializer,Team $team)
+    {
+        $data = $serializer->deserialize($request->getContent(), 'App\Entity\Practice', 'json');
+       
+        $practice = new Practice();
+
+        $practice
+                ->setTeam($team)
+                ->setAddressPractice($data->getAddressPractice())
+                ->setStadiumPractice($data->getStadiumPractice())
+                ->setDateTimePractice($data->getDateTimePractice());
+                
+              
+                $entityManager = $this->getDoctrine()->getManager();
+
+       
+                $entityManager->persist($practice);
+        
+               
+                $entityManager->flush();
+        
+                
+                 return $this->json('Entrainement crée!');
     }
 
      /**
