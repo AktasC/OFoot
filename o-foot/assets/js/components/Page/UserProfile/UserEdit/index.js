@@ -5,8 +5,6 @@ import { Form, Button, Col, Row } from 'react-bootstrap';
 // Import scss
 import './useredit.scss';
 
-
-
 const UserEdit = () => {
   
   return (

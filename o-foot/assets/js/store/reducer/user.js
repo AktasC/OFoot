@@ -1,9 +1,5 @@
-// reducer pour gérer les donénes relatives à l'utilisateur
-
 // initial state
 const initialState = {
-  username: 'Zizoudu13',
-  avatar: '',
   logged: false,
   id:'',
   token: '',

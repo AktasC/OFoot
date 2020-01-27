@@ -15,40 +15,53 @@ import Register from './Register';
 import Login from '../../containers/Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
-import UserProfile from './UserProfile';
+import UserProfile from '../../containers/UserProfile';
 
 import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 
-const Page = ({ logged, signupDone, id }) => (  
+class Page extends React.Component {
 
-  <div id="page">    
+  constructor(props) {
+    super(props);
+    this.props.loadUserInfo();    
+  }
 
-    <Switch>
-    <Route exact path={`/user/profile/${id}`}>
-        {!logged ? <Redirect to='/' /> : <UserProfile />} 
-      </Route>
-      <Route path='/register'>
-        {signupDone ? <Redirect to="login" /> : <Register />}   
-      </Route>
-      <Route path='/legals-mentions'>
-        <LegalsMentions />
-      </Route>
-      <Route path='/who-are-we'>
-        <WhoAreWe />
-      </Route>
-      <Route exact path='/'>
-        {logged ? <Redirect to={`/user/profile/${id}`} /> : <Home />}        
-      </Route>
-      <Route path='/login'>
-        {logged ? <Redirect to={`/user/profile/${id}`} /> : <Login />} 
-      </Route>
-    </Switch>
-        
-  </div>
+  render() {
+
+    const { signupDone, logged } = this.props;
+    
+    
+    return (
+      <div id="page">    
+
+        <Switch>
+          <Route exact path={`/user/profile/${this.props.userId}`}>
+            <UserProfile />
+          </Route>
+          <Route path='/register'>
+            {signupDone ? <Redirect to="login" /> : <Register />}   
+          </Route>
+          <Route path='/legals-mentions'>
+            <LegalsMentions />
+          </Route>
+          <Route path='/who-are-we'>
+            <WhoAreWe />
+          </Route>
+          <Route exact path='/'>
+            {logged ? <Redirect to={`/user/profile/${this.props.userId}`} /> : <Home />}        
+          </Route>
+          <Route path='/login'>
+            {logged ? <Redirect to={`/user/profile/${this.props.userId}`} /> : <Login />} 
+          </Route>
+        </Switch>
+            
+      </div>
+    );
+  }
  
-);
+};
 
 Page.propTypes = {
   logged: PropTypes.bool.isRequired,

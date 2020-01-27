@@ -38,8 +38,8 @@ const registerMiddleware = (store) => (next) => (action) => {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
-      }
-      
+      } 
+
       // JWT Implementation #TODO
       // axios.post('http://localhost:8001/api/login_check', { checkBody })
       // .then(function (response) {
