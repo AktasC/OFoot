@@ -30,15 +30,14 @@ class Page extends React.Component {
   componentDidUpdate() {    
     if (this.props.logged == true) {
       this.props.loadUserInfo(); 
-    }
+    }      
   }
 
   render() {
 
     const { signupDone, logged, userId } = this.props;
 
-    console.log('from render:', userId);
-    
+    console.log('from render:', userId);    
     
     return (
       <div id="page">    
@@ -73,7 +72,7 @@ class Page extends React.Component {
 Page.propTypes = {
   logged: PropTypes.bool.isRequired,
   signupDone: PropTypes.bool.isRequired,
-  userId: PropTypes.number,
+  userId: PropTypes.string,
 };
 
 export default Page;

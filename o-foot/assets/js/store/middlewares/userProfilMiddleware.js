@@ -6,8 +6,8 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {    
     case USER_PROFIL_INFO:
       
-      let token = localStorage.getItem('token');
-      let userId = localStorage.getItem('userId');
+      const token = localStorage.getItem('token');
+      const userId = localStorage.getItem('userId');
       console.log(userId);
       
       axios({

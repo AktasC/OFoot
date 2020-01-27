@@ -15,7 +15,8 @@ const loginMiddleware = (store) => (next) => (action) => {
         username: EmailValue,
         password: PasswordValue
       })
-      .then( (response) => {        
+      .then( (response) => { 
+        store.dispatch(updateToken(response.data.token)); 
         localStorage.setItem('token', response.data.token);           
       })
       .catch(function (error) {        
@@ -34,7 +35,7 @@ const loginMiddleware = (store) => (next) => (action) => {
       })
       .then(function (response) {            
         store.dispatch(logUser(response.data.user));
-        localStorage.setItem('userId', response.data.user);
+        /* localStorage.setItem('userId', response.data.user); */
       })
       .catch(function (error) {
         console.log(error);

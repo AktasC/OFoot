@@ -12,8 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   disconnect: () => {
-    console.log('deco en cours');
-    localStorage.removeItem('userId');
+    console.log('deco en cours');    
     const action = disconnectUser();
     dispatch(action);
   },
