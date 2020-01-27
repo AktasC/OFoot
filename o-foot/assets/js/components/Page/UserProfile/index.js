@@ -8,7 +8,7 @@ import './user-profil.scss';
 /* import infos from './userInfos.json'; */
 
 import ShowMyTeams from './ShowMyTeams';
-import UserEdit from './UserEdit';
+import UserEdit from '../../../containers/UserEdit';
 import PasswordEdit from './PasswordEdit';
 
 
@@ -17,7 +17,7 @@ const UserProfile = ( infosObj ) => {
   
     // Récupère les informations sur le joueurs depuis le state userProfil sous forme d'Objet
     // Transforme l'objet récupéré en array
-    var infosArray = Object.values(infosObj);
+    var infosArray = Object.values(infosObj.userInformations);
     console.log(infosObj);
     return (
       <div id="userProfile">    
@@ -57,7 +57,9 @@ const UserProfile = ( infosObj ) => {
         </Tab>
         <Tab eventKey="edit-profil" title="Éditer mon profil">
           {/* On mettra ici notre composant EditProfil */}
-          <UserEdit />
+          {infosArray.map((user) => (
+          <UserEdit {...user}/>
+          ))}
         </Tab>
         <Tab eventKey="edit-password" title="Éditer mon mot de passe">
           {/* On mettra ici notre composant EditPassword */}

@@ -21,7 +21,6 @@ import UserProfile from '../../containers/UserProfile';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 
-<<<<<<< HEAD
 class Page extends React.Component {
 
   constructor(props) {

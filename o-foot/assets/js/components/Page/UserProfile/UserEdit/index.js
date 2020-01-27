@@ -5,12 +5,30 @@ import { Form, Button, Col, Row } from 'react-bootstrap';
 // Import scss
 import './useredit.scss';
 
-const UserEdit = () => {
-  
+const UserEdit = (user, { picture_user, first_name, email, handleSubmit, handleEmailChange, handleNameChange, handleAvatarChange }) => {
+  console.log(user);
+
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    handleSubmit;
+  }
+
+  const onChangeAvatar = (evt) => {
+    handleAvatarChange(evt.target.value); 
+  }
+
+  const onChangeFirstname = (evt) => {
+    handleNameChange(evt.target.value); 
+  }
+
+  const onChangeEmail = (evt) => {
+    handleEmailChange(evt.target.value); 
+  }
+
   return (
     <div id="userEdit">
 
-      <Form>
+      <Form onSubmit={onSubmit}>
     
         <Row className="editUserInputs">
           <Col className="colUserEdit">
@@ -19,6 +37,8 @@ const UserEdit = () => {
                 className="editUserInput"
                 type="file"
                 name="name"
+                value={picture_user}
+                onChange={onChangeAvatar}
               />
           </Col>
     
@@ -28,7 +48,8 @@ const UserEdit = () => {
                 className="editUserInput"
                 type="text"
                 name="name"
-                placeholder=""
+                value={first_name}
+                onChange={onChangeFirstname}
               />
         
             <Form.Label> Modifier l'adresse email</Form.Label>
@@ -37,6 +58,8 @@ const UserEdit = () => {
                 type="email" 
                 name="email" 
                 placeholder="" 
+                value={email}
+                onChange={onChangeEmail}
              />
           </Col>
         </Row>
