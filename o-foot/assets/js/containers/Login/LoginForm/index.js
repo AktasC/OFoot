@@ -10,7 +10,7 @@ import {
   emailValid,
   passwordlInvalid,
   passwordValid,
-  dontConnectUser
+  dontConnectUser,
 } from '../../../store/reducer/loginForm';
 
 import {
@@ -19,16 +19,14 @@ import {
   checkValidityPassword,
 } from '../../../../utils/validation';
 
-const mapStateToProps = (state) => {
-  return {
-    email: state.loginForm.EmailValue,
-    password: state.loginForm.PasswordValue,
-    EmailValidCheck: state.loginForm.EmailValidCheck,
-    errorMessageEmail: state.loginForm.ErrorMessageInvalidEmail,
-    PasswordValidCheck: state.loginForm.PasswordValidCheck,
-    errorMessagePassword: state.loginForm.ErrorMessageInvalidPassword,
-  };
-};
+const mapStateToProps = (state) => ({
+  email: state.loginForm.EmailValue,
+  password: state.loginForm.PasswordValue,
+  EmailValidCheck: state.loginForm.EmailValidCheck,
+  errorMessageEmail: state.loginForm.ErrorMessageInvalidEmail,
+  PasswordValidCheck: state.loginForm.PasswordValidCheck,
+  errorMessagePassword: state.loginForm.ErrorMessageInvalidPassword,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   changeInputEmailLogin: (value) => {
@@ -42,13 +40,13 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   submitForm: () => {
-      const action = connectUser();
-      dispatch(action);
-    },
+    const action = connectUser();
+    dispatch(action);
+  },
 
   emptyInputs: () => {
     const action = dontConnectUser();
-    dispatch(action)
+    dispatch(action);
   },
 
   blurInputEmail: (value) => {

@@ -63,14 +63,14 @@ const reducer = (state = initialState, action = {}) => {
         PasswordValidCheck: true,
       };
 
-      case DONT_CONNECT_USER: 
+    case DONT_CONNECT_USER:
       return {
         ...state,
-        ErrorMessageInvalidPassword: {password: 'Merci de renseigner votre mot de passe'},
+        ErrorMessageInvalidPassword: { password: 'Merci de renseigner votre mot de passe' },
         PasswordValidCheck: false,
-        ErrorMessageInvalidEmail: {email: 'Merci de renseigner votre adresse email'},
+        ErrorMessageInvalidEmail: { email: 'Merci de renseigner votre adresse email' },
         EmailValidCheck: false,
-      }
+      };
 
 
     default: return state;
@@ -112,8 +112,8 @@ export const passwordValid = () => ({
 });
 
 export const dontConnectUser = () => ({
-  type:DONT_CONNECT_USER,
-})
+  type: DONT_CONNECT_USER,
+});
 
 // --- export
 export default reducer;
