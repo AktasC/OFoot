@@ -4,17 +4,16 @@ namespace App\Controller\Api\V1;
 
 use App\Entity\Game;
 use App\Repository\GameRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
 
 /**
  * @Route("/api/v1/games", name="api_v1_games_")
  */
 class GameController extends AbstractController
 {
-   /**
+    /**
      * @Route("/", name="list", methods={"GET"})
      */
     public function list(GameRepository $gameRepository, SerializerInterface $serializer)
@@ -41,7 +40,7 @@ class GameController extends AbstractController
         // On indique l'annotation a rajouté dans l'entité game en fonction du nom de l'api -> api_v1
         // Ceci permet d'indiquer quelles types de propriétés nous aimerions envoyer en JSON
         $data = $serializer->normalize($game, null, ['groups' => ['api_v1']]);
-        
+
         // On retourne $game au format JSON
         return $this->json($data);
     }
@@ -69,7 +68,6 @@ class GameController extends AbstractController
     {
         return;
     }
-
 
     /**
      * @Route("/{id}", name="delete", requirements={"id": "\d+"}, methods={"DELETE"})

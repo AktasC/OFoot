@@ -5,13 +5,11 @@ namespace App\Controller\Api\V1;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
  * @Route("/api/v1/positions", name="api_v1_positions_")
  */
 class PositionController extends AbstractController
 {
-    
     /**
      * @Route("/", name="list", methods={"GET"})
      */

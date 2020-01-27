@@ -65,12 +65,6 @@ class Team
     private $logo_team;
 
     /**
-     * @ORM\Column(type="smallint")
-     * @Groups("api_v1")
-     */
-    private $manager_team;
-
-    /**
      * @ORM\Column(type="smallint", nullable=true)
      */
     private $game_team;
@@ -141,6 +135,12 @@ class Team
      * @ORM\OneToMany(targetEntity="App\Entity\Practice", mappedBy="team", orphanRemoval=true)
      */
     private $practices;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="managed_teams")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $manager;
 
     public function __construct()
     {
@@ -248,18 +248,6 @@ class Team
     public function setLogoTeam(?string $logo_team): self
     {
         $this->logo_team = $logo_team;
-
-        return $this;
-    }
-
-    public function getManagerTeam(): ?int
-    {
-        return $this->manager_team;
-    }
-
-    public function setManagerTeam(int $manager_team): self
-    {
-        $this->manager_team = $manager_team;
 
         return $this;
     }
@@ -501,6 +489,18 @@ class Team
                 $practice->setTeam(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getManager(): ?User
+    {
+        return $this->manager;
+    }
+
+    public function setManager(?User $manager): self
+    {
+        $this->manager = $manager;
 
         return $this;
     }
