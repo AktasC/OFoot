@@ -2,6 +2,7 @@
 
 namespace App\Controller\Api\V1;
 
+use App\Entity\Game;
 use App\Repository\GameRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -34,9 +35,15 @@ class GameController extends AbstractController
     /**
      * @Route("/{id}", name="show", requirements={"id": "\d+"}, methods={"GET"})
      */
-    public function show()
+    public function show(Game $game, SerializerInterface $serializer)
     {
-        return;
+        // On crée une nouvelle variable $data, qui stocke la sérialisation de $game
+        // On indique l'annotation a rajouté dans l'entité game en fonction du nom de l'api -> api_v1
+        // Ceci permet d'indiquer quelles types de propriétés nous aimerions envoyer en JSON
+        $data = $serializer->normalize($game, null, ['groups' => ['api_v1']]);
+        
+        // On retourne $game au format JSON
+        return $this->json($data);
     }
 
     /**
