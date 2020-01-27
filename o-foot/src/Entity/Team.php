@@ -16,6 +16,7 @@ class Team
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("api_v1")
      */
     private $id;
 
@@ -72,7 +73,7 @@ class Team
     /**
      * @ORM\Column(type="smallint", nullable=true)
      */
-    private $match_team;
+    private $game_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
@@ -132,9 +133,9 @@ class Team
     private $players;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Match", mappedBy="team", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Game", mappedBy="team", orphanRemoval=true)
      */
-    private $matchs;
+    private $games;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Practice", mappedBy="team", orphanRemoval=true)
@@ -145,7 +146,7 @@ class Team
     {
         $this->users = new ArrayCollection();
         $this->players = new ArrayCollection();
-        $this->matchs = new ArrayCollection();
+        $this->games = new ArrayCollection();
         $this->practices = new ArrayCollection();
         $this->created_at = new \DateTime();
     }
@@ -263,14 +264,14 @@ class Team
         return $this;
     }
 
-    public function getMatchTeam(): ?int
+    public function getGameTeam(): ?int
     {
-        return $this->match_team;
+        return $this->game_team;
     }
 
-    public function setMatchTeam(?int $match_team): self
+    public function setGameTeam(?int $game_team): self
     {
-        $this->match_team = $match_team;
+        $this->game_team = $game_team;
 
         return $this;
     }
@@ -443,27 +444,27 @@ class Team
     }
 
     /**
-     * @return Collection|Match[]
+     * @return Collection|Game[]
      */
-    public function getMatchs(): Collection
+    public function getGames(): Collection
     {
-        return $this->matchs;
+        return $this->games;
     }
 
-    public function addMatch(Match $match): self
+    public function addGame(Game $match): self
     {
-        if (!$this->matchs->contains($match)) {
-            $this->matchs[] = $match;
+        if (!$this->games->contains($match)) {
+            $this->games[] = $match;
             $match->setTeam($this);
         }
 
         return $this;
     }
 
-    public function removeMatch(Match $match): self
+    public function removeGame(Game $match): self
     {
-        if ($this->matchs->contains($match)) {
-            $this->matchs->removeElement($match);
+        if ($this->games->contains($match)) {
+            $this->games->removeElement($match);
             // set the owning side to null (unless already changed)
             if ($match->getTeam() === $this) {
                 $match->setTeam(null);
