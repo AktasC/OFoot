@@ -24,14 +24,12 @@ import 'animate.css';
 class Page extends React.Component {
 
   constructor(props) {
-    super(props); 
+    super(props);    
   }
 
   componentDidUpdate() {    
     if (this.props.logged == true) {
-      this.props.loadUserInfo();
-      
-      console.log('from componentDidUpdate', this.props.userId);
+      this.props.loadUserInfo(); 
     }
   }
 

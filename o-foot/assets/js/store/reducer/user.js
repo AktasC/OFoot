@@ -1,8 +1,8 @@
 // initial state
 const initialState = {
   logged: false,
-  id:'',
-  token: '',
+  userId: null,
+  token: null,
 };
 
 export const LOG_USER = 'LOG_USER';
@@ -16,14 +16,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
-        id: action.value,
+        userId: action.value,
       };
-    case DISCONNECT_USER:
-      console.log('lognotok');
+    case DISCONNECT_USER:      
       return {
         ...state,
         logged: false,
-        id: '',
+        userId: '',
       };
     break;
     case UPDATE_TOKEN:      

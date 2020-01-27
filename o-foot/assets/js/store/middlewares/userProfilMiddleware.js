@@ -6,9 +6,11 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {    
     case USER_PROFIL_INFO: 
       const {
-        id,
+        userId,
         token,
       }=store.getState().user; 
+
+      console.log('from appel axios', token);
     
 
       const config = {
@@ -17,7 +19,7 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         }
       } 
 
-      axios.get(`/api/v1/users/${id}`, config)
+      axios.get(`/api/v1/users/${userId}`, config)
       
       .then(function (response) {
         console.log('from axios:', response.data); 
@@ -25,7 +27,7 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         store.dispatch(actionLoadInfo);
       })
       .catch(function (error) {
-        console.log("error:", error);
+        console.log("error from appel appel axios:", error);
       });         
       break;    
 
