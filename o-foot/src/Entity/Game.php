@@ -118,6 +118,8 @@ class Game
     {
         $this->players = new ArrayCollection();
         $this->compositions = new ArrayCollection();
+        $this->created_at = new \DateTime();
+        $this->teams = new ArrayCollection();
     }
 
     public function getId(): ?int
