@@ -3,12 +3,12 @@
     {
       "id": "1",
       "event": "Entrainement",
-      "date_time_match": "01 02 2020 18 00"    
+      "date_time_match": "2020-01-02 18:00:00"    
     },
     {
       "id": "2",
       "event": "Match",
-      "date_time_match": "12 02 2020 20 00",
+      "date_time_match": "2020-12-02 20:00:00",
       "opponent_team": "Marseille"
     }
   ]
