@@ -10,6 +10,7 @@ import {
 // Import scss
 import './page.scss';
 
+import { store } from 'react-notifications-component';
 import Home from './Home';
 import Register from './Register';
 import Login from '../../containers/Login';
@@ -17,7 +18,6 @@ import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
 import UserProfile from '../../containers/UserProfile';
 
-import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 
@@ -35,7 +35,7 @@ class Page extends React.Component {
 
   render() {
 
-    const { signupDone, logged } = this.props;
+    const { signupDone, logged, userId } = this.props;
 
     console.log('from render:', this.props.userId);
     
@@ -61,7 +61,7 @@ class Page extends React.Component {
           </Route>
           <Route path='/login'>
             {logged ? <Redirect to={`/user/profile/${this.props.userId}`} /> : <Login />} 
-          </Route>
+          </Route> 
         </Switch>
             
       </div>

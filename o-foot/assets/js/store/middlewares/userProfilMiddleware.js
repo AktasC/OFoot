@@ -6,20 +6,17 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {    
     case USER_PROFIL_INFO: 
       const {
-        userId,
-        token,
+        userId,        
       }=store.getState().user; 
 
-      console.log('from appel axios', token);
-    
-
-      const config = {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      } 
-
-      axios.get(`/api/v1/users/${userId}`, config)
+      
+      const token = localStorage.getItem('token');
+      
+      axios({
+        method: 'get',
+        url: `/api/v1/users/${userId}`,
+        headers: { 'Authorization': `Bearer ${token}` }       
+      })
       
       .then(function (response) {
         console.log('from axios:', response.data); 

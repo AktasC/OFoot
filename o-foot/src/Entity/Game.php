@@ -28,6 +28,7 @@ class Game
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $assist_game;
 
@@ -45,11 +46,13 @@ class Game
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $goal_conceded_game;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $goal_scored_game;
 
@@ -61,11 +64,13 @@ class Game
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $presence_game;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $red_card_game;
 
@@ -77,6 +82,7 @@ class Game
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $yellow_card_game;
 
@@ -92,6 +98,7 @@ class Game
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Player", mappedBy="games")
+     * @Groups("api_v1")
      */
     private $players;
 
@@ -166,26 +173,26 @@ class Game
         return $this;
     }
 
-    public function getGoalConcededTeam(): ?int
+    public function getGoalConcededGame(): ?int
     {
-        return $this->goal_conceded_team;
+        return $this->goal_conceded_game;
     }
 
-    public function setGoalConcededTeam(?int $goal_conceded_team): self
+    public function setGoalConcededGame(?int $goal_conceded_game): self
     {
-        $this->goal_conceded_team = $goal_conceded_team;
+        $this->goal_conceded_team = $goal_conceded_game;
 
         return $this;
     }
 
-    public function getGoalScoredTeam(): ?int
+    public function getGoalScoredGame(): ?int
     {
-        return $this->goal_scored_team;
+        return $this->goal_scored_game;
     }
 
-    public function setGoalScoredTeam(?int $goal_scored_team): self
+    public function setGoalScoredGame(?int $goal_scored_game): self
     {
-        $this->goal_scored_team = $goal_scored_team;
+        $this->goal_scored_game = $goal_scored_game;
 
         return $this;
     }
