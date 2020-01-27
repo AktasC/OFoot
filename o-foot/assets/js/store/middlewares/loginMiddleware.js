@@ -15,10 +15,10 @@ const loginMiddleware = (store) => (next) => (action) => {
         username: EmailValue,
         password: PasswordValue
       })
-      .then( (response) => {
+      .then(function (response) {        
         store.dispatch(updateToken(response.data.token));             
       })
-      .catch(function (error) {
+      .catch(function (error) {        
         console.log(error);
       });
 
@@ -26,7 +26,8 @@ const loginMiddleware = (store) => (next) => (action) => {
         email: EmailValue,
         password: PasswordValue
       })
-      .then(function (response) {                
+      .then(function (response) { 
+        console.log(response);        
         store.dispatch(logUser(response.data.user));
       })
       .catch(function (error) {

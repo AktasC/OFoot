@@ -24,13 +24,22 @@ import 'animate.css';
 class Page extends React.Component {
 
   constructor(props) {
-    super(props);
-    this.props.loadUserInfo();    
+    super(props); 
+  }
+
+  componentDidUpdate() {    
+    if (this.props.logged == true) {
+      this.props.loadUserInfo();
+      
+      console.log('from componentDidUpdate', this.props.userId);
+    }
   }
 
   render() {
 
     const { signupDone, logged } = this.props;
+
+    console.log('from render:', this.props.userId);
     
     
     return (
@@ -66,6 +75,7 @@ class Page extends React.Component {
 Page.propTypes = {
   logged: PropTypes.bool.isRequired,
   signupDone: PropTypes.bool.isRequired,
+  userId: PropTypes.number,
 };
 
 export default Page;
