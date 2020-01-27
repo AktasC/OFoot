@@ -47,7 +47,7 @@ class Player
      * @ORM\Column(type="smallint", nullable=true)
      * @Groups("api_v1")
      */
-    private $match_player;
+    private $game_player;
 
     /**
      * @ORM\Column(type="smallint")
@@ -136,15 +136,15 @@ class Player
     private $practices;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Match", inversedBy="players")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Game", inversedBy="players")
      */
-    private $matchs;
+    private $games;
 
     public function __construct()
     {
         $this->composition = new ArrayCollection();
         $this->practices = new ArrayCollection();
-        $this->matchs = new ArrayCollection();
+        $this->games = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -200,14 +200,14 @@ class Player
         return $this;
     }
 
-    public function getMatchPlayer(): ?int
+    public function getGamePlayer(): ?int
     {
-        return $this->match_player;
+        return $this->game_player;
     }
 
-    public function setMatchPlayer(?int $match_player): self
+    public function setGamePlayer(?int $game_player): self
     {
-        $this->match_player = $match_player;
+        $this->game_player = $game_player;
 
         return $this;
     }
@@ -421,26 +421,26 @@ class Player
     }
 
     /**
-     * @return Collection|Match[]
+     * @return Collection|Game[]
      */
-    public function getMatchs(): Collection
+    public function getGames(): Collection
     {
-        return $this->matchs;
+        return $this->games;
     }
 
-    public function addMatch(Match $match): self
+    public function addGame(Game $match): self
     {
-        if (!$this->matchs->contains($match)) {
-            $this->matchs[] = $match;
+        if (!$this->games->contains($match)) {
+            $this->games[] = $match;
         }
 
         return $this;
     }
 
-    public function removeMatch(Match $match): self
+    public function removeGame(Game $match): self
     {
-        if ($this->matchs->contains($match)) {
-            $this->matchs->removeElement($match);
+        if ($this->games->contains($match)) {
+            $this->games->removeElement($match);
         }
 
         return $this;

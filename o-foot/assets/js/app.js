@@ -17,10 +17,10 @@ import App from './components/App';
 // 1. Le composant racine (celui qui contient l'ensemble de l'app)
 const rootComponent = (
   <Provider store={store}>
-    <Router>      
-      <App />      
+    <Router>
+      <App />
     </Router>
-  </Provider>    
+  </Provider>
 );
 
 // 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)
@@ -28,4 +28,3 @@ const target = document.getElementById('root');
 
 // Le rendu de React => DOM
 render(rootComponent, target);
-

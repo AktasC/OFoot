@@ -2,14 +2,26 @@ import { connect } from 'react-redux';
 
 import RegisterForm from '../../components/Page/Register/RegisterForm';
 
-import { changeInput, registerUser, LastNameInvalid, LastNameValid, FirstNameInvalid, FirstNameValid, emailRegisterInvalid, emailRegisterValid, PasswordRegisterInvalid, PasswordRegisterValid } from '../../store/reducer/registerForm';
+import {
+  changeInput,
+  registerUser,
+  LastNameInvalid,
+  LastNameValid,
+  FirstNameInvalid,
+  FirstNameValid,
+  emailRegisterInvalid,
+  emailRegisterValid,
+  PasswordRegisterInvalid,
+  PasswordRegisterValid,
+  dontRegisterUser,
+} from '../../store/reducer/registerForm';
 
 import {
   isInputEmpty,
   isInputEmptyFirstname,
   checkEmptiness,
-  checkValidity, 
-  checkValidityPassword
+  checkValidity,
+  checkValidityPassword,
 } from '../../../utils/validation';
 
 // eslint-disable-next-line arrow-body-style
@@ -37,14 +49,19 @@ const mapDispatchToProps = (dispatch) => ({
     const action = changeInput(value, name);
     dispatch(action);
   },
-  onSubmit: (event) => {
-    event.preventDefault()
+
+  submitFormRegister: () => {
     const action = registerUser();
     dispatch(action);
   },
 
+  emptyInputsRegister: () => {
+    const action = dontRegisterUser();
+    dispatch(action);
+  },
+
   blurInputLastName: (value) => {
-    const errorLastName = isInputEmpty(value); 
+    const errorLastName = isInputEmpty(value);
     if (checkEmptiness(errorLastName) === false) {
       const action = LastNameInvalid(errorLastName);
       dispatch(action);
