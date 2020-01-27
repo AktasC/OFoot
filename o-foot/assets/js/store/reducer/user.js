@@ -42,9 +42,9 @@ const reducer = (state = initialState, action = {}) => {
 
 export const logUser = (value) => (
   {
-  type: LOG_USER,
-  value
-});
+    type: LOG_USER,
+    value,
+  });
 
 export const disconnectUser = () => (
   {

@@ -17,12 +17,14 @@ const Header = ({ logged, disconnect }) => {
   return(
 
   <Navbar id="header" collapseOnSelect expand="lg" fixed="top">
+    
     <NavLink to="/" className="link">
       <Navbar.Brand className="header-title">
         <img src="https://image.flaticon.com/icons/svg/861/861512.svg" alt="Logo" />
           O'FOOT
       </Navbar.Brand>
     </NavLink>
+
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
     {!logged && 
@@ -56,9 +58,7 @@ const Header = ({ logged, disconnect }) => {
     </Nav>
   </Navbar.Collapse>
     }
-    
   </Navbar>
-
 
 );
 }
