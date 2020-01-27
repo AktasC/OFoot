@@ -19,7 +19,7 @@ const UserEdit = () => {
             className="editUserInput"
             type="file"
             name="name"
-            placeholder=""
+            value={user.picture_user}
           />
         </Col>
     
@@ -29,6 +29,7 @@ const UserEdit = () => {
             className="editUserInput"
             type="text"
             name="name"
+            value={user.first_name}
             placeholder=""
           />
         
