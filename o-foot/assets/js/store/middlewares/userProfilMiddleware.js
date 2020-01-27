@@ -4,13 +4,11 @@ import { USER_PROFIL_INFO, loadInfoFromAxios } from '../reducer/userProfil';
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {    
-    case USER_PROFIL_INFO: 
-      const {
-        userId,        
-      }=store.getState().user; 
-
+    case USER_PROFIL_INFO:
       
-      const token = localStorage.getItem('token');
+      let token = localStorage.getItem('token');
+      let userId = localStorage.getItem('userId');
+      console.log(userId);
       
       axios({
         method: 'get',

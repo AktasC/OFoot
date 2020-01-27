@@ -32,9 +32,9 @@ const loginMiddleware = (store) => (next) => (action) => {
           password: PasswordValue
         }
       })
-      .then(function (response) { 
-        console.log(response);        
+      .then(function (response) {            
         store.dispatch(logUser(response.data.user));
+        localStorage.setItem('userId', response.data.user);
       })
       .catch(function (error) {
         console.log(error);

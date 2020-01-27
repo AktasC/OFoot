@@ -37,14 +37,14 @@ class Page extends React.Component {
 
     const { signupDone, logged, userId } = this.props;
 
-    console.log('from render:', this.props.userId);
+    console.log('from render:', userId);
     
     
     return (
       <div id="page">    
 
         <Switch>
-          <Route exact path={`/user/profile/${this.props.userId}`}>
+          <Route exact path={`/user/profile/${userId}`}>
             <UserProfile />
           </Route>
           <Route path='/register'>
@@ -57,10 +57,10 @@ class Page extends React.Component {
             <WhoAreWe />
           </Route>
           <Route exact path='/'>
-            {logged ? <Redirect to={`/user/profile/${this.props.userId}`} /> : <Home />}        
+            {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Home />}        
           </Route>
           <Route path='/login'>
-            {logged ? <Redirect to={`/user/profile/${this.props.userId}`} /> : <Login />} 
+            {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Login />} 
           </Route> 
         </Switch>
             
