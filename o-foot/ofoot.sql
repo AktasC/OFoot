@@ -59,7 +59,7 @@ CREATE TABLE `compo` (
 -- Structure de la table `match`
 --
 
-CREATE TABLE `match` (
+CREATE TABLE `game` (
   `id` int(11) NOT NULL,
   `team_id` int(11) NOT NULL,
   `address_match` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE `player` (
 -- Contenu de la table `player`
 --
 
-INSERT INTO `player` (`id`, `user_id`, `team_id`, `position_id`, `assist_player`, `defeat_player`, `draw_player`, `goal_player`, `match_player`, `number_jersey_player`, `picture_player`, `player_name`, `position_player`, `red_card_player`, `role_player`, `victory_player`, `yellow_card_player`, `created_at`, `updated_at`) VALUES
+INSERT INTO `player` (`id`, `user_id`, `team_id`, `position_id`, `assist_player`, `defeat_player`, `draw_player`, `goal_player`, `game_player`, `number_jersey_player`, `picture_player`, `player_name`, `position_player`, `red_card_player`, `role_player`, `victory_player`, `yellow_card_player`, `created_at`, `updated_at`) VALUES
 (1, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, 7, NULL, 'Kylian Mbappé', 'Attaquant', NULL, 'Joueur', NULL, NULL, '2020-01-24 13:03:57', NULL),
 (2, 6, 1, NULL, NULL, NULL, NULL, NULL, NULL, 4, NULL, 'Marco Verratti', 'Milieu', NULL, 'Joueur', NULL, NULL, '2020-01-24 13:05:45', NULL),
 (3, 7, 2, NULL, NULL, NULL, NULL, NULL, NULL, 6, NULL, 'Dimitri Payet', 'Attaquant', NULL, 'Joueur', NULL, NULL, '2020-01-24 13:07:11', NULL),

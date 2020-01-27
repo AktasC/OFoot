@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GameRepository")
@@ -15,11 +16,13 @@ class Game
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("api_v1")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("api_v1")
      */
     private $address_match;
 
@@ -30,11 +33,13 @@ class Game
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Groups("api_v1")
      */
     private $date_time_match;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $domicile_exterieur;
 
@@ -50,6 +55,7 @@ class Game
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("api_v1")
      */
     private $opponent_team;
 
@@ -65,6 +71,7 @@ class Game
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $stadium_match;
 
@@ -91,6 +98,7 @@ class Game
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="games")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("api_v1")
      */
     private $team;
 
@@ -110,36 +118,36 @@ class Game
         return $this->id;
     }
 
-    public function getaddressGame(): ?string
+    public function getaddressMatch(): ?string
     {
         return $this->address_match;
     }
 
-    public function setaddressGame(?string $address_match): self
+    public function setaddressMatch(?string $address_match): self
     {
         $this->address_match = $address_match;
 
         return $this;
     }
 
-    public function getAssistGame(): ?int
+    public function getAssistMatch(): ?int
     {
         return $this->assist_match;
     }
 
-    public function setAssistGame(?int $assist_match): self
+    public function setAssistMatch(?int $assist_match): self
     {
         $this->assist_match = $assist_match;
 
         return $this;
     }
 
-    public function getDateTimeGame(): ?\DateTimeInterface
+    public function getDateTimeMatch(): ?\DateTimeInterface
     {
         return $this->date_time_match;
     }
 
-    public function setDateTimeGame(?\DateTimeInterface $date_time_match): self
+    public function setDateTimeMatch(?\DateTimeInterface $date_time_match): self
     {
         $this->date_time_match = $date_time_match;
 
@@ -194,48 +202,48 @@ class Game
         return $this;
     }
 
-    public function getPresenceGame(): ?int
+    public function getPresenceMatch(): ?int
     {
         return $this->presence_match;
     }
 
-    public function setPresenceGame(?int $presence_match): self
+    public function setPresenceMatch(?int $presence_match): self
     {
         $this->presence_match = $presence_match;
 
         return $this;
     }
 
-    public function getRedCardGame(): ?int
+    public function getRedCardMatch(): ?int
     {
         return $this->red_card_match;
     }
 
-    public function setRedCardGame(?int $red_card_match): self
+    public function setRedCardMatch(?int $red_card_match): self
     {
         $this->red_card_match = $red_card_match;
 
         return $this;
     }
 
-    public function getStadiumGame(): ?string
+    public function getStadiumMatch(): ?string
     {
         return $this->stadium_match;
     }
 
-    public function setStadiumGame(string $stadium_match): self
+    public function setStadiumMatch(string $stadium_match): self
     {
         $this->stadium_match = $stadium_match;
 
         return $this;
     }
 
-    public function getYellowCardGame(): ?int
+    public function getYellowCardMatch(): ?int
     {
         return $this->yellow_card_match;
     }
 
-    public function setYellowCardGame(?int $yellow_card_match): self
+    public function setYellowCardMatch(?int $yellow_card_match): self
     {
         $this->yellow_card_match = $yellow_card_match;
 
