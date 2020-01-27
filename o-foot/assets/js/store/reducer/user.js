@@ -5,8 +5,7 @@ const initialState = {
   username: 'Zizoudu13',
   avatar: '',
   logged: false,
-  id:'',
-  token: '',
+  id:'',  
 };
 
 export const LOG_USER = 'LOG_USER';
@@ -21,13 +20,7 @@ const reducer = (state = initialState, action = {}) => {
         logged: true,
         id: action.value,
       };
-    break;
-    case UPDATE_TOKEN:      
-      return {
-        ...state,
-        token: action.value,
-      };
-    break;
+    break;    
     default: return state;
   }
 };
@@ -35,12 +28,6 @@ const reducer = (state = initialState, action = {}) => {
 export const logUser = (value) => (
   {
   type: LOG_USER,
-  value
-});
-
-export const updateToken = (value) => (
-  {
-  type: UPDATE_TOKEN,
   value
 });
 
