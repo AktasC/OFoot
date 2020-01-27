@@ -2,6 +2,7 @@
 
 namespace App\Controller\Api\V1;
 
+use App\Entity\Game;
 use App\Entity\Team;
 use App\Repository\PlayerRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -127,5 +128,42 @@ class TeamController extends AbstractController
         $entityManager->flush();
 
         return $this->json('Equipe supprimée!');
+    }
+
+     /**
+     * @Route("/{id}/game", name="new_game", methods={"POST"})
+     */
+    public function newGame(Request $request, SerializerInterface $serializer, Team $team)
+    {
+        // On crée une nouvelle variable $data, qui stocke la sérialisation de l'entité Game en Json
+        $data = $serializer->deserialize($request->getContent(), 'App\Entity\Game', 'json');
+
+        // Création d'un objet vide de la classe Game stockée dans la variable $game
+        $game = new Game();
+
+        // On indique à $game quels champs nous aimerions créer grâce aux méthodes ->Set récupéré dans l'entité $game
+        // On associe les méthodes get de chaque champs afin de récupérer le champs à créer
+        // On récupére team_id en ajoutant en paramêtre de la fonction l'entité Team
+
+        $game
+            ->setTeam($team)
+            ->setaddressGame($data->getaddressGame())
+            ->setDateTimeGame($data->getDateTimeGame())
+            ->setDomicileExterieur($data->getDomicileExterieur())
+            ->setOpponentTeam($data->getOpponentTeam())
+            ->setStadiumGame($data->getStadiumGame())
+            ->setUpdatedAt(new \DateTime);
+
+        // On récupére l'EntityManager
+        $entityManager = $this->getDoctrine()->getManager();
+
+        // On persiste l'entité $game
+        $entityManager->persist($game);
+
+        // On flushe tout ce qui a été persisté avant pour être sûr que cela soit enregistré en base de données
+        $entityManager->flush();
+
+        // On retourne $game au format JSON
+        return $this->json('Match bien créé');
     }
 }

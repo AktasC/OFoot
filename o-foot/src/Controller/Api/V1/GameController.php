@@ -47,14 +47,6 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/", name="new", methods={"POST"})
-     */
-    public function new()
-    {
-        return;
-    }
-
-    /**
      * @Route("/{id}", name="info_edit", requirements={"id": "\d+"}, methods={"PUT"})
      */
     public function editInfos()
@@ -69,7 +61,6 @@ class GameController extends AbstractController
     {
         return;
     }
-
 
     /**
      * @Route("/{id}", name="delete", requirements={"id": "\d+"}, methods={"DELETE"})
