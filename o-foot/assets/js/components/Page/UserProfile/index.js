@@ -8,6 +8,7 @@ import './user-profil.scss';
 import infos from './userInfos.json';
 
 import ShowMyTeams from './ShowMyTeams';
+import UserEdit from './UserEdit';
 
 
 const UserProfile = () => {
@@ -53,7 +54,7 @@ const UserProfile = () => {
         </Tab>
         <Tab eventKey="edit-profil" title="Éditer mon profil">
           {/* On mettra ici notre composant EditProfil */}
-          <div>Éditer mon profil</div>
+          <UserEdit />
         </Tab>
         <Tab eventKey="edit-password" title="Éditer mon mot de passe">
           {/* On mettra ici notre composant EditPassword */}
