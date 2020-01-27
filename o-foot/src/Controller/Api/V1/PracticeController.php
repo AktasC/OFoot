@@ -6,6 +6,7 @@ use App\Repository\PracticeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use App\Entity\Practice;
 
  /**
  * @Route("/api/v1/practices", name="api_v1_practices_")
@@ -28,9 +29,11 @@ class PracticeController extends AbstractController
     /**
      * @Route("/{id}", name="show", requirements={"id": "\d+"}, methods={"GET"})
      */
-    public function show()
+    public function show(SerializerInterface $serializer,Practice $practice)
     {
-        return;
+        $data = $serializer->normalize($practice, null, ['groups' => ['api_v1']]);
+  
+        return $this->json($data);
     }
 
     /**
