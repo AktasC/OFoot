@@ -16,8 +16,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // Améliorations pour le store
 const enhancers = composeEnhancers(
   applyMiddleware(
-   loginMiddleware,
-   registerMiddleware,
+    loginMiddleware,
+    registerMiddleware,
   ),
 );
 

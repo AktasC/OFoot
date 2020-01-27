@@ -19,6 +19,7 @@ const LoginForm = ({
   blurInputPassword,
   PasswordValidCheck,
   errorMessagePassword,
+  emptyInputs,
 
 }) => {
   const onChangeInputEmail = (event) => {
@@ -40,7 +41,10 @@ const LoginForm = ({
 
   const onSubmitForm = (evt) => {
     evt.preventDefault();
-    if (EmailValidCheck === true && PasswordValidCheck === true) {
+    if (email === '' && password === '') {
+      emptyInputs();
+    }
+    else if (EmailValidCheck === true && PasswordValidCheck === true) {
       submitForm();
     }
   };
@@ -64,14 +68,15 @@ const LoginForm = ({
         {!EmailValidCheck && <div>{errorMessageEmail.email}</div>}
 
         <Col>
-          <Form.Control 
-            className={!PasswordValidCheck ? 'wrong' : ''} 
-            type="password" 
-            onChange={handleChangePassword} 
-            value={password} 
-            name="password" 
-            placeholder="Mot de Passe" 
-            onBlur={onChangeInputPassword} />
+          <Form.Control
+            className={!PasswordValidCheck ? 'wrong' : ''}
+            type="password"
+            onChange={handleChangePassword}
+            value={password}
+            name="password"
+            placeholder="Mot de Passe"
+            onBlur={onChangeInputPassword}
+          />
         </Col>
         {!PasswordValidCheck && <div>{errorMessagePassword.password}</div>}
 
@@ -97,6 +102,7 @@ LoginForm.propTypes = {
   EmailValidCheck: PropTypes.bool.isRequired,
   blurInputPassword: PropTypes.func.isRequired,
   PasswordValidCheck: PropTypes.bool.isRequired,
+  emptyInputs: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

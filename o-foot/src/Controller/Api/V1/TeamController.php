@@ -88,19 +88,44 @@ class TeamController extends AbstractController
          return $this->json('Equipe bien créée');
     }
 
-    /**
-     * @Route("/{id}", name="edit", requirements={"id": "\d+"}, methods={"PUT"})
+     /**
+     * @Route("/edit/{id}", name="edit", requirements={"id": "\d+"}, methods={"POST"})
      */
-    public function edit()
+    public function edit(Request $request,Team $team, SerializerInterface $serializer)
     {
-        return;
+        $data = $serializer->deserialize($request->getContent(), 'App\Entity\Team', 'json');
+
+        $team
+        ->setaddressTeam($data->getaddressTeam())
+        ->setChampionshipTeam($data->getChampionshipTeam())
+        ->setCityTeam($data->getCityTeam())
+        ->setStadiumTeam($data->getStadiumTeam())
+        ->setLogoTeam($data->getLogoTeam())
+        ->setTeamName($data->getTeamName())
+        ->setUpdatedAt(new \DateTime);
+
+        
+        $entityManager = $this->getDoctrine()->getManager();
+
+       
+        $entityManager->persist($team);
+
+       
+        $entityManager->flush();
+
+        
+         return $this->json('Équipe mise à jour!');
     }
 
     /**
-     * @Route("/{id}", name="delete", requirements={"id": "\d+"}, methods={"DELETE"})
+     * @Route("/delete/{id}", name="delete", requirements={"id": "\d+"}, methods={"DELETE"})
      */
-    public function delete()
+    public function delete(Team $team)
     {
-        return;
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($team);
+        $entityManager->flush();
+
+        return $this->json('Equipe supprimée!');
     }
 }

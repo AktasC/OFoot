@@ -39,10 +39,10 @@ class Compo
     private $players;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Match", inversedBy="compositions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="compositions")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $match_game;
+    private $game_game;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Tactique", mappedBy="compo", orphanRemoval=true)
@@ -124,14 +124,14 @@ class Compo
         return $this;
     }
 
-    public function getMatchGame(): ?Match
+    public function getGameGame(): ?Game
     {
-        return $this->match_game;
+        return $this->game_game;
     }
 
-    public function setMatchGame(?Match $match_game): self
+    public function setGameGame(?Game $game_game): self
     {
-        $this->match_game = $match_game;
+        $this->game_game = $game_game;
 
         return $this;
     }
