@@ -16,7 +16,8 @@ const loginMiddleware = (store) => (next) => (action) => {
         password: PasswordValue
       })
       .then( (response) => {
-        store.dispatch(updateToken(response.data.token));             
+        /* store.dispatch(updateToken(response.data.token)); */
+        localStorage.setItem('token', response.data.token);           
       })
       .catch(function (error) {
         console.log(error);
