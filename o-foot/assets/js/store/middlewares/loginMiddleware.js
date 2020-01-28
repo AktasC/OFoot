@@ -9,21 +9,21 @@ const loginMiddleware = (store) => (next) => (action) => {
       const {
         EmailValue,
         PasswordValue,
-      }=store.getState().loginForm;
+      } = store.getState().loginForm;
 
       axios.post('/api/login_check', {
         username: EmailValue,
         password: PasswordValue
       })
-      .then( (response) => {        
+      .then( (response) => { 
+        store.dispatch(updateToken(response.data.token)); 
         localStorage.setItem('token', response.data.token);           
       })
-      .catch(function (error) {
+      .catch(function (error) {        
         console.log(error);
       });      
 
       const token = localStorage.getItem('token');
-
       axios({
         method: 'post',
         url: '/api/login',
@@ -33,8 +33,9 @@ const loginMiddleware = (store) => (next) => (action) => {
           password: PasswordValue
         }
       })
-      .then(function (response) {                
+      .then(function (response) {            
         store.dispatch(logUser(response.data.user));
+        /* localStorage.setItem('userId', response.data.user); */
       })
       .catch(function (error) {
         console.log(error);

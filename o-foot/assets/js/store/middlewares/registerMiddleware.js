@@ -48,11 +48,11 @@ const registerMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log('from then');
           store.dispatch(signupDone());
-          addNotification('success');
+          addNotification('register-success');
         })
         .catch((error) => {
           console.log(error);
-          addNotification('error');
+          addNotification('register-error');
         });
       break;
 

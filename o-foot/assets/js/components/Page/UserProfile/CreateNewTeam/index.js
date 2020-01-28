@@ -6,17 +6,19 @@ import './create-new-team.scss';
 
 const CreateNewTeam = ({ 
   onValueChange,
-  onSubmit,
-  input
+  onSubmitCreateTeam,
+  teamNameValue,
+  teamAddressValue,
+  teamStadiumValue,    
+  teamCityValue,   
 }) => {
 
   const onSubmit = (event) => {
-    event.preventDefault()
-    console.log('form envoyé');
+    event.preventDefault()    
   }
 
 
-  const handleChange = (event) => {
+  const handleChange = (event) => {    
     onValueChange(event.target.value, event.target.name);
   };
    
@@ -24,20 +26,54 @@ const CreateNewTeam = ({
     <div id="createNewTeam">    
 
       <Container>
-        <Row className="">
-          <Col lg={12} md={12} sm={12} xs={12}> 
-
+        <Row>
+          <Col lg={{ span: 8, offset: 2 }} md={{ span: 8, offset: 2 }} sm={{ span: 8, offset: 2 }} xs={{ span: 8, offset: 2 }}> 
             <Form onSubmit={onSubmit}>
               <Form.Row>
                 
+                <Col className="input" lg={6} md={6} sm={21} xs={12}>
                   <Form.Control                    
                     onChange={handleChange}
-                    value={inputLastnameValue}                    
-                    name="lastname"
-                    placeholder="Nom"
+                    value={teamNameValue}                    
+                    name="teamNameValue"
+                    placeholder="Nom de votre équipe"
                   />
+                </Col>
+
+                <Col className="input" lg={6} md={6} sm={21} xs={12}>
+                  <Form.Control                    
+                    onChange={handleChange}
+                    value={teamStadiumValue}                    
+                    name="teamStadiumValue"
+                    placeholder="Nom du Stade"
+                  />
+                </Col>
 
               </Form.Row>
+
+              <Form.Row>
+
+                <Col className="input" lg={6} md={6} sm={21} xs={12}>
+                  <Form.Control                    
+                    onChange={handleChange}
+                    value={teamAddressValue}                    
+                    name="teamAddressValue"
+                    placeholder="Adresse du Stade"
+                  />
+                </Col>
+
+                <Col className="input" lg={6} md={6} sm={21} xs={12}>
+                  <Form.Control                    
+                    onChange={handleChange}
+                    value={teamCityValue}                    
+                    name="teamCityValue"
+                    placeholder="Ville du Stade"
+                  />
+                </Col>
+
+              </Form.Row>
+
+              <Button>Ajouter cette équipe</Button>
             </Form>
           </Col>            
         </Row>
