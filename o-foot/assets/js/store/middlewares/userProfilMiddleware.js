@@ -1,14 +1,17 @@
 import axios from 'axios';
+import qs from 'qs';
 
-import { USER_PROFIL_INFO, loadInfoFromAxios } from '../reducer/userProfil';
+import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO  } from '../reducer/userProfil';
+import { addNotification } from '../addNotification';
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
-  switch (action.type) {    
-    case USER_PROFIL_INFO:
-      
-      const token = localStorage.getItem('token');
+
+  const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId');
       console.log(userId);
+
+  switch (action.type) {    
+    case USER_PROFIL_INFO:
       
       axios({
         method: 'get',
@@ -24,7 +27,40 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
       .catch(function (error) {
         console.log("error from appel appel axios:", error);
       });         
-      break;    
+      break;
+    
+    case MODIFY_INFO:
+
+      const {
+        first_name,
+        last_name,
+        email,
+        picture_user
+      } = store.getState().userProfil.userInformations;
+      
+      axios({
+        method: 'post',
+        url: `/api/v1/users/edit/${userId}`,
+        headers: { 'Authorization': `Bearer ${token}` },
+        data: {
+          first_name: first_name,
+          email: email, 
+          last_name: last_name,
+          picture_user: picture_user,
+          birthdate: null, 
+        }      
+      })
+      
+      .then(function (response) { 
+        addNotification('change-done');
+      })
+      .catch(function (error) {
+        addNotification('change-not-done');
+      });         
+      break;
+    
+    
+    
 
     default:
       // par défaut, je laisse passer l'action
