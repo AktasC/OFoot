@@ -87,9 +87,7 @@ PasswordEdit.propTypes = {
   current_password: PropTypes.string.isRequired, 
   new_password: PropTypes.string.isRequired, 
   new_password_check: PropTypes.string.isRequired, 
-  handleChangeCurrentPassword: PropTypes.func.isRequired,  
-  handleChangeNewPassword: PropTypes.func.isRequired, 
-  handleChangeNewPasswordCheck: PropTypes.func.isRequired, 
+  handleChangeValue: PropTypes.func.isRequired, 
   PasswordValue: PropTypes.string.isRequired,  
   noSubmit: PropTypes.func.isRequired, 
   submitForm: PropTypes.func.isRequired 
