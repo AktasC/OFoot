@@ -5,12 +5,17 @@ import { Form, Button, Col, Row } from 'react-bootstrap';
 // Import scss
 import './passwordEdit.scss'
 
-const PasswordEdit = ({ current_password, new_password, new_password_check, handleChangeCurrentPassword,  handleChangeNewPassword, handleChangeNewPasswordCheck }) => {
+const PasswordEdit = ({ current_password, new_password, new_password_check, handleChangeCurrentPassword,  handleChangeNewPassword, handleChangeNewPasswordCheck, PasswordValue }) => {
+
   
   const onSubmitForm = (evt) => {
     evt.preventDefault(); 
     if(current_password === '' || new_password === '' || new_password_check === '') {
-      console.log('stop');
+      console.log('stop, les champs ne sont pas remplis');
+    } else if (new_password !== new_password_check) {
+      console.log('stop, les mots de passe ne correspondent pas'); 
+    } else if (current_password !== PasswordValue){
+      console.log('stop, mauvais mot de passe'); 
     } else {
       console.log('ok'); 
     }

@@ -8,7 +8,8 @@ const mapStateToProps = (state) => {
   return { 
     current_password: state.userProfil.current_password, 
     new_password: state.userProfil.new_password, 
-    new_password_check: state.userProfil.new_password_check
+    new_password_check: state.userProfil.new_password_check,
+    PasswordValue: state.loginForm.PasswordValue
   };
 };
 
