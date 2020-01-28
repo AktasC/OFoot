@@ -127,7 +127,7 @@ class Game
         return $this->id;
     }
 
-    public function getaddressGame(): ?string
+    public function getAddressGame(): ?string
     {
         return $this->address_game;
     }
