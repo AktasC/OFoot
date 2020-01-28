@@ -156,7 +156,7 @@ class Team
         return $this->id;
     }
 
-    public function getaddressTeam(): ?string
+    public function getAddressTeam(): ?string
     {
         return $this->address_team;
     }

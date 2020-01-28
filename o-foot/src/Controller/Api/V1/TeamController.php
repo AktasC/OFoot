@@ -2,8 +2,6 @@
 
 namespace App\Controller\Api\V1;
 
-use App\Entity\Game;
-use App\Entity\Practice;
 use App\Entity\Team;
 use App\Repository\PlayerRepository;
 use App\Repository\TeamRepository;
@@ -91,74 +89,6 @@ class TeamController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/practice", name="new_practice",requirements={"id": "\d+"}, methods={"POST"})
-     */
-    public function newPractice(Request $request, SerializerInterface $serializer, Team $team)
-    {
-        $data = $serializer->deserialize($request->getContent(), 'App\Entity\Practice', 'json');
-
-        $practice = new Practice();
-
-        $practice
-            ->setTeam($team)
-            ->setAddressPractice($data->getAddressPractice())
-            ->setStadiumPractice($data->getStadiumPractice())
-            ->setDateTimePractice($data->getDateTimePractice());
-
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $entityManager->persist($practice);
-
-        $entityManager->flush();
-
-        return $this->json('Entrainement crée!');
-    }
-
-    /**
-     * @Route("/{team_id}/practice/{practice_id}/edit", name="edit_practice",requirements={"id": "\d+"}, methods={"POST"})
-     * @ParamConverter("team", options={"mapping": {"team_id": "id"}})
-     * @ParamConverter("practice", options={"mapping": {"practice_id": "id"}})
-     */
-    public function editPractice(Practice $practice, Request $request, SerializerInterface $serializer, Team $team)
-    {
-        $data = $serializer->deserialize($request->getContent(), 'App\Entity\Practice', 'json');
-
-        $practice
-            ->setTeam($team)
-            ->setAddressPractice($data->getAddressPractice())
-            ->setStadiumPractice($data->getStadiumPractice())
-            ->setDateTimePractice($data->getDateTimePractice())
-            ->setUpdatedAt(new \DateTime());
-
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $entityManager->persist($practice);
-
-        $entityManager->flush();
-
-        return $this->json('Entrainement mis à jour!');
-    }
-
-    /**
-     * @Route("/{team_id}/practice/{practice_id}/delete", name="delete_practice",requirements={"id": "\d+"}, methods={"DELETE"})
-     * @ParamConverter("team", options={"mapping": {"team_id": "id"}})
-     * @ParamConverter("practice", options={"mapping": {"practice_id": "id"}})
-     */
-    public function deletePractice(Practice $practice, Team $team)
-    {
-   
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $entityManager->remove($practice);
-
-        $entityManager->flush();
-
-        return $this->json('Entrainement supprimé!');
-    }
-
-
-
-    /**
      * @Route("/edit/{id}", name="edit", requirements={"id": "\d+"}, methods={"POST"})
      */
     public function edit(Request $request, Team $team, SerializerInterface $serializer)
@@ -193,109 +123,5 @@ class TeamController extends AbstractController
         $entityManager->flush();
 
         return $this->json('Equipe supprimée!');
-    }
-
-    /**
-     * @Route("/{id}/game", name="new_game", methods={"POST"})
-     */
-    public function newGame(Request $request, SerializerInterface $serializer, Team $team)
-    {
-        // On crée une nouvelle variable $data, qui stocke la sérialisation de l'entité Game en Json
-        $data = $serializer->deserialize($request->getContent(), 'App\Entity\Game', 'json');
-
-        // Création d'un objet vide de la classe Game stockée dans la variable $game
-        $game = new Game();
-
-        // On indique à $game quels champs nous aimerions créer grâce aux méthodes ->Set récupéré dans l'entité $game
-        // On associe les méthodes get de chaque champs afin de récupérer le champs à créer
-        // On récupére team_id en ajoutant en paramêtre de la fonction l'entité Team
-
-        $game
-            ->setTeam($team)
-            ->setAddressGame($data->getaddressGame())
-            ->setDateTimeGame($data->getDateTimeGame())
-            ->setDomicileExterieur($data->getDomicileExterieur())
-            ->setOpponentTeam($data->getOpponentTeam())
-            ->setStadiumGame($data->getStadiumGame())
-            ->setUpdatedAt(new \DateTime());
-
-        // On récupére l'EntityManager
-        $entityManager = $this->getDoctrine()->getManager();
-
-        // On persiste l'entité $game
-        $entityManager->persist($game);
-
-        // On flushe tout ce qui a été persisté avant pour être sûr que cela soit enregistré en base de données
-        $entityManager->flush();
-
-        // On retourne $game au format JSON
-        return $this->json('Match bien créé');
-    }
-
-    /**
-     * @Route("/{team_id}/game/{game_id}/edit-score", name="edit_score_game", methods={"POST"}), requirements={"id": "\d+"}, methods{"POST"})
-     * @ParamConverter("team", options={"mapping": {"team_id": "id"}})
-     * @ParamConverter("game", options={"mapping": {"game_id": "id"}})
-     */
-    public function editScoreGame(Game $game, Request $request, SerializerInterface $serializer, Team $team)
-    {
-        // On crée une nouvelle variable $data, qui stocke la sérialisation de l'entité Game en Json
-        $data = $serializer->deserialize($request->getContent(), 'App\Entity\Game', 'json');
-
-        // On indique à $game quels champs nous aimerions créer grâce aux méthodes ->Set récupéré dans l'entité $game
-        // On associe les méthodes get de chaque champs afin de récupérer le champs à créer
-        // On récupére team_id en ajoutant en paramêtre de la fonction l'entité Team
-        $game
-       ->setTeam($team)
-       ->setAssistGame($data->getAssistGame())
-       ->setGoalConcededGame($data->getGoalConcededGame())
-       ->setGoalScoredGame($data->getGoalScoredGame())
-       ->setRedCardGame($data->getRedCardGame())
-       ->setYellowCardGame($data->getYellowCardGame())
-       ->setUpdatedAt(new \DateTime());
-
-        // On récupére l'EntityManager
-        $entityManager = $this->getDoctrine()->getManager();
-
-        // On persiste l'entité $game
-        $entityManager->persist($game);
-
-        // On flushe tout ce qui a été persisté avant pour être sûr que cela soit enregistré en base de données
-        $entityManager->flush();
-
-        // On retourne $game au format JSON
-        return $this->json('Score du match modifié ');
-    }
-
-    /**
-     * @Route("/{team_id}/game/{game_id}/edit-information", name="edit_information_game", methods={"POST"}), requirements={"id": "\d+"}, methods{"POST"})
-     * @ParamConverter("team", options={"mapping": {"team_id": "id"}})
-     * @ParamConverter("game", options={"mapping": {"game_id": "id"}})
-     */
-    public function editInformationGame(Game $game, Request $request, SerializerInterface $serializer, Team $team)
-    {
-        // On crée une nouvelle variable $data, qui stocke la sérialisation de l'entité Game en Json
-        $data = $serializer->deserialize($request->getContent(), 'App\Entity\Game', 'json');
-
-        $game
-            ->setTeam($team)
-            ->setAddressGame($data->getaddressGame())
-            ->setDateTimeGame($data->getDateTimeGame())
-            ->setDomicileExterieur($data->getDomicileExterieur())
-            ->setOpponentTeam($data->getOpponentTeam())
-            ->setStadiumGame($data->getStadiumGame())
-            ->setUpdatedAt(new \DateTime());
-
-        // On récupére l'EntityManager
-        $entityManager = $this->getDoctrine()->getManager();
-
-        // On persiste l'entité $game
-        $entityManager->persist($game);
-
-        // On flushe tout ce qui a été persisté avant pour être sûr que cela soit enregistré en base de données
-        $entityManager->flush();
-
-        // On retourne $game au format JSON
-        return $this->json('Informations match bien modifiées');
     }
 }
