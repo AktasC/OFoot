@@ -18,7 +18,6 @@ const UserProfile = ( infosObj ) => {
     // Récupère les informations sur le joueurs depuis le state userProfil sous forme d'Objet
     // Transforme l'objet récupéré en array
     var infosArray = Object.values(infosObj);
-    console.log(infosObj);
     return (
       <div id="userProfile">    
 

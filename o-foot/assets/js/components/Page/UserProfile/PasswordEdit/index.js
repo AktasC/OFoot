@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Button, Col, Row } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 
 // Import scss
@@ -11,7 +12,6 @@ const PasswordEdit = ({ current_password, new_password, new_password_check, hand
   const onSubmitForm = (evt) => {
     evt.preventDefault(); 
     const errors = []; 
-    console.log(errors);
     if(current_password === '' || new_password === '' || new_password_check === '') {
       errors.push('Merci de compléter chacun des champs');
       noSubmit(errors);
@@ -60,7 +60,7 @@ const PasswordEdit = ({ current_password, new_password, new_password_check, hand
                 Nouveau mot de passe
             </Form.Label>
             <Col sm="6">
-                <Form.Control type="password" placeholder="" name={new_password} onChange={onChangeNewPassword} />
+                <Form.Control type="password" placeholder="" value={new_password} onChange={onChangeNewPassword} />
             </Col>
         </Form.Group>
 
@@ -69,7 +69,7 @@ const PasswordEdit = ({ current_password, new_password, new_password_check, hand
                 Confirmation du mot de passe
             </Form.Label>
             <Col sm="6">
-                <Form.Control type="password" placeholder="" name={new_password_check} onChange={onChangeNewPasswordCheck} />
+                <Form.Control type="password" placeholder="" value={new_password_check} onChange={onChangeNewPasswordCheck} />
 
             </Col>
         </Form.Group>
@@ -88,6 +88,18 @@ const PasswordEdit = ({ current_password, new_password, new_password_check, hand
     </div>
   );
 
+};
+
+PasswordEdit.propTypes = {
+  current_password: PropTypes.string.isRequired, 
+  new_password: PropTypes.string.isRequired, 
+  new_password_check: PropTypes.string.isRequired, 
+  handleChangeCurrentPassword: PropTypes.func.isRequired,  
+  handleChangeNewPassword: PropTypes.func.isRequired, 
+  handleChangeNewPasswordCheck: PropTypes.func.isRequired, 
+  PasswordValue: PropTypes.string.isRequired,  
+  noSubmit: PropTypes.func.isRequired, 
+  submitForm: PropTypes.func.isRequired 
 };
 
 export default PasswordEdit;

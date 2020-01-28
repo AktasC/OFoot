@@ -1,14 +1,13 @@
 import axios from 'axios';
 import qs from 'qs';
 
-import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO, SUBMIT_CHANGE_PASSWORD, changePasswordDone  } from '../reducer/userProfil';
+import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO, SUBMIT_CHANGE_PASSWORD, emptyInputs } from '../reducer/userProfil';
 import { addNotification } from '../addNotification';
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
 
   const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId');
-      console.log(userId);
 
   switch (action.type) {    
     case USER_PROFIL_INFO:
@@ -75,13 +74,12 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         })
         
         .then(function (response) { 
-          console.log(response);
           addNotification('change-done');
-          store.dispatch(changePasswordDone());
+          store.dispatch(emptyInputs());
         })
         .catch(function (error) {
-          console.log(error); 
           addNotification('change-not-done');
+          store.dispatch(emptyInputs());
         });         
         break;
     
