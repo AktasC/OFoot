@@ -5,13 +5,14 @@ import { Form, Button, Col, Row } from 'react-bootstrap';
 // Import scss
 import './passwordEdit.scss'
 
-const PasswordEdit = ({ current_password, new_password, new_password_check, handleChangeCurrentPassword,  handleChangeNewPassword, handleChangeNewPasswordCheck, PasswordValue }) => {
+const PasswordEdit = ({ current_password, new_password, new_password_check, handleChangeCurrentPassword,  handleChangeNewPassword, handleChangeNewPasswordCheck, PasswordValue, emptyInputs }) => {
 
   
   const onSubmitForm = (evt) => {
     evt.preventDefault(); 
     if(current_password === '' || new_password === '' || new_password_check === '') {
-      console.log('stop, les champs ne sont pas remplis');
+      emptyInputs===true;
+      console.log(emptyInputs);
     } else if (new_password !== new_password_check) {
       console.log('stop, les mots de passe ne correspondent pas'); 
     } else if (current_password !== PasswordValue){
@@ -68,6 +69,7 @@ const PasswordEdit = ({ current_password, new_password, new_password_check, hand
     
         <Row>
           <Col>
+          {(current_password === '' || new_password === '' || new_password_check === '') && <div><p>Merci de renseigner chacun des champs</p></div>}
             <Button variant="primary" type="submit">
               Valider le changement
             </Button>
