@@ -115,7 +115,7 @@ const RegisterForm = ({
               name="password"
               placeholder="Mot de Passe"
             />
-            
+          
             {!PasswordRegisterValidCheck && <div>{ErrorMessageInvalidPasswordRegister.password}</div>}
           </Col>
         </Form.Row>
