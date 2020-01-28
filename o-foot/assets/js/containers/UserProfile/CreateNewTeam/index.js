@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import CreateNewTeam from '../../../components/Page/UserProfile/CreateNewTeam';
 
-import { changeInput } from '../../../store/reducer/team';
+import { changeInput, createTeam } from '../../../store/reducer/team';
 
 const mapStateToProps = (state) => {
   return { 
@@ -18,6 +18,12 @@ const mapDispatchToProps = (dispatch) => ({
     const action = changeInput(value, name);
     dispatch(action);
   },
+
+  onSubmitCreateTeam: () => {
+    const action = createTeam();
+    dispatch(action)
+  }
+
 });
 
 const CreateNewTeamContainer = connect(

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 // Import scss
 import './create-new-team.scss';
@@ -14,7 +15,8 @@ const CreateNewTeam = ({
 }) => {
 
   const onSubmit = (event) => {
-    event.preventDefault()    
+    event.preventDefault();
+    onSubmitCreateTeam();
   }
 
 
@@ -73,7 +75,7 @@ const CreateNewTeam = ({
 
               </Form.Row>
 
-              <Button>Ajouter cette équipe</Button>
+              <Button type="submit"><IoIosAddCircleOutline/> Ajouter cette équipe </Button>
             </Form>
           </Col>            
         </Row>

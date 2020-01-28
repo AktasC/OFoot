@@ -8,11 +8,9 @@ const initialState = {
 };
   
 // --- action types
-const CHANGE_TEAM_NAME_VALUE = 'CHANGE_TEAM_NAME_VALUE';
-const CHANGE_ADDRESS_NAME_VALUE = 'CHANGE_ADDRESS_NAME_VALUE';
-const CHANGE_STADIUM_NAME_VALUE = 'CHANGE_STADIUM_NAME_VALUE';
-const CHANGE_CITY_NAME_VALUE = 'CHANGE_CITY_NAME_VALUE'; 
+
 const CHANGE_INPUT = 'CHANGE_INPUT'; 
+const CREATE_TEAM = 'CREATE_TEAM';
   
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -29,8 +27,8 @@ const reducer = (state = initialState, action = {}) => {
 
 // --- action creators
 
-export const changeTeamNameValue = () => ({
-  type: CHANGE_TEAM_NAME_VALUE,
+export const createTeam = () => ({
+  type: CREATE_TEAM,
 });
 
 export const changeInput = (value, name) => ({    
