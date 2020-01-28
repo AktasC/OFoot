@@ -1,12 +1,12 @@
 // import npm : createStore
 import { createStore, applyMiddleware, compose } from 'redux';
 
-// import middleware
-import registerMiddleware from './middlewares/registerMiddleware';
-
 // import reducer(s)
 import reducer from './reducer';
+
+import registerMiddleware from './middlewares/registerMiddleware';
 import loginMiddleware from './middlewares/loginMiddleware';
+import userProfilMiddleware from './middlewares/userProfilMiddleware';
 
 // eslint-disable-next-line no-underscore-dangle
 // https://github.com/zalmoxisus/redux-devtools-extension
@@ -16,8 +16,9 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // Améliorations pour le store
 const enhancers = composeEnhancers(
   applyMiddleware(
-    loginMiddleware,
-    registerMiddleware,
+   userProfilMiddleware,
+   loginMiddleware,
+   registerMiddleware,
   ),
 );
 
