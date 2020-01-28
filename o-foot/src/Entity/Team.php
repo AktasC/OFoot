@@ -133,7 +133,7 @@ class Team
     private $players;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Game", mappedBy="team", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Game", mappedBy="team", orphanRemoval=true, cascade={"persist", "remove"})
      */
     private $games;
 

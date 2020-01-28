@@ -7,7 +7,7 @@ export const addNotification = ( status ) => {
   console.log('hey tiens ta notif');
 
   switch (status) {    
-    case 'success':
+    case 'register-success':
       store.addNotification({
         title: 'Félicitation !',
         message: 'Votre inscription à bien été prise en compte, veuillez vous connecter maitenant',
@@ -21,7 +21,7 @@ export const addNotification = ( status ) => {
         }
       }) 
       break; 
-    case 'error': 
+    case 'register-error': 
       store.addNotification({
         title: 'Votre attention svp !',
         message: 'Hum, nous avons rencontré un problème, Veuillez réessayer',

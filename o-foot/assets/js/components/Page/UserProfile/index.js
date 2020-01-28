@@ -22,9 +22,9 @@ const UserProfile = ( infosObj ) => {
     return (
       <div id="userProfile">    
 
-        <Container>      
-          {infosArray.map((user) => (          
-            <>
+        <Container key="1">      
+          {infosArray.map((user, i) => (          
+            <div key={i}>
               <div className="sweatband">
                 <h2>Welcome {user.first_name} !</h2>
               </div>          
@@ -42,7 +42,7 @@ const UserProfile = ( infosObj ) => {
                   </Card>
                 </Col>            
               </Row>
-            </>
+            </div>
           ))} 
 
         </Container>
