@@ -3,7 +3,8 @@ const initialState = {
   userInformations: [],
   current_password:'',
   new_password:'',
-  new_password_check:''
+  new_password_check:'',
+  errors: []
   };
 
   export const USER_PROFIL_INFO = 'USER_PROFIL_INFO';
@@ -16,6 +17,9 @@ const initialState = {
   export const CHANGE_CURRENT_PASSWORD = 'CHANGE_CURRENT_PASSWORD'; 
   export const CHANGE_NEW_PASSWORD = 'CHANGE_NEW_PASSWORD'; 
   export const CHANGE_NEW_PASSWORD_CHECK = 'CHANGE_NEW_PASSWORD_CHECK'; 
+  export const NO_SUBMIT = 'NO_SUBMIT'; 
+  export const SUBMIT_CHANGE_PASSWORD = 'SUBMIT_CHANGE_PASSWORD'; 
+  export const CHANGE_PASSWORD_DONE = 'CHANGE_PASSWORD_DONE'; 
 
   // ---- reducer
   const reducer = (state = initialState, action = {}) => {
@@ -67,6 +71,21 @@ const initialState = {
           ...state, 
           new_password_check: action.value
         };
+
+      case NO_SUBMIT: 
+        return {
+          ...state, 
+          errors: action.value
+        }
+      
+      case CHANGE_PASSWORD_DONE: 
+        return {
+          ...state, 
+          errors: [],
+          new_password: '', 
+          new_password_check: '', 
+          current_password: ''
+        }
   
       default: return state;
       }
@@ -120,6 +139,19 @@ const initialState = {
   export const newPasswordCheck = (value) => ({
     type: CHANGE_NEW_PASSWORD_CHECK, 
     value, 
+  })
+
+  export const noSubmitForm = (value) => ({
+    type: NO_SUBMIT, 
+    value, 
+  })
+
+  export const submitChangePassword = () => ({
+    type: SUBMIT_CHANGE_PASSWORD, 
+  })
+
+  export const changePasswordDone = () => ({
+    type: CHANGE_PASSWORD_DONE,
   })
    // ---- export
   export default reducer;
