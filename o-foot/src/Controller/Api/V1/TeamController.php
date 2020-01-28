@@ -88,12 +88,12 @@ class TeamController extends AbstractController
 
 
         // On retourne $team au format JSON
-         return $this->json('Equipe bien créée');
+        return $this->json('Equipe bien créée');
     }
 
     
     /**
-     * @Route("/{id}/practice", name="new_practice", methods={"POST"})
+     * @Route("/{id}/practice", name="new_practice",requirements={"id": "\d+"}, methods={"POST"})
      */
     public function newPractice(Request $request,SerializerInterface $serializer,Team $team)
     {
@@ -102,22 +102,51 @@ class TeamController extends AbstractController
         $practice = new Practice();
 
         $practice
-                ->setTeam($team)
-                ->setAddressPractice($data->getAddressPractice())
-                ->setStadiumPractice($data->getStadiumPractice())
-                ->setDateTimePractice($data->getDateTimePractice());
-                
-              
-                $entityManager = $this->getDoctrine()->getManager();
+            ->setTeam($team)
+            ->setAddressPractice($data->getAddressPractice())
+            ->setStadiumPractice($data->getStadiumPractice())
+            ->setDateTimePractice($data->getDateTimePractice());
+            
+        
+        $entityManager = $this->getDoctrine()->getManager();
 
+
+        $entityManager->persist($practice);
+
+        
+        $entityManager->flush();
+
+            
+        return $this->json('Entrainement crée!');
+    }
+
+     /**
+     * @Route("/{team_id}/practice/{practice_id}/edit", name="edit_practice",requirements={"id": "\d+"}, methods={"POST"})
+     * @ParamConverter("team", options={"mapping": {"team_id": "id"}})
+     * @ParamConverter("practice", options={"mapping": {"practice_id": "id"}})
+     */
+    public function editPractice(Practice $practice,Request $request,SerializerInterface $serializer,Team $team)
+    {
+        $data = $serializer->deserialize($request->getContent(), 'App\Entity\Practice', 'json');
        
-                $entityManager->persist($practice);
+        $practice
+            ->setTeam($team)
+            ->setAddressPractice($data->getAddressPractice())
+            ->setStadiumPractice($data->getStadiumPractice())
+            ->setDateTimePractice($data->getDateTimePractice())
+            ->setUpdatedAt(new \DateTime);
+            
+            
+        $entityManager = $this->getDoctrine()->getManager();
+
+
+        $entityManager->persist($practice);
+
         
-               
-                $entityManager->flush();
-        
-                
-                 return $this->json('Entrainement crée!');
+        $entityManager->flush();
+
+    
+        return $this->json('Entrainement mis à jour!');
     }
 
      /**
@@ -146,7 +175,7 @@ class TeamController extends AbstractController
         $entityManager->flush();
 
         
-         return $this->json('Équipe mise à jour!');
+        return $this->json('Équipe mise à jour!');
     }
 
     /**
