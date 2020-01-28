@@ -6,7 +6,7 @@ import ReactNotifications from 'react-notifications-component';
 import './app.scss';
 
 // == Import : components
-import Header from '../Header';
+import Header from '../../containers/Header';
 import Page from '../../containers/Page';
 import Footer from '../Footer';
 

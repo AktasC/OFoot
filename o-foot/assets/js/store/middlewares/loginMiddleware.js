@@ -1,7 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
 import { CONNECT_USER } from '../reducer/loginForm';
-import { logUser } from '../reducer/user';
+import { logUser, updateToken} from '../reducer/user';
 
 const loginMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -11,22 +11,40 @@ const loginMiddleware = (store) => (next) => (action) => {
         PasswordValue,
       } = store.getState().loginForm;      
 
-      axios.post('/api/login', {
+      axios.post('/api/login_check', {
+        username: EmailValue,
+        password: PasswordValue
+      })
+      .then( (response) => { 
+        store.dispatch(updateToken(response.data.token)); 
+        localStorage.setItem('token', response.data.token);           
+      })
+      .catch(function (error) {        
+        console.log(error);
+      });      
+
+      const token = localStorage.getItem('token');
+      axios({
+        method: 'post',
+        url: '/api/login',
+        headers: { 'Authorization': `Bearer ${token}` },
+        data: {
           email: EmailValue,
           password: PasswordValue
+        }
       })
-      .then(function (response) {
-          console.log(response.data.user);
-          store.dispatch(logUser(response.data.user));
+      .then(function (response) {            
+        store.dispatch(logUser(response.data.user));
+        /* localStorage.setItem('userId', response.data.user); */
       })
       .catch(function (error) {
-          console.log(error);
-      });
+        console.log(error);
+      });  
+      break;
 
-  break;
-      default:
-      next(action);
-  }
+    default:
+    next(action);
+    }
 };
 
 export default loginMiddleware;

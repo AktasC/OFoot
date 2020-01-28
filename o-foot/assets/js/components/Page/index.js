@@ -10,6 +10,7 @@ import {
 // Import scss
 import './page.scss';
 
+import { store } from 'react-notifications-component';
 import Home from './Home';
 import Register from './Register';
 import Login from '../../containers/Login';
@@ -18,21 +19,26 @@ import WhoAreWe from './WhoAreWe';
 import UserProfile from '../../containers/UserProfile';
 import TeamDashboard from './TeamDashboard';
 
-import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 
 class Page extends React.Component {
 
   constructor(props) {
-    super(props);
-    this.props.loadUserInfo();    
+    super(props);    
+  }
+
+  componentDidUpdate() {    
+    if (this.props.logged == true) {
+      this.props.loadUserInfo(); 
+    }      
   }
 
   render() {
 
-    const { signupDone, logged } = this.props;
-    
+    const { signupDone, logged, userId } = this.props;
+
+    console.log('from render:', userId);    
     
     return (
       <div id="page">    
@@ -41,7 +47,7 @@ class Page extends React.Component {
           <Route path='/team'>
             <TeamDashboard />
           </Route>
-          <Route exact path={`/user/profile/${this.props.userId}`}>
+          <Route exact path={`/user/profile/${userId}`}>
             <UserProfile />
           </Route>
           <Route path='/register'>
@@ -54,11 +60,11 @@ class Page extends React.Component {
             <WhoAreWe />
           </Route>
           <Route exact path='/'>
-            {logged ? <Redirect to={`/user/profile/${this.props.userId}`} /> : <Home />}        
+            {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Home />}        
           </Route>
           <Route path='/login'>
-            {logged ? <Redirect to={`/user/profile/${this.props.userId}`} /> : <Login />} 
-          </Route>
+            {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Login />} 
+          </Route> 
         </Switch>
             
       </div>
@@ -70,6 +76,7 @@ class Page extends React.Component {
 Page.propTypes = {
   logged: PropTypes.bool.isRequired,
   signupDone: PropTypes.bool.isRequired,
+  userId: PropTypes.string,
 };
 
 export default Page;

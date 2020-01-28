@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // Import scss
 import './register-form.scss';
 
-const RegisterForm = ({ 
+const RegisterForm = ({
   // Différents states traité depuis le reducer
   onValueChange,
   onSubmit,
@@ -25,101 +25,112 @@ const RegisterForm = ({
   blurInputPasswordRegister,
   PasswordRegisterValidCheck,
   ErrorMessageInvalidPasswordRegister,
+  emptyInputsRegister,
+  submitFormRegister,
   meta,
 }) => {
-  
   const onChangeInputLastName = (event) => {
     blurInputLastName(event.target.value);
-  }
+  };
 
-  const onChangeInputFirstName= (event) => {
+  const onChangeInputFirstName = (event) => {
     blurInputFirstName(event.target.value);
-  }
+  };
 
   const onChangeInputEmailRegister = (event) => {
     blurInputEmailRegister(event.target.value);
-  }
+  };
 
   const onChangeInputPasswordRegister = (event) => {
-    blurInputPasswordRegister(event.target.value)
-  }
-  
+    blurInputPasswordRegister(event.target.value);
+  };
+
   const handleChange = (event) => {
     onValueChange(event.target.value, event.target.name);
-  }
+  };
 
-  return (   
-   <div id="registerForm">     
-     
-    <Form onSubmit={onSubmit}>
-      <Form.Row>
-        <Col>
-          <Form.Control 
-            className={!LastnameValidCheck ? 'wrong' : ''}
-            onChange={handleChange} 
-            value={inputLastnameValue} 
-            onBlur={onChangeInputLastName} 
-            name="lastname" 
-            placeholder="Nom" 
-          />
+  const onSubmitRegister = (evt) => {
+    evt.preventDefault();
+    if (inputEmailValue === '' && inputPasswordValue === '' && inputLastnameValue === '' && inputFirstnameValue === '') {
+      emptyInputsRegister();
+    }
+    else if (EmailRegisterValidCheck === true && PasswordRegisterValidCheck === true && LastnameValidCheck === true && FirstnameValidCheck === true) {
+      submitFormRegister();
+    }
+  };
 
-          {!LastnameValidCheck && <div>{ErrorMessageInvalidLastname.input}</div>}
-        </Col>
-        
-        <Col>
-          <Form.Control 
-            className={!FirstnameValidCheck ? 'wrong' : ''}
-            onChange={handleChange} 
-            value={inputFirstnameValue} 
-            onBlur={onChangeInputFirstName}
-            name="firstname" 
-            placeholder="Prénom" 
-          />
+  return (
+    <div id="registerForm">
 
-          {!FirstnameValidCheck && <div>{ErrorMessageInvalidFirstname.input}</div>}
-        </Col>
+      <Form onSubmit={onSubmitRegister}>
+        <Form.Row>
+          <Col>
+            <Form.Control
+              className={!LastnameValidCheck ? 'wrong' : ''}
+              onChange={handleChange}
+              value={inputLastnameValue}
+              onBlur={onChangeInputLastName}
+              name="lastname"
+              placeholder="Nom"
+            />
 
-      </Form.Row>
-      <Form.Row>
-        <Col>
-          <Form.Control 
-            className={!EmailRegisterValidCheck ? 'wrong' : ''}
-            onChange={handleChange} 
-            value={inputEmailValue} 
-            name="email" 
-            placeholder="Email"
-            onBlur={onChangeInputEmailRegister}
-           />
+            {!LastnameValidCheck && <div>{ErrorMessageInvalidLastname.input}</div>}
+          </Col>
 
-        {!EmailRegisterValidCheck && <div>{ErrorMessageInvalidEmailRegister.email}</div>}
-        </Col>
+          <Col>
+            <Form.Control
+              className={!FirstnameValidCheck ? 'wrong' : ''}
+              onChange={handleChange}
+              value={inputFirstnameValue}
+              onBlur={onChangeInputFirstName}
+              name="firstname"
+              placeholder="Prénom"
+            />
 
-        <Col>
-          <Form.Control 
-            className={!PasswordRegisterValidCheck ? 'wrong' : ''}
-            onChange={handleChange} 
-            value={inputPasswordValue}
-            onBlur={onChangeInputPasswordRegister} 
-            type="password" 
-            name="password" 
-            placeholder="Mot de Passe" 
-          />
+            {!FirstnameValidCheck && <div>{ErrorMessageInvalidFirstname.input}</div>}
+          </Col>
 
-        {!PasswordRegisterValidCheck && <div>{ErrorMessageInvalidPasswordRegister.password}</div>}
-        </Col>
-      </Form.Row>
+        </Form.Row>
+        <Form.Row>
+          <Col>
+            <Form.Control
+              className={!EmailRegisterValidCheck ? 'wrong' : ''}
+              onChange={handleChange}
+              value={inputEmailValue}
+              name="email"
+              placeholder="Email"
+              onBlur={onChangeInputEmailRegister}
+            />
 
-      {/* <Form.Row>
+            {!EmailRegisterValidCheck && <div>{ErrorMessageInvalidEmailRegister.email}</div>}
+          </Col>
+
+          <Col>
+            <Form.Control
+              className={!PasswordRegisterValidCheck ? 'wrong' : ''}
+              onChange={handleChange}
+              value={inputPasswordValue}
+              onBlur={onChangeInputPasswordRegister}
+              type="password"
+              name="password"
+              placeholder="Mot de Passe"
+            />
+
+            {!PasswordRegisterValidCheck && <div>{ErrorMessageInvalidPasswordRegister.password}</div>}
+          </Col>
+        </Form.Row>
+
+        {/* <Form.Row>
         <input type="hidden" name="token" value={meta}></input>
       </Form.Row> */}
-      <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit">
           S'inscrire
-      </Button>
-    </Form>    
+        </Button>
+      </Form>
 
     </div>
 
-  ) 
+  );
 };
 
 RegisterForm.propTypes = {
@@ -135,8 +146,10 @@ RegisterForm.propTypes = {
   FirstnameValidCheck: PropTypes.bool.isRequired,
   blurInputEmailRegister: PropTypes.func.isRequired,
   EmailRegisterValidCheck: PropTypes.bool.isRequired,
-  blurInputPasswordRegister:PropTypes.func.isRequired,
+  blurInputPasswordRegister: PropTypes.func.isRequired,
   PasswordRegisterValidCheck: PropTypes.bool.isRequired,
+  emptyInputsRegister: PropTypes.func.isRequired,
+  submitFormRegister: PropTypes.func.isRequired,
 };
 
 export default RegisterForm;

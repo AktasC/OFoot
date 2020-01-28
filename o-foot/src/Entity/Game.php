@@ -5,73 +5,86 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\MatchRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\GameRepository")
  */
-class Match
+class Game
 {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("api_v1")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("api_v1")
      */
-    private $address_match;
+    private $address_game;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
-    private $assist_match;
+    private $assist_game;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Groups("api_v1")
      */
-    private $date_time_match;
+    private $date_time_game;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $domicile_exterieur;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
-    private $goal_conceded_match;
+    private $goal_conceded_game;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
-    private $goal_scored_match;
+    private $goal_scored_game;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("api_v1")
      */
     private $opponent_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
-    private $presence_match;
+    private $presence_game;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
-    private $red_card_match;
+    private $red_card_game;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
-    private $stadium_match;
+    private $stadium_game;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
-    private $yellow_card_match;
+    private $yellow_card_game;
 
     /**
      * @ORM\Column(type="datetime")
@@ -84,18 +97,20 @@ class Match
     private $updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Player", mappedBy="matchs")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Player", mappedBy="games")
+     * @Groups("api_v1")
      */
     private $players;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="matchs")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="games")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("api_v1")
      */
     private $team;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Compo", mappedBy="match_game", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Compo", mappedBy="game_game", orphanRemoval=true)
      */
     private $compositions;
 
@@ -103,6 +118,8 @@ class Match
     {
         $this->players = new ArrayCollection();
         $this->compositions = new ArrayCollection();
+        $this->created_at = new \DateTime();
+        $this->teams = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -110,38 +127,38 @@ class Match
         return $this->id;
     }
 
-    public function getaddressMatch(): ?string
+    public function getaddressGame(): ?string
     {
-        return $this->address_match;
+        return $this->address_game;
     }
 
-    public function setaddressMatch(?string $address_match): self
+    public function setaddressGame(?string $address_game): self
     {
-        $this->address_match = $address_match;
+        $this->address_game = $address_game;
 
         return $this;
     }
 
-    public function getAssistMatch(): ?int
+    public function getAssistGame(): ?int
     {
-        return $this->assist_match;
+        return $this->assist_game;
     }
 
-    public function setAssistMatch(?int $assist_match): self
+    public function setAssistGame(?int $assist_game): self
     {
-        $this->assist_match = $assist_match;
+        $this->assist_game = $assist_game;
 
         return $this;
     }
 
-    public function getDateTimeMatch(): ?\DateTimeInterface
+    public function getDateTimeGame(): ?\DateTimeInterface
     {
-        return $this->date_time_match;
+        return $this->date_time_game;
     }
 
-    public function setDateTimeMatch(?\DateTimeInterface $date_time_match): self
+    public function setDateTimeGame(?\DateTimeInterface $date_time_game): self
     {
-        $this->date_time_match = $date_time_match;
+        $this->date_time_game = $date_time_game;
 
         return $this;
     }
@@ -158,26 +175,26 @@ class Match
         return $this;
     }
 
-    public function getGoalConcededTeam(): ?int
+    public function getGoalConcededGame(): ?int
     {
-        return $this->goal_conceded_team;
+        return $this->goal_conceded_game;
     }
 
-    public function setGoalConcededTeam(?int $goal_conceded_team): self
+    public function setGoalConcededGame(?int $goal_conceded_game): self
     {
-        $this->goal_conceded_team = $goal_conceded_team;
+        $this->goal_conceded_team = $goal_conceded_game;
 
         return $this;
     }
 
-    public function getGoalScoredTeam(): ?int
+    public function getGoalScoredGame(): ?int
     {
-        return $this->goal_scored_team;
+        return $this->goal_scored_game;
     }
 
-    public function setGoalScoredTeam(?int $goal_scored_team): self
+    public function setGoalScoredGame(?int $goal_scored_game): self
     {
-        $this->goal_scored_team = $goal_scored_team;
+        $this->goal_scored_game = $goal_scored_game;
 
         return $this;
     }
@@ -194,50 +211,50 @@ class Match
         return $this;
     }
 
-    public function getPresenceMatch(): ?int
+    public function getPresenceGame(): ?int
     {
-        return $this->presence_match;
+        return $this->presence_game;
     }
 
-    public function setPresenceMatch(?int $presence_match): self
+    public function setPresenceGame(?int $presence_game): self
     {
-        $this->presence_match = $presence_match;
+        $this->presence_game = $presence_game;
 
         return $this;
     }
 
-    public function getRedCardMatch(): ?int
+    public function getRedCardGame(): ?int
     {
-        return $this->red_card_match;
+        return $this->red_card_game;
     }
 
-    public function setRedCardMatch(?int $red_card_match): self
+    public function setRedCardGame(?int $red_card_game): self
     {
-        $this->red_card_match = $red_card_match;
+        $this->red_card_game = $red_card_game;
 
         return $this;
     }
 
-    public function getStadiumMatch(): ?string
+    public function getStadiumGame(): ?string
     {
-        return $this->stadium_match;
+        return $this->stadium_game;
     }
 
-    public function setStadiumMatch(string $stadium_match): self
+    public function setStadiumGame(string $stadium_game): self
     {
-        $this->stadium_match = $stadium_match;
+        $this->stadium_game = $stadium_game;
 
         return $this;
     }
 
-    public function getYellowCardMatch(): ?int
+    public function getYellowCardGame(): ?int
     {
-        return $this->yellow_card_match;
+        return $this->yellow_card_game;
     }
 
-    public function setYellowCardMatch(?int $yellow_card_match): self
+    public function setYellowCardGame(?int $yellow_card_game): self
     {
-        $this->yellow_card_match = $yellow_card_match;
+        $this->yellow_card_game = $yellow_card_game;
 
         return $this;
     }
@@ -278,7 +295,7 @@ class Match
     {
         if (!$this->players->contains($player)) {
             $this->players[] = $player;
-            $player->addMatch($this);
+            $player->addGame($this);
         }
 
         return $this;
@@ -288,7 +305,7 @@ class Match
     {
         if ($this->players->contains($player)) {
             $this->players->removeElement($player);
-            $player->removeMatch($this);
+            $player->removeGame($this);
         }
 
         return $this;
@@ -318,7 +335,7 @@ class Match
     {
         if (!$this->compositions->contains($composition)) {
             $this->compositions[] = $composition;
-            $composition->setMatchGame($this);
+            $composition->setGameGame($this);
         }
 
         return $this;
@@ -329,8 +346,8 @@ class Match
         if ($this->compositions->contains($composition)) {
             $this->compositions->removeElement($composition);
             // set the owning side to null (unless already changed)
-            if ($composition->getMatchGame() === $this) {
-                $composition->setMatchGame(null);
+            if ($composition->getGameGame() === $this) {
+                $composition->setGameGame(null);
             }
         }
 
