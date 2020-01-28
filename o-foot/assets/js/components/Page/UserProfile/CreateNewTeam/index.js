@@ -15,6 +15,7 @@ const CreateNewTeam = ({
 }) => {
 
   const onSubmit = (event) => {
+    console.log("hey submit");
     event.preventDefault();
     onSubmitCreateTeam();
   }

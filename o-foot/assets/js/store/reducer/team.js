@@ -10,7 +10,7 @@ const initialState = {
 // --- action types
 
 const CHANGE_INPUT = 'CHANGE_INPUT'; 
-const CREATE_TEAM = 'CREATE_TEAM';
+export const CREATE_TEAM = 'CREATE_TEAM';
   
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {

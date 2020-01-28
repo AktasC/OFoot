@@ -19,10 +19,10 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
 
-  onSubmitCreateTeam: () => {
+  onSubmitCreateTeam: () => {    
     const action = createTeam();
-    dispatch(action)
-  }
+    dispatch(action);
+  },
 
 });
 
