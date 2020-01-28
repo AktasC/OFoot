@@ -14,9 +14,7 @@ const initialState = {
   export const CHANGE_EMAIL = 'CHANGE_EMAIL'; 
   export const MODIFY_INFO ='MODIFY_INFO'; 
   export const CHANGE_LAST_NAME = 'CHANGE_LAST_NAME';
-  export const CHANGE_CURRENT_PASSWORD = 'CHANGE_CURRENT_PASSWORD'; 
-  export const CHANGE_NEW_PASSWORD = 'CHANGE_NEW_PASSWORD'; 
-  export const CHANGE_NEW_PASSWORD_CHECK = 'CHANGE_NEW_PASSWORD_CHECK'; 
+  export const CHANGE_INPUT = 'CHANGE_INPUT';
   export const NO_SUBMIT = 'NO_SUBMIT'; 
   export const SUBMIT_CHANGE_PASSWORD = 'SUBMIT_CHANGE_PASSWORD'; 
   export const EMPTY_INPUTS = 'EMPTY_INPUTS'; 
@@ -54,23 +52,11 @@ const initialState = {
           userInformations: {...state.userInformations, last_name:action.value }, 
         };
       
-      case CHANGE_CURRENT_PASSWORD: 
-        return {
-          ...state,
-          current_password: action.value
-        };
-
-      case CHANGE_NEW_PASSWORD: 
-        return {
-          ...state, 
-          new_password: action.value
-        };
-
-      case CHANGE_NEW_PASSWORD_CHECK: 
-        return{
-          ...state, 
-          new_password_check: action.value
-        };
+        case CHANGE_INPUT:
+          return {
+            ...state,
+            [action.name]: action.value,
+          };
 
       case NO_SUBMIT: 
         return {
@@ -126,20 +112,11 @@ const initialState = {
     value,
   })
 
-  export const currentPassword = (value) => ({
-    type: CHANGE_CURRENT_PASSWORD, 
-    value, 
-  })
-
-  export const newPassword = (value) => ({
-    type: CHANGE_NEW_PASSWORD, 
-    value, 
-  })
-
-  export const newPasswordCheck = (value) => ({
-    type: CHANGE_NEW_PASSWORD_CHECK, 
-    value, 
-  })
+  export const changeInput = (value, name) => ({    
+    type: CHANGE_INPUT,
+    name,
+    value,
+  });
 
   export const noSubmitForm = (value) => ({
     type: NO_SUBMIT, 

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 // Import scss
 import './passwordEdit.scss'
 
-const PasswordEdit = ({ current_password, new_password, new_password_check, handleChangeCurrentPassword,  handleChangeNewPassword, handleChangeNewPasswordCheck, PasswordValue, errors, noSubmit, submitForm }) => {
+const PasswordEdit = ({ current_password, new_password, new_password_check, handleChangeValue, PasswordValue, errors, noSubmit, submitForm }) => {
 
   
   const onSubmitForm = (evt) => {
@@ -29,17 +29,10 @@ const PasswordEdit = ({ current_password, new_password, new_password_check, hand
     }
   }
 
-  const onChangeCurrentPassword = (evt) => {
-    handleChangeCurrentPassword(evt.target.value); 
+  const onValueChange = (evt) => {
+    handleChangeValue(evt.target.value, evt.target.name); 
   }
 
-  const onChangeNewPassword = (evt) => {
-    handleChangeNewPassword(evt.target.value); 
-  }
-
-  const onChangeNewPasswordCheck = (evt) => {
-    handleChangeNewPasswordCheck(evt.target.value); 
-  }
 
 
   return (
@@ -51,7 +44,7 @@ const PasswordEdit = ({ current_password, new_password, new_password_check, hand
                 Mot de passe actuel
             </Form.Label>
             <Col sm="6">
-                <Form.Control type="password" placeholder="" value={current_password} onChange={onChangeCurrentPassword} />
+                <Form.Control type="password" placeholder="" value={current_password} name='current_password' onChange={onValueChange} />
             </Col>
         </Form.Group>
 
@@ -60,7 +53,7 @@ const PasswordEdit = ({ current_password, new_password, new_password_check, hand
                 Nouveau mot de passe
             </Form.Label>
             <Col sm="6">
-                <Form.Control type="password" placeholder="" value={new_password} onChange={onChangeNewPassword} />
+                <Form.Control type="password" placeholder="" value={new_password} name='new_password' onChange={onValueChange} />
             </Col>
         </Form.Group>
 
@@ -69,7 +62,7 @@ const PasswordEdit = ({ current_password, new_password, new_password_check, hand
                 Confirmation du mot de passe
             </Form.Label>
             <Col sm="6">
-                <Form.Control type="password" placeholder="" value={new_password_check} onChange={onChangeNewPasswordCheck} />
+                <Form.Control type="password" placeholder="" value={new_password_check} name='new_password_check' onChange={onValueChange} />
 
             </Col>
         </Form.Group>

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import PasswordEdit from '../../../components/Page/UserProfile/PasswordEdit';
 
-import { currentPassword, newPassword, newPasswordCheck, noSubmitForm, submitChangePassword } from '../../../store/reducer/userProfil';
+import { changeInput, noSubmitForm, submitChangePassword } from '../../../store/reducer/userProfil';
 
 const mapStateToProps = (state) => {
   return { 
@@ -16,19 +16,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
 
-    handleChangeCurrentPassword: (value) => {
-        const action = currentPassword(value);
-        dispatch(action);
-      },
-    
-    handleChangeNewPassword: (value) => {
-        const action = newPassword(value); 
-        dispatch(action); 
-    },
-
-    handleChangeNewPasswordCheck: (value) => {
-        const action = newPasswordCheck(value); 
-        dispatch(action); 
+    handleChangeValue: (value, name) => {
+      const action = changeInput(value, name); 
+      dispatch(action); 
     },
 
     noSubmit: (value) => {
