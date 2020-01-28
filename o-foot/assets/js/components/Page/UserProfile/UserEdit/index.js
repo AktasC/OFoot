@@ -10,7 +10,7 @@ const UserEdit = ({ pictureuser, firstname, email, handleSubmit, handleEmailChan
 
   const onSubmit = (evt) => {
     evt.preventDefault();
-    handleSubmit;
+    handleSubmit();
   }
 
   const onChangeAvatar = (evt) => {

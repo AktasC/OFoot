@@ -8,6 +8,8 @@ const initialState = {
   export const CHANGE_AVATAR = 'CHANGE_AVATAR'; 
   export const CHANGE_NAME = 'CHANGE_NAME'; 
   export const CHANGE_EMAIL = 'CHANGE_EMAIL'; 
+  export const MODIFY_INFO ='MODIFY_INFO'; 
+  
   // ---- reducer
   const reducer = (state = initialState, action = {}) => {
     switch (action.type) { 
@@ -32,7 +34,7 @@ const initialState = {
       case CHANGE_EMAIL: 
         return {
           ...state, 
-          userInformations: action.value, 
+          userInformations: {...state.userInformations, email:action.value }, 
         };
   
       default: return state;
