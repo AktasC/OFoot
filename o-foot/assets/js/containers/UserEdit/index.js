@@ -2,13 +2,14 @@ import { connect } from 'react-redux';
 
 import UserEdit from '../../components/Page/UserProfile/UserEdit';
 
-import { modifyUserInfo, changeAvatar, changeName, changeEmail } from '../../store/reducer/userProfil';
+import { modifyUserInfo, changeAvatar, changeName, changeEmail, changeLastName } from '../../store/reducer/userProfil';
 
 const mapStateToProps = (state) => {
   return { 
     pictureuser: state.userProfil.userInformations.picture_user,
     firstname: state.userProfil.userInformations.first_name, 
     email: state.userProfil.userInformations.email, 
+    lastname: state.userProfil.userInformations.last_name,
   };
 };
 
@@ -34,6 +35,11 @@ const mapDispatchToProps = (dispatch) => ({
         const action = changeEmail(value);
         dispatch(action);
       },
+
+      handleLastNameChange: (value) => {
+        const action = changeLastName(value); 
+        dispatch(action);
+      }
 
 });
 

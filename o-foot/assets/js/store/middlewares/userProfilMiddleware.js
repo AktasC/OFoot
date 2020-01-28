@@ -1,9 +1,11 @@
 import axios from 'axios';
+import qs from 'qs';
 
 import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO  } from '../reducer/userProfil';
+import { addNotification } from '../addNotification';
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
-  
+
   const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId');
       console.log(userId);
@@ -49,13 +51,11 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         }      
       })
       
-      .then(function (response) {
-        console.log('from axios modify:', response.data); 
-        /*const actionLoadInfo = loadInfoFromAxios(response.data);  
-        store.dispatch(actionLoadInfo)*/;
+      .then(function (response) { 
+        addNotification('change-done');
       })
       .catch(function (error) {
-        console.log("error from appel appel axios:", error);
+        addNotification('change-not-done');
       });         
       break;
     

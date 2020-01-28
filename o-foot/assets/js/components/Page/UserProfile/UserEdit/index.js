@@ -5,7 +5,7 @@ import { Form, Button, Col, Row } from 'react-bootstrap';
 // Import scss
 import './useredit.scss';
 
-const UserEdit = ({ pictureuser, firstname, email, handleSubmit, handleEmailChange, handleNameChange, handleAvatarChange }) => {
+const UserEdit = ({ pictureuser, firstname, lastname, email, handleSubmit, handleEmailChange, handleNameChange, handleAvatarChange, handleLastNameChange }) => {
  
 
   const onSubmit = (evt) => {
@@ -19,6 +19,10 @@ const UserEdit = ({ pictureuser, firstname, email, handleSubmit, handleEmailChan
 
   const onChangeFirstname = (evt) => {
     handleNameChange(evt.target.value); 
+  }
+
+  const onChangeLastname = (evt) => {
+    handleLastNameChange(evt.target.value); 
   }
 
   const onChangeEmail = (evt) => {
@@ -42,13 +46,22 @@ const UserEdit = ({ pictureuser, firstname, email, handleSubmit, handleEmailChan
           </Col>
     
           <Col className="colUserEdit">
-            <Form.Label>Modifier le nom d'utilisateur</Form.Label>
+            <Form.Label>Modifier le prénom</Form.Label>
               <Form.Control
                 className="editUserInput"
                 type="text"
                 name="first_name"
                 value={firstname}
                 onChange={onChangeFirstname}
+              />
+            
+            <Form.Label>Modifier le nom de famille</Form.Label>
+              <Form.Control
+                className="editUserInput"
+                type="text"
+                name="last_name"
+                value={lastname}
+                onChange={onChangeLastname}
               />
         
             <Form.Label> Modifier l'adresse email</Form.Label>
