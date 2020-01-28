@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, Tabs, Tab } from 'react-bootstrap';
+import { Container, Row, Col, Card, Tabs, Tab, Button } from 'react-bootstrap';
 import Avatar from 'react-avatar';
 
 // Import scss
@@ -8,6 +8,7 @@ import './user-profil.scss';
 import infos from './userInfos.json';
 
 import ShowMyTeams from './ShowMyTeams';
+import CreateNewTeam from './ShowMyTeams';
 
 
 const UserProfile = () => {
@@ -51,6 +52,10 @@ const UserProfile = () => {
             <ShowMyTeams {...user.team}/>
           ))}
         </Tab>
+        <Tab eventKey="create-team" title="Créer mon équipe">
+          {/* On mettra ici notre composant CreateNewTeam */}
+            <CreateNewTeam />
+        </Tab>
         <Tab eventKey="edit-profil" title="Éditer mon profil">
           {/* On mettra ici notre composant EditProfil */}
           <div>Éditer mon profil</div>
@@ -62,6 +67,8 @@ const UserProfile = () => {
       </Tabs> 
 
     </Container>
+
+    
 
   </div>
   )
