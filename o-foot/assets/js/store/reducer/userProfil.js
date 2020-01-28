@@ -1,6 +1,9 @@
 // initial state
 const initialState = {
-  userInformations: [] 
+  userInformations: [],
+  current_password:'',
+  new_password:'',
+  new_password_check:''
   };
 
   export const USER_PROFIL_INFO = 'USER_PROFIL_INFO';
@@ -10,6 +13,9 @@ const initialState = {
   export const CHANGE_EMAIL = 'CHANGE_EMAIL'; 
   export const MODIFY_INFO ='MODIFY_INFO'; 
   export const CHANGE_LAST_NAME = 'CHANGE_LAST_NAME';
+  export const CHANGE_CURRENT_PASSWORD = 'CHANGE_CURRENT_PASSWORD'; 
+  export const CHANGE_NEW_PASSWORD = 'CHANGE_NEW_PASSWORD'; 
+  export const CHANGE_NEW_PASSWORD_CHECK = 'CHANGE_NEW_PASSWORD_CHECK'; 
 
   // ---- reducer
   const reducer = (state = initialState, action = {}) => {
@@ -42,6 +48,24 @@ const initialState = {
         return {
           ...state, 
           userInformations: {...state.userInformations, last_name:action.value }, 
+        };
+      
+      case CHANGE_CURRENT_PASSWORD: 
+        return {
+          ...state,
+          current_password: action.value
+        };
+
+      case CHANGE_NEW_PASSWORD: 
+        return {
+          ...state, 
+          new_password: action.value
+        };
+
+      case CHANGE_NEW_PASSWORD_CHECK: 
+        return{
+          ...state, 
+          new_password_check: action.value
         };
   
       default: return state;
@@ -82,5 +106,20 @@ const initialState = {
     type: CHANGE_LAST_NAME,
     value,
   })
-  // ---- export
+
+  export const currentPassword = (value) => ({
+    type: CHANGE_CURRENT_PASSWORD, 
+    value, 
+  })
+
+  export const newPassword = (value) => ({
+    type: CHANGE_NEW_PASSWORD, 
+    value, 
+  })
+
+  export const newPasswordCheck = (value) => ({
+    type: CHANGE_NEW_PASSWORD_CHECK, 
+    value, 
+  })
+   // ---- export
   export default reducer;

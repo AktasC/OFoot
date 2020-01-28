@@ -8,8 +8,8 @@ import './user-profil.scss';
 /* import infos from './userInfos.json'; */
 
 import ShowMyTeams from './ShowMyTeams';
-import UserEdit from '../../../containers/UserEdit';
-import PasswordEdit from './PasswordEdit';
+import UserEdit from '../../../containers/UserProfile/UserEdit';
+import PasswordEdit from '../../../containers/UserProfile/PasswordEdit';
 
 
 const UserProfile = ( infosObj ) => {
