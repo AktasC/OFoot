@@ -31,7 +31,7 @@ const UserProfile = ( infosObj ) => {
                   <Card>
                     <Card.Header >MES INFORMATIONS</Card.Header>
                     <Card.Body>
-                      <Avatar className="avatar-custom" src={user.picture_user} size="100" round={true} />
+                    {user.picture_user === null ? <Avatar name={`${user.last_name} ${user.first_name}`} size="100" round={true} className="avatar-custom"  /> : <Avatar className="avatar-custom" src={user.picture_user} size="100" round={true} />}
                       <Card.Title>{user.last_name} {user.first_name} </Card.Title>
                       <Card.Text>
                       Mail : {user.email} 
