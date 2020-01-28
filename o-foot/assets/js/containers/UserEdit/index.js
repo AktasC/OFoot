@@ -6,8 +6,8 @@ import { modifyUserInfo, changeAvatar, changeName, changeEmail } from '../../sto
 
 const mapStateToProps = (state) => {
   return { 
-    picture_user: state.userProfil.userInformations.picture_user,
-    first_name: state.userProfil.userInformations.first_name, 
+    pictureuser: state.userProfil.userInformations.picture_user,
+    firstname: state.userProfil.userInformations.first_name, 
     email: state.userProfil.userInformations.email, 
   };
 };
@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
       },
     
       handleNameChange: (value) => {
-        console.log('name');
+        console.log(value);
         const action = changeName(value);
         dispatch(action);
       },

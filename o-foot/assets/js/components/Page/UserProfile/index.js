@@ -14,10 +14,10 @@ import PasswordEdit from './PasswordEdit';
 
 const UserProfile = ( infosObj ) => {
 
-  
+
     // Récupère les informations sur le joueurs depuis le state userProfil sous forme d'Objet
     // Transforme l'objet récupéré en array
-    var infosArray = Object.values(infosObj.userInformations);
+    var infosArray = Object.values(infosObj);
     console.log(infosObj);
     return (
       <div id="userProfile">    
@@ -57,9 +57,9 @@ const UserProfile = ( infosObj ) => {
         </Tab>
         <Tab eventKey="edit-profil" title="Éditer mon profil">
           {/* On mettra ici notre composant EditProfil */}
-          {infosArray.map((user) => (
-          <UserEdit {...user}/>
-          ))}
+          
+          <UserEdit />
+        
         </Tab>
         <Tab eventKey="edit-password" title="Éditer mon mot de passe">
           {/* On mettra ici notre composant EditPassword */}

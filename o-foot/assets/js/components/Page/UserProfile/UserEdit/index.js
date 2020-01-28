@@ -5,8 +5,8 @@ import { Form, Button, Col, Row } from 'react-bootstrap';
 // Import scss
 import './useredit.scss';
 
-const UserEdit = (user, { picture_user, first_name, email, handleSubmit, handleEmailChange, handleNameChange, handleAvatarChange }) => {
-  console.log(user);
+const UserEdit = ({ pictureuser, firstname, email, handleSubmit, handleEmailChange, handleNameChange, handleAvatarChange }) => {
+ 
 
   const onSubmit = (evt) => {
     evt.preventDefault();
@@ -36,8 +36,7 @@ const UserEdit = (user, { picture_user, first_name, email, handleSubmit, handleE
               <Form.Control
                 className="editUserInput"
                 type="file"
-                name="name"
-                value={picture_user}
+                name="picture_user"
                 onChange={onChangeAvatar}
               />
           </Col>
@@ -47,8 +46,8 @@ const UserEdit = (user, { picture_user, first_name, email, handleSubmit, handleE
               <Form.Control
                 className="editUserInput"
                 type="text"
-                name="name"
-                value={first_name}
+                name="first_name"
+                value={firstname}
                 onChange={onChangeFirstname}
               />
         
