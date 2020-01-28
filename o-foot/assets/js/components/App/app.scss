@@ -22,6 +22,24 @@ p {
     /* color: #0288d1; */
   }
 
+  .btn-success {
+    background-color: #81c784;
+    border-color: #66bb6a;
+  }
+  .btn-success:hover {
+    background-color: #4caf50;
+    border-color: #66bb6a;
+  }
+
+  .btn-danger {
+    background-color: #e57373;
+    border-color: #ef5350;
+  }
+  .btn-danger:hover {
+    background-color: #f44336;
+    border-color: #ef5350;
+  }
+
   & .btn-primary {
     // Test 
     background-color: #ef6c00;

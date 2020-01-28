@@ -16,43 +16,67 @@ import Register from './Register';
 import Login from '../../containers/Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
-import UserProfile from './UserProfile';
+import UserProfile from '../../containers/UserProfile';
+import TeamDashboard from './TeamDashboard';
 
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 
-const Page = ({ logged, signupDone, id }) => (
+class Page extends React.Component {
 
-  <div id="page">
+  constructor(props) {
+    super(props);    
+  }
 
-    <Switch>
-      <Route exact path={`/user/profile/${id}`}>
-        {!logged ? <Redirect to="/" /> : <UserProfile />}
-      </Route>
-      <Route path="/register">
-        {signupDone ? <Redirect to="login" /> : <Register />}
-      </Route>
-      <Route path="/legals-mentions">
-        <LegalsMentions />
-      </Route>
-      <Route path="/who-are-we">
-        <WhoAreWe />
-      </Route>
-      <Route exact path="/">
-        {logged ? <Redirect to={`/user/profile/${id}`} /> : <Home />}
-      </Route>
-      <Route path="/login">
-        {logged ? <Redirect to={`/user/profile/${id}`} /> : <Login />}
-      </Route>
-    </Switch>
+  componentDidUpdate() {    
+    if (this.props.logged == true) {
+      this.props.loadUserInfo(); 
+    }      
+  }
 
-  </div>
+  render() {
 
-);
+    const { signupDone, logged, userId } = this.props;
+
+    console.log('from render:', userId);    
+    
+    return (
+      <div id="page">    
+
+        <Switch>
+          <Route path='/team'>
+            <TeamDashboard />
+          </Route>
+          <Route exact path={`/user/profile/${userId}`}>
+            <UserProfile />
+          </Route>
+          <Route path='/register'>
+            {signupDone ? <Redirect to="login" /> : <Register />}   
+          </Route>
+          <Route path='/legals-mentions'>
+            <LegalsMentions />
+          </Route>
+          <Route path='/who-are-we'>
+            <WhoAreWe />
+          </Route>
+          <Route exact path='/'>
+            {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Home />}        
+          </Route>
+          <Route path='/login'>
+            {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Login />} 
+          </Route> 
+        </Switch>
+            
+      </div>
+    );
+  }
+ 
+};
 
 Page.propTypes = {
   logged: PropTypes.bool.isRequired,
   signupDone: PropTypes.bool.isRequired,
+  userId: PropTypes.string,
 };
 
 export default Page;

@@ -127,7 +127,7 @@ class Team
     private $players;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Game", mappedBy="team", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Game", mappedBy="team", orphanRemoval=true, cascade={"persist", "remove"})
      */
     private $games;
 
@@ -161,7 +161,7 @@ class Team
         return $this->address_team;
     }
 
-    public function setaddressTeam(string $address_team): self
+    public function setAddressTeam(string $address_team): self
     {
         $this->address_team = $address_team;
 

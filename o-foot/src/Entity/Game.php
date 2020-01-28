@@ -118,6 +118,8 @@ class Game
     {
         $this->players = new ArrayCollection();
         $this->compositions = new ArrayCollection();
+        $this->created_at = new \DateTime();
+        $this->teams = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -130,7 +132,7 @@ class Game
         return $this->address_game;
     }
 
-    public function setaddressGame(?string $address_game): self
+    public function setAddressGame(?string $address_game): self
     {
         $this->address_game = $address_game;
 

@@ -46,34 +46,14 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/", name="new", methods={"POST"})
+     * @Route("/delete/{id}", name="delete", requirements={"id": "\d+"}, methods={"DELETE"})
      */
-    public function new()
+    public function delete(Game $game)
     {
-        return;
-    }
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($game);
+        $entityManager->flush();
 
-    /**
-     * @Route("/{id}", name="info_edit", requirements={"id": "\d+"}, methods={"PUT"})
-     */
-    public function editInfos()
-    {
-        return;
-    }
-
-    /**
-     * @Route("/{id}", name="stats_edit", requirements={"id": "\d+"}, methods={"PUT"})
-     */
-    public function editStats()
-    {
-        return;
-    }
-
-    /**
-     * @Route("/{id}", name="delete", requirements={"id": "\d+"}, methods={"DELETE"})
-     */
-    public function delete()
-    {
-        return;
+        return $this->json('Match supprimé !');
     }
 }
