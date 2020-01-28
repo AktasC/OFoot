@@ -132,7 +132,7 @@ class Game
         return $this->address_game;
     }
 
-    public function setaddressGame(?string $address_game): self
+    public function setAddressGame(?string $address_game): self
     {
         $this->address_game = $address_game;
 
