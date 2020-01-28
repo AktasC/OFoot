@@ -66,7 +66,7 @@ class TeamController extends AbstractController
         // On indique à $team quels champs nous aimerions modifier grâce aux méthodes ->Set récupéré dans l'entité $team
         // On associe les méthodes get de chaque champs afin de récupérer le champs à modifier
         $team
-            ->setaddressTeam($data->getaddressTeam())
+            ->setAddressTeam($data->getaddressTeam())
             ->setCityTeam($data->getCityTeam())
             ->setManagerTeam($data->getManagerTeam())
             ->setStadiumTeam($data->getStadiumTeam())
@@ -143,7 +143,7 @@ class TeamController extends AbstractController
         $data = $serializer->deserialize($request->getContent(), 'App\Entity\Team', 'json');
 
         $team
-        ->setaddressTeam($data->getaddressTeam())
+        ->setAddressTeam($data->getaddressTeam())
         ->setChampionshipTeam($data->getChampionshipTeam())
         ->setCityTeam($data->getCityTeam())
         ->setStadiumTeam($data->getStadiumTeam())
@@ -189,7 +189,7 @@ class TeamController extends AbstractController
 
         $game
             ->setTeam($team)
-            ->setaddressGame($data->getaddressGame())
+            ->setAddressGame($data->getaddressGame())
             ->setDateTimeGame($data->getDateTimeGame())
             ->setDomicileExterieur($data->getDomicileExterieur())
             ->setOpponentTeam($data->getOpponentTeam())
@@ -256,7 +256,7 @@ class TeamController extends AbstractController
 
         $game
             ->setTeam($team)
-            ->setaddressGame($data->getaddressGame())
+            ->setAddressGame($data->getaddressGame())
             ->setDateTimeGame($data->getDateTimeGame())
             ->setDomicileExterieur($data->getDomicileExterieur())
             ->setOpponentTeam($data->getOpponentTeam())
