@@ -36,11 +36,10 @@ const registerMiddleware = (store) => (next) => (action) => {
       axios.post('/api/v1/teams/new', data, config)
 
       .then(function (response) {
-        console.log('from axios:', response.data); 
-        
+        addNotification('create-team-success')
       })
       .catch(function (error) {
-        console.log("error from appel appel axios:", error);
+        addNotification('create-team-error')
       }); 
 
       break;
