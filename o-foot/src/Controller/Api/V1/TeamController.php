@@ -136,6 +136,25 @@ class TeamController extends AbstractController
     }
 
     /**
+     * @Route("/{team_id}/practice/{practice_id}/delete", name="delete_practice",requirements={"id": "\d+"}, methods={"DELETE"})
+     * @ParamConverter("team", options={"mapping": {"team_id": "id"}})
+     * @ParamConverter("practice", options={"mapping": {"practice_id": "id"}})
+     */
+    public function deletePractice(Practice $practice, Team $team)
+    {
+   
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entityManager->remove($practice);
+
+        $entityManager->flush();
+
+        return $this->json('Entrainement supprimé!');
+    }
+
+
+
+    /**
      * @Route("/edit/{id}", name="edit", requirements={"id": "\d+"}, methods={"POST"})
      */
     public function edit(Request $request, Team $team, SerializerInterface $serializer)
