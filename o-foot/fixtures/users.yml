@@ -1,8 +1,9 @@
 App\Entity\User:
-  user{1..50}:
+  user{1..25}:
     email (unique): "<email()>"
     first_name: "<firstName()>"
     last_name: "<lastName()>"
     password: "<password()>"
+    players: "2x @player<current()>"
     created_at: "<dateTime()>"
     updated_at: "<dateTimeBetween($created_at, 'now')>"

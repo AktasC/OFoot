@@ -1,0 +1,8 @@
+App\Entity\Game:
+  game{1..25}:
+    stadium_game: "<company()>"
+    players: "2x @player*"
+    team: "@team<current()>"
+    compositions: "2x @compo<current()>"
+    created_at: "<dateTime()>"
+    updated_at: "<dateTimeBetween($created_at, 'now')>"
