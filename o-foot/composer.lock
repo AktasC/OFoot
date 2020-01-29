@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "467a096da45be0ac143b72729ce0218e",
@@ -3759,16 +3759,16 @@
         },
         {
             "name": "symfony/mailer",
-            "version": "v5.0.2",
+            "version": "v5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mailer.git",
-                "reference": "82644dc053ccf80e2d67fd79976a2c0d08bb53c2"
+                "reference": "9410890bfe9b8700312b4e04ac38819b66e3b907"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mailer/zipball/82644dc053ccf80e2d67fd79976a2c0d08bb53c2",
-                "reference": "82644dc053ccf80e2d67fd79976a2c0d08bb53c2",
+                "url": "https://api.github.com/repos/symfony/mailer/zipball/9410890bfe9b8700312b4e04ac38819b66e3b907",
+                "reference": "9410890bfe9b8700312b4e04ac38819b66e3b907",
                 "shasum": ""
             },
             "require": {
@@ -3822,7 +3822,7 @@
             ],
             "description": "Symfony Mailer Component",
             "homepage": "https://symfony.com",
-            "time": "2019-12-07T16:40:37+00:00"
+            "time": "2020-01-04T14:08:26+00:00"
         },
         {
             "name": "symfony/mime",
