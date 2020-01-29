@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "adress": "rue de la paix",
+        "date_time": "2020-01-31-T09:20:00+01:00",
+        "stadium": "Parc des Princes", 
+        "opponent_team": null
+    },
+
+    {
+        "id": 2,
+        "adress": "rue de la soif",
+        "date_time": "2020-02-15-T09:20:00+01:00",
+        "stadium": "Stade de Gerland", 
+        "opponent_team": "Lyon"
+    },
+
+    {
+        "id": 3,
+        "adress": "rue de la prairie",
+        "date_time": "2020-01-12-T09:20:00+01:00",
+        "stadium": "Stade de l'école", 
+        "opponent_team": null
+    }
+]

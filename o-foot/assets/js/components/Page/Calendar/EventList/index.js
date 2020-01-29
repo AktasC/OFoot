@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col, Row, Container } from 'react-bootstrap';
+import { Col, Container } from 'react-bootstrap';
 
 
 // Import scss
 import './eventlist.scss';
+
+// Infos
+import eventData from './event.json';
 
 // Import composant
 import Overview from './Overview';
@@ -19,8 +22,8 @@ const EventList = () => (
                 <h2>AGENDA DES EVENEMENTS</h2>
             </div>
             <Col className="full-event">
-                <Overview />
-                <List />
+                <Overview eventData = {eventData}/>
+                <List eventData = {eventData}/>
             </Col>
             </Container>
     </div>
