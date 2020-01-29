@@ -8,15 +8,16 @@ import './user-profil.scss';
 /* import infos from './userInfos.json'; */
 
 import ShowMyTeams from './ShowMyTeams';
+import UserEdit from '../../../containers/UserProfile/UserEdit';
+import PasswordEdit from '../../../containers/UserProfile/PasswordEdit';
 
 
 const UserProfile = ( infosObj ) => {
 
-  
+
     // Récupère les informations sur le joueurs depuis le state userProfil sous forme d'Objet
     // Transforme l'objet récupéré en array
     var infosArray = Object.values(infosObj);
-    console.log(infosObj);
     return (
       <div id="userProfile">    
 
@@ -45,25 +46,26 @@ const UserProfile = ( infosObj ) => {
 
         </Container>
 
-        <Container key="2">
+        <Container>
+      <Tabs defaultActiveKey="teams" id="uncontrolled-tab-example">
+        <Tab eventKey="teams" title="Mes équipes">
+          {/* On mettra ici notre composant ShowMyTeams */}
+          {infosArray.map((user, i) => (  
+            <ShowMyTeams {...user.team}/>
+          ))}
+        </Tab>
+        <Tab eventKey="edit-profil" title="Éditer mon profil">
+          {/* On mettra ici notre composant EditProfil */}
+          
+          <UserEdit />
+        
+        </Tab>
+        <Tab eventKey="edit-password" title="Éditer mon mot de passe">
+          {/* On mettra ici notre composant EditPassword */}
+          <PasswordEdit />
+        </Tab>
+      </Tabs> 
 
-          <Tabs defaultActiveKey="teams" id="uncontrolled-tab-example">
-            <Tab eventKey="teams" title="Mes équipes">
-              {/* On mettra ici notre composant ShowMyTeams */}              
-              {infosArray.map((user, i) => (  
-                <ShowMyTeams {...user.team}/>                
-              ))}
-              <div>Vous n'avez rejoint aucune team pour le moment</div>
-            </Tab>
-            <Tab eventKey="edit-profil" title="Éditer mon profil">
-              {/* On mettra ici notre composant EditProfil */}
-              <div>Éditer mon profil</div>
-            </Tab>
-            <Tab eventKey="edit-password" title="Éditer mon mot de passe">
-              {/* On mettra ici notre composant EditPassword */}
-              <div>Éditer mon mot de passe</div>
-            </Tab>
-          </Tabs> 
 
         </Container>
 
