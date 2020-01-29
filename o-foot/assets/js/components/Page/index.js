@@ -74,7 +74,7 @@ class Page extends React.Component {
 };
 
 Page.propTypes = {
-  logged: PropTypes.bool.isRequired,
+  logged: PropTypes.bool,
   signupDone: PropTypes.bool.isRequired,
   userId: PropTypes.string,
 };

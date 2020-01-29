@@ -67,6 +67,6 @@ export default Header;
 
 
 Header.propTypes = {
-  logged: PropTypes.bool.isRequired, 
+  logged: PropTypes.bool, 
   disconnect: PropTypes.func.isRequired
 };

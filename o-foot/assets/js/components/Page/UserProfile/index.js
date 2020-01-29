@@ -7,15 +7,19 @@ import './user-profil.scss';
 
 import ShowMyTeams from './ShowMyTeams';
 import CreateNewTeam from '../../../containers/UserProfile/CreateNewTeam';
+import UserEdit from '../../../containers/UserProfile/UserEdit';
+import PasswordEdit from '../../../containers/UserProfile/PasswordEdit';
+
 
 const UserProfile = ( infosObj ) => {
-  
-  // Récupère les informations sur le joueurs depuis le state userProfil sous forme d'Objet
-  // Transforme l'objet récupéré en array
+
+
+    // Récupère les informations sur le joueurs depuis le state userProfil sous forme d'Objet
+    // Transforme l'objet récupéré en array
   var infosArray = Object.values(infosObj);
-    
   return (
-    <div id="userProfile"> 
+    <div id="userProfile">    
+
       <Container key="1">      
         {infosArray.map((user, i) => (          
           <div key={i}>
@@ -27,7 +31,7 @@ const UserProfile = ( infosObj ) => {
                 <Card>
                   <Card.Header >MES INFORMATIONS</Card.Header>
                   <Card.Body>
-                    <Avatar className="avatar-custom" src={user.picture_user} size="100" round={true} />
+                  {user.picture_user === null ? <Avatar name={`${user.last_name} ${user.first_name}`} size="100" round={true} className="avatar-custom"  /> : <Avatar className="avatar-custom" src={user.picture_user} size="100" round={true} />}
                     <Card.Title>{user.last_name} {user.first_name} </Card.Title>
                     <Card.Text>
                     Mail : {user.email} 

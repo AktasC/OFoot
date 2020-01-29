@@ -8,16 +8,15 @@ import { Form, Button, Col } from 'react-bootstrap';
 import './loginform.scss';
 
 const LoginForm = ({
-  changeInputEmailLogin,
-  email,
-  changeInputPasswordLogin,
-  password,
+  changeInputLogin,
+  emailValue,  
+  passwordValue,
   submitForm,
   blurInputEmail,
-  EmailValidCheck,
+  emailValidCheck,
   errorMessageEmail,
   blurInputPassword,
-  PasswordValidCheck,
+  passwordValidCheck,
   errorMessagePassword,
   emptyInputs,
 
@@ -30,21 +29,19 @@ const LoginForm = ({
     blurInputPassword(event.target.value);
   };
 
-  const handleChangeEmail = (event) => {
-    changeInputEmailLogin(event.target.value);
+  const handleChange = (event) => {
+    changeInputLogin(event.target.value, event.target.name);
   };
 
-
-  const handleChangePassword = (event) => {
-    changeInputPasswordLogin(event.target.value);
-  };
 
   const onSubmitForm = (evt) => {
+    console.log(emailValue);
     evt.preventDefault();
-    if (email === '' && password === '') {
+    if (emailValue === '' && passwordValue === '') {
+      console.log('emptyinputs');
       emptyInputs();
     }
-    else if (EmailValidCheck === true && PasswordValidCheck === true) {
+    else if (emailValidCheck === true && passwordValidCheck === true) {
       submitForm();
     }
   };
@@ -56,29 +53,29 @@ const LoginForm = ({
       <Form onSubmit={onSubmitForm}>
         <Col>
           <Form.Control
-            className={!EmailValidCheck ? 'wrong' : ''}
+            className={!emailValidCheck ? 'wrong' : ''}
             type="email"
             onBlur={onChangeInputEmail}
-            onChange={handleChangeEmail}
-            value={email}
-            name="email"
+            onChange={handleChange}
+            value={emailValue}
+            name="emailValue"
             placeholder="Email"
           />
         </Col>
-        {!EmailValidCheck && <div>{errorMessageEmail.email}</div>}
+        {!emailValidCheck && <div>{errorMessageEmail.email}</div>}
 
         <Col>
           <Form.Control
-            className={!PasswordValidCheck ? 'wrong' : ''}
+            className={!passwordValidCheck ? 'wrong' : ''}
             type="password"
-            onChange={handleChangePassword}
-            value={password}
-            name="password"
-            placeholder="Mot de Passe"
             onBlur={onChangeInputPassword}
+            onChange={handleChange}
+            value={passwordValue}
+            name="passwordValue"
+            placeholder="Mot de Passe"            
           />
         </Col>
-        {!PasswordValidCheck && <div>{errorMessagePassword.password}</div>}
+        {!passwordValidCheck && <div>{errorMessagePassword.password}</div>}
 
         <Button variant="primary" type="submit">
           Se connecter
@@ -93,15 +90,14 @@ const LoginForm = ({
 };
 
 LoginForm.propTypes = {
-  changeInputEmailLogin: PropTypes.func.isRequired,
-  email: PropTypes.string.isRequired,
-  changeInputPasswordLogin: PropTypes.func.isRequired,
-  password: PropTypes.string.isRequired,
+  changeInputLogin: PropTypes.func.isRequired,
+  emailValue: PropTypes.string.isRequired,  
+  passwordValue: PropTypes.string.isRequired,
   submitForm: PropTypes.func.isRequired,
   blurInputEmail: PropTypes.func.isRequired,
-  EmailValidCheck: PropTypes.bool.isRequired,
+  emailValidCheck: PropTypes.bool.isRequired,
   blurInputPassword: PropTypes.func.isRequired,
-  PasswordValidCheck: PropTypes.bool.isRequired,
+  passwordValidCheck: PropTypes.bool.isRequired,
   emptyInputs: PropTypes.func.isRequired,
 };
 
