@@ -74,7 +74,6 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case MODIFY_PASSWORD: 
-    console.log('mod');
       return {
         ...state, 
         PasswordValue : action.value, 

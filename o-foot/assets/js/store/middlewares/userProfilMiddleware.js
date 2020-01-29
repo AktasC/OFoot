@@ -77,7 +77,6 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         .then(function (response) { 
           addNotification('change-done');
           store.dispatch(emptyInputs());
-          console.log(action.value);
           store.dispatch(modifyPassword(action.value));
         })
         .catch(function (error) {
