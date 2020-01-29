@@ -16,7 +16,7 @@ export const addNotification = ( status ) => {
         animationIn: ["animated", "fadeIn"],     // animate.css classes
         animationOut: ["animated", "fadeOut"],   // animate.css classes
         dismiss: {
-          duration: 3000,
+          duration: 5000,
           showIcon: true
         }
       }) 
@@ -30,11 +30,39 @@ export const addNotification = ( status ) => {
         animationIn: ["animated", "fadeIn"],     // animate.css classes
         animationOut: ["animated", "fadeOut"],   // animate.css classes
         dismiss: {
-          duration: 3000,
+          duration: 5000,
           showIcon: true
         }
       })   
       break;
+    case 'login-success':
+      store.addNotification({
+        title: 'Bienvenue Champion ! ',
+        message: 'Comment vas-tu depuis le temps ?',
+        type: 'success',                         // 'default', 'success', 'info', 'warning'
+        container: 'bottom-left',
+        animationIn: ["animated", "fadeIn"],     // animate.css classes
+        animationOut: ["animated", "fadeOut"],   // animate.css classes
+        dismiss: {
+          duration: 5000,
+          showIcon: true
+        }
+      }) 
+      break; 
+    case 'login-error':
+      store.addNotification({
+        title: 'Votre attention svp !',
+        message: 'Vos informations sont incorrectes, veuillez réessayer',
+        type: 'danger',                         // 'default', 'success', 'info', 'warning'
+        container: 'bottom-left',
+        animationIn: ["animated", "fadeIn"],     // animate.css classes
+        animationOut: ["animated", "fadeOut"],   // animate.css classes
+        dismiss: {
+          duration: 5000,
+          showIcon: true
+        }
+      }) 
+      break; 
     default:
       store.addNotification({
         title: 'Votre attention svp !',

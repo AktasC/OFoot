@@ -1,6 +1,6 @@
 // initial state
 const initialState = {
-  logged: false,
+  logged: localStorage.getItem('logged'),
   userId: localStorage.getItem('userId'),
   token: localStorage.getItem('token'),
 };
@@ -20,7 +20,7 @@ const reducer = (state = initialState, action = {}) => {
     case LOG_USER:      
       return {
         ...state,
-        logged: true,
+        logged: localStorage.setItem('logged', true),
         userId: localStorage.setItem('userId', action.value),
       };    
     case DISCONNECT_USER:      

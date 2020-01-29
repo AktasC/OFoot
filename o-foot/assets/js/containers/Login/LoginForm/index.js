@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 
 import LoginForm from '../../../components/Page/Login/LoginForm';
 
-import {
-  onChangeInputEmailLogin,
-  onChangeInputPasswordLogin,
+import { 
+  emailValue,
+  passwordValue, 
+  onChangeInputLogin,
   connectUser,
   emailInvalid,
   emailValid,
@@ -20,26 +21,22 @@ import {
 } from '../../../../utils/validation';
 
 const mapStateToProps = (state) => ({
-  email: state.loginForm.EmailValue,
-  password: state.loginForm.PasswordValue,
-  EmailValidCheck: state.loginForm.EmailValidCheck,
-  errorMessageEmail: state.loginForm.ErrorMessageInvalidEmail,
-  PasswordValidCheck: state.loginForm.PasswordValidCheck,
-  errorMessagePassword: state.loginForm.ErrorMessageInvalidPassword,
+  emailValue: state.loginForm.emailValue,
+  passwordValue: state.loginForm.passwordValue,
+  emailValidCheck: state.loginForm.emailValidCheck,
+  errorMessageEmail: state.loginForm.errorMessageInvalidEmail,
+  passwordValidCheck: state.loginForm.passwordValidCheck,
+  errorMessagePassword: state.loginForm.errorMessageInvalidPassword,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeInputEmailLogin: (value) => {
-    const action = onChangeInputEmailLogin(value);
-    dispatch(action);
-  },
-
-  changeInputPasswordLogin: (value) => {
-    const action = onChangeInputPasswordLogin(value);
+  changeInputLogin: (value, name) => {
+    const action = onChangeInputLogin(value, name);
     dispatch(action);
   },
 
   submitForm: () => {
+    console.log('submit on container');
     const action = connectUser();
     dispatch(action);
   },
