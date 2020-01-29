@@ -68,7 +68,7 @@ class TeamController extends AbstractController
         // On indique à $team quels champs nous aimerions modifier grâce aux méthodes ->Set récupéré dans l'entité $team
         // On associe les méthodes get de chaque champs afin de récupérer le champs à modifier
         $team
-            ->setAddressTeam($data->getaddressTeam())
+            ->setAddressTeam($data->getAddressTeam())
             ->setCityTeam($data->getCityTeam())
             ->setManagerTeam($data->getManagerTeam())
             ->setStadiumTeam($data->getStadiumTeam())
