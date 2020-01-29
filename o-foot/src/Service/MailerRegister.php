@@ -4,7 +4,10 @@ namespace App\Service;
 
 use App\Entity\User;
 use Symfony\Component\Mime\Email;
+use Symfony\Component\Mime\Address;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
+
 
 class MailerRegister 
 {
@@ -17,12 +20,14 @@ class MailerRegister
 
     public function emailRegister(User $user)
     {
-        $email = (new Email())
-            ->from('teamOfoot@gmail.com')
-            ->to($user->getUsername())
+        $email = (new TemplatedEmail())
+            ->from(new Address('teamOfoot@gmail.com', 'O\'Foot'))
+            ->to(new Address($user->getUsername(), $user->getFirstName()))
             ->subject('Bienvenue sur O\'foot !')
-            ->text("Bienvenue parmis nous !{$user->getFirstName()}, il ne te reste plus qu'a rejoindre une équipe ou bien d'en créer une.
-            ");
+            ->htmlTemplate('email/welcome.html.twig')
+            ->context([
+                // 'user' => $user
+            ]);
 
     return $email;
     }
