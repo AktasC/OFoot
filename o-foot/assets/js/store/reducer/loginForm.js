@@ -1,17 +1,16 @@
 // --- initial state
 const initialState = {
   // la valeur courante de l'input
-  EmailValue: '',
-  PasswordValue: '',
-  ErrorMessageInvalidEmail: '',
-  EmailValidCheck: true,
-  ErrorMessageInvalidPassword: '',
-  PasswordValidCheck: true,
+  emailValue: '',
+  passwordValue: '',
+  errorMessageInvalidEmail: '',
+  emailValidCheck: true,
+  errorMessageInvalidPassword: '',
+  passwordValidCheck: true,
 };
 
 // --- action types
-const CHANGE_EMAIL_INPUT_LOGIN = 'CHANGE_EMAIL_INPUT_LOGIN';
-const CHANGE_PASSWORD_INPUT_LOGIN = 'CHANGE_PASSWORD_INPUT_LOGIN';
+const CHANGE_INPUT_LOGIN = 'CHANGE_INPUT_LOGIN';
 export const CONNECT_USER = 'CONNECT_USER';
 const INVALID_EMAIL = 'INVALID_EMAIL';
 const VALID_EMAIL = 'VALID_EMAIL';
@@ -23,54 +22,48 @@ const MODIFY_PASSWORD ='MODIFY_PASSWORD';
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_EMAIL_INPUT_LOGIN:
+    case CHANGE_INPUT_LOGIN:
       return {
         ...state,
-        EmailValue: action.value,
-      };
-
-    case CHANGE_PASSWORD_INPUT_LOGIN:
-      return {
-        ...state,
-        PasswordValue: action.value,
+        [action.name]: action.value,
       };
 
     case INVALID_EMAIL:
       return {
         ...state,
-        ErrorMessageInvalidEmail: action.value,
-        EmailValidCheck: false,
+        errorMessageInvalidEmail: action.value,
+        emailValidCheck: false,
       };
 
     case VALID_EMAIL:
       return {
         ...state,
-        ErrorMessageInvalidEmail: '',
-        EmailValidCheck: true,
+        errorMessageInvalidEmail: '',
+        emailValidCheck: true,
 
       };
 
     case INVALID_PASSWORD:
       return {
         ...state,
-        ErrorMessageInvalidPassword: action.value,
-        PasswordValidCheck: false,
+        errorMessageInvalidPassword: action.value,
+        passwordValidCheck: false,
       };
 
     case VALID_PASSWORD:
       return {
         ...state,
-        ErrorMessageInvalidPassword: '',
-        PasswordValidCheck: true,
+        errorMessageInvalidPassword: '',
+        passwordValidCheck: true,
       };
 
     case DONT_CONNECT_USER:
       return {
         ...state,
-        ErrorMessageInvalidPassword: { password: 'Merci de renseigner votre mot de passe' },
-        PasswordValidCheck: false,
-        ErrorMessageInvalidEmail: { email: 'Merci de renseigner votre adresse email' },
-        EmailValidCheck: false,
+        errorMessageInvalidPassword: { password: 'Merci de renseigner votre mot de passe' },
+        passwordValidCheck: false,
+        errorMessageInvalidEmail: { email: 'Merci de renseigner votre adresse email' },
+        emailValidCheck: false,
       };
 
     case MODIFY_PASSWORD: 
@@ -86,9 +79,10 @@ const reducer = (state = initialState, action = {}) => {
 
 // --- action creators
 
-export const onChangeInputEmailLogin = (value) => ({
-  type: CHANGE_EMAIL_INPUT_LOGIN,
+export const onChangeInputLogin = (value, name) => ({
+  type: CHANGE_INPUT_LOGIN,
   value,
+  name,
 });
 
 export const onChangeInputPasswordLogin = (value) => ({
