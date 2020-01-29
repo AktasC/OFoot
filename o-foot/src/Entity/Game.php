@@ -38,7 +38,6 @@ class Game
      * @ORM\Column(type="datetime", nullable=true)
      * @Groups("api_v1")
      * @Groups("api_v2")
-     * @ORM\OrderBy({"order" = "ASC", "id" = "ASC"})
      */
     private $date_time_game;
 

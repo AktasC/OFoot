@@ -19,32 +19,12 @@ class PracticeRepository extends ServiceEntityRepository
         parent::__construct($registry, Practice::class);
     }
 
-    // /**
-    //  * @return Practice[] Returns an array of Practice objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findAllPractices()
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('p.date_time_practice', 'DESC')
             ->getQuery()
             ->getResult()
-        ;
+        ; 
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Practice
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
