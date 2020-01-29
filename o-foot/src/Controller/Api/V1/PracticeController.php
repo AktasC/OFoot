@@ -40,7 +40,7 @@ class PracticeController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new",requirements={"id": "\d+"}, methods={"POST"})
+     * @Route("/teams/{id}/new", name="new",requirements={"id": "\d+"}, methods={"POST"})
      */
     public function new(Request $request, SerializerInterface $serializer, Team $team)
     {
