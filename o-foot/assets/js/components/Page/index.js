@@ -18,6 +18,7 @@ import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
 import UserProfile from '../../containers/UserProfile';
 import TeamDashboard from './TeamDashboard';
+import List from './Players/List';
 
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
@@ -52,6 +53,9 @@ class Page extends React.Component {
           </Route>
           <Route path='/register'>
             {signupDone ? <Redirect to="login" /> : <Register />}   
+          </Route>
+          <Route path='/players/list'>
+            <List />  
           </Route>
           <Route path='/legals-mentions'>
             <LegalsMentions />
