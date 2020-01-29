@@ -7,7 +7,9 @@ const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CREATE_TEAM: {
       console.log('Yeaaah im in the middleware');
-      const token = localStorage.getItem('token');      
+      const token = localStorage.getItem('token');
+      const userId = localStorage.getItem('userId');      
+           
       const {
         teamNameValue,
         teamAddressValue,
@@ -15,9 +17,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         teamCityValue,    
       } = store.getState().team;
 
-      const {
-        userId,
-      } = store.getState().user
+      
 
       let config = {
         method: 'post',
