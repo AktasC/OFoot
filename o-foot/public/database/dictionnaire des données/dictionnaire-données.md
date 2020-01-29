@@ -67,7 +67,7 @@ Version 3.0
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 |id	|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant du match|
-|address_match|VARCHAR(255)|NULL|adresse du lieu du match|
+|address_match|VARCHAR(255)|NULL|Adresse du lieu du match|
 |assist_match|SMALLINT|NULL|Nombre de passe par match|
 |date_time_match|DATETIME|NULL|Date du match|
 |domicile_exterieur|VARCHAR(128)|NULL|Distinction match à domicile et exterieur|
@@ -87,7 +87,7 @@ Version 3.0
 |-|-|-|-|
 |event_id|entity|NULL|l'évenement (entité EVENT)|
 |id	|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'entrainement|
-|address_practice|VARCHAR(255)|NULL|adresse du lieu d'entrainement|
+|address_practice|VARCHAR(255)|NULL|Adresse du lieu d'entrainement|
 |date_time_practice|DATETIME|NULL|Date de l'entrainement|
 |presence_practice|	SMALLINT|NULL|Nombre de personne présente à l'entrainement|
 |stadium_practice|VARCHAR(255)|NOT NULL|Stade de l'entraînement|
