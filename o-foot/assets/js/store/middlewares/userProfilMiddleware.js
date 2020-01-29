@@ -2,6 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 
 import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO, SUBMIT_CHANGE_PASSWORD, emptyInputs } from '../reducer/userProfil';
+import { modifyPassword } from '../reducer/loginForm'
 import { addNotification } from '../addNotification';
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
@@ -76,6 +77,8 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         .then(function (response) { 
           addNotification('change-done');
           store.dispatch(emptyInputs());
+          console.log(action.value);
+          store.dispatch(modifyPassword(action.value));
         })
         .catch(function (error) {
           addNotification('change-not-done');

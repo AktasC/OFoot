@@ -123,8 +123,9 @@ const initialState = {
     value, 
   })
 
-  export const submitChangePassword = () => ({
+  export const submitChangePassword = (value) => ({
     type: SUBMIT_CHANGE_PASSWORD, 
+    value, 
   })
 
   export const emptyInputs = () => ({

@@ -25,7 +25,7 @@ const PasswordEdit = ({ current_password, new_password, new_password_check, hand
       errors.push('Le mot de passe doit contenir au moins 6 caractères'); 
       noSubmit(errors);
     } else {
-      submitForm();
+      submitForm(evt.target.new_password_check.value);
     }
   }
 
