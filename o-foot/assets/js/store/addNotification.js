@@ -49,6 +49,36 @@ export const addNotification = ( status ) => {
         }
       }) 
       break;
+
+    case 'change-done':
+      store.addNotification({
+        title: 'Bravo !',
+        message: 'Les modifications ont bien été prises en compte',
+        type: 'success',                         // 'default', 'success', 'info', 'warning'
+        container: 'bottom-left',
+        animationIn: ["animated", "fadeIn"],     // animate.css classes
+        animationOut: ["animated", "fadeOut"],   // animate.css classes
+        dismiss: {
+          duration: 3000,
+          showIcon: true
+        }
+      }) 
+      break; 
+    
+    case 'change-not-done':
+      store.addNotification({
+        title: 'Oups !',
+        message: 'Un problème est survenu, vous pouvez réessayer',
+        type: 'danger',                         // 'default', 'success', 'info', 'warning'
+        container: 'bottom-left',
+        animationIn: ["animated", "fadeIn"],     // animate.css classes
+        animationOut: ["animated", "fadeOut"],   // animate.css classes
+        dismiss: {
+          duration: 3000,
+          showIcon: true
+        }
+      }) 
+      break;
   }  
 
 }

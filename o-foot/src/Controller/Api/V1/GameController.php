@@ -49,6 +49,33 @@ class GameController extends AbstractController
     }
 
     /**
+     * @Route("/teams/{id}/new", name="new",requirements={"id": "\d+"}, methods={"POST"})
+     */
+    public function new(Request $request, SerializerInterface $serializer, Team $team)
+    {
+        $data = $serializer->deserialize($request->getContent(), 'App\Entity\Game', 'json');
+
+        $game = new Game();
+
+        $game
+             ->setTeam($team)
+             ->setaddressGame($data->getaddressGame())
+             ->setDateTimeGame($data->getDateTimeGame())
+             ->setDomicileExterieur($data->getDomicileExterieur())
+             ->setOpponentTeam($data->getOpponentTeam())
+             ->setStadiumGame($data->getStadiumGame())
+             ->setUpdatedAt(new \DateTime());
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entityManager->persist($game);
+
+        $entityManager->flush();
+
+        return $this->json('Match créé !');
+    }
+
+    /**
      * @Route("/{team_id}/edit-score/{game_id}", name="edit_score",requirements={"id": "\d+"}, methods={"POST"})
      * @ParamConverter("team", options={"mapping": {"team_id": "id"}})
      * @ParamConverter("game", options={"mapping": {"game_id": "id"}})

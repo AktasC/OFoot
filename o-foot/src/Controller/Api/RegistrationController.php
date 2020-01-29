@@ -4,9 +4,11 @@ namespace App\Controller\Api;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use App\Service\MailerRegister;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -16,7 +18,7 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/api/register", name="app_register", methods={"POST"})
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, SerializerInterface $serializer): Response
+    public function register(MailerRegister $mailerRegister, MailerInterface $mailer, Request $request, UserPasswordEncoderInterface $passwordEncoder, SerializerInterface $serializer): Response
     {
         // Création d'un objet vide ($user) lié à notre formulaire
         $user = new User();
@@ -49,6 +51,11 @@ class RegistrationController extends AbstractController
             // On flushe tout ce qui a été persisté avant pour être sûr que cela soit enregistré en base de données
             $entityManager->flush();
 
+            // On récupère le service MailerRegister et on fait appel à la fonction emailRegister pour lui fournir en paramètres l'email et le firstname de l'utilisateur
+            $email = $mailerRegister->emailRegister($user);
+
+            // On envoie le mail
+            $mailer->send($email);
             // On sérialise les propriétés de l'entité $user
             // Annotations ajouté au niveau des propriétés présentes dans le formulaire
             $data = $serializer->normalize($user, null, ['groups' => 'api_v1']);
