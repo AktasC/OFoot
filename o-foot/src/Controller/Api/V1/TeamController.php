@@ -3,11 +3,13 @@
 namespace App\Controller\Api\V1;
 
 use App\Entity\Team;
+use App\Entity\User;
 use App\Repository\PlayerRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * @Route("/api/v1/teams", name="api_v1_teams_")
@@ -121,5 +123,32 @@ class TeamController extends AbstractController
         $entityManager->flush();
 
         return $this->json('Equipe supprimée!');
+    }
+
+    /**
+     * @Route("/{team_id}/remove/{user_id}", name="remove_user_team",requirements={"id": "\d+"}, methods={"DELETE"})
+     * @ParamConverter("team", options={"mapping": {"team_id": "id"}})
+     * @ParamConverter("user", options={"mapping": {"user_id": "id"}})
+     */
+    public function removeUserFromTeam(Team $team, User $user)
+    {
+        // On stocke dans la variable $user la fonction removeTeam (collection teams) présente dans l'entité User.
+        // Suppression de team_id de la table pivot user_team
+        $user->removeTeam($team);
+
+        // On stocke dans la variable $team la fonction removeUser (collection users) présente dans l'entité Team.
+        // Suppression de user_id de la table pivot user_team
+        $team->removeUser($user);
+
+        // On récupére l'EntityManager
+        $entityManager = $this->getDoctrine()->getManager();
+
+        // On persiste l'entité $user
+        $entityManager->persist($user);
+
+        // On persiste l'entité $user
+        $entityManager->flush();
+
+        return $this->json('Tu as bien quitté l\'équipe');
     }
 }
