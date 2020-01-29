@@ -78,7 +78,7 @@
 | En tant que... | J'ai besoin de... | afin de... | Commentaire |
 |--|--|--|--|
 |Dashboard Équipe / Équipe	|utilisateur	|visualiser les informations de l'équipe	|consulter les statistiques de l'équipe|
-|Dashboard Équipe / Équipe	|administrateur équipe|	accéder au bouton éditer l'équipe|	éditer les informations clés de l'équipe (stade, ville, date de création, addresse, logo, ligue ...)|
+|Dashboard Équipe / Équipe	|administrateur équipe|	accéder au bouton éditer l'équipe|	éditer les informations clés de l'équipe (stade, ville, date de création, adresse, logo, ligue ...)|
 
 ## Dashboard Équipe / Statistiques/ Equipe
 | En tant que... | J'ai besoin de... | afin de... | Commentaire |
