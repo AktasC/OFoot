@@ -1,7 +1,8 @@
 App\Entity\Compo:
   compo{1..25}:
     composition_name: "<name()>"
-    created_at: "<dateTime()>"
     game_game: "@game<current()>"
-    schema_tactique: "2x @tactique<current()>"
+    players: "2x @player*"
+    schema_tactique: "1x @tactique<current()>"
+    created_at: "<dateTime()>"
     updated_at: "<dateTimeBetween($created_at, 'now')>"

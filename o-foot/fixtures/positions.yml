@@ -1,0 +1,6 @@
+App\Entity\Position:
+  position{1..25}:
+    position_name (unique): "<jobTitle()>"
+    players: "1x @player<current()>"
+    created_at: "<dateTime()>"
+    updated_at: "<dateTimeBetween($created_at, 'now')>"

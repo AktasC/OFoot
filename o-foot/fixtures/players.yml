@@ -1,11 +1,12 @@
 App\Entity\Player:
   player{1..25}:
-    user: "@user<current()>"
-    team: "@team<current()>"
+    composition: "1x @compo<current()>"
+    games: "1x @game<current()>"
     number_jersey_player (unique): "<numberBetween(1, 99)>"
-    composition: "2x @compo<current()>"
-    games: "2x @game<current()>"
-    practices: "2x @practice<current()>"
     player_name: "<name()>"
+    practices: "1x @practice<current()>"
     role_player: "<realText(10)>"
+    team: "@team<current()>"
+    user: "@user<current()>"
     created_at: "<dateTime()>"
+    updated_at: "<dateTimeBetween($created_at, 'now')>"

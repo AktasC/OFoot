@@ -4,6 +4,6 @@ App\Entity\User:
     first_name: "<firstName()>"
     last_name: "<lastName()>"
     password: "<password()>"
-    players: "2x @player<current()>"
+    players: "1x @player<current()>"
     created_at: "<dateTime()>"
     updated_at: "<dateTimeBetween($created_at, 'now')>"

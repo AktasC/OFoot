@@ -1,7 +1,10 @@
 App\Entity\Practice:
   practice{1..25}:
-    stadium_practice: "<company()>"
+    address_practice: "<streetAddress()>"
+    date_time_practice: "<dateTimeBetween(@practice<current()>->updated_at, 'now')>"
+    presence_practice: "<numberBetween(1,100)>"
     players: "2x @player*"
+    stadium_practice: "<company()>"
     team: "@team<current()>"
     created_at: "<dateTime()>"
     updated_at: "<dateTimeBetween($created_at, 'now')>"
