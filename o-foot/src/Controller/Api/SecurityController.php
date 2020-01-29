@@ -24,6 +24,7 @@ class SecurityController extends AbstractController
         // On vérifie que le username renvoyé en json correspond bien à un email existant
         $user = $ur->findOneByEmail($data->getUsername());
 
+       
         // Si l'user existe, on renvoit son ID. Autrement, on renvoit null
         return $this->json([
             'user' => $user ? $user->getId() : null]
