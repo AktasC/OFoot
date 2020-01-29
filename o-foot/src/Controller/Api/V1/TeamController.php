@@ -5,7 +5,6 @@ namespace App\Controller\Api\V1;
 use App\Entity\Team;
 use App\Repository\PlayerRepository;
 use App\Repository\TeamRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -48,6 +47,19 @@ class TeamController extends AbstractController
          * On récupère dans la variable $data l'objet de la sérialisation des atttributs de team que l'on récupère
          * via les attributs 'groups' => 'api_v1'.
          */
+        $data = $serializer->normalize($team, null, ['groups' => 'api_v1']);
+
+        // on retourne $data au format json
+        return $this->json($data);
+    }
+
+    /**
+     * @Route("/stats/{id}", name="show_stats", requirements={"id": "\d+"}, methods={"GET"})
+     */
+    public function showStats(SerializerInterface $serializer, Team $team)
+    {
+        // On récupère dans la variable $data l'objet de la sérialisation des atttributs de team que l'on récupère
+        // via les attributs 'groups' => 'api_vi'.
         $data = $serializer->normalize($team, null, ['groups' => 'api_v1']);
 
         // on retourne $data au format json

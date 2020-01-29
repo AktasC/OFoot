@@ -2,14 +2,14 @@
 
 namespace App\Controller\Api\V1;
 
-use App\Entity\Team;
 use App\Entity\Practice;
+use App\Entity\Team;
 use App\Repository\PracticeRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/api/v1/practices", name="api_v1_practices_")
@@ -39,7 +39,7 @@ class PracticeController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new",requirements={"id": "\d+"}, methods={"POST"})
+     * @Route("/teams/{id}/new", name="new",requirements={"id": "\d+"}, methods={"POST"})
      */
     public function new(Request $request, SerializerInterface $serializer, Team $team)
     {

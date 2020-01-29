@@ -3,6 +3,7 @@
 namespace App\Controller\Api\V1;
 
 use App\Entity\Player;
+use App\Repository\PlayerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,9 +17,19 @@ class PlayerController extends AbstractController
     /**
      * @Route("/", name="list", methods={"GET"})
      */
-    public function list()
+    public function list(PlayerRepository $playerRepository, SerializerInterface $serializer)
     {
-        return;
+        // On crée une variable $players
+        // On va chercher la fonction findAll présente dans playerRepository afin d'afficher la liste des joueurs et leurs stats
+        $players = $playerRepository->findAll();
+
+        // On crée une nouvelle variable $data, qui stocke la sérialisation de $games
+        // On indique l'annotation a rajouté dans l'entité game en fonction du nom de l'api -> api_v1
+        // Ceci permet d'indiquer quelles types de propriétés nous aimerions envoyer en JSON
+        $data = $serializer->normalize($players, null, ['groups' => 'api_v1']);
+
+        // On retourne $games au format JSON
+        return $this->json($data);
     }
 
     /**
