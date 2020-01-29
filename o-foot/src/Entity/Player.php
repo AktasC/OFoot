@@ -140,6 +140,16 @@ class Player
      */
     private $games;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $first_name_player;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $last_name_player;
+
     public function __construct()
     {
         $this->composition = new ArrayCollection();
@@ -442,6 +452,30 @@ class Player
         if ($this->games->contains($match)) {
             $this->games->removeElement($match);
         }
+
+        return $this;
+    }
+
+    public function getFirstNamePlayer(): ?string
+    {
+        return $this->first_name_player;
+    }
+
+    public function setFirstNamePlayer(?string $first_name_player): self
+    {
+        $this->first_name_player = $first_name_player;
+
+        return $this;
+    }
+
+    public function getLastNamePlayer(): ?string
+    {
+        return $this->last_name_player;
+    }
+
+    public function setLastNamePlayer(?string $last_name_player): self
+    {
+        $this->last_name_player = $last_name_player;
 
         return $this;
     }
