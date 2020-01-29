@@ -1,0 +1,74 @@
+[
+  {
+    "player_firstname": "Lionel",
+    "player_lastname": "Messi",
+    "position_player": "Attaquant",
+    "role_player": "Joueur"
+  },
+  {
+    "player_firstname": "Kylian",
+    "player_lastname": "M'Bappé",
+    "position_player": "Attaquant",
+    "role_player": "Joueur"
+  },
+  {
+    "player_firstname": "Neymar",
+    "player_lastname": "",
+    "position_player": "Attaquant",
+    "role_player": "Joueur"
+  },
+  {
+    "player_firstname": "Xavi",
+    "player_lastname": "",
+    "position_player": "Milieu",
+    "role_player": "Joueur"
+  },
+  {
+    "player_firstname": "Andrès",
+    "player_lastname": "Iniesta",
+    "position_player": "Milieu",
+    "role_player": "Joueur"
+  },
+  {
+    "player_firstname": "Zinedine",
+    "player_lastname": "Zidane",
+    "position_player": "Milieu",
+    "role_player": "Joueur"
+  },
+  {
+    "player_firstname": "Roberto",
+    "player_lastname": "Carlos",
+    "position_player": "Défenseur",
+    "role_player": "Joueur"
+  },
+  {
+    "player_firstname": "Sergio",
+    "player_lastname": "Ramos",
+    "position_player": "Défenseur",
+    "role_player": "Joueur"
+  },
+  {
+    "player_firstname": "Marcel",
+    "player_lastname": "Desailly",
+    "position_player": "Défenseur",
+    "role_player": "Joueur"
+  },
+  {
+    "player_firstname": "Dani",
+    "player_lastname": "Alves",
+    "position_player": "Défenseur",
+    "role_player": "Joueur"
+  },
+  {
+    "player_firstname": "Manuel",
+    "player_lastname": "Neuer",
+    "position_player": "Gardien",
+    "role_player": "Joueur"
+  },
+  {
+    "player_firstname": "Pep",
+    "player_lastname": "Guardiola",
+    "position_player": "Entraineur Adj.",
+    "role_player": "Entraineur Adj."
+  }
+]
