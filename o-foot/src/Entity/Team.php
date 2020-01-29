@@ -156,12 +156,12 @@ class Team
         return $this->id;
     }
 
-    public function getaddressTeam(): ?string
+    public function getAddressTeam(): ?string
     {
         return $this->address_team;
     }
 
-    public function setaddressTeam(string $address_team): self
+    public function setAddressTeam(string $address_team): self
     {
         $this->address_team = $address_team;
 

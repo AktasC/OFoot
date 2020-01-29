@@ -9,7 +9,7 @@ import './team-card.scss';
 const TeamCard = ({ team_name, team_img }) => {
   
   return (
-    <div id="teamCard">
+    <div id="teamInfosCard">
 
       <img className="team-thumb" src={team_img} />
       <h5>{team_name}</h5>
