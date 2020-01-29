@@ -119,11 +119,21 @@ class TeamController extends AbstractController
      */
     public function removeUserFromTeam(Team $team, User $user)
     {
+        // On stocke dans la variable $user la fonction removeTeam (collection teams) présente dans l'entité User.
+        // Suppression de team_id de la table pivot user_team
         $user->removeTeam($team);
+
+        // On stocke dans la variable $team la fonction removeUser (collection users) présente dans l'entité Team.
+        // Suppression de user_id de la table pivot user_team
         $team->removeUser($user);
 
+        // On récupére l'EntityManager
         $entityManager = $this->getDoctrine()->getManager();
+
+        // On persiste l'entité $user
         $entityManager->persist($user);
+
+        // On persiste l'entité $user
         $entityManager->flush();
 
         return $this->json('Tu as bien quitté l\'équipe');
