@@ -1,7 +1,7 @@
 // == Import : npm
 import React from 'react';
-import { Col, Row, Container, Table } from 'react-bootstrap';
-import { IoIosStats } from 'react-icons/io';
+import { Col, Row, Container, Table, Button } from 'react-bootstrap';
+import { IoIosStats, IoIosSend, IoIosAddCircleOutline } from 'react-icons/io';
 import { FiEdit3 } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
 
@@ -21,6 +21,13 @@ const List = () => {
           <div className="sweatband">
             <h2>LISTE DES JOUEURS</h2>
           </div>
+
+          <Row>
+            <Col>
+              <Button><IoIosSend /> Inviter joueur</Button>
+              <Button><IoIosAddCircleOutline /> Ajouter joueur</Button>
+            </Col>
+          </Row>
 
           <Row className="">
             <Col className="">
