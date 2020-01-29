@@ -28,6 +28,7 @@ class Team
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $assist_team;
 
@@ -45,16 +46,19 @@ class Team
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $defeat_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $draw_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $goal_team;
 
@@ -72,16 +76,19 @@ class Team
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $game_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $presence_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $red_card_team;
 
@@ -99,16 +106,19 @@ class Team
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $practice_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $victory_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $yellow_card_team;
 
@@ -156,12 +166,12 @@ class Team
         return $this->id;
     }
 
-    public function getaddressTeam(): ?string
+    public function getAddressTeam(): ?string
     {
         return $this->address_team;
     }
 
-    public function setaddressTeam(string $address_team): self
+    public function setAddressTeam(string $address_team): self
     {
         $this->address_team = $address_team;
 
