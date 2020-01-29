@@ -1,0 +1,92 @@
+[
+    {
+        "id":1,
+        "adress_practice":"rue de la paix",
+        "date_time_practice": "2020-01-31-T09:20:00+01:00",
+        "presence_practice": null,
+        "stadium_practice": "Parc des Princes",
+        "players": [
+            {
+                "assist_player": null, 
+                "defeat_player": null, 
+                "draw_player": null, 
+                "goal_player": null, 
+                "game_player": null, 
+                "number_jersey_player": 10,
+                "picture_player": null, 
+                "player_name": "Zizou", 
+                "position_player": null, 
+                "red_card_player": null,
+                "role_player": "Joueur", 
+                "victory_player":null,
+                "yellow_card_player": null,
+                "team": {
+                    "id":1,
+                    "adress_team":"rue des loosers",
+                    "championship_team": null,
+                    "city_team": "Paris", 
+                    "logo_team": null, 
+                    "manager_team": 1, 
+                    "stadium_team": "Parc des Princes",
+                    "team_name": "Paris Saint Germain"
+                }
+            }
+        ],
+        "team" : {
+            "id": 1,
+            "adress_team": "rue du stade",
+            "championship_team": null,
+            "city_team": "Paris",
+            "logo_team": null,
+            "manager_team": 1,
+            "stadium-team": "Parc des Princes",
+            "team_name": "PSG"
+        }
+    },
+
+    {
+        "id":2,
+        "adress_practice":"rue de la win",
+        "date_time_practice": "2020-02-15-T09:20:00+01:00",
+        "presence_practice": null,
+        "stadium_practice": "Stade de l'école",
+        "players": [
+            {
+                "assist_player": null, 
+                "defeat_player": null, 
+                "draw_player": null, 
+                "goal_player": null, 
+                "game_player": null, 
+                "number_jersey_player": 7,
+                "picture_player": null, 
+                "player_name": "Thierry", 
+                "position_player": null, 
+                "red_card_player": null,
+                "role_player": "Joueur", 
+                "victory_player":null,
+                "yellow_card_player": null,
+                "team": {
+                    "id":1,
+                    "adress_team":"rue des winneurs",
+                    "championship_team": null,
+                    "city_team": "Beauregard", 
+                    "logo_team": null, 
+                    "manager_team": 1, 
+                    "stadium_team": "Stade de l'école",
+                    "team_name": "Nom de l'équipe"
+                }
+            }
+        ],
+        "team" : {
+            "id": 1,
+            "adress_team": "rue du stade",
+            "championship_team": null,
+            "city_team": "Paris",
+            "logo_team": null,
+            "manager_team": 1,
+            "stadium-team": "Stade de l'école",
+            "team_name": "Nom de l'équipe"
+        }
+    }
+    
+  ]

@@ -18,6 +18,7 @@ import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
 import UserProfile from '../../containers/UserProfile';
 import TeamDashboard from './TeamDashboard';
+import EventList from './Calendar/EventList';
 
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
@@ -46,6 +47,9 @@ class Page extends React.Component {
         <Switch>
           <Route path='/team'>
             <TeamDashboard />
+          </Route>
+          <Route path='/event/list'>
+            <EventList />
           </Route>
           <Route exact path={`/user/profile/${userId}`}>
             <UserProfile />

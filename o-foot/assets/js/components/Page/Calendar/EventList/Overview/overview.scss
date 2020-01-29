@@ -1,0 +1,122 @@
+#overview {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-evenly;
+  flex-wrap: wrap; 
+  margin: 4em; 
+}
+
+.title {
+  padding: .8em; 
+  font-size: 1.5em;
+}
+
+#calendarWidget {
+
+    width: 100%;    
+      
+    & .container {
+      display: flex;
+      justify-content: space-evenly; 
+  
+      & .entrainement {
+        background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.85)), url(/img/team/event/entrainement.jpg);
+        background-size: cover;
+        background-position: bottom;   
+      }
+  
+      & .match {
+        background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.95)), url(/img/team/event/match.jpg);
+        background-size: 150%;
+        background-position: -40px -20px;   
+      }
+  
+      & .event-card {
+        display: flex;
+        flex-direction: column;
+        height: 160px;
+        width: 200px;
+        background-color: white;
+        color: #212532;
+        border-radius: 5px;
+        box-shadow: 1px 1px 10px black;
+  
+        & .infos-col {
+  
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+  
+          & .date {
+            text-transform: uppercase;
+          }
+        }
+  
+        & .opponent-col {
+  
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          position: relative;
+  
+          & .opponent {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 1em;
+          }
+    
+          & .opponent::before {
+            content: 'Vs';
+            position: absolute;
+            font-size: 55px;
+            color: #000000;
+            font-weight: 900;
+            left: 0px;
+            top: -40px;
+            font-family: Poppins;
+            mix-blend-mode: overlay;
+            text-shadow: 1px 1px 5px #000000;
+          } 
+        }
+  
+        & .participate-col {
+          display: flex;
+          flex-direction: column;
+          padding: 0;
+          align-items: flex-end;
+          position: relative;
+  
+          & .participate-text {
+            padding: 0;
+            position: absolute;
+            bottom: 25px;
+            font-size: .8em;
+          }
+  
+          & .buttons-col {
+            position: absolute;
+            padding: 0;
+            bottom:0         
+          }
+    
+          & .btn {
+            padding: 0;
+            font-size: .9em;
+            font-weight: bold;
+            width: 50%;
+            height: 40%;
+            text-transform: uppercase;
+          }
+    
+          & .btn-success {
+            border-radius: 5px 0px 0px 5px;
+            box-shadow: 0px -1px 5px #808080;
+          }
+          & .btn-danger {
+            border-radius: 0px 5px 5px 0px;
+            box-shadow: 0px -1px 5px #808080;
+          }
+        }    
+      }
+    }
+  }
