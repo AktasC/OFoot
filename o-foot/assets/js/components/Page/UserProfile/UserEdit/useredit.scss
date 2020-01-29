@@ -1,19 +1,21 @@
 #userEdit {
-    margin: 3em; 
-}
+  margin: 3em; 
 
-.editUserInput {
+  & .editUserInput {
     margin-bottom: 1em;
-}
-
-.editButton {
+  }
+  
+  & .editButton {
     margin: 1em; 
-}
-
-.row {
+  }
+  
+  & .row {
     flex-wrap: wrap; 
+  }
+  
+  & .col {
+    min-width: 250px; 
+  }
+
 }
 
-.col {
-    min-width: 250px; 
-}
