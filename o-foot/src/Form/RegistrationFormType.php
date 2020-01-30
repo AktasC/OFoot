@@ -4,14 +4,13 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Validator\Constraints\Email;
-
 
 class RegistrationFormType extends AbstractType
 {
@@ -22,17 +21,17 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('last_name', null, [
                 // Mise en place de contrainte : champs non vide
-                'constraints' => new NotBlank,
+                'constraints' => new NotBlank(),
             ])
             ->add('first_name', null, [
                 // Mise en place de contrainte : champs non vide
-                'constraints' => new NotBlank,
+                'constraints' => new NotBlank(),
             ])
             ->add('email', EmailType::class, [
                 // Mise en place de contraintes : champs non vide et nouveau mail obligatoire
                 'constraints' => [
-                    new Email,
-                    new NotBlank,
+                    new Email(),
+                    new NotBlank(),
                 ],
             ])
             ->add('password', PasswordType::class, [

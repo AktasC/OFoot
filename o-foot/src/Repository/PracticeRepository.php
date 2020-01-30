@@ -25,6 +25,6 @@ class PracticeRepository extends ServiceEntityRepository
             ->orderBy('p.date_time_practice', 'ASC')
             ->getQuery()
             ->getResult()
-        ; 
+        ;
     }
 }

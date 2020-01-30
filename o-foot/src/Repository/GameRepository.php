@@ -25,6 +25,6 @@ class GameRepository extends ServiceEntityRepository
             ->orderBy('g.date_time_game', 'ASC')
             ->getQuery()
             ->getResult()
-        ; 
+        ;
     }
 }

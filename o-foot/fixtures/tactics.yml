@@ -1,0 +1,6 @@
+App\Entity\Tactique:
+  tactique{1..25}:
+    compo: "@compo<current()>"
+    schema_name: "<name()>"
+    created_at: "<dateTime()>"
+    updated_at: "<dateTimeBetween($created_at, 'now')>"

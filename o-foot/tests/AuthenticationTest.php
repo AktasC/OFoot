@@ -4,56 +4,61 @@ namespace App\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class AuthenticationTest extends WebTestCase
-{
-    public function testHomepage()
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/');
-        $this->assertEquals($crawler->text(), "O'Foot");
-        $this->assertResponseIsSuccessful();
-        fwrite(STDERR, print_r("Homepage tested.\n", true));
-    }
+// class AuthenticationTest extends WebTestCase
+// {
+//     public function createNewUser()
+//     {
+//         $client = static::createClient();
 
-    public function testRegisterPage()
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/register');
-        $this->assertResponseIsSuccessful();
-        fwrite(STDERR, print_r("Register page tested.\n", true));
-    }
+//         $register = json_encode([
+//             'registration_form[last_name]' => 'Test',
+//             'registration_form[first_name]' => 'Super',
+//             'registration_form[email]' => 'test@test.com',
+//             'registration_form[password]' => 'testtest'
+//         ]);
 
-    public function testLoginPage()
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/login');
+//         $client->request(
+//             'POST',
+//             'https://localhost:8000/api/register',
+//             [],
+//             [],
+//             ['CONTENT_TYPE' => 'application/x-www-form-urlencoded'],
+//             $register
+//         );
+//         fwrite(STDERR, print_r($client->getResponse()->getContent(), true));
+//         $this->assertResponseIsSuccessful();
+//     }
 
-        $this->assertResponseIsSuccessful();
-        fwrite(STDERR, print_r("Login page tested.\n", true));
-    }
+//     protected function createAuthenticatedClient()
+//     {
+//         $client = static::createClient();
 
-    public function testRegister()
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/register', [], [], [
-            'Content-Type' => 'application/x-www-form-urlencoded',
-        ]);
+//         $form = json_encode([
+//             'username' => 'test@test.com',
+//             'password' => 'testtest'
+//         ]);
 
-        /*
-         * TODO
-         *
-         * dd($crawler->filter('#registerForm > form'));
-         * $buttonCrawlerNode = $crawler->selectButton('submit');
-         * $form = $buttonCrawlerNode->form();
-         * $crawler = $client->submitForm(getName(), [
-         * 'registration_form[first_name]' => 'Fabio',
-         * 'registration_form[last_name]' => 'Benji',
-         * 'registration_form[email]' => 'KykyLeKillerDu75@gmail.com',
-         * 'registration_form[password]' => 'MotDePasseSuperSecure',
-         * ]);
-         */
+//         $client->request('POST', '/api/login_check', [], [], ['CONTENT_TYPE' => 'application/json'], $form);
 
-        $this->assertResponseIsSuccessful();
-        fwrite(STDERR, print_r("Registering tested.\n", true));
-    }
-}
+//         $data = json_decode($client->getResponse()->getContent(), true);
+
+//         // On clone le WebClient et on lui ajoute le header Authorization avec Bearer $token
+//         $client2 = clone $client;
+//         $client2->setServerParameter('Authorization', sprintf('Bearer %s', $data['token']));
+
+//         return $client2;
+//     }
+
+//     public function testAuthentication()
+//     {
+//         // Obtention de la clé JWT
+//         $this->createNewUser();
+//         $client = $this->createAuthenticatedClient();
+
+//         // Appel API sur une route sécurisée
+//         //$client->request('GET', '/api/v1/teams');
+
+//         // Tout est bon !
+//         $this->assertResponseIsSuccessful();
+//     }
+// }
