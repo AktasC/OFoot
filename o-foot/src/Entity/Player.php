@@ -62,7 +62,7 @@ class Player
     private $picture_player;
 
     /**
-     * @ORM\Column(type="string", length=128)
+     * @ORM\Column(type="string", length=128, nullable=true)
      * @Groups("api_v1")
      */
     private $player_name;
@@ -133,6 +133,18 @@ class Player
      * @ORM\ManyToMany(targetEntity="App\Entity\Game", inversedBy="players")
      */
     private $games;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
+     */
+    private $first_name_player;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
+     */
+    private $last_name_player;
 
     public function __construct()
     {
@@ -424,6 +436,30 @@ class Player
         if ($this->games->contains($match)) {
             $this->games->removeElement($match);
         }
+
+        return $this;
+    }
+
+    public function getFirstNamePlayer(): ?string
+    {
+        return $this->first_name_player;
+    }
+
+    public function setFirstNamePlayer(?string $first_name_player): self
+    {
+        $this->first_name_player = $first_name_player;
+
+        return $this;
+    }
+
+    public function getLastNamePlayer(): ?string
+    {
+        return $this->last_name_player;
+    }
+
+    public function setLastNamePlayer(?string $last_name_player): self
+    {
+        $this->last_name_player = $last_name_player;
 
         return $this;
     }

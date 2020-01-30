@@ -6,7 +6,7 @@ import { userProfilInfo } from '../../store/reducer/userProfil';
 
 const mapStateToProps = (state) => {
   return {
-    logged: localStorage.getItem('logged'),
+    logged: state.user.logged,
     signupDone: state.registerForm.signupDone,
     token: localStorage.getItem('token'),
     userId: localStorage.getItem('userId')

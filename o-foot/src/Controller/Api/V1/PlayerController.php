@@ -65,6 +65,8 @@ class PlayerController extends AbstractController
         // On indique à $player quels champs nous aimerions modifier grâce aux méthodes ->Set récupéré dans l'entité $player
         // On associe les méthodes get de chaque champs afin de récupérer le champs à modifier
         $player
+            ->setFirstNamePlayer($data->getFirstNamePlayer())
+            ->setLastNamePlayer($data->getLastNamePlayer())
             ->setNumberJerseyPlayer($data->getNumberJerseyPlayer())
             ->setPositionPlayer($data->getPositionPlayer())
             ->setUpdatedAt(new \DateTime());
