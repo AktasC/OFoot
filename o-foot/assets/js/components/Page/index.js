@@ -19,6 +19,7 @@ import WhoAreWe from './WhoAreWe';
 import UserProfile from '../../containers/UserProfile';
 import TeamDashboard from './TeamDashboard';
 import List from './Players/List';
+import Page404 from './Page404';
 
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
@@ -68,7 +69,8 @@ class Page extends React.Component {
           </Route>
           <Route path='/login'>
             {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Login />} 
-          </Route> 
+          </Route>
+          <Route component={Page404} />
         </Switch>
             
       </div>
