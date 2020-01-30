@@ -17,7 +17,7 @@ import Login from '../../containers/Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
 import UserProfile from '../../containers/UserProfile';
-import TeamDashboard from './TeamDashboard';
+import TeamDashboard from '../../containers/Page/TeamDashboard';
 import List from './Players/List';
 import Page404 from './Page404';
 
@@ -46,9 +46,8 @@ class Page extends React.Component {
       <div id="page">    
 
         <Switch>
-          <Route path='/team'>
-            <TeamDashboard />
-          </Route>
+          <Route path={'/team/:teamId'} component={TeamDashboard} />    
+          
           <Route exact path={`/user/profile/${userId}`}>
             <UserProfile />
           </Route>

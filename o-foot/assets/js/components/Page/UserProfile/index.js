@@ -24,7 +24,7 @@ class UserProfile extends React.Component {
   render () {
     
     const { userInformations } = this.props;
-    console.log("from container:", userInformations.teams) 
+    
     return (
       <div id="userProfile">    
 
