@@ -7,25 +7,15 @@ import { Col, Row, Button, Jumbotron } from 'react-bootstrap';
 import './list.scss';
 
 
-const List = ({eventData, eventDataMix, eventDataGames, eventDataPractices}) => {
+const List = ({eventData, eventDataMixAll}) => {
 
-eventDataGames = eventData[0];
-eventDataPractices = eventData[1]; 
+    
+const eventDataGames = eventData[0];
+const eventDataPractices = eventData[1]; 
 
-console.log(eventDataGames); 
-console.log(eventDataPractices);
+const eventDataMix = eventDataGames.concat(eventDataPractices);  
 
-eventDataMix = eventDataGames.concat(eventDataPractices); 
-console.log(eventDataMix); 
-
-/*function rename() { // function to rename on button click 
-    eventDataMixNew = eventDataMix.map(function(obj) { 
-        obj['adress_game'] = obj['adress']; // Assign new key 
-        delete obj['adress_game']; // Delete old key 
-        return obj; 
-    }); 
-    console.log(eventDataMixNew); */
-} 
+const options = { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minutes: '2-digit' };
 
 return (
     
@@ -36,19 +26,15 @@ return (
         <Jumbotron key={id} id="card-event">
         <Row key="1" className="event-card entrainement">
                     <Col className="infos-col">
-                        <div className="date">
-                            {event.date_time}
-                        </div>
-                        <div className="time">
-                            20h
-                        </div>
+                    {event.opponent_team === undefined ? <div className="date"> {event.date_time_practice} </div> : <div className="date"> {event.date_time_game} </div> }
+                        
                     </Col> 
 
                     <Col className="opponent-col">
-                          {event.opponent_team === null ? <div className="event-type"> Entrainement </div> : <div className="event-type"> Match </div> } 
-                        <div className="detail">
-                            {event.stadium} - {event.adress}
-                        </div>
+                          {event.opponent_team === undefined ? <div className="event-type"> Entrainement </div> : <div className="event-type"> Match </div> }
+                          {event.opponent_team != undefined && <div className="event-type"> {event.opponent_team} </div> }
+                          {event.opponent_team != undefined && <div className="event-type"> {event.domicile_exterieur} </div> }
+                          {event.opponent_team === undefined ? <div className="detail"> {event.stadium_practice} - {event.adress_practice} </div> : <div className="detail"> {event.stadium_game} - {event.adress_game} </div> }
                     </Col> 
 
                     <Col className="participate-col">
