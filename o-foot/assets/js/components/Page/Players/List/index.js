@@ -25,7 +25,7 @@ const List = () => {
           <Row>
             <Col>
               <Button><IoIosSend /> Inviter joueur</Button>
-              <Button><IoIosAddCircleOutline /> Ajouter joueur</Button>
+              {/* <Button><IoIosAddCircleOutline /> Ajouter joueur</Button> */}
             </Col>
           </Row>
 
@@ -37,11 +37,10 @@ const List = () => {
                     <th>N°</th>
                     <th>Nom</th>
                     <th>Prénom</th>
-                    <th>Poste</th>
-                    <th>Status</th>
-                    <th>Stats</th>
-                    <th>Éditer</th>
-                    <th>Supprimer</th>
+                    <th>Poste</th>                    
+                    <th className="smallin">Stats</th>
+                    <th className="smallin">Édit.</th>
+                    <th className="smallin">Supp.</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,8 +49,7 @@ const List = () => {
                       <td>{i}</td>
                       <td>{player.player_firstname}</td>
                       <td>{player.player_lastname}</td>
-                      <td>{player.position_player}</td>
-                      <td>En attente</td>
+                      <td>{player.position_player}</td>                      
                       <td><IoIosStats /></td>
                       <td><FiEdit3 /></td>
                       <td><AiOutlineDelete /></td>
