@@ -54,7 +54,7 @@ export const addNotification = ( status ) => {
       store.addNotification({
         title: 'Bienvenue Champion !',
         message: 'Comment vas-tu depuis le temps ?',
-        type: 'danger',                         // 'default', 'success', 'info', 'warning'
+        type: 'success',                         // 'default', 'success', 'info', 'warning'
         container: 'bottom-left',
         animationIn: ["animated", "fadeIn"],     // animate.css classes
         animationOut: ["animated", "fadeOut"],   // animate.css classes
