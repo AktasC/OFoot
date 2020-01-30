@@ -1,6 +1,9 @@
 // initial state
 const initialState = {
   userInformations: [],
+  firstname: '', 
+  lastname: '', 
+  email: '', 
   current_password:'',
   new_password:'',
   new_password_check:'',
@@ -14,6 +17,7 @@ const initialState = {
   export const CHANGE_EMAIL = 'CHANGE_EMAIL'; 
   export const MODIFY_INFO ='MODIFY_INFO'; 
   export const CHANGE_LAST_NAME = 'CHANGE_LAST_NAME';
+  export const CHANGES_DONE = 'CHANGES_DONE';
   export const CHANGE_INPUT = 'CHANGE_INPUT';
   export const NO_SUBMIT = 'NO_SUBMIT'; 
   export const SUBMIT_CHANGE_PASSWORD = 'SUBMIT_CHANGE_PASSWORD'; 
@@ -37,26 +41,29 @@ const initialState = {
       case CHANGE_NAME: 
         return {
           ...state, 
-          userInformations: {...state.userInformations, first_name:action.value }, 
+          firstname: action.value,
+          //userInformations: {...state.userInformations, first_name:action.value }, 
         };
   
       case CHANGE_EMAIL: 
         return {
           ...state, 
-          userInformations: {...state.userInformations, email:action.value }, 
+          email: action.value,
+         // userInformations: {...state.userInformations, email:action.value }, 
         };
 
       case CHANGE_LAST_NAME: 
         return {
           ...state, 
-          userInformations: {...state.userInformations, last_name:action.value }, 
+          lastname : action.value,
+         // userInformations: {...state.userInformations, last_name:action.value }, 
         };
-      
-        case CHANGE_INPUT:
-          return {
-            ...state,
-            [action.name]: action.value,
-          };
+        
+      case CHANGE_INPUT:
+        return {
+          ...state,
+          [action.name]: action.value,
+        };
 
       case NO_SUBMIT: 
         return {
@@ -74,7 +81,7 @@ const initialState = {
         }
   
       default: return state;
-      }
+    }
   };
 
   
@@ -112,6 +119,11 @@ const initialState = {
     value,
   })
 
+  export const changesDone = (value) => ({
+    type: CHANGES_DONE, 
+    value
+  })
+  // ---- export
   export const changeInput = (value, name) => ({    
     type: CHANGE_INPUT,
     name,
