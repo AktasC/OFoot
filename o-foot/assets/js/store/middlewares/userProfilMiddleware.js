@@ -32,26 +32,28 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
     case MODIFY_INFO:
 
       const {
-        first_name,
-        last_name,
+        firstname,
+        lastname,
         email,
-        picture_user
-      } = store.getState().userProfil.userInformations;
+        pictureuser
+      } = store.getState().userProfil;
       
       axios({
         method: 'post',
         url: `/api/v1/users/edit/${userId}`,
         headers: { 'Authorization': `Bearer ${token}` },
         data: {
-          first_name: first_name,
+          first_name: firstname,
           email: email, 
-          last_name: last_name,
-          picture_user: picture_user,
+          last_name: lastname,
+          picture_user: pictureuser,
           birthdate: null, 
         }      
       })
       
       .then(function (response) { 
+        console.log(response.config.data);
+        store.dispatch(changesDone(response.config.data));
         addNotification('change-done');
       })
       .catch(function (error) {
@@ -84,9 +86,6 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
           store.dispatch(emptyInputs());
         });         
         break;
-    
-    
-    
 
     default:
       // par défaut, je laisse passer l'action
