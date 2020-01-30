@@ -4,6 +4,8 @@ App\Entity\Player:
     composition: "1x @compo<current()>"
     defeat_player: "<numberBetween(0, 20)>"
     draw_player: "<numberBetween(0, 20)>"
+    first_name_player: "@user<current()>->first_name"
+    last_name_player: "@user<current()>->last_name"
     goal_player: "<numberBetween(0, 20)>"
     game_player: "<numberBetween(0, 20)>"
     games: "1x @game<current()>"
