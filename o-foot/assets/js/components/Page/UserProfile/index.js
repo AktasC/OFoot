@@ -12,12 +12,19 @@ import UserEdit from '../../../containers/UserEdit';
 import PasswordEdit from './PasswordEdit';
 
 
-const UserProfile = ( infosObj ) => {
+class UserProfile extends React.Component {
 
+  constructor(props) {
+    super (props);
+  }
+
+  render () {
+    
+    const { userInformations } = this.props
     // Récupère les informations sur le joueurs depuis le state userProfil sous forme d'Objet
     // Transforme l'objet récupéré en array
-    var infosArray = Object.values(infosObj);
-    console.log(infosObj);
+    //var infosArray = Object.values(userInformations);
+    //console.log(infosArray );
     return (
       <div id="userProfile">    
 
@@ -69,6 +76,9 @@ const UserProfile = ( infosObj ) => {
 
       </div>  
     )
+
+  }
 }
+
 
 export default UserProfile;

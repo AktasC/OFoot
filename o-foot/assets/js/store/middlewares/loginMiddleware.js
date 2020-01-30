@@ -38,7 +38,7 @@ const loginMiddleware = (store) => (next) => (action) => {
         /* localStorage.setItem('userId', response.data.user); */
       })
       .catch(function (error) {
-        console.log(error);
+        //console.log(error);
       });  
       break;
 
