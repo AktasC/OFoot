@@ -29,7 +29,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/edit/{id}", name="edit_user_profile", requirements={"id": "\d+"})
+     * @Route("/edit/{id}", name="edit_user_profile", requirements={"id": "\d+"}, methods=("POST"))
      */
     public function edit(User $user, Request $request, SerializerInterface $serializer)
     {
@@ -60,7 +60,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/edit/password/{id}", name="edit_password", requirements={"id": "\d+"})
+     * @Route("/edit/password/{id}", name="edit_password", requirements={"id": "\d+"}, methods=("POST"))
      */
     public function editPassword(User $user, Request $request, SerializerInterface $serializer, UserPasswordEncoderInterface $encoder)
     {
