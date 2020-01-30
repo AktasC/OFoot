@@ -66,6 +66,8 @@ class TeamController extends AbstractController
         // Création d'un objet vide de la classe Team stockée dans la variable $team
         $team = new Team();
 
+        // On récupére la fonction addTeam via la relation entre user et team
+        // La table pivot user_team est maintenant renseigné dans la BDD (user_id ; team_id)
         $user->addTeam($team);
 
         // On indique à $team quels champs nous aimerions modifier grâce aux méthodes ->Set récupéré dans l'entité $team
