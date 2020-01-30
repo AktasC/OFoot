@@ -147,7 +147,7 @@ class Team
     private $practices;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="managed_teams")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="managed_teams", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $manager;
