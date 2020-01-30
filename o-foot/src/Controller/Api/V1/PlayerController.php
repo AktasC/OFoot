@@ -68,7 +68,7 @@ class PlayerController extends AbstractController
             ->setFirstNamePlayer($data->getFirstNamePlayer())
             ->setLastNamePlayer($data->getLastNamePlayer())
             ->setNumberJerseyPlayer($data->getNumberJerseyPlayer())
-            ->setPositionPlayer($data->getPositionPlayer())
+            ->setPosition($data->getPosition())
             ->setUpdatedAt(new \DateTime());
 
         // On récupére l'EntityManager
