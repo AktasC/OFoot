@@ -4,13 +4,13 @@ namespace App\Controller\Api\V1;
 
 use App\Repository\GameRepository;
 use App\Repository\PracticeRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
-* @Route("/api/v1/events", name="api_v1_events_")
-*/
+ * @Route("/api/v1/events", name="api_v1_events_")
+ */
 class EventController extends AbstractController
 {
     /**
@@ -20,15 +20,14 @@ class EventController extends AbstractController
     {
         // On crée $games qui va chercher la fonction findAllGames présente dans gameRepository
         // Cette fonction permet de récupérer l'ensemble des matchs triés par date_time_game
-        $games = $gameRepository->findAllGames();
+        $games = $gameRepository->findAllOrdered();
 
         // Je créé la variable $games qui va chercher la fonction findAllPractices présente dans gameRepository
         // Cette fonction permet de récupérer l'ensemble des matchs triés par date_time_practice
-        $practices = $practiceRepository->findAllPractices();
-
+        $practices = $practiceRepository->findAllOrdered();
 
         // On crée un tableau avec $games et $practices
-        $events = array($games, $practices);
+        $events = [$games, $practices];
 
         // On crée une nouvelle variable $data, qui stocke la sérialisation de $events
         // On indique l'annotation a rajouté dans l'entité game en fonction du nom de l'api -> api_v2

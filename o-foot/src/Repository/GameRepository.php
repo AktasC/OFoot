@@ -19,10 +19,10 @@ class GameRepository extends ServiceEntityRepository
         parent::__construct($registry, Game::class);
     }
 
-    public function findAllGames()
+    public function findAllOrdered()
     {
         return $this->createQueryBuilder('g')
-            ->orderBy('g.date_time_game', 'DESC')
+            ->orderBy('g.date_time_game', 'ASC')
             ->getQuery()
             ->getResult()
         ; 
