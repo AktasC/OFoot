@@ -1,17 +1,18 @@
 import React from 'react';
-import { Col, Row, Card, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import Avatar from 'react-avatar';
 
 // Import scss
 import './team-card.scss';
 
 
 
-const TeamCard = ({ team_name, team_img }) => {
-  
+const TeamCard = ({ team_name, logo_team }) => { 
+
   return (
     <div id="teamInfosCard">
 
-      <img className="team-thumb" src={team_img} />
+      { logo_team != null ? <Avatar className="avatar-custom" src={logo_team} size="100" round={true} /> : <Avatar name={team_name} size="150" size="100" round={true} /> }      
       <h5>{team_name}</h5>
       <Button>Accéder au Dashboard Équipe</Button>
           

@@ -31,9 +31,9 @@ class Page extends React.Component {
   }
 
   componentDidUpdate() {    
-    if (this.props.logged == true) {
+    if (this.props.logged == true || this.props.addTeam == true) {
       this.props.loadUserInfo(); 
-    }      
+    }    
   }
 
   render() {
