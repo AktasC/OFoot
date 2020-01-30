@@ -17,12 +17,14 @@ class Game
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @Groups("api_v1")
+     * @Groups("api_v2")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("api_v1")
+     * @Groups("api_v2")
      */
     private $address_game;
 
@@ -35,12 +37,14 @@ class Game
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * @Groups("api_v1")
+     * @Groups("api_v2")
      */
     private $date_time_game;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
      * @Groups("api_v1")
+     * @Groups("api_v2")
      */
     private $domicile_exterieur;
 
@@ -59,12 +63,14 @@ class Game
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("api_v1")
+     * @Groups("api_v2")
      */
     private $opponent_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
      * @Groups("api_v1")
+     * @Groups("api_v2")
      */
     private $presence_game;
 
@@ -77,6 +83,7 @@ class Game
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("api_v1")
+     * @Groups("api_v2")
      */
     private $stadium_game;
 
@@ -127,12 +134,12 @@ class Game
         return $this->id;
     }
 
-    public function getaddressGame(): ?string
+    public function getAddressGame(): ?string
     {
         return $this->address_game;
     }
 
-    public function setaddressGame(?string $address_game): self
+    public function setAddressGame(?string $address_game): self
     {
         $this->address_game = $address_game;
 

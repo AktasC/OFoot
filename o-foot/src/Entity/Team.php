@@ -28,6 +28,7 @@ class Team
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $assist_team;
 
@@ -45,16 +46,19 @@ class Team
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $defeat_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $draw_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $goal_team;
 
@@ -65,23 +69,20 @@ class Team
     private $logo_team;
 
     /**
-     * @ORM\Column(type="smallint")
-     * @Groups("api_v1")
-     */
-    private $manager_team;
-
-    /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $game_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $presence_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $red_card_team;
 
@@ -99,16 +100,19 @@ class Team
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $practice_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $victory_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $yellow_card_team;
 
@@ -142,6 +146,12 @@ class Team
      */
     private $practices;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="managed_teams", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $manager;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -156,12 +166,12 @@ class Team
         return $this->id;
     }
 
-    public function getaddressTeam(): ?string
+    public function getAddressTeam(): ?string
     {
         return $this->address_team;
     }
 
-    public function setaddressTeam(string $address_team): self
+    public function setAddressTeam(string $address_team): self
     {
         $this->address_team = $address_team;
 
@@ -248,18 +258,6 @@ class Team
     public function setLogoTeam(?string $logo_team): self
     {
         $this->logo_team = $logo_team;
-
-        return $this;
-    }
-
-    public function getManagerTeam(): ?int
-    {
-        return $this->manager_team;
-    }
-
-    public function setManagerTeam(int $manager_team): self
-    {
-        $this->manager_team = $manager_team;
 
         return $this;
     }
@@ -501,6 +499,18 @@ class Team
                 $practice->setTeam(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getManager(): ?User
+    {
+        return $this->manager;
+    }
+
+    public function setManager(?User $manager): self
+    {
+        $this->manager = $manager;
 
         return $this;
     }

@@ -1,14 +1,14 @@
 import axios from 'axios';
 import qs from 'qs';
 
-import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO, changesDone  } from '../reducer/userProfil';
+import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO, SUBMIT_CHANGE_PASSWORD, emptyInputs } from '../reducer/userProfil';
+import { modifyPassword } from '../reducer/loginForm'
 import { addNotification } from '../addNotification';
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
 
   const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId');
-      console.log(userId);
 
   switch (action.type) {    
     case USER_PROFIL_INFO:
@@ -60,9 +60,32 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         addNotification('change-not-done');
       });         
       break;
-    
-    
-    
+
+      case SUBMIT_CHANGE_PASSWORD:
+
+        const {
+          new_password,
+        } = store.getState().userProfil;
+        
+        axios({
+          method: 'post',
+          url: `/api/v1/users/edit/password/${userId}`,
+          headers: { 'Authorization': `Bearer ${token}` },
+          data: {
+            password: new_password,
+          }      
+        })
+        
+        .then(function (response) { 
+          addNotification('change-done');
+          store.dispatch(emptyInputs());
+          store.dispatch(modifyPassword(action.value));
+        })
+        .catch(function (error) {
+          addNotification('change-not-done');
+          store.dispatch(emptyInputs());
+        });         
+        break;
 
     default:
       // par défaut, je laisse passer l'action

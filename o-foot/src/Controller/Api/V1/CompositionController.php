@@ -49,5 +49,4 @@ class CompositionController extends AbstractController
     {
         return;
     }
-
 }

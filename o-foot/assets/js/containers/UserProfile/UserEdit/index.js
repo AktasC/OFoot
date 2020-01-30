@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import UserEdit from '../../../../components/Page/UserProfile/UserEdit';
+import UserEdit from '../../../components/Page/UserProfile/UserEdit';
 
 import { modifyUserInfo, changeAvatar, changeName, changeEmail, changeLastName } from '../../../store/reducer/userProfil';
 

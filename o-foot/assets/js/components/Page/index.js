@@ -17,6 +17,9 @@ import Login from '../../containers/Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
 import UserProfile from '../../containers/UserProfile';
+import TeamDashboard from './TeamDashboard';
+import List from './Players/List';
+import Page404 from './Page404';
 
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
@@ -43,11 +46,17 @@ class Page extends React.Component {
       <div id="page">    
 
         <Switch>
+          <Route path='/team'>
+            <TeamDashboard />
+          </Route>
           <Route exact path={`/user/profile/${userId}`}>
             <UserProfile />
           </Route>
           <Route path='/register'>
             {signupDone ? <Redirect to="login" /> : <Register />}   
+          </Route>
+          <Route path='/players/list'>
+            <List />  
           </Route>
           <Route path='/legals-mentions'>
             <LegalsMentions />
@@ -60,7 +69,8 @@ class Page extends React.Component {
           </Route>
           <Route path='/login'>
             {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Login />} 
-          </Route> 
+          </Route>
+          <Route component={Page404} />
         </Switch>
             
       </div>
@@ -70,7 +80,7 @@ class Page extends React.Component {
 };
 
 Page.propTypes = {
-  logged: PropTypes.bool.isRequired,
+  logged: PropTypes.bool,
   signupDone: PropTypes.bool.isRequired,
   userId: PropTypes.string,
 };

@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
-
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PracticeRepository")
  */
@@ -18,30 +17,35 @@ class Practice
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @Groups("api_v1")
+     * @Groups("api_v2")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("api_v1")
+     * @Groups("api_v2")
      */
     private $address_practice;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * @Groups("api_v1")
+     * @Groups("api_v2")
      */
     private $date_time_practice;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
      * @Groups("api_v1")
+     * @Groups("api_v2")
      */
     private $presence_practice;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("api_v1")
+     * @Groups("api_v2")
      */
     private $stadium_practice;
 

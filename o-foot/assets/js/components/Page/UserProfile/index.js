@@ -1,15 +1,14 @@
 import React from 'react';
-import { Container, Row, Col, Card, Tabs, Tab } from 'react-bootstrap';
+import { Container, Row, Col, Card, Tabs, Tab, Button } from 'react-bootstrap';
 import Avatar from 'react-avatar';
 
 // Import scss
 import './user-profil.scss';
 
-/* import infos from './userInfos.json'; */
-
 import ShowMyTeams from './ShowMyTeams';
-import UserEdit from '../../../containers/UserEdit';
-import PasswordEdit from './PasswordEdit';
+import CreateNewTeam from '../../../containers/UserProfile/CreateNewTeam';
+import UserEdit from '../../../containers/UserProfile/UserEdit';
+import PasswordEdit from '../../../containers/UserProfile/PasswordEdit';
 
 
 class UserProfile extends React.Component {

@@ -22,12 +22,12 @@ class PlayerRepository extends ServiceEntityRepository
     public function findPlayersByTeam($id)
     {
         $qb = $this->createQueryBuilder('p');
-                $qb->select('p,t');
-                $qb->leftJoin('p.team','t');
-                $qb->where('p.team = :id')
+        $qb->select('p,t');
+        $qb->leftJoin('p.team', 't');
+        $qb->where('p.team = :id')
                    ->setParameter('id', $id);
-               return $qb->getQuery()->getResult();
-                
+
+        return $qb->getQuery()->getResult();
     }
 
     // /**

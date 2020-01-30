@@ -4,6 +4,10 @@ const initialState = {
   firstname: '', 
   lastname: '', 
   email: '', 
+  current_password:'',
+  new_password:'',
+  new_password_check:'',
+  errors: []
   };
 
   export const USER_PROFIL_INFO = 'USER_PROFIL_INFO';
@@ -14,6 +18,10 @@ const initialState = {
   export const MODIFY_INFO ='MODIFY_INFO'; 
   export const CHANGE_LAST_NAME = 'CHANGE_LAST_NAME';
   export const CHANGES_DONE = 'CHANGES_DONE';
+  export const CHANGE_INPUT = 'CHANGE_INPUT';
+  export const NO_SUBMIT = 'NO_SUBMIT'; 
+  export const SUBMIT_CHANGE_PASSWORD = 'SUBMIT_CHANGE_PASSWORD'; 
+  export const EMPTY_INPUTS = 'EMPTY_INPUTS'; 
 
   // ---- reducer
   const reducer = (state = initialState, action = {}) => {
@@ -50,15 +58,30 @@ const initialState = {
           lastname : action.value,
          // userInformations: {...state.userInformations, last_name:action.value }, 
         };
-
-      case CHANGES_DONE: 
-      console.log(value); 
-        return {
         
+      case CHANGE_INPUT:
+        return {
+          ...state,
+          [action.name]: action.value,
+        };
+
+      case NO_SUBMIT: 
+        return {
+          ...state, 
+          errors: action.value
+        }
+      
+      case EMPTY_INPUTS: 
+        return {
+          ...state, 
+          errors: [],
+          new_password: '', 
+          new_password_check: '', 
+          current_password: '',
         }
   
       default: return state;
-      }
+    }
   };
 
   
@@ -101,4 +124,24 @@ const initialState = {
     value
   })
   // ---- export
+  export const changeInput = (value, name) => ({    
+    type: CHANGE_INPUT,
+    name,
+    value,
+  });
+
+  export const noSubmitForm = (value) => ({
+    type: NO_SUBMIT, 
+    value, 
+  })
+
+  export const submitChangePassword = (value) => ({
+    type: SUBMIT_CHANGE_PASSWORD, 
+    value, 
+  })
+
+  export const emptyInputs = () => ({
+    type: EMPTY_INPUTS,
+  })
+   // ---- export
   export default reducer;

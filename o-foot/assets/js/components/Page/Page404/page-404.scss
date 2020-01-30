@@ -1,0 +1,19 @@
+#page404 {
+  margin: 2em 0;
+  color: #212532;
+  height: 30vh;
+
+  & .sweatband {
+    padding: 4em;
+    background: linear-gradient( rgba(0, 0, 0, .55), rgba(0, 0, 0, 0.70) ),url('/img/team/team_dashboard.jpg');    
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2em;
+    color: white;
+  }
+
+  & button {
+    margin-top: 3em;
+  }
+
+}
