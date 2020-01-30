@@ -19,9 +19,7 @@ const registerMiddleware = (store) => (next) => (action) => {
 
       
 
-      let config = {
-        method: 'post',
-        url: '/api/v1/teams/new',
+      let config = {        
         headers: { 'Authorization': `Bearer ${token}` }        
       }
 
@@ -33,7 +31,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         manager: Number(userId),
       }      
 
-      axios.post('/api/v1/teams/new', data, config)
+      axios.post(`/api/v1/teams/user/${userId}/new`, data, config)
 
       .then(function (response) {
         addNotification('create-team-success')
