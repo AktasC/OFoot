@@ -1,20 +1,44 @@
 // == Import : npm
-import React from 'react';
-import { Col, Row, Container, Table, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Col, Row, Container, Table, Button, Modal } from 'react-bootstrap';
 import { IoIosStats, IoIosSend, IoIosAddCircleOutline } from 'react-icons/io';
 import { FiEdit3 } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
+import { IoMdFootball } from 'react-icons/io';
+
 
 // Import scss
 import './list.scss';
 
 import players from './players.json';
 
-const List = () => {  
+class List extends React.Component { 
+  constructor(props) {
+    super(props);
+    console.log(props);
+    this.props.loadPlayersList();
 
+    this.state = {
+      show: false
+    };
+  }
+  
+  render() {
 
-  return (
-    
+    {/* Permet l'ouverture et la fermeture via un state local (non géré par reux ou store) de ma modal */}
+    const handleClose = () => {
+      this.setState({
+        show: false
+      });
+    }
+    const handleShow = () => {
+      this.setState({
+        show: true,
+      });
+    }
+
+    return (
+      
       <div id="list">        
 
         <Container>
@@ -24,7 +48,7 @@ const List = () => {
 
           <Row>
             <Col>
-              <Button><IoIosSend /> Inviter joueur</Button>
+              <Button onClick={handleShow}><IoIosSend /> Inviter joueur</Button>
               {/* <Button><IoIosAddCircleOutline /> Ajouter joueur</Button> */}
             </Col>
           </Row>
@@ -61,10 +85,28 @@ const List = () => {
             </Col> 
           </Row> 
         </Container>
+
+        <Modal show={this.state.show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Inviter un joueur :</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Col><IoMdFootball size={28} /> Rien de plus simple <IoMdFootball size={28}/> </Col>
+            <Col>Renseignez juste son adresse mail, afin de lui envoyer le lien d'invitation</Col>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
           
-      </div>    
-    
-  )
+      </div> 
+    )
+  }
 };
 
 // == Export
