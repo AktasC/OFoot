@@ -79,29 +79,29 @@ class TeamController extends AbstractController
 
         // Création d'un objet vide de la classe Team stockée dans la variable $team
         $team = new Team();
-
-        // On récupére la fonction addTeam via la relation entre user et team
-        // La table pivot user_team est maintenant renseigné dans la BDD (user_id ; team_id)
-        $user->addTeam($team);
-
+        
         // On indique à $team quels champs nous aimerions modifier grâce aux méthodes ->Set récupéré dans l'entité $team
         // On associe les méthodes get de chaque champs afin de récupérer le champs à modifier
         $team
-            ->setAddressTeam($data->getAddressTeam())
-            ->setCityTeam($data->getCityTeam())
-            ->setManager($data->getManager())
-            ->setStadiumTeam($data->getStadiumTeam())
-            ->setTeamName($data->getTeamName())
-            ->setUpdatedAt(new \DateTime());
-
+        ->setAddressTeam($data->getAddressTeam())
+        ->setCityTeam($data->getCityTeam())
+        ->setManager($user)
+        ->setStadiumTeam($data->getStadiumTeam())
+        ->setTeamName($data->getTeamName())
+        ->setUpdatedAt(new \DateTime());
+        
         // On récupére l'EntityManager
         $entityManager = $this->getDoctrine()->getManager();
-
+        
         // On persiste l'entité $team
         $entityManager->persist($team);
 
         // On flushe tout ce qui a été persisté avant pour être sûr que cela soit enregistré en base de données
         $entityManager->flush();
+
+        // On récupére la fonction addTeam via la relation entre user et team
+        // La table pivot user_team est maintenant renseigné dans la BDD (user_id ; team_id)
+        $user->addTeam($team);
 
         // On retourne $team au format JSON
         return $this->json('Equipe bien créée');

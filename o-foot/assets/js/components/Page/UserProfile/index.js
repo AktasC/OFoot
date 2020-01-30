@@ -49,9 +49,11 @@ const UserProfile = ( infosObj ) => {
         <Tabs defaultActiveKey="teams" id="uncontrolled-tab-example">
           <Tab eventKey="teams" title="Mes équipes">
             {/* On mettra ici notre composant ShowMyTeams */}
-            {infosArray.map((user, i) => (  
-              <ShowMyTeams {...user.team}/>
-            ))}
+           
+            {infosArray.map((user, i) => {  
+              console.log(user.teams);
+              {/* <ShowMyTeams {...user.team}/> */}
+            })}
           </Tab>
           <Tab eventKey="create-team" title="Créer mon équipe">
             {/* On mettra ici notre composant CreateNewTeam */}
