@@ -1,0 +1,9 @@
+App\Entity\Team:
+  team{1..25}:
+    address_team: "<streetAddress()>"
+    city_team: "<city()>"
+    manager: "@user<current()>"
+    stadium_team: "<streetName()>"
+    team_name: "<name()>"
+    created_at: "<dateTime()>"
+    updated_at: '<dateTimeBetween($created_at, "now")>'

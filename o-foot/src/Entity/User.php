@@ -85,12 +85,18 @@ class User implements UserInterface
      */
     private $teams;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Team", mappedBy="manager")
+     */
+    private $managed_teams;
+
     public function __construct()
     {
         $this->players = new ArrayCollection();
         $this->teams = new ArrayCollection();
-        $this->roles = array('ROLE_USER');
+        $this->roles = ['ROLE_USER'];
         $this->created_at = new \DateTime();
+        $this->managed_teams = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -295,6 +301,37 @@ class User implements UserInterface
     {
         if ($this->teams->contains($team)) {
             $this->teams->removeElement($team);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Team[]
+     */
+    public function getManagedTeams(): Collection
+    {
+        return $this->managed_teams;
+    }
+
+    public function addManagedTeam(Team $managedTeam): self
+    {
+        if (!$this->managed_teams->contains($managedTeam)) {
+            $this->managed_teams[] = $managedTeam;
+            $managedTeam->setManager($this);
+        }
+
+        return $this;
+    }
+
+    public function removeManagedTeam(Team $managedTeam): self
+    {
+        if ($this->managed_teams->contains($managedTeam)) {
+            $this->managed_teams->removeElement($managedTeam);
+            // set the owning side to null (unless already changed)
+            if ($managedTeam->getManager() === $this) {
+                $managedTeam->setManager(null);
+            }
         }
 
         return $this;
