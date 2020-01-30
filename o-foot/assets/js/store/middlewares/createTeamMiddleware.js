@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import { CREATE_TEAM } from '../reducer/team';
 import { addNotification } from '../addNotification';
+import { addTeam } from '../reducer/user';
 
 const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -33,7 +34,8 @@ const registerMiddleware = (store) => (next) => (action) => {
       axios.post(`/api/v1/teams/user/${userId}/new`, data, config)
 
       .then(function (response) {
-        addNotification('create-team-success')
+        addNotification('create-team-success');
+        store.dispatch(addTeam());
       })
       .catch(function (error) {
         addNotification('create-team-error')

@@ -3,11 +3,13 @@ const initialState = {
   logged: false,
   userId: localStorage.getItem('userId'),
   token: localStorage.getItem('token'),
+  addTeam: false,
 };
 
 export const UPDATE_TOKEN = 'UPDATE_TOKEN';
 export const LOG_USER = 'LOG_USER';
 export const DISCONNECT_USER = 'DISCONNECT_USER';
+export const ADD_TEAM = 'ADD_TEAM';
 
 // ---- reducer
 const reducer = (state = initialState, action = {}) => {
@@ -29,7 +31,12 @@ const reducer = (state = initialState, action = {}) => {
         logged: false,
         userId: localStorage.removeItem('userId'),
       };
-    break;
+    case ADD_TEAM:      
+    return {
+      ...state,
+      addTeam: true,      
+    };
+    
     default: return state;
   }
 };
@@ -38,17 +45,25 @@ export const logUser = (value) => (
   {
     type: LOG_USER,
     value,
-  });
+  }
+);
 
 export const updateToken = (value) => (
   {
     type: UPDATE_TOKEN,
     value,
-  });
+  }
+);
 
 export const disconnectUser = () => (
   {
     type: DISCONNECT_USER,
+  }
+);
+
+export const addTeam = () => (
+  {
+    type: ADD_TEAM,
   }
 );
 // ---- export
