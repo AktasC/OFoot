@@ -5,11 +5,16 @@ import UserEdit from '../../components/Page/UserProfile/UserEdit';
 import { modifyUserInfo, changeAvatar, changeName, changeEmail, changeLastName } from '../../store/reducer/userProfil';
 
 const mapStateToProps = (state) => {
+    
+    let firstname =  state.userProfil.userInformations.first_name;
+    let email =  state.userProfil.userInformations.email;
+    let lastname = state.userProfil.userInformations.last_name;
+  
   return { 
     pictureuser: state.userProfil.userInformations.picture_user,
-    firstname: state.userProfil.userInformations.first_name, 
-    email: state.userProfil.userInformations.email, 
-    lastname: state.userProfil.userInformations.last_name,
+    firstname: state.userProfil.firstname, 
+    email: state.userProfil.email, 
+    lastname: state.userProfil.lastname,
   };
 };
 

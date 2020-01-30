@@ -1,7 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
 
-import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO  } from '../reducer/userProfil';
+import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO, changesDone  } from '../reducer/userProfil';
 import { addNotification } from '../addNotification';
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
@@ -32,26 +32,28 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
     case MODIFY_INFO:
 
       const {
-        first_name,
-        last_name,
+        firstname,
+        lastname,
         email,
-        picture_user
-      } = store.getState().userProfil.userInformations;
+        pictureuser
+      } = store.getState().userProfil;
       
       axios({
         method: 'post',
         url: `/api/v1/users/edit/${userId}`,
         headers: { 'Authorization': `Bearer ${token}` },
         data: {
-          first_name: first_name,
+          first_name: firstname,
           email: email, 
-          last_name: last_name,
-          picture_user: picture_user,
+          last_name: lastname,
+          picture_user: pictureuser,
           birthdate: null, 
         }      
       })
       
       .then(function (response) { 
+        console.log(response.config.data);
+        store.dispatch(changesDone(response.config.data));
         addNotification('change-done');
       })
       .catch(function (error) {

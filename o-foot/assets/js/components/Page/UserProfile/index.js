@@ -65,8 +65,6 @@ const UserProfile = ( infosObj ) => {
           <PasswordEdit />
         </Tab>
       </Tabs> 
-
-
         </Container>
 
       </div>  
