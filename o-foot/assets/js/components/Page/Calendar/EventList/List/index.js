@@ -7,16 +7,32 @@ import { Col, Row, Button, Jumbotron } from 'react-bootstrap';
 import './list.scss';
 
 
-const List = ({eventData}) => {
+const List = ({eventData, eventDataMix, eventDataGames, eventDataPractices}) => {
 
-console.log(eventData); 
+eventDataGames = eventData[0];
+eventDataPractices = eventData[1]; 
+
+console.log(eventDataGames); 
+console.log(eventDataPractices);
+
+eventDataMix = eventDataGames.concat(eventDataPractices); 
+console.log(eventDataMix); 
+
+/*function rename() { // function to rename on button click 
+    eventDataMixNew = eventDataMix.map(function(obj) { 
+        obj['adress_game'] = obj['adress']; // Assign new key 
+        delete obj['adress_game']; // Delete old key 
+        return obj; 
+    }); 
+    console.log(eventDataMixNew); */
+} 
 
 return (
     
     <div id="list">
         <h3> Tous vos événements </h3>
 
-    {eventData.map((event, id) => (
+    {eventDataMix.map((event, id) => (
         <Jumbotron key={id} id="card-event">
         <Row key="1" className="event-card entrainement">
                     <Col className="infos-col">

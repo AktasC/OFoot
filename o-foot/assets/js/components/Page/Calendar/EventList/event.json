@@ -1,25 +1,58 @@
 [
+    [
     {
         "id": 1,
-        "adress": "rue de la paix",
-        "date_time": "2020-01-31-T09:20:00+01:00",
-        "stadium": "Parc des Princes", 
-        "opponent_team": null
+        "adress_game": "rue de la paix",
+        "date_time_game": "2020-01-31-T09:20:00+01:00",
+        "stadium_game": "Parc des Princes", 
+        "domicile_exterieur": "domicile",
+        "opponent_team": null,
+        "presence_game": null
     },
 
     {
         "id": 2,
-        "adress": "rue de la soif",
-        "date_time": "2020-02-15-T09:20:00+01:00",
-        "stadium": "Stade de Gerland", 
-        "opponent_team": "Lyon"
+        "adress_game": "rue de la soif",
+        "date_time_game": "2020-02-15-T09:20:00+01:00",
+        "stadium_game": "Stade de Gerland", 
+        "opponent_team": "Lyon",
+        "presence_game": null,
+        "domicile_exterieur": "domicile"
     },
 
     {
         "id": 3,
-        "adress": "rue de la prairie",
-        "date_time": "2020-01-12-T09:20:00+01:00",
-        "stadium": "Stade de l'école", 
-        "opponent_team": null
+        "adress_game": "rue de la prairie",
+        "date_time_game": "2020-01-12-T09:20:00+01:00",
+        "stadium_game": "Stade de l'école", 
+        "opponent_team": "Lille",
+        "presence_game": null,
+        "domicile_exterieur": "domicile"
     }
+],
+[
+    {
+        "id": 1,
+        "adress_practice": "rue de la paix",
+        "date_time_practice": "2020-01-31-T09:20:00+01:00",
+        "stadium_practice": "Parc des Princes", 
+        "presence_practice": null
+    },
+
+    {
+        "id": 2,
+        "adress_practice": "rue de la soif",
+        "date_time_practice": "2020-02-15-T09:20:00+01:00",
+        "stadium_practice": "Stade de Gerland", 
+        "presence_practice": null
+    },
+
+    {
+        "id": 3,
+        "adress_practice": "rue de la prairie",
+        "date_time_practice": "2020-01-12-T09:20:00+01:00",
+        "stadium_practice": "Stade de l'école", 
+        "presence_practice": null
+    }
+]
 ]
