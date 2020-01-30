@@ -30,7 +30,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         city_team: teamCityValue,           
         stadium_team: teamStadiumValue, 
         team_name: teamNameValue,
-        manager: Number(userId),
+        manager_team: Number(userId),
       }      
 
       axios.post('/api/v1/teams/new', data, config)
