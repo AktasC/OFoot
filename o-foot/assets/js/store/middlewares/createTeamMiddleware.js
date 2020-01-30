@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { CREATE_TEAM } from '../reducer/team';
+import { CREATE_TEAM, resetAddTeamInput } from '../reducer/team';
 import { addNotification } from '../addNotification';
 import { addTeam } from '../reducer/user';
 
@@ -36,6 +36,7 @@ const registerMiddleware = (store) => (next) => (action) => {
       .then(function (response) {
         addNotification('create-team-success');
         store.dispatch(addTeam());
+        store.dispatch(resetAddTeamInput());
       })
       .catch(function (error) {
         addNotification('create-team-error')
