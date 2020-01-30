@@ -9,8 +9,7 @@ import './overview.scss';
 const Overview = () => (
     
     <Row id="overview">
-        <div>
-        <h3 className='title'> Dernier Match/Entrainement </h3>       
+        <div>       
         <div id="calendarWidget">        
             <Container>
   
@@ -40,8 +39,7 @@ const Overview = () => (
         </div> 
         </div>
 
-        <div>
-        <h3 className='title'> Prochain Match/Entrainement</h3>       
+        <div>      
         <div id="calendarWidget">        
             <Container>
   
