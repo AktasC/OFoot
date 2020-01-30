@@ -55,7 +55,7 @@ class PlayerController extends AbstractController
     }
 
     /**
-     * @Route("/edit/{id}", name="edit", requirements={"id": "\d+"}, methods={"POST})
+     * @Route("/edit/{id}", name="edit", requirements={"id": "\d+"}, methods={"POST"})
      */
     public function edit(Player $player, Request $request, SerializerInterface $serializer)
     {
