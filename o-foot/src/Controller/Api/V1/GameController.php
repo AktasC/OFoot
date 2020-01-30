@@ -4,8 +4,11 @@ namespace App\Controller\Api\V1;
 
 use App\Entity\Game;
 use App\Entity\Team;
+use App\Service\MailerGame;
 use App\Repository\GameRepository;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -49,12 +52,15 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/teams/{id}/new", name="new",requirements={"id": "\d+"}, methods={"POST"})
+     * @Route("/teams/{id}/new", name="new",requirements={"id": "\d+"}, methods={"GET"})
      */
-    public function new(Request $request, SerializerInterface $serializer, Team $team)
+    public function new(MailerGame $mailerGame,MailerInterface $mailer, Request $request, SerializerInterface $serializer, Team $team, UserRepository $ur)
     {
         $data = $serializer->deserialize($request->getContent(), 'App\Entity\Game', 'json');
 
+        // On récupère les emails des utilisateurs lié à cette team
+        $emailList = $ur->findUserEmailByTeam($team);
+     
         $game = new Game();
 
         $game
@@ -71,6 +77,8 @@ class GameController extends AbstractController
         $entityManager->persist($game);
 
         $entityManager->flush();
+
+        $mailerGame->sendAll($emailList, $game);
 
         return $this->json('Match créé !');
     }
@@ -153,4 +161,6 @@ class GameController extends AbstractController
 
         return $this->json('Match supprimé !');
     }
+
+  
 }

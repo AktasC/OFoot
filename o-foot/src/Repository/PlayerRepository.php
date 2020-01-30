@@ -26,9 +26,11 @@ class PlayerRepository extends ServiceEntityRepository
                 $qb->leftJoin('p.team','t');
                 $qb->where('p.team = :id')
                    ->setParameter('id', $id);
-               return $qb->getQuery()->getResult();
+        return $qb->getQuery()->getResult();
                 
     }
+
+
 
     // /**
     //  * @return Player[] Returns an array of Player objects
