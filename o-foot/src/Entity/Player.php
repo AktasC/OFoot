@@ -142,11 +142,13 @@ class Player
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("api_v1")
      */
     private $first_name_player;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("api_v1")
      */
     private $last_name_player;
 
