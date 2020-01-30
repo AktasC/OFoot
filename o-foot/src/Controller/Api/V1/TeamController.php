@@ -55,15 +55,18 @@ class TeamController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new", methods={"POST"})
+     * @Route("/user/{user_id}/new", name="new", methods={"POST"})
+     * @ParamConverter("user", options={"mapping": {"user_id": "id"}})
      */
-    public function new(Request $request, SerializerInterface $serializer)
+    public function new(Request $request, SerializerInterface $serializer, User $user)
     {
         // On crée une nouvelle variable $data, qui stocke la sérialisation de l'entité Team en Json
         $data = $serializer->deserialize($request->getContent(), 'App\Entity\Team', 'json');
 
         // Création d'un objet vide de la classe Team stockée dans la variable $team
         $team = new Team();
+
+        $user->addTeam($team);
 
         // On indique à $team quels champs nous aimerions modifier grâce aux méthodes ->Set récupéré dans l'entité $team
         // On associe les méthodes get de chaque champs afin de récupérer le champs à modifier
