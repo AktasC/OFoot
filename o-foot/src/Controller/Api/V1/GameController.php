@@ -5,8 +5,6 @@ namespace App\Controller\Api\V1;
 use App\Entity\Game;
 use App\Entity\Team;
 use App\Repository\GameRepository;
-use App\Repository\UserRepository;
-use App\Service\MailerGame;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

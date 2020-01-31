@@ -4,7 +4,7 @@
     "championship_team": "Ligue 1",
     "city_team": "75016 Paris",
     "logo_team": "img/team/logo/psg_logo.png",
-    "manager_team": 1,
+    "manager": 1,
     "stadium_team": "Parc des Princes",
     "team_name": "Paris Saint Germain"
   }

@@ -8,6 +8,7 @@ const mapStateToProps = (state) => {
   return {
     logged: state.user.logged,
     signupDone: state.registerForm.signupDone,
+    addTeam: state.user.addTeam,
     token: localStorage.getItem('token'),
     userId: localStorage.getItem('userId')
   };

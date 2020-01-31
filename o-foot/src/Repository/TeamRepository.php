@@ -19,7 +19,6 @@ class TeamRepository extends ServiceEntityRepository
         parent::__construct($registry, Team::class);
     }
 
-
     // /**
     //  * @return Team[] Returns an array of Team objects
     //  */

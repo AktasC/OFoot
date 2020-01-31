@@ -14,9 +14,13 @@ const showMyTeams = ( teams ) => {
   // On ne peut maper que sur un array [] je transforme donc mon objet recu de mon composant parent en array
   var arrTeams = Object.values(teams);
 
+  console.log("arrTeams:", arrTeams);
+
   const settings = {
     infinite: true,
-    speed: 500,
+    speed: 2000,
+    autoplay: true,
+    autoplaySpeed: 8000,
     slidesToShow: 2,
     slidesToScroll: 2,   
   };  
@@ -27,8 +31,8 @@ const showMyTeams = ( teams ) => {
       <Row>
         <Col md={12} > 
           <Slider {...settings}>          
-          {arrTeams.map((team, i) => ( 
-            <TeamCard key={i}  {...team} />                              
+          {arrTeams[0].map((team, i) => (
+            <TeamCard key={i}  team={team} />
           ))}
           </Slider>
         </Col>
