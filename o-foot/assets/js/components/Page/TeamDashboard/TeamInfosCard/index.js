@@ -15,7 +15,7 @@ const TeamInfosCard = ({ teamData }) => {
     team_name,
     championship_team,
     stadium_team,
-    adress_team,
+    address_team,
     city_team
   } = teamData
   
@@ -35,7 +35,7 @@ const TeamInfosCard = ({ teamData }) => {
             <h6>{stadium_team}</h6>
           </div>  
           <div className="address">
-            <p>{adress_team}</p>
+            <p>{address_team}</p>
             <p>{city_team}</p> 
           </div>
           
