@@ -16,23 +16,15 @@ const Overview = () => (
                 <Row key="1" className="event-card entrainement">
                     <Col className="infos-col">
                         <div className="date">
-                            13/01/2020
+                            30/01/2020
                         </div>
                     </Col> 
 
                      <Col className="opponent-col">
                         <div className="opponent">
-                            Si match : opposant
+                            Match VS Marseille
                         </div>
-                    </Col>  
-
-                    <Col className="participate-col">
-                        <Col className="participate-text">Je participe :</Col>
-                        <Col className="buttons-col">                
-                            <Button variant="success">Oui</Button>
-                            <Button variant="danger">Non</Button>
-                        </Col> 
-                    </Col>             
+                    </Col>              
                 </Row>   
 
             </Container>          
@@ -46,13 +38,13 @@ const Overview = () => (
                 <Row key="1" className="event-card entrainement">
                     <Col className="infos-col">
                         <div className="date">
-                            13/01/2020
+                            13/02/2020
                         </div>
                     </Col> 
 
                      <Col className="opponent-col">
                         <div className="opponent">
-                            Si match : opposant
+                            Entrainement
                         </div>
                     </Col>  
 

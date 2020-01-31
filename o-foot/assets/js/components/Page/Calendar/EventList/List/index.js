@@ -8,36 +8,6 @@ import './list.scss';
 
 const List = ({eventData}) => {
 
-
-// séparation des objets   
-const eventDataGames = eventData[0];
-const eventDataPractices = eventData[1]; 
-
-// modification key date_time_game/practice
-const objectRenameKeys = require('object-rename-keys');
-
-var changes = {
-	date_time_game: 'date_time',
-};
-
-const eventDataGamesRename = objectRenameKeys(eventDataGames, changes);
-
-var changesPractice = {
-	date_time_practice: 'date_time',
-};
-
-const eventDataPracticesRename = objectRenameKeys(eventDataPractices, changesPractice);
-
-// Fusion des objets
-const eventDataMix = eventDataGamesRename.concat(eventDataPracticesRename); 
-
-//Ordre Chronologique
-const eventDataMixChronological = eventDataMix.sort(function (a, b) {
-    if (a.date_time > b.date_time) return 1;
-    if (a.date_time < b.date_time) return -1;
-    return 0;
-  });
-
 // gestion date au format iso 8601
 const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minutes: '2-digit' };
 function dateFromISO8601(isostr) {
@@ -46,11 +16,10 @@ function dateFromISO8601(isostr) {
 }
 
 return (
-    
     <div id="list">
         <h3> Tous vos événements </h3>
 
-    {eventDataMixChronological.map((event, id) => (
+    {eventData.map((event, id) => (
         <Row key={id} className={event.opponent_team === undefined ? " card-event practice" :  "card-event match"}>
                     <Col className="infos-col">
                         {event.opponent_team === undefined 
