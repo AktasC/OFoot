@@ -21,19 +21,24 @@ var changes = {
 };
 
 const eventDataGamesRename = objectRenameKeys(eventDataGames, changes);
-console.log(eventDataGamesRename)
 
 var changesPractice = {
 	date_time_practice: 'date_time',
 };
 
 const eventDataPracticesRename = objectRenameKeys(eventDataPractices, changesPractice);
-console.log(eventDataPracticesRename)
 
 // Fusion des objets
 const eventDataMix = eventDataGamesRename.concat(eventDataPracticesRename); 
 
-// gestion date
+//Ordre Chronologique
+const eventDataMixChronological = eventDataMix.sort(function (a, b) {
+    if (a.date_time > b.date_time) return 1;
+    if (a.date_time < b.date_time) return -1;
+    return 0;
+  });
+
+// gestion date au format iso 8601
 const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minutes: '2-digit' };
 function dateFromISO8601(isostr) {
     var parts = isostr.match(/\d+/g);
@@ -45,8 +50,8 @@ return (
     <div id="list">
         <h3> Tous vos événements </h3>
 
-    {eventDataMix.map((event, id) => (
-        <Row key="1" className={event.opponent_team === undefined ? " card-event practice" :  "card-event match"}>
+    {eventDataMixChronological.map((event, id) => (
+        <Row key={id} className={event.opponent_team === undefined ? " card-event practice" :  "card-event match"}>
                     <Col className="infos-col">
                         {event.opponent_team === undefined 
                         ? 
