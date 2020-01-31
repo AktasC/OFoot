@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col, Row, Button, Jumbotron } from 'react-bootstrap';
-
+import { Col, Row, Button } from 'react-bootstrap';
 
 // Import scss
 import './list.scss';
@@ -9,12 +8,32 @@ import './list.scss';
 
 const List = ({eventData}) => {
 
-    
+
+// séparation des objets   
 const eventDataGames = eventData[0];
 const eventDataPractices = eventData[1]; 
 
-const eventDataMix = eventDataGames.concat(eventDataPractices);  
+// modification key date_time_game/practice
+const objectRenameKeys = require('object-rename-keys');
 
+var changes = {
+	date_time_game: 'date_time',
+};
+
+const eventDataGamesRename = objectRenameKeys(eventDataGames, changes);
+console.log(eventDataGamesRename)
+
+var changesPractice = {
+	date_time_practice: 'date_time',
+};
+
+const eventDataPracticesRename = objectRenameKeys(eventDataPractices, changesPractice);
+console.log(eventDataPracticesRename)
+
+// Fusion des objets
+const eventDataMix = eventDataGamesRename.concat(eventDataPracticesRename); 
+
+// gestion date
 const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minutes: '2-digit' };
 function dateFromISO8601(isostr) {
     var parts = isostr.match(/\d+/g);
@@ -31,9 +50,9 @@ return (
                     <Col className="infos-col">
                         {event.opponent_team === undefined 
                         ? 
-                        <div className="date"> {dateFromISO8601(`${event.date_time_practice}`).toLocaleDateString('fr-FR', options)} </div> 
+                        <div className="date date-practice"> {dateFromISO8601(`${event.date_time}`).toLocaleDateString('fr-FR', options)} </div> 
                         : 
-                        <div className="date"> {dateFromISO8601(`${event.date_time_game}`).toLocaleDateString('fr-FR', options)} </div> 
+                        <div className="date"> {dateFromISO8601(`${event.date_time}`).toLocaleDateString('fr-FR', options)} </div> 
                         }    
                     </Col> 
 
