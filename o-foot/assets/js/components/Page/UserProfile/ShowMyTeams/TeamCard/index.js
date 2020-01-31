@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import Avatar from 'react-avatar';
 
@@ -7,14 +8,23 @@ import './team-card.scss';
 
 
 
-const TeamCard = ({ team_name, logo_team }) => { 
+const TeamCard = ({ team }) => { 
+
+  const {
+    logo_team,
+    team_name,
+    id
+  } = team;
 
   return (
     <div id="teamInfosCard">
 
       { logo_team != null ? <Avatar className="avatar-custom" src={logo_team} size="100" round={true} /> : <Avatar name={team_name} size="150" size="100" round={true} /> }      
       <h5>{team_name}</h5>
-      <Button>Accéder au Dashboard Équipe</Button>
+      
+      <NavLink to={`/team/${id}`} className="link">
+        <Button>Accéder au Dashboard Équipe</Button>
+      </NavLink>
           
     </div>
   );

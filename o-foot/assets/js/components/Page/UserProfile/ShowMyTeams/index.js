@@ -32,7 +32,7 @@ const showMyTeams = ( teams ) => {
         <Col md={12} > 
           <Slider {...settings}>          
           {arrTeams[0].map((team, i) => (
-            <TeamCard key={i}  {...team} />
+            <TeamCard key={i}  team={team} />
           ))}
           </Slider>
         </Col>

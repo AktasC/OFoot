@@ -10,8 +10,10 @@ import './team-dashboard.scss';
 
 import teamData from './team.json';
 
-const TeamDashboard = () => {  
+const TeamDashboard = ( teamInformations ) => { 
 
+  /* console.log("from TeamDashboard teamInfooooos:", teamInformations.teamInformations); */
+  
   return (
     
       <div id="teamDashboard">        
@@ -23,7 +25,7 @@ const TeamDashboard = () => {
 
           <Row className="full-dashboard">
             <Col className="infos-part">
-              <TeamInfosCard teamData={teamData}/> 
+              <TeamInfosCard teamData={teamInformations.teamInformations}/> 
             </Col>              
             <Col className="func-part">
               <Row className="func-part-row calendar">
@@ -46,10 +48,8 @@ const TeamDashboard = () => {
               </Row>
             </Col>
           </Row> 
-        </Container>
-          
-      </div>    
-    
+        </Container>          
+      </div> 
   )
 };
 
