@@ -4,13 +4,16 @@ namespace App\Controller\Api\V1;
 
 use App\Entity\Game;
 use App\Entity\Team;
+use App\Service\MailerGame;
 use App\Repository\GameRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\TeamRepository;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * @Route("/api/v1/games", name="api_v1_games_")
@@ -52,7 +55,7 @@ class GameController extends AbstractController
     /**
      * @Route("/teams/{id}/new", name="new",requirements={"id": "\d+"}, methods={"POST"})
      */
-    public function new(MailerGame $mailerGame, MailerInterface $mailer, Request $request, SerializerInterface $serializer, Team $team, UserRepository $ur)
+    public function new($id,MailerGame $mailerGame, MailerInterface $mailer, Request $request, SerializerInterface $serializer, Team $team, UserRepository $ur, TeamRepository $tr)
     {
         $data = $serializer->deserialize($request->getContent(), 'App\Entity\Game', 'json');
 
