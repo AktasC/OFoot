@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import PasswordEdit from '../../../components/Page/UserProfile/PasswordEdit';
+import PasswordEdit from '~/components/Page/UserProfile/PasswordEdit';
 
-import { changeInput, noSubmitForm, submitChangePassword } from '../../../store/reducer/userProfil';
+import { changeInput, noSubmitForm, submitChangePassword } from '~/store/reducer/userProfil';
 
 const mapStateToProps = (state) => {
   return { 

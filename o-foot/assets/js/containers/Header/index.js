@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import Header from '../../components/Header';
+import Header from '~/components/Header';
 
-import { disconnectUser } from '../../store/reducer/user';
+import { disconnectUser } from '~/store/reducer/user';
 
 const mapStateToProps = (state) => {
   return {
