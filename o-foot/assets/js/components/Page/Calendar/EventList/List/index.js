@@ -16,9 +16,14 @@ const eventDataPractices = eventData[1];
 
 const eventDataMix = eventDataGames.concat(eventDataPractices);  
 
-const options = { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minutes: '2-digit' };
-const date=moment("2020-02-15-T09:20:00", moment.ISO_8601);
-console.log(date);
+const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minutes: '2-digit' };
+function dateFromISO8601(isostr) {
+    var parts = isostr.match(/\d+/g);
+    return new Date(parts[0], parts[1] - 1, parts[2], parts[3], parts[4], parts[5]);
+}
+
+
+
 return (
     
     <div id="list">
@@ -29,9 +34,9 @@ return (
                     <Col className="infos-col">
                         {event.opponent_team === undefined 
                         ? 
-                        <div className="date"> {moment.parseZone(`${event.date_time_practice}`).format('LLLL')} </div> 
+                        <div className="date"> {dateFromISO8601(`${event.date_time_practice}`).toLocaleDateString('fr-FR', options)} </div> 
                         : 
-                        <div className="date"> {moment.parseZone(`${event.date_time_game}`).format('LLLL')} </div> 
+                        <div className="date"> {dateFromISO8601(`${event.date_time_game}`).toLocaleDateString('fr-FR', options)} </div> 
                         }    
                     </Col> 
 
