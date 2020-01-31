@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import LoginForm from '../../../components/Page/Login/LoginForm';
+import LoginForm from '~/components/Page/Login/LoginForm';
 
 import { 
   emailValue,
@@ -12,13 +12,13 @@ import {
   passwordlInvalid,
   passwordValid,
   dontConnectUser,
-} from '../../../store/reducer/loginForm';
+} from '~/store/reducer/loginForm';
 
 import {
   checkValidity,
   checkEmptiness,
   checkValidityPassword,
-} from '../../../../utils/validation';
+} from 'Utils/validation';
 
 const mapStateToProps = (state) => ({
   emailValue: state.loginForm.emailValue,

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import CreateNewTeam from '../../../components/Page/UserProfile/CreateNewTeam';
+import CreateNewTeam from '~/components/Page/UserProfile/CreateNewTeam';
 
-import { changeInput, createTeam } from '../../../store/reducer/team';
+import { changeInput, createTeam } from '~/store/reducer/team';
 
 const mapStateToProps = (state) => {
   return { 

@@ -9,7 +9,7 @@ import Section from './Section';
 import './home.scss';
 
 //Data
-import functionnalities from '../../../../../assets/data/fonctionnalities';
+import functionnalities from '~/../data/fonctionnalities';
 
 
 const Home = () => {
