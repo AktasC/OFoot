@@ -31,8 +31,11 @@ class Page extends React.Component {
   }
 
   componentDidUpdate() {    
-    if (this.props.logged == true || this.props.addTeam == true) {
-      this.props.loadUserInfo(); 
+    if (this.props.logged == true || this.props.updateData == true) {
+      this.props.loadUserInfo();
+      if (this.props.updateData == true) {
+        this.props.handleResetUpdateData();
+      }
     }    
   }
 

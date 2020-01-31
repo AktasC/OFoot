@@ -1,24 +1,24 @@
 import axios from 'axios';
 
-import { CREATE_TEAM, resetAddTeamInput } from '../reducer/team';
-import { addNotification } from '../addNotification';
+import { TEAM_INFOS_UPDATE } from '../reducer/team';
 import { updateData } from '../reducer/user';
+import { addNotification } from '../addNotification';
 
 const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case CREATE_TEAM: {
+    case TEAM_INFOS_UPDATE: {
       console.log('Yeaaah im in the middleware');
+      console.log(action);
+
       const token = localStorage.getItem('token');
-      const userId = localStorage.getItem('userId');      
+      const teamId = store.getState().team.currentTeamId;    
            
       const {
         teamNameValue,
         teamAddressValue,
         teamStadiumValue,    
         teamCityValue,    
-      } = store.getState().team;
-
-      
+      } = action.value;      
 
       let config = {        
         headers: { 'Authorization': `Bearer ${token}` }        
@@ -31,19 +31,16 @@ const registerMiddleware = (store) => (next) => (action) => {
         team_name: teamNameValue
       }      
 
-      axios.post(`/api/v1/teams/user/${userId}/new`, data, config)
+      axios.post(`/api/v1/teams/edit/${teamId}`, data, config)
 
       .then(function (response) {
         addNotification('create-team-success');
-        store.dispatch(updateData());
-        store.dispatch(resetAddTeamInput());
+        store.dispatch(updateData());        
       })
       .catch(function (error) {
         addNotification('create-team-error')
       }); 
-
-      break;
-    } 
+    }
 
     default:
       // par défaut, je laisse passer l'action
