@@ -11,13 +11,15 @@
     & .practice {
         background: linear-gradient( rgba(0, 0, 0, .40), rgba(0, 0, 0, 0.70) ), url(https://images.unsplash.com/photo-1518604666860-9ed391f76460?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);  
         background-size: cover;
-        background-position: center;  
+        background-position: center; 
+        padding-top: 1.5em; 
     }
 
     & .match {
         background: linear-gradient( rgba(0, 0, 0, .40), rgba(0, 0, 0, 0.70) ), url(https://images.unsplash.com/photo-1505164109795-5d452bb8d897?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80);
         background-size: cover;
-        background-position: center;      
+        background-position: center; 
+        padding-top: 1.5em;      
     }
 }
 
@@ -29,8 +31,9 @@
     box-shadow: 1px 1px 5px black; 
     color: white; 
 
-    & .date, .time {
+    & .date {
         font-size: 1.5em;
+        padding-top: 2.2em; 
     }
 
     & .event-type {
