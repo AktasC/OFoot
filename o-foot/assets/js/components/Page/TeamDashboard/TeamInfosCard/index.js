@@ -12,14 +12,14 @@ class TeamInfosCard extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(props);    
+    console.log(props);
 
     this.state = {
       show: false
     };
   }
 
-  render () {
+  render() {
 
     const handleClose = () => {
       this.setState({
@@ -32,7 +32,7 @@ class TeamInfosCard extends React.Component {
       });
     }
 
-    const { 
+    const {
       logo_team,
       team_name,
       championship_team,
@@ -40,31 +40,31 @@ class TeamInfosCard extends React.Component {
       address_team,
       city_team
     } = this.props.teamData
-    
+
     return (
-      <div id="teamInfosCard"> 
+      <div id="teamInfosCard">
 
         <div className="edit">
-          <Button onClick={handleShow}><FiEdit3 size={22} /></Button>        
+          <Button onClick={handleShow}><FiEdit3 size={22} /></Button>
         </div>
-        
+
         <div className="card-header">
           <Avatar className="avatar-custom" src={logo_team} size="100" round={true} />
           <div className="card-header-title">
-            <h4>{team_name}</h4> 
+            <h4>{team_name}</h4>
             <p>{championship_team}</p>
-          </div>                   
+          </div>
         </div>
-        
+
         <div className="card-content">
           <div className="stadium">
             <h6>{stadium_team}</h6>
-          </div>  
+          </div>
           <div className="address">
             <p>{address_team}</p>
-            <p>{city_team}</p> 
+            <p>{city_team}</p>
           </div>
-          
+
         </div>
 
         <Modal id="infosEditModal" size="lg" show={this.state.show} onHide={handleClose}>
@@ -72,9 +72,9 @@ class TeamInfosCard extends React.Component {
             <Modal.Title>Modifier les infos administratives de mon Club</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            
+
             <Col>
-              <TeamInfosEditForm teamInfos={this.props.teamData} show={this.state.show} onClose={this.handleClose}/>
+              <TeamInfosEditForm teamInfos={this.props.teamData} show={this.state.show} onClose={this.handleClose} />
             </Col>
 
           </Modal.Body>
@@ -82,7 +82,7 @@ class TeamInfosCard extends React.Component {
             <p>L'équipe d'O'Foot rejette completement la faute sur l'utilisateur s'il modifie malencontreusement ses informations. </p>
           </Modal.Footer>
         </Modal>
-            
+
       </div>
     )
   }

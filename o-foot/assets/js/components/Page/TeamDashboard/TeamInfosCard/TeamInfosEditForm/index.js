@@ -6,9 +6,9 @@ require('bootstrap/js/dist/modal');
 import './team-infos-edit-form.scss';
 
 class TeamInfosEditForm extends React.Component {
-  constructor(props) {    
-    super(props); 
-    console.log("SUPERPROOOPS:", props); 
+  constructor(props) {
+    super(props);
+    console.log("SUPERPROOOPS:", props);
     this.state = {
       teamNameValue: this.props.teamInfos.team_name,
       teamStadiumValue: this.props.teamInfos.stadium_team,
@@ -16,7 +16,7 @@ class TeamInfosEditForm extends React.Component {
       teamCityValue: this.props.teamInfos.city_team,
       show: this.props.show,
     };
-  }  
+  }
 
   onSubmit = (event) => {
     event.preventDefault();
@@ -29,39 +29,39 @@ class TeamInfosEditForm extends React.Component {
   }
 
   onClose = () => {
-    console.log("hey CLOSE "); 
+    console.log("hey CLOSE ");
     this.setState({
       show: false
-    })    
+    })
   }
 
-  handleChange = (event) => {  
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     });
-  }    
+  }
 
   render() {
 
-     const {
+    const {
       teamNameValue,
       teamStadiumValue,
       teamAddressValue,
       teamCityValue
-    }  = this.state;
-   
+    } = this.state;
+
     return (
-      <div id="teamInfosEditForm">    
+      <div id="teamInfosEditForm">
 
         <Container>
           <Row>
-            <Col lg={{ span: 8, offset: 2 }} md={{ span: 8, offset: 2 }} sm={{ span: 8, offset: 2 }} xs={{ span: 8, offset: 2 }}> 
+            <Col lg={{ span: 8, offset: 2 }} md={{ span: 8, offset: 2 }} sm={{ span: 8, offset: 2 }} xs={{ span: 8, offset: 2 }}>
               <Form id="editInfos" onSubmit={this.onSubmit}>
-                <Form.Row>                
+                <Form.Row>
                   <Col className="input" lg={6} md={6} sm={21} xs={12}>
-                    <Form.Control                    
+                    <Form.Control
                       onChange={this.handleChange}
-                      value={teamNameValue}                
+                      value={teamNameValue}
                       name="teamNameValue"
                       placeholder="Nom de votre équipe"
                     />
@@ -77,11 +77,11 @@ class TeamInfosEditForm extends React.Component {
                   </Col>
                 </Form.Row>
 
-                <Form.Row>                
+                <Form.Row>
                   <Col className="input" lg={6} md={6} sm={21} xs={12}>
-                    <Form.Control                    
+                    <Form.Control
                       onChange={this.handleChange}
-                      value={teamAddressValue}                
+                      value={teamAddressValue}
                       name="teamAddressValue"
                       placeholder="Adresse de votre équipe"
                     />
@@ -95,11 +95,11 @@ class TeamInfosEditForm extends React.Component {
                       placeholder="Ville du stade"
                     />
                   </Col>
-                </Form.Row>                      
+                </Form.Row>
 
                 <Button type="submit" onClick={this.onClose}>Modifier les informations</Button>
               </Form>
-            </Col>            
+            </Col>
           </Row>
         </Container>
       </div>
