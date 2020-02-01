@@ -1,80 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 	<head>
+		<meta charset="UTF-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width">
-		<title>{{ email.subject }}</title>
-		<style>
-			body {
-				margin: 0;
-				padding: 0;
-				background-color: #f3f3f3;
-				font-family: Helvetica, Arial, sans-serif;
-			}
-
-			h1 {
-				background-color: #212532;
-				color: #ffffff;
-				padding: 20px 0;
-				font-weight: normal;
-			}
-			.container {
-				background-color: #fefefe;
-				width: 580px;
-				margin: 0 auto;
-			}
-			.block {
-				margin: 0;
-				padding: 10px 20px 20px;
-			}
-			.logo {
-				width: 100%;
-
-			}
-			.text-center {
-				text-align: center;
-			}
-		</style>
+        <title>
+        {% block title %}{{ email.subject }}{% endblock %}
+        </title>
+		{% block stylesheets %}
+			<link rel="stylesheet" type="text/css" href="game.css" />
+		{% endblock %}
 	</head>
 	<body>
-  
-		<div class="body">
-			<div class="container">
-				<div class="header text-center">
-
-					<img class="logo" src="{{ absolute_url(asset('https://images.unsplash.com/photo-1527871252447-4ce32da643c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80')) }}" alt="coupe-ballon">
-				</a>
-			</div>
-			<div class="content">
-				<h1 class="text-center">Nouveau match!</h1>
-				<p class="block">
-                    Ton équipe {{game.team.teamName}} à un match de prévu le {{ game.dateTimeGame|date("j M Y à H:i")  }}.
-                </p>
-                <div>
-                    <p class="block">
-                        - Adresse : {{ game.addressGame }}
-                    </p>
-                    <p class="block">
-                        - Stade : {{ game.stadiumGame }}
-                    </p>
-                    <p class="block">
-                        - Équipe adversaire : {{ game.opponentTeam }}
-                    </p>
-                </div>
-                    
-				<div class="block">
-					<a href="#">Clique ici pour valider ta présence</a>
-				</div>
-
-
-			</div>
-			<div class="footer">
-				<p class="block">
-					L'équipe
-					<em>O'Foot</em>
-				</p>
-
-			</div>
+	{% block body %}
+	<div class="container">
+		<div class="header text-center">
+			<img class="logo" src="{{ absolute_url(asset('https://images.unsplash.com/photo-1527871252447-4ce32da643c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80')) }}" alt="coupe-ballon">
 		</div>
+
+		<div class="content">
+			<h1 class="text-center">Nouveau match!</h1>
+
+			<p class="block">
+				Ton équipe {{game.team.teamName}} a prévu un match le {{ game.dateTimeGame|date("j M Y à H:i")  }}.
+			</p>
+
+			<div>
+				<p class="block">
+					- Adresse : {{ game.addressGame }}
+				</p>
+				<p class="block">
+					- Stade : {{ game.stadiumGame }}
+				</p>
+				<p class="block">
+					- Équipe adversaire : {{ game.opponentTeam }}
+				</p>
+			</div>
+
+			<div class="block">
+				<a href="#">Clique ici pour valider ta présence</a>
+			</div>
+
+		</div>
+
+		<div class="footer">
+			<p class="block">
+				L'équipe
+				<em>O'Foot</em>
+			</p>
+		</div>
+
+	</div>
+	{% endblock %}
 	</body>
-</html></div></body></html>
+</html>
