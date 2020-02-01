@@ -1,5 +1,6 @@
 // == Import : npm
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Col, Row, Container } from 'react-bootstrap';
 
 import TeamInfosCard from './TeamInfosCard';
@@ -11,6 +12,7 @@ import './team-dashboard.scss';
 import teamData from './team.json';
 
 const TeamDashboard = ( teamInformations ) => { 
+  console.log(teamInformations);
 
   /* console.log("from TeamDashboard teamInfooooos:", teamInformations.teamInformations); */
   
@@ -28,11 +30,13 @@ const TeamDashboard = ( teamInformations ) => {
               <TeamInfosCard teamData={teamInformations.teamInformations}/> 
             </Col>              
             <Col className="func-part">
+            <NavLink to={`/event/list/${teamInformations.teamInformations.id}`} className="link">
               <Row className="func-part-row calendar">
                 <Col className="func-part-col">
                   <CalendarWidget />
                 </Col>
               </Row>
+            </NavLink>
               <Row className="func-part-row effectif">
                 <Col className="func-part-col">
                   <div></div>
@@ -55,4 +59,3 @@ const TeamDashboard = ( teamInformations ) => {
 
 // == Export
 export default TeamDashboard;
-
