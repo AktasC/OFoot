@@ -18,7 +18,7 @@ import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
 import UserProfile from '~/containers/UserProfile';
 import TeamDashboard from '~/containers/Page/TeamDashboard';
-import List from './Players/List';
+import List from '~/containers/Page/Players/List';
 import Page404 from './Page404';
 
 import 'react-notifications-component/dist/theme.css';

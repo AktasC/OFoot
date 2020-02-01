@@ -1,5 +1,6 @@
 // == Import : npm
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Col, Row, Container } from 'react-bootstrap';
 
 import TeamInfosCard from './TeamInfosCard';
@@ -33,11 +34,13 @@ const TeamDashboard = ( teamInformations ) => {
                   <CalendarWidget />
                 </Col>
               </Row>
-              <Row className="func-part-row effectif">
-                <Col className="func-part-col">
-                  <div></div>
-                </Col>
-              </Row>
+              <NavLink to="/players/list" className="link">
+                <Row className="func-part-row effectif">
+                  <Col className="func-part-col">
+                    <div></div>
+                  </Col>
+                </Row>
+              </NavLink>
               <Row className="func-part-row statistics">
                 <Col className="func-part-col">
                   <div className="statistic-players"></div>
