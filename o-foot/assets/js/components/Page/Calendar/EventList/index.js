@@ -7,13 +7,13 @@ import { Col, Container } from 'react-bootstrap';
 import './eventlist.scss';
 
 // Infos
-import eventData from './event.json';
+//import eventData from './event.json';
 
 // Import composant
 import Overview from './Overview';
 import List from './List';
 
-const EventList = () => {
+const EventList = ({eventData}) => {
 
 // séparation des objets   
 const eventDataGames = eventData[0];

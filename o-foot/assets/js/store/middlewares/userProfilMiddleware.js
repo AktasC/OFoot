@@ -1,9 +1,10 @@
 import axios from 'axios';
 import qs from 'qs';
 
-import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO, SUBMIT_CHANGE_PASSWORD, emptyInputs } from '../reducer/userProfil';
+import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO, SUBMIT_CHANGE_PASSWORD, emptyInputs, CALENDAR_INFO  } from '../reducer/userProfil';
 import { modifyPassword } from '../reducer/loginForm'
 import { addNotification } from '../addNotification';
+import { loadInfoCalendarFromAxios } from '../reducer/calendar';
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
 
@@ -86,6 +87,24 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
           store.dispatch(emptyInputs());
         });         
         break;
+
+      case CALENDAR_INFO :
+      console.log('calendar info')
+      axios({
+        method: 'get',
+        url: `/api/v1/events`,
+        headers: { 'Authorization': `Bearer ${token}` }       
+      })
+      
+      .then(function (response) {
+        console.log('hola la réponse:', response.data); 
+        const actionLoadInfoCalendar = loadInfoCalendarFromAxios(response.data);  
+        store.dispatch(actionLoadInfoCalendar);
+      })
+      .catch(function (error) {
+        console.log("error from appel appel axios:", error);
+      });         
+      break;
 
     default:
       // par défaut, je laisse passer l'action
