@@ -53,17 +53,10 @@ class Page extends React.Component {
       <div id="page">    
 
         <Switch>
-<<<<<<< HEAD
           <Route path={'/team/:teamId'} component={TeamDashboard} />    
-          
-=======
-          <Route path='/team'>
-            <TeamDashboard />
-          </Route>
           <Route path='/event/list'>
             <EventList />
           </Route>
->>>>>>> frontend/event_list
           <Route exact path={`/user/profile/${userId}`}>
             <UserProfile />
           </Route>
