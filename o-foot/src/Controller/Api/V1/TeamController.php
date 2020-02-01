@@ -5,17 +5,29 @@ namespace App\Controller\Api\V1;
 use App\Entity\Team;
 use App\Entity\User;
 use App\Repository\PlayerRepository;
+use App\Repository\TeamRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * @Route("/api/v1/teams", name="api_v1_teams_")
  */
 class TeamController extends AbstractController
 {
+    /**
+     * @Route("/", name="list", methods={"GET"})
+     */
+    public function list(SerializerInterface $serializer, TeamRepository $tr)
+    {
+        $teams = $tr->findAll();
+        $data = $serializer->normalize($teams, null, ['groups' => 'api_v1']);
+
+        return $this->json($data);
+    }
+
     /**
      * @Route("/{id}/players", name="players", requirements={"id": "\d+"}, methods={"GET"})
      */
@@ -33,21 +45,10 @@ class TeamController extends AbstractController
      */
     public function show(SerializerInterface $serializer, Team $team)
     {
-         // On récupère dans la variable $data l'objet de la sérialisation des atttributs de team que l'on récupère
-         // via les attributs 'groups' => 'api_vi'.
-        $data = $serializer->normalize($team, null, ['groups' => 'api_v1']);
-
-        // on retourne $data au format json
-        return $this->json($data);
-    }
-
-     /**
-     * @Route("/stats/{id}", name="show_stats", requirements={"id": "\d+"}, methods={"GET"})
-     */
-    public function showStats(SerializerInterface $serializer, Team $team)
-    {
-         // On récupère dans la variable $data l'objet de la sérialisation des atttributs de team que l'on récupère
-         // via les attributs 'groups' => 'api_vi'.
+        /**
+         * On récupère dans la variable $data l'objet de la sérialisation des atttributs de team que l'on récupère
+         * via les attributs 'groups' => 'api_v1'.
+         */
         $data = $serializer->normalize($team, null, ['groups' => 'api_v1']);
 
         // on retourne $data au format json
@@ -55,9 +56,23 @@ class TeamController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new", methods={"POST"})
+     * @Route("/stats/{id}", name="show_stats", requirements={"id": "\d+"}, methods={"GET"})
      */
-    public function new(Request $request, SerializerInterface $serializer)
+    public function showStats(SerializerInterface $serializer, Team $team)
+    {
+        // On récupère dans la variable $data l'objet de la sérialisation des atttributs de team que l'on récupère
+        // via les attributs 'groups' => 'api_vi'.
+        $data = $serializer->normalize($team, null, ['groups' => 'api_v1']);
+
+        // on retourne $data au format json
+        return $this->json($data);
+    }
+
+    /**
+     * @Route("/user/{user_id}/new", name="new", methods={"POST"})
+     * @ParamConverter("user", options={"mapping": {"user_id": "id"}})
+     */
+    public function new(Request $request, SerializerInterface $serializer, User $user)
     {
         // On crée une nouvelle variable $data, qui stocke la sérialisation de l'entité Team en Json
         $data = $serializer->deserialize($request->getContent(), 'App\Entity\Team', 'json');
@@ -68,12 +83,16 @@ class TeamController extends AbstractController
         // On indique à $team quels champs nous aimerions modifier grâce aux méthodes ->Set récupéré dans l'entité $team
         // On associe les méthodes get de chaque champs afin de récupérer le champs à modifier
         $team
-            ->setAddressTeam($data->getAddressTeam())
-            ->setCityTeam($data->getCityTeam())
-            ->setManagerTeam($data->getManagerTeam())
-            ->setStadiumTeam($data->getStadiumTeam())
-            ->setTeamName($data->getTeamName())
-            ->setUpdatedAt(new \DateTime());
+        ->setAddressTeam($data->getAddressTeam())
+        ->setCityTeam($data->getCityTeam())
+        ->setManager($user)
+        ->setStadiumTeam($data->getStadiumTeam())
+        ->setTeamName($data->getTeamName())
+        ->setUpdatedAt(new \DateTime());
+
+        // On récupére la fonction addTeam via la relation entre user et team
+        // La table pivot user_team est maintenant renseigné dans la BDD (user_id ; team_id)
+        $user->addTeam($team);
 
         // On récupére l'EntityManager
         $entityManager = $this->getDoctrine()->getManager();
@@ -96,7 +115,7 @@ class TeamController extends AbstractController
         $data = $serializer->deserialize($request->getContent(), 'App\Entity\Team', 'json');
 
         $team
-        ->setAddressTeam($data->getaddressTeam())
+        ->setAddressTeam($data->getAddressTeam())
         ->setChampionshipTeam($data->getChampionshipTeam())
         ->setCityTeam($data->getCityTeam())
         ->setStadiumTeam($data->getStadiumTeam())

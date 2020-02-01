@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-import { CREATE_TEAM } from '../reducer/team';
+import { CREATE_TEAM, resetAddTeamInput } from '../reducer/team';
 import { addNotification } from '../addNotification';
+import { addTeam } from '../reducer/user';
 
 const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -19,9 +20,7 @@ const registerMiddleware = (store) => (next) => (action) => {
 
       
 
-      let config = {
-        method: 'post',
-        url: '/api/v1/teams/new',
+      let config = {        
         headers: { 'Authorization': `Bearer ${token}` }        
       }
 
@@ -29,14 +28,15 @@ const registerMiddleware = (store) => (next) => (action) => {
         address_team: teamAddressValue, 
         city_team: teamCityValue,           
         stadium_team: teamStadiumValue, 
-        team_name: teamNameValue,
-        manager_team: Number(userId),
+        team_name: teamNameValue
       }      
 
-      axios.post('/api/v1/teams/new', data, config)
+      axios.post(`/api/v1/teams/user/${userId}/new`, data, config)
 
       .then(function (response) {
-        addNotification('create-team-success')
+        addNotification('create-team-success');
+        store.dispatch(addTeam());
+        store.dispatch(resetAddTeamInput());
       })
       .catch(function (error) {
         addNotification('create-team-error')

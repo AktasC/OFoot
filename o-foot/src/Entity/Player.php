@@ -68,12 +68,6 @@ class Player
     private $player_name;
 
     /**
-     * @ORM\Column(type="string", length=128, nullable=true)
-     * @Groups("api_v1")
-     */
-    private $position_player;
-
-    /**
      * @ORM\Column(type="smallint", nullable=true)
      * @Groups("api_v1")
      */
@@ -256,18 +250,6 @@ class Player
     public function setPlayerName(string $player_name): self
     {
         $this->player_name = $player_name;
-
-        return $this;
-    }
-
-    public function getPositionPlayer(): ?string
-    {
-        return $this->position_player;
-    }
-
-    public function setPositionPlayer(?string $position_player): self
-    {
-        $this->position_player = $position_player;
 
         return $this;
     }

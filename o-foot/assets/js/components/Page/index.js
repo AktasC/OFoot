@@ -13,12 +13,12 @@ import './page.scss';
 import { store } from 'react-notifications-component';
 import Home from './Home';
 import Register from './Register';
-import Login from '../../containers/Login';
+import Login from '~/containers/Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
-import UserProfile from '../../containers/UserProfile';
-import TeamDashboard from './TeamDashboard';
-import List from '../../containers/Page/Players/List';
+import UserProfile from '~/containers/UserProfile';
+import TeamDashboard from '~/containers/Page/TeamDashboard';
+import List from './Players/List';
 import Page404 from './Page404';
 
 import 'react-notifications-component/dist/theme.css';
@@ -31,9 +31,9 @@ class Page extends React.Component {
   }
 
   componentDidUpdate() {    
-    if (this.props.logged == true) {
+    if (this.props.logged == true || this.props.addTeam == true) {
       this.props.loadUserInfo(); 
-    }      
+    }    
   }
 
   render() {
@@ -46,9 +46,8 @@ class Page extends React.Component {
       <div id="page">    
 
         <Switch>
-          <Route path='/team'>
-            <TeamDashboard />
-          </Route>
+          <Route path={'/team/:teamId'} component={TeamDashboard} />    
+          
           <Route exact path={`/user/profile/${userId}`}>
             <UserProfile />
           </Route>

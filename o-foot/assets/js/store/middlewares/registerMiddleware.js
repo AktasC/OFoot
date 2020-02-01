@@ -5,7 +5,7 @@ import { REGISTER_USER, signupDone } from '../reducer/registerForm';
 import { addNotification } from '../addNotification';
 
 // CSRF Implementation #TODO
-// import getCSRF from '../../../utils/getCsrf';
+// import getCSRF from 'Utils/getCsrf';
 
 const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

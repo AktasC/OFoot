@@ -6,9 +6,9 @@ import ReactNotifications from 'react-notifications-component';
 import './app.scss';
 
 // == Import : components
-import Header from '../../containers/Header';
-import Page from '../../containers/Page';
-import Footer from '../Footer';
+import Header from '~/containers/Header';
+import Page from '~/containers/Page';
+import Footer from '~/components/Footer';
 
 // == Composant
 const App = () => (
