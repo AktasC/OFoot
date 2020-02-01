@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Page from '~/components/Page';
 
 import { userProfilInfo, teamCalendarInfo  } from '~/store/reducer/userProfil';
-//import { teamCalendarInfo } from '~/store/reducer/calendar';
 
 const mapStateToProps = (state) => {
   return {
@@ -23,7 +22,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   loadCalendarTeamInfo: () => {
-    console.log('je charge les données de lequipe');
     const action = teamCalendarInfo();
     dispatch(action);
   }
