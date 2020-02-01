@@ -1,14 +1,12 @@
 import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import $ from 'jquery';
-require('bootstrap/js/dist/modal');
+
 // Import scss
 import './team-infos-edit-form.scss';
 
 class TeamInfosEditForm extends React.Component {
   constructor(props) {
-    super(props);
-    console.log("SUPERPROOOPS:", props);
+    super(props);    
     this.state = {
       teamNameValue: this.props.teamInfos.team_name,
       teamStadiumValue: this.props.teamInfos.stadium_team,
@@ -19,21 +17,9 @@ class TeamInfosEditForm extends React.Component {
   }
 
   onSubmit = (event) => {
-    event.preventDefault();
-    console.log("hey submit ");
+    event.preventDefault();    
     this.props.onSubmitUpdateTeamInfos(this.state);
-    /* $('.dialog').css("display", "none");
-    $('.modal-backdrop').css("display", "none");
-    $('.modal').css("display", "none"); */
-    $('#teamInfosCard').modal('toggle');
-  }
-
-  onClose = () => {
-    console.log("hey CLOSE ");
-    this.setState({
-      show: false
-    })
-  }
+  }  
 
   handleChange = (event) => {
     this.setState({
@@ -97,7 +83,7 @@ class TeamInfosEditForm extends React.Component {
                   </Col>
                 </Form.Row>
 
-                <Button type="submit" onClick={this.onClose}>Modifier les informations</Button>
+                <Button className="custom-btn" type="submit">Modifier les informations</Button>
               </Form>
             </Col>
           </Row>

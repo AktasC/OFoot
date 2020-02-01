@@ -34,11 +34,11 @@ const registerMiddleware = (store) => (next) => (action) => {
       axios.post(`/api/v1/teams/edit/${teamId}`, data, config)
 
       .then(function (response) {
-        addNotification('create-team-success');
+        addNotification('modify-team-success');
         store.dispatch(updateData());        
       })
       .catch(function (error) {
-        addNotification('create-team-error')
+        addNotification('modify-team-error')
       }); 
     }
 

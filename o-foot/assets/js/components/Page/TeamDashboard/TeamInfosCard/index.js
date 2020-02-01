@@ -78,8 +78,8 @@ class TeamInfosCard extends React.Component {
             </Col>
 
           </Modal.Body>
-          <Modal.Footer>
-            <p>L'équipe d'O'Foot rejette completement la faute sur l'utilisateur s'il modifie malencontreusement ses informations. </p>
+          <Modal.Footer>            
+            <Button className="custom-btn" onClick={handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
 
