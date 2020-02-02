@@ -134,6 +134,9 @@
     "myclabs/deep-copy": {
         "version": "1.9.5"
     },
+    "namshi/jose": {
+        "version": "7.2.3"
+    },
     "nelmio/alice": {
         "version": "3.2",
         "recipe": {
@@ -142,9 +145,6 @@
             "version": "3.2",
             "ref": "0b9900ece737bec7752e4155c0164639dd9b0cb0"
         }
-    },
-    "namshi/jose": {
-        "version": "7.2.3"
     },
     "nelmio/cors-bundle": {
         "version": "1.5",
@@ -612,6 +612,9 @@
         }
     },
     "twig/extra-bundle": {
+        "version": "v3.0.1"
+    },
+    "twig/intl-extra": {
         "version": "v3.0.1"
     },
     "twig/twig": {

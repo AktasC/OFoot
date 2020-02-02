@@ -1,69 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="viewport" content="width=device-width">
-		<title>{{ email.subject }}</title>
-		<style>
-			body {
-				margin: 0;
-				padding: 0;
-				background-color: #f3f3f3;
-				font-family: Helvetica, Arial, sans-serif;
-			}
 
-			h1 {
-				background-color: #212532;
-				color: #ffffff;
-				padding: 20px 0;
-				font-weight: normal;
-			}
-			.container {
-				background-color: #fefefe;
-				width: 580px;
-				margin: 0 auto;
-			}
-			.block {
-				margin: 0;
-				padding: 10px 20px 20px;
-			}
-			.logo {
-				width: 100%;
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>{{ email.subject }}</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #f3f3f3;
+			font-family: Helvetica, Arial, sans-serif;
+		}
 
-			}
-			.text-center {
-				text-align: center;
-			}
-		</style>
-	</head>
-	<body>
-  
-		<div class="body">
-			<div class="container">
-				<div class="header text-center">
+		h1 {
+			background-color: #212532;
+			color: #ffffff;
+			padding: 20px 0;
+			font-weight: normal;
+		}
 
-					<img class="logo" src="{{ absolute_url(asset('https://images.unsplash.com/photo-1527871252447-4ce32da643c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80')) }}" alt="coupe-ballon">
+		.container {
+			background-color: #fefefe;
+			width: 580px;
+			margin: 0 auto;
+		}
+
+		.block {
+			margin: 0;
+			padding: 10px 20px 20px;
+		}
+
+		.logo {
+			width: 100%;
+
+		}
+
+		.text-center {
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="body">
+		<div class="container">
+			<div class="header text-center">
+
+				<img class="logo"
+					src="{{ absolute_url(asset('https://images.unsplash.com/photo-1527871252447-4ce32da643c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80')) }}"
+					alt="coupe-ballon">
 				</a>
 			</div>
 			<div class="content">
 				<h1 class="text-center">Nouveau match!</h1>
+				
 				<p class="block">
-                    Ton équipe {{game.team.teamName}} à un match de prévu le {{ game.dateTimeGame|date("j M Y à H:i")  }}.
-                </p>
-                <div>
-                    <p class="block">
-                        - Adresse : {{ game.addressGame }}
-                    </p>
-                    <p class="block">
-                        - Stade : {{ game.stadiumGame }}
-                    </p>
-                    <p class="block">
-                        - Équipe adversaire : {{ game.opponentTeam }}
-                    </p>
-                </div>
-                    
+					Tu es convoqué(e) pour le match de championnat, le {{ game.dateTimeGame|date("j M Y \\à\\ H\\h\i") }}.  
+				</p>
+
+				<div>
+					<p class="block">
+						Voici les informations du match :
+					</p>
+					<p class="block">
+						- Adresse : {{ game.addressGame }}
+					</p>
+					<p class="block">
+						- Stade : {{ game.stadiumGame }}
+					</p>
+					<p class="block">
+						- Équipe adversaire : {{ game.opponentTeam }}
+					</p>
+				</div>
+
 				<div class="block">
-					<a href="#">Clique ici pour valider ta présence</a>
+					<a href="#">Clique sur ce lien pour confirmer ta présence</a>
 				</div>
 
 
@@ -76,5 +89,10 @@
 
 			</div>
 		</div>
-	</body>
-</html></div></body></html>
+</body>
+
+</html>
+</div>
+</body>
+
+</html>
