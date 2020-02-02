@@ -16,10 +16,12 @@ import Register from './Register';
 import Login from '~/containers/Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
+import EventList from './Calendar/EventList';
 import UserProfile from '~/containers/UserProfile';
 import TeamDashboard from '~/containers/Page/TeamDashboard';
 import List from './Players/List';
 import Page404 from './Page404';
+
 
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
@@ -49,8 +51,10 @@ class Page extends React.Component {
       <div id="page">    
 
         <Switch>
-          <Route path={'/team/:teamId'} component={TeamDashboard} />    
-          
+          <Route path='/event/list'>
+            <EventList />
+          </Route>
+          <Route path={'/team/:teamId'} component={TeamDashboard} />
           <Route exact path={`/user/profile/${userId}`}>
             <UserProfile />
           </Route>

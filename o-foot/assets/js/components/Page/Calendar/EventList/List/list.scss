@@ -1,0 +1,70 @@
+#list {
+    padding-bottom: 10em; 
+    margin-top: 5em; 
+    
+
+    & h3 {
+        border-bottom: solid 2px black;
+        padding: 1em; 
+    }
+
+    & .practice {
+        background: linear-gradient( rgba(0, 0, 0, .40), rgba(0, 0, 0, 0.70) ), url(https://images.unsplash.com/photo-1518604666860-9ed391f76460?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);  
+        background-size: cover;
+        background-position: center; 
+        padding-top: 1.5em; 
+    }
+
+    & .match {
+        background: linear-gradient( rgba(0, 0, 0, .40), rgba(0, 0, 0, 0.70) ), url(https://images.unsplash.com/photo-1505164109795-5d452bb8d897?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80);
+        background-size: cover;
+        background-position: center; 
+        padding-top: 1.5em;      
+    }
+}
+
+.card-event{
+    height: 10%; 
+    border-radius: 7px; 
+    padding: 2%; 
+    margin: 1em;  
+    box-shadow: 1px 1px 5px black; 
+    color: white; 
+
+    & .date {
+        font-size: 1.5em;
+        padding-top: 2.2em; 
+        font-weight: bold;
+        min-width: 300px;
+    }
+
+    & .date-practice {
+        padding-top: 1.5em;
+    }
+
+    & .event-type {
+        font-size: 2em; 
+        font-weight: bold; 
+        min-width: 300px;
+    }
+
+    & .vs {
+        font-size: 1.4;
+        font-weight: bold;
+        min-width: 300px;
+    }
+
+    & .opponent {
+        font-size: 1.5em;
+        min-width: 300px;
+    }
+
+    & button {
+        width: 75%;
+        min-width: 200px;
+        margin: 1em;
+
+    }
+
+}
+
