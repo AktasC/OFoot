@@ -1,0 +1,15 @@
+#event-list {
+    margin: 2em 0;
+    color: #212532;
+    height: 30vh;
+  
+    & .sweatband {
+      padding: 4em;
+      background: linear-gradient( rgba(0, 0, 0, .40), rgba(0, 0, 0, 0.50) ),url('https://images.unsplash.com/photo-1508087625439-de3978963553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80');    
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 2em;
+      color: white;
+    }
+
+}
