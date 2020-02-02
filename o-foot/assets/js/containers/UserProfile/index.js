@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import UserProfile from '../../components/Page/UserProfile';
+import UserProfile from '~/components/Page/UserProfile';
 
 const mapStateToProps = (state) => {
   return { 

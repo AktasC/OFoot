@@ -6,9 +6,9 @@ import Avatar from 'react-avatar';
 import './user-profil.scss';
 
 import ShowMyTeams from './ShowMyTeams';
-import CreateNewTeam from '../../../containers/UserProfile/CreateNewTeam';
-import UserEdit from '../../../containers/UserProfile/UserEdit';
-import PasswordEdit from '../../../containers/UserProfile/PasswordEdit';
+import CreateNewTeam from '~/containers/UserProfile/CreateNewTeam';
+import UserEdit from '~/containers/UserProfile/UserEdit';
+import PasswordEdit from '~/containers/UserProfile/PasswordEdit';
 
 
 class UserProfile extends React.Component {

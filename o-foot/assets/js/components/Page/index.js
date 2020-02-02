@@ -13,11 +13,11 @@ import './page.scss';
 import { store } from 'react-notifications-component';
 import Home from './Home';
 import Register from './Register';
-import Login from '../../containers/Login';
+import Login from '~/containers/Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
-import UserProfile from '../../containers/UserProfile';
-import TeamDashboard from '../../containers/Page/TeamDashboard';
+import UserProfile from '~/containers/UserProfile';
+import TeamDashboard from '~/containers/Page/TeamDashboard';
 import List from './Players/List';
 import Page404 from './Page404';
 

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import UserEdit from '../../../components/Page/UserProfile/UserEdit';
+import UserEdit from '~/components/Page/UserProfile/UserEdit';
 
-import { modifyUserInfo, changeAvatar, changeName, changeEmail, changeLastName } from '../../../store/reducer/userProfil';
+import { modifyUserInfo, changeAvatar, changeName, changeEmail, changeLastName } from '~/store/reducer/userProfil';
 
 const mapStateToProps = (state) => {
     

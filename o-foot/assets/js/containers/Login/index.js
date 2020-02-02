@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Login from '../../components/Page/Login';
+import Login from '~/components/Page/Login';
 
 
 // eslint-disable-next-line arrow-body-style

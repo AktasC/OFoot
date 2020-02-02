@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
+import Page from '~/components/Page';
+import { resetUpdateData } from '~/store/reducer/user';
+import { userProfilInfo } from '~/store/reducer/userProfil';
 
-import Page from '../../components/Page';
-
-import { userProfilInfo } from '../../store/reducer/userProfil';
-import { resetUpdateData } from '../../store/reducer/user';
 
 const mapStateToProps = (state) => {
   return {

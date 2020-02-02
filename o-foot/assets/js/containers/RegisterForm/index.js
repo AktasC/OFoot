@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import RegisterForm from '../../components/Page/Register/RegisterForm';
+import RegisterForm from '~/components/Page/Register/RegisterForm';
 
 import {
   changeInput,
@@ -14,7 +14,7 @@ import {
   PasswordRegisterInvalid,
   PasswordRegisterValid,
   dontRegisterUser,
-} from '../../store/reducer/registerForm';
+} from '~/store/reducer/registerForm';
 
 import {
   isInputEmpty,
@@ -22,7 +22,7 @@ import {
   checkEmptiness,
   checkValidity,
   checkValidityPassword,
-} from '../../../utils/validation';
+} from 'Utils/validation';
 
 // eslint-disable-next-line arrow-body-style
 const mapStateToProps = (state) => {

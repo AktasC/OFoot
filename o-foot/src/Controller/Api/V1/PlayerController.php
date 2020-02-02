@@ -55,7 +55,7 @@ class PlayerController extends AbstractController
     }
 
     /**
-     * @Route("/edit/{id}", name="edit", requirements={"id": "\d+"})
+     * @Route("/edit/{id}", name="edit", requirements={"id": "\d+"}, methods={"POST"})
      */
     public function edit(Player $player, Request $request, SerializerInterface $serializer)
     {
@@ -68,7 +68,7 @@ class PlayerController extends AbstractController
             ->setFirstNamePlayer($data->getFirstNamePlayer())
             ->setLastNamePlayer($data->getLastNamePlayer())
             ->setNumberJerseyPlayer($data->getNumberJerseyPlayer())
-            ->setPositionPlayer($data->getPositionPlayer())
+            ->setPosition($data->getPosition())
             ->setUpdatedAt(new \DateTime());
 
         // On récupére l'EntityManager
