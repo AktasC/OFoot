@@ -7,6 +7,7 @@ import user from './user';
 import userProfil from './userProfil';
 import team from './team';
 import calendar from './calendar';
+import event from './event';
 
 // je veux combiner mes reducers en un seul, puisque le store gère un seul reducer
 const reducer = combineReducers({
@@ -16,6 +17,7 @@ const reducer = combineReducers({
   userProfil,
   team,
   calendar,
+  event
 });
 
 export default reducer;
