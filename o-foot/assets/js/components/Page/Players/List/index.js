@@ -1,7 +1,7 @@
 // == Import : npm
-import React, { useState } from 'react';
+import React from 'react';
 import { Col, Row, Container, Table, Button, Modal } from 'react-bootstrap';
-import { IoIosStats, IoIosSend, IoIosAddCircleOutline } from 'react-icons/io';
+import { IoIosStats, IoIosSend } from 'react-icons/io';
 import { FiEdit3 } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { IoMdFootball } from 'react-icons/io';
@@ -10,19 +10,19 @@ import { IoMdFootball } from 'react-icons/io';
 // Import scss
 import './list.scss';
 
-class List extends React.Component { 
+class List extends React.Component {
   constructor(props) {
-    super(props);    
+    super(props);
     this.props.loadPlayersList();
 
     this.state = {
       show: false
     };
   }
-  
+
   render() {
 
-    {/* Permet l'ouverture et la fermeture via un state local (non géré par reux ou store) de ma modal */}
+    {/* Permet l'ouverture et la fermeture via un state local (non géré par reux ou store) de ma modal */ }
     const handleClose = () => {
       this.setState({
         show: false
@@ -34,9 +34,9 @@ class List extends React.Component {
       });
     }
 
-    return (      
-      
-      <div id="list">        
+    return (
+
+      <div id="list">
 
         <Container>
           <div className="sweatband">
@@ -58,7 +58,7 @@ class List extends React.Component {
                     <th>N°</th>
                     <th>Nom</th>
                     <th>Prénom</th>
-                    <th>Poste</th>                    
+                    <th>Poste</th>
                     <th className="smallin">Stats</th>
                     <th className="smallin">Édit.</th>
                     <th className="smallin">Supp.</th>
@@ -70,17 +70,17 @@ class List extends React.Component {
                       <td>{i}</td>
                       <td>{player.first_name_player}</td>
                       <td>{player.last_name_player}</td>
-                      <td>{player.role_player}</td>                      
+                      <td>{player.role_player}</td>
                       <td><IoIosStats /></td>
                       <td><FiEdit3 /></td>
                       <td><AiOutlineDelete /></td>
-                    </tr>     
+                    </tr>
                   ))}
-                              
+
                 </tbody>
               </Table>
-            </Col> 
-          </Row> 
+            </Col>
+          </Row>
         </Container>
 
         <Modal show={this.state.show} onHide={handleClose}>
@@ -88,7 +88,7 @@ class List extends React.Component {
             <Modal.Title>Inviter un joueur :</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Col><IoMdFootball size={28} /> Rien de plus simple <IoMdFootball size={28}/> </Col>
+            <Col><IoMdFootball size={28} /> Rien de plus simple <IoMdFootball size={28} /> </Col>
             <Col>Renseignez juste son adresse mail, afin de lui envoyer le lien d'invitation</Col>
           </Modal.Body>
           <Modal.Footer>
@@ -100,8 +100,8 @@ class List extends React.Component {
             </Button>
           </Modal.Footer>
         </Modal>
-          
-      </div> 
+
+      </div>
     )
   }
 };
