@@ -3,13 +3,11 @@
 namespace App\Service;
 
 use App\Entity\User;
-use Symfony\Component\Mime\Email;
-use Symfony\Component\Mime\Address;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
 
-
-class MailerRegister 
+class MailerRegister
 {
     private $mailer;
 
@@ -29,6 +27,6 @@ class MailerRegister
                 // 'user' => $user
             ]);
 
-    return $email;
+        return $email;
     }
 }
