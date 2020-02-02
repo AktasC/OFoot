@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-import { PLAYERS_INFOS } from '../reducer/team';
+import { PLAYERS_INFOS, updatePlayersList } from '../reducer/team';
 
 const teamMiddleWare = (store) => (next) => (action) => {
 
   switch (action.type) {    
     case PLAYERS_INFOS:
       const token = localStorage.getItem('token');
-      const teamId = store.getState().team.teamId;
+      const teamId = store.getState().team.currentTeamId;
       
       axios({
         method: 'get',
@@ -15,10 +15,9 @@ const teamMiddleWare = (store) => (next) => (action) => {
         headers: { 'Authorization': `Bearer ${token}` }       
       })
       
-      .then(function (response) {
-        console.log('from axios:', response.data); 
-        /* const actionLoadInfo = loadInfoFromAxios(response.data);  
-        store.dispatch(actionLoadInfo); */
+      .then(function (response) {        
+        const actionupdatePlayersList = updatePlayersList(response.data);  
+        store.dispatch(actionupdatePlayersList);
       })
       .catch(function (error) {
         console.log("error from appel appel axios:", error);

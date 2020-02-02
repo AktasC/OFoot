@@ -10,12 +10,9 @@ import { IoMdFootball } from 'react-icons/io';
 // Import scss
 import './list.scss';
 
-import players from './players.json';
-
 class List extends React.Component { 
   constructor(props) {
-    super(props);
-    console.log(props);
+    super(props);    
     this.props.loadPlayersList();
 
     this.state = {
@@ -37,7 +34,7 @@ class List extends React.Component {
       });
     }
 
-    return (
+    return (      
       
       <div id="list">        
 
@@ -68,12 +65,12 @@ class List extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {players.map((player, i) => (
+                  {this.props.playersList.map((player, i) => (
                     <tr>
                       <td>{i}</td>
-                      <td>{player.player_firstname}</td>
-                      <td>{player.player_lastname}</td>
-                      <td>{player.position_player}</td>                      
+                      <td>{player.first_name_player}</td>
+                      <td>{player.last_name_player}</td>
+                      <td>{player.role_player}</td>                      
                       <td><IoIosStats /></td>
                       <td><FiEdit3 /></td>
                       <td><AiOutlineDelete /></td>
