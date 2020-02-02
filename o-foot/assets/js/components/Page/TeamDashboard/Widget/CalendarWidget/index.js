@@ -7,20 +7,20 @@ import './calendar-widget.scss';
 
 import calendarData from './calendar.json';
 
-const CalendarWidget = () => {  
+const CalendarWidget = () => {
 
-  
+
   const options = { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minutes: '2-digit' };
 
   return (
-    
-    <div id="calendarWidget">        
+
+    <div id="calendarWidget">
 
       <Container>
         {calendarData.event.map((event, i) => {
 
-          let event_date = event.date_time_match;        
-          let event_date_formatted = new Date(`${event_date}`);  
+          let event_date = event.date_time_match;
+          let event_date_formatted = new Date(`${event_date}`);
 
           return (
             <Row key={event.id} className={`event-card ${event.event.toLowerCase()}`}>
@@ -28,28 +28,28 @@ const CalendarWidget = () => {
                 <div className="date">
                   {event_date_formatted.toLocaleDateString('fr-FR', options)}
                 </div>
-              </Col> 
+              </Col>
               <Col className="opponent-col">
                 {/* N'affiche le module VS que si l'event est un Match  */}
-                {event.event === "Match" &&                
+                {event.event === "Match" &&
                   <div className="opponent">
                     {event.opponent_team}
                   </div>
                 }
-              </Col>           
+              </Col>
               <Col className="participate-col">
                 <Col className="participate-text">Je participe :</Col>
 
-                <Col className="buttons-col">                
+                <Col className="buttons-col">
                   <Button variant="success">Oui</Button>
                   <Button variant="danger">Non</Button>
-                </Col> 
-              </Col>             
-            </Row> 
-          )         
-        })}          
-      </Container>          
-    </div> 
+                </Col>
+              </Col>
+            </Row>
+          )
+        })}
+      </Container>
+    </div>
 
   )
 };

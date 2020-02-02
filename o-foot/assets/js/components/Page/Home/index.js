@@ -13,21 +13,21 @@ import functionnalities from '~/../data/fonctionnalities';
 
 
 const Home = () => {
-  
-  return(
-   
+
+  return (
+
     <div id="home">
 
       <div className="home-pres">
         <h1 className="home-title">Bienvenue sur O'Foot !</h1>
-        
+
         <div className="30 home-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, ea libero esse voluptatibus atque deleniti, nostrum dolore facere tenetur corrupti adipisci amet tempore enim nulla accusantium harum veritatis. Voluptate, dolores.</div>
 
-        <div className="home-buttons">            
+        <div className="home-buttons">
           <NavLink to="register">
             <Button>S'inscrire</Button>
-          </NavLink> 
-        
+          </NavLink>
+
           <NavLink to="login">
             <Button>Se Connecter</Button>
           </NavLink>
@@ -41,9 +41,9 @@ const Home = () => {
       </div>
 
     </div>
- 
-);
-        }
+
+  );
+}
 
 
 export default Home;

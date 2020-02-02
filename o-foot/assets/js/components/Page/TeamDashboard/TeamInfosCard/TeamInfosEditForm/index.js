@@ -6,7 +6,7 @@ import './team-infos-edit-form.scss';
 
 class TeamInfosEditForm extends React.Component {
   constructor(props) {
-    super(props);    
+    super(props);
     this.state = {
       teamNameValue: this.props.teamInfos.team_name,
       teamStadiumValue: this.props.teamInfos.stadium_team,
@@ -17,9 +17,9 @@ class TeamInfosEditForm extends React.Component {
   }
 
   onSubmit = (event) => {
-    event.preventDefault();    
+    event.preventDefault();
     this.props.onSubmitUpdateTeamInfos(this.state);
-  }  
+  }
 
   handleChange = (event) => {
     this.setState({

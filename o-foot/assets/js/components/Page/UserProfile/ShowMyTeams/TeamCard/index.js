@@ -8,7 +8,7 @@ import './team-card.scss';
 
 
 
-const TeamCard = ({ team, handleUpdateCurrentTeamId }) => { 
+const TeamCard = ({ team, handleUpdateCurrentTeamId }) => {
 
   const {
     logo_team,
@@ -17,20 +17,19 @@ const TeamCard = ({ team, handleUpdateCurrentTeamId }) => {
   } = team;
 
   const updateTeamId = () => {
-    console.log("je met à jour", id)
     handleUpdateCurrentTeamId(id);
   }
 
   return (
     <div id="teamInfosCard">
 
-      { logo_team != null ? <Avatar className="avatar-custom" src={logo_team} size="100" round={true} /> : <Avatar name={team_name} size="150" size="100" round={true} /> }      
+      {logo_team != null ? <Avatar className="avatar-custom" src={logo_team} size="100" round={true} /> : <Avatar name={team_name} size="150" size="100" round={true} />}
       <h5>{team_name}</h5>
-      
+
       <NavLink to={`/team/${id}`} className="link">
         <Button onClick={updateTeamId} >Accéder au Dashboard Équipe</Button>
       </NavLink>
-          
+
     </div>
   );
 

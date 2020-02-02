@@ -25,8 +25,6 @@ const registerMiddleware = (store) => (next) => (action) => {
         /* 'registration_form[_token]': getCSRF() */
       };
 
-      console.log(requestBody);
-
       // JWT Implementation #TODO
       // const checkBody = {
       //   'username': inputEmailValue,
@@ -46,12 +44,10 @@ const registerMiddleware = (store) => (next) => (action) => {
       // })
       axios.post('/api/register', qs.stringify(requestBody), config)
         .then((response) => {
-          console.log('from then');
           store.dispatch(signupDone());
           addNotification('register-success');
         })
         .catch((error) => {
-          console.log(error);
           addNotification('register-error');
         });
       break;

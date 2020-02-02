@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
 
+import {
+  checkValidity,
+  checkEmptiness,
+  checkValidityPassword,
+} from 'Utils/validation';
 import LoginForm from '~/components/Page/Login/LoginForm';
 
-import { 
-  emailValue,
-  passwordValue, 
+import {
   onChangeInputLogin,
   connectUser,
   emailInvalid,
@@ -14,11 +17,6 @@ import {
   dontConnectUser,
 } from '~/store/reducer/loginForm';
 
-import {
-  checkValidity,
-  checkEmptiness,
-  checkValidityPassword,
-} from 'Utils/validation';
 
 const mapStateToProps = (state) => ({
   emailValue: state.loginForm.emailValue,
@@ -36,7 +34,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   submitForm: () => {
-    console.log('submit on container');
     const action = connectUser();
     dispatch(action);
   },
@@ -51,8 +48,7 @@ const mapDispatchToProps = (dispatch) => ({
     if (checkEmptiness(errorsEmail) === false) {
       const action = emailInvalid(errorsEmail);
       dispatch(action);
-    }
-    else if (checkEmptiness(errorsEmail) === true) {
+    } else if (checkEmptiness(errorsEmail) === true) {
       const action = emailValid();
       dispatch(action);
     }
@@ -63,8 +59,7 @@ const mapDispatchToProps = (dispatch) => ({
     if (checkEmptiness(errorsPassword) === false) {
       const action = passwordlInvalid(errorsPassword);
       dispatch(action);
-    }
-    else if (checkEmptiness(errorsPassword) === true) {
+    } else if (checkEmptiness(errorsPassword) === true) {
       const action = passwordValid();
       dispatch(action);
     }

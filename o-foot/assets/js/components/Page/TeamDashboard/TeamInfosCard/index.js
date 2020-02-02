@@ -12,7 +12,6 @@ class TeamInfosCard extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(props);
 
     this.state = {
       show: false
@@ -78,7 +77,7 @@ class TeamInfosCard extends React.Component {
             </Col>
 
           </Modal.Body>
-          <Modal.Footer>            
+          <Modal.Footer>
             <Button className="custom-btn" onClick={handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>

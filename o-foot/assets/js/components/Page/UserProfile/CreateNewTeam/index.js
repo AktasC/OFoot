@@ -5,48 +5,47 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 // Import scss
 import './create-new-team.scss';
 
-const CreateNewTeam = ({ 
+const CreateNewTeam = ({
   onValueChange,
   onSubmitCreateTeam,
   teamNameValue,
   teamAddressValue,
-  teamStadiumValue,    
-  teamCityValue,   
+  teamStadiumValue,
+  teamCityValue,
 }) => {
 
   const onSubmit = (event) => {
-    console.log("hey submit");
     event.preventDefault();
     onSubmitCreateTeam();
   }
 
 
-  const handleChange = (event) => {    
+  const handleChange = (event) => {
     onValueChange(event.target.value, event.target.name);
   };
-   
+
   return (
-    <div id="createNewTeam">    
+    <div id="createNewTeam">
 
       <Container>
         <Row>
-          <Col lg={{ span: 8, offset: 2 }} md={{ span: 8, offset: 2 }} sm={{ span: 8, offset: 2 }} xs={{ span: 8, offset: 2 }}> 
+          <Col lg={{ span: 8, offset: 2 }} md={{ span: 8, offset: 2 }} sm={{ span: 8, offset: 2 }} xs={{ span: 8, offset: 2 }}>
             <Form onSubmit={onSubmit}>
               <Form.Row>
-                
+
                 <Col className="input" lg={6} md={6} sm={21} xs={12}>
-                  <Form.Control                    
+                  <Form.Control
                     onChange={handleChange}
-                    value={teamNameValue}                    
+                    value={teamNameValue}
                     name="teamNameValue"
                     placeholder="Nom de votre équipe"
                   />
                 </Col>
 
                 <Col className="input" lg={6} md={6} sm={21} xs={12}>
-                  <Form.Control                    
+                  <Form.Control
                     onChange={handleChange}
-                    value={teamStadiumValue}                    
+                    value={teamStadiumValue}
                     name="teamStadiumValue"
                     placeholder="Nom du Stade"
                   />
@@ -57,18 +56,18 @@ const CreateNewTeam = ({
               <Form.Row>
 
                 <Col className="input" lg={6} md={6} sm={21} xs={12}>
-                  <Form.Control                    
+                  <Form.Control
                     onChange={handleChange}
-                    value={teamAddressValue}                    
+                    value={teamAddressValue}
                     name="teamAddressValue"
                     placeholder="Adresse du Stade"
                   />
                 </Col>
 
                 <Col className="input" lg={6} md={6} sm={21} xs={12}>
-                  <Form.Control                    
+                  <Form.Control
                     onChange={handleChange}
-                    value={teamCityValue}                    
+                    value={teamCityValue}
                     name="teamCityValue"
                     placeholder="Ville du Stade"
                   />
@@ -76,13 +75,13 @@ const CreateNewTeam = ({
 
               </Form.Row>
 
-              <Button type="submit"><IoIosAddCircleOutline/> Ajouter cette équipe </Button>
+              <Button type="submit"><IoIosAddCircleOutline /> Ajouter cette équipe </Button>
             </Form>
-          </Col>            
+          </Col>
         </Row>
       </Container>
 
-  </div>
+    </div>
   )
 };
 

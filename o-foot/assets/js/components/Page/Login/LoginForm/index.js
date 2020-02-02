@@ -9,7 +9,7 @@ import './loginform.scss';
 
 const LoginForm = ({
   changeInputLogin,
-  emailValue,  
+  emailValue,
   passwordValue,
   submitForm,
   blurInputEmail,
@@ -35,10 +35,9 @@ const LoginForm = ({
 
 
   const onSubmitForm = (evt) => {
-    console.log(emailValue);
+
     evt.preventDefault();
     if (emailValue === '' && passwordValue === '') {
-      console.log('emptyinputs');
       emptyInputs();
     }
     else if (emailValidCheck === true && passwordValidCheck === true) {
@@ -72,7 +71,7 @@ const LoginForm = ({
             onChange={handleChange}
             value={passwordValue}
             name="passwordValue"
-            placeholder="Mot de Passe"            
+            placeholder="Mot de Passe"
           />
         </Col>
         {!passwordValidCheck && <div>{errorMessagePassword.password}</div>}
@@ -91,7 +90,7 @@ const LoginForm = ({
 
 LoginForm.propTypes = {
   changeInputLogin: PropTypes.func.isRequired,
-  emailValue: PropTypes.string.isRequired,  
+  emailValue: PropTypes.string.isRequired,
   passwordValue: PropTypes.string.isRequired,
   submitForm: PropTypes.func.isRequired,
   blurInputEmail: PropTypes.func.isRequired,

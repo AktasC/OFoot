@@ -7,58 +7,58 @@ import { Col, Row, Container, Button } from 'react-bootstrap';
 import './overview.scss';
 
 const Overview = () => (
-    
+
     <Row id="overview">
-        <div>       
-        <div id="calendarWidget">        
-            <Container>
-  
-                <Row key="1" className="event-card entrainement">
-                    <Col className="infos-col">
-                        <div className="date">
-                            30/01/2020
-                        </div>
-                    </Col> 
+        <div>
+            <div id="calendarWidget">
+                <Container>
 
-                     <Col className="opponent-col">
-                        <div className="opponent">
-                            Match VS Marseille
+                    <Row key="1" className="event-card entrainement">
+                        <Col className="infos-col">
+                            <div className="date">
+                                30/01/2020
                         </div>
-                    </Col>              
-                </Row>   
+                        </Col>
 
-            </Container>          
-        </div> 
+                        <Col className="opponent-col">
+                            <div className="opponent">
+                                Match VS Marseille
+                        </div>
+                        </Col>
+                    </Row>
+
+                </Container>
+            </div>
         </div>
 
-        <div>      
-        <div id="calendarWidget">        
-            <Container>
-  
-                <Row key="1" className="event-card entrainement">
-                    <Col className="infos-col">
-                        <div className="date">
-                            13/02/2020
+        <div>
+            <div id="calendarWidget">
+                <Container>
+
+                    <Row key="1" className="event-card entrainement">
+                        <Col className="infos-col">
+                            <div className="date">
+                                13/02/2020
                         </div>
-                    </Col> 
+                        </Col>
 
-                     <Col className="opponent-col">
-                        <div className="opponent">
-                            Entrainement
+                        <Col className="opponent-col">
+                            <div className="opponent">
+                                Entrainement
                         </div>
-                    </Col>  
+                        </Col>
 
-                    <Col className="participate-col">
-                        <Col className="participate-text">Je participe :</Col>
-                        <Col className="buttons-col">                
-                            <Button variant="success">Oui</Button>
-                            <Button variant="danger">Non</Button>
-                        </Col> 
-                    </Col>             
-                </Row>   
+                        <Col className="participate-col">
+                            <Col className="participate-text">Je participe :</Col>
+                            <Col className="buttons-col">
+                                <Button variant="success">Oui</Button>
+                                <Button variant="danger">Non</Button>
+                            </Col>
+                        </Col>
+                    </Row>
 
-            </Container>          
-        </div> 
+                </Container>
+            </div>
         </div>
     </Row>
 );

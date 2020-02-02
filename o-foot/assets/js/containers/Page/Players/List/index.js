@@ -4,18 +4,16 @@ import List from '../../../../components/Page/Players/List';
 
 import { playersInfos } from '../../../../store/reducer/team';
 
-const mapStateToProps = (state) => {
-  return {
-    playersList: state.team.playersList,
-    teamId: state.team.teamId,
-  };
-};
+const mapStateToProps = (state) => ({
+  playersList: state.team.playersList,
+  teamId: state.team.teamId,
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  loadPlayersList: () => {    
+  loadPlayersList: () => {
     const action = playersInfos();
     dispatch(action);
-  }
+  },
 });
 
 const ListContainer = connect(

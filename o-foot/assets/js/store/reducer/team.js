@@ -3,23 +3,23 @@ const initialState = {
   // la valeur courante de l'input
   teamNameValue: '',
   teamAddressValue: '',
-  teamStadiumValue: '',    
-  teamCityValue: '', 
+  teamStadiumValue: '',
+  teamCityValue: '',
   playersList: [],
   teamCityValue: '',
   currentTeamId: '',
 };
-  
+
 // --- action types
 
 const CHANGE_INPUT = 'CHANGE_INPUT';
-const UPDATE_CURRENT_TEAM_ID = 'UPDATE_CURRENT_TEAM_ID'; 
+const UPDATE_CURRENT_TEAM_ID = 'UPDATE_CURRENT_TEAM_ID';
 export const CREATE_TEAM = 'CREATE_TEAM';
 export const PLAYERS_INFOS = 'PLAYERS_INFOS';
 export const RESET_ADD_TEAM_INPUT = 'RESET_ADD_TEAM_INPUT';
 export const TEAM_INFOS_UPDATE = 'TEAM_INFOS_UPDATE';
 export const UPDATE_PLAYERS_LIST = 'UPDATE_PLAYERS_LIST';
-  
+
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -33,8 +33,8 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         teamNameValue: '',
         teamAddressValue: '',
-        teamStadiumValue: '',    
-        teamCityValue: '',    
+        teamStadiumValue: '',
+        teamCityValue: '',
       };
 
     case UPDATE_CURRENT_TEAM_ID:
@@ -65,15 +65,15 @@ export const resetAddTeamInput = () => ({
 
 export const teamInfosUpdate = (value) => ({
   type: TEAM_INFOS_UPDATE,
-  value
+  value,
 });
 
 export const updateCurrentTeamId = (value) => ({
   type: UPDATE_CURRENT_TEAM_ID,
-  value
+  value,
 });
 
-export const changeInput = (value, name) => ({    
+export const changeInput = (value, name) => ({
   type: CHANGE_INPUT,
   name,
   value,
@@ -85,7 +85,7 @@ export const playersInfos = () => ({
 
 export const updatePlayersList = (value) => ({
   type: UPDATE_PLAYERS_LIST,
-  value
+  value,
 });
 
 // --- export
