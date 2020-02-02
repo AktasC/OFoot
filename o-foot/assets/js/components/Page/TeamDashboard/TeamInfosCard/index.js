@@ -3,7 +3,7 @@ import Avatar from 'react-avatar';
 import { Button, Modal, Col } from 'react-bootstrap';
 import { FiEdit3 } from 'react-icons/fi';
 
-import TeamInfosEditForm from '../../../../containers/Page/TeamDashboard/TeamInfosCard/TeamInfosEditForm';
+import TeamInfosEditForm from '~/containers/Page/TeamDashboard/TeamInfosCard/TeamInfosEditForm';
 
 // Import scss
 import './team-infos-card.scss';

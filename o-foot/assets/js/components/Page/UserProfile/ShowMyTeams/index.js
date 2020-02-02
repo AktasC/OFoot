@@ -6,7 +6,7 @@ import { Col, Row } from 'react-bootstrap';
 import './show-my-teams.scss';
 
 import Slider from 'react-slick';
-import TeamCard from '../../../../containers/UserProfile/ShowMyTeams/TeamCard';
+import TeamCard from '~/containers/UserProfile/ShowMyTeams/TeamCard';
 
 const showMyTeams = (teams) => {
 
