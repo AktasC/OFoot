@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import AddEvent from '~/components/Page/Calendar/EventList/AddEvent';
 
-import { eventTypeSelection, matchTypeSelection, changeInput } from '~/store/reducer/event';
+import { eventTypeSelection, matchTypeSelection, changeInput, addNewEvent } from '~/store/reducer/event';
 
 const mapStateToProps = (state) => {
   return { 
@@ -28,6 +28,11 @@ const mapDispatchToProps = (dispatch) => ({
 
     onValueChange: (value, name) => {
         const action = changeInput(value, name);
+        dispatch(action);
+    },
+
+    onSubmitAddEvent: () => {
+        const action = addNewEvent();
         dispatch(action);
     }
 

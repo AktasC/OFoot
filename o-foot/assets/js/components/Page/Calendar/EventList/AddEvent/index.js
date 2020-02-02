@@ -26,7 +26,8 @@ class AddEvent extends React.Component {
             opponent,
             date_time,
             stadium,
-            adress } = this.props; 
+            adress,
+            onSubmitAddEvent } = this.props; 
 
         const dateFocus = () => {
             this.setState({
@@ -44,17 +45,14 @@ class AddEvent extends React.Component {
 
         const handleChangeAddEvent = (event) => {
             onValueChange(event.target.value, event.target.name);
-          };
-        /*onSubmit = (event) => {
-            event.preventDefault();    
-            this.props.onSubmitUpdateTeamInfos(this.state);
+          }
+
+        const onSubmit = (evt) => {
+            evt.preventDefault();    
+            onSubmitAddEvent();
           }  
         
-          handleChange = (event) => {
-            this.setState({
-              [event.target.name]: event.target.value
-            });
-          }*/
+        
         
             return (
               <div id="addEventForm">
@@ -62,7 +60,7 @@ class AddEvent extends React.Component {
                 <Container>
                   <Row>
                     <Col>
-                      <Form id="addEvent">
+                      <Form id="addEvent" onSubmit={onSubmit}>
                         <Form.Row className="radios">
                           <Col className="radio">
                           <Form.Check

@@ -13,6 +13,7 @@ const initialState = {
   const EVENT_TYPE_SELECTION = 'EVENT_TYPE_SELECTION';
   const MATCH_TYPE_SELECTION = 'MATCH_TYPE_SELECTION'; 
   const CHANGE_INPUT_ADD_EVENT = 'CHANGE_INPUT_ADD_EVENT';
+  export const ADD_NEW_EVENT = 'ADD_NEW_EVENT'; 
 
     
   // --- Reducer
@@ -57,6 +58,10 @@ const initialState = {
     type: CHANGE_INPUT_ADD_EVENT,
     value,
     name,
+  });
+
+  export const addNewEvent = () => ({
+      type: ADD_NEW_EVENT
   })
   
   // --- export
