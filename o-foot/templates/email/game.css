@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    background-color: #212532;
+    color: #ffffff;
+    padding: 20px 0;
+    font-weight: normal;
+}
+
+.container {
+    background-color: #fefefe;
+    width: 580px;
+    margin: 0 auto;
+}
+
+.block {
+    margin: 0;
+    padding: 10px 20px 20px;
+}
+
+.logo {
+    width: 100%;
+
+}
+
+.text-center {
+    text-align: center;
+}
