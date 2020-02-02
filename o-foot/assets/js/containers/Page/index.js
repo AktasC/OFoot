@@ -2,13 +2,16 @@ import { connect } from 'react-redux';
 
 import Page from '~/components/Page';
 
+
 import { userProfilInfo, teamCalendarInfo  } from '~/store/reducer/userProfil';
+import { resetUpdateData } from '../../store/reducer/user';
+
 
 const mapStateToProps = (state) => {
   return {
     logged: state.user.logged,
     signupDone: state.registerForm.signupDone,
-    addTeam: state.user.addTeam,
+    updateData: state.user.updateData,
     token: localStorage.getItem('token'),
     userId: localStorage.getItem('userId')
   };
@@ -23,6 +26,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   loadCalendarTeamInfo: () => {
     const action = teamCalendarInfo();
+  },
+  
+  handleResetUpdateData: () => {
+    const action = resetUpdateData();
     dispatch(action);
   }
 });
