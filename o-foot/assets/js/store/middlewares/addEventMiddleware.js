@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-import { ADD_NEW_EVENT } from '../reducer/event';
+import { ADD_NEW_EVENT, resetAddEventInput } from '../reducer/event';
 import { addNotification } from '../addNotification';
+import { updateData } from '../reducer/user';
 
 const addEventMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -39,12 +40,12 @@ const addEventMiddleware = (store) => (next) => (action) => {
           axios.post(`/api/v1/practices/teams/${currentTeamId}/new`, data, config)
     
           .then(function (response) {
-            // addNotification('create-team-success');
-            //store.dispatch(updateData());
-            //store.dispatch(resetAddTeamInput());
+            addNotification('create-event-success');
+            store.dispatch(updateData());
+            store.dispatch(resetAddEventInput());
           })
           .catch(function (error) {
-            //addNotification('create-team-error')
+            addNotification()
           }); 
     
           break;
@@ -63,13 +64,12 @@ const addEventMiddleware = (store) => (next) => (action) => {
               axios.post(`/api/v1/games/teams/${currentTeamId}/new`, data, config)
         
               .then(function (response) {
-                  console.log('OMG it works');
-                // addNotification('create-team-success');
-                //store.dispatch(updateData());
-                //store.dispatch(resetAddTeamInput());
+                addNotification('create-event-success');
+                store.dispatch(updateData());
+                store.dispatch(resetAddEventInput());
               })
               .catch(function (error) {
-                //addNotification('create-team-error')
+                addNotification()
               }); 
         
               break;

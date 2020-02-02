@@ -14,6 +14,7 @@ const initialState = {
   const MATCH_TYPE_SELECTION = 'MATCH_TYPE_SELECTION'; 
   const CHANGE_INPUT_ADD_EVENT = 'CHANGE_INPUT_ADD_EVENT';
   export const ADD_NEW_EVENT = 'ADD_NEW_EVENT'; 
+  const EMPTY_INPUTS_EVENT = 'EMPTY_INPUTS_EVENT';
 
     
   // --- Reducer
@@ -35,6 +36,17 @@ const initialState = {
         return {
             ...state, 
             [action.name]: action.value,
+        }
+    
+    case 'EMPTY_INPUTS_EVENT': 
+        return {
+            ...state, 
+            selectedOption: 'entrainement',
+            selectedOptionMatch: undefined,
+            opponent: undefined,
+            date_time: '',
+            stadium: '',
+            adress: ''
         }
       
   
@@ -62,6 +74,10 @@ const initialState = {
 
   export const addNewEvent = () => ({
       type: ADD_NEW_EVENT
+  })
+
+  export const resetAddEventInput = () => ({
+      type: EMPTY_INPUTS_EVENT
   })
   
   // --- export

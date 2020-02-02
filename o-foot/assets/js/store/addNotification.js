@@ -49,6 +49,21 @@ export const addNotification = ( status ) => {
         }
       }) 
       break;
+    
+      case 'create-event-success':
+        store.addNotification({
+          title: 'Bien joué !',
+          message: 'Votre événement est bien enregistré !',
+          type: 'success',                         // 'default', 'success', 'info', 'warning'
+          container: 'bottom-left',
+          animationIn: ["animated", "fadeIn"],     // animate.css classes
+          animationOut: ["animated", "fadeOut"],   // animate.css classes
+          dismiss: {
+            duration: 5000,
+            showIcon: true
+          }
+        }) 
+        break;
       
     case 'login-success':
       store.addNotification({
