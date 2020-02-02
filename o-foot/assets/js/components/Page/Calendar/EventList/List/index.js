@@ -6,6 +6,7 @@ import { FaPlus } from 'react-icons/fa';
 // Import scss
 import './list.scss';
 
+import AddEvent from '../AddEvent';
 
 class List extends React.Component {
 
@@ -97,7 +98,7 @@ return (
           <Modal.Body>
 
             <Col>
-              
+              <AddEvent />
             </Col>
 
           </Modal.Body>
