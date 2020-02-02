@@ -26,8 +26,9 @@ const mapDispatchToProps = (dispatch) => ({
 
   loadCalendarTeamInfo: () => {
     const action = teamCalendarInfo();
+    dispatch(action);
   },
-  
+
   handleResetUpdateData: () => {
     const action = resetUpdateData();
     dispatch(action);

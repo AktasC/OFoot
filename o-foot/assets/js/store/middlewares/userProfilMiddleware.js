@@ -127,8 +127,9 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         });
         
         // filtrer par team_id
-        //const event = eventDataMixChronological.filter(x => x.team_id === 15);
-        const actionLoadInfoCalendar = loadInfoCalendarFromAxios(eventDataMixChronological);  
+        const events = eventDataMixChronological.filter(event => event.team_id = 9);
+        console.log(events);
+        const actionLoadInfoCalendar = loadInfoCalendarFromAxios(events);  
         store.dispatch(actionLoadInfoCalendar);
 
         
