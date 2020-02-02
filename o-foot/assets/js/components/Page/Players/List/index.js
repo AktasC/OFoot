@@ -1,21 +1,42 @@
 // == Import : npm
 import React from 'react';
-import { Col, Row, Container, Table, Button } from 'react-bootstrap';
-import { IoIosStats, IoIosSend, IoIosAddCircleOutline } from 'react-icons/io';
+import { Col, Row, Container, Table, Button, Modal } from 'react-bootstrap';
+import { IoIosStats, IoIosSend } from 'react-icons/io';
 import { FiEdit3 } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
+import { IoMdFootball } from 'react-icons/io';
+
 
 // Import scss
 import './list.scss';
 
-import players from './players.json';
+class List extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props.loadPlayersList();
 
-const List = () => {  
+    this.state = {
+      show: false
+    };
+  }
 
+  render() {
 
-  return (
-    
-      <div id="list">        
+    {/* Permet l'ouverture et la fermeture via un state local (non géré par reux ou store) de ma modal */ }
+    const handleClose = () => {
+      this.setState({
+        show: false
+      });
+    }
+    const handleShow = () => {
+      this.setState({
+        show: true,
+      });
+    }
+
+    return (
+
+      <div id="list">
 
         <Container>
           <div className="sweatband">
@@ -24,7 +45,7 @@ const List = () => {
 
           <Row>
             <Col>
-              <Button><IoIosSend /> Inviter joueur</Button>
+              <Button onClick={handleShow}><IoIosSend /> Inviter joueur</Button>
               {/* <Button><IoIosAddCircleOutline /> Ajouter joueur</Button> */}
             </Col>
           </Row>
@@ -37,34 +58,52 @@ const List = () => {
                     <th>N°</th>
                     <th>Nom</th>
                     <th>Prénom</th>
-                    <th>Poste</th>                    
+                    <th>Poste</th>
                     <th className="smallin">Stats</th>
                     <th className="smallin">Édit.</th>
                     <th className="smallin">Supp.</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {players.map((player, i) => (
+                  {this.props.playersList.map((player, i) => (
                     <tr>
                       <td>{i}</td>
-                      <td>{player.player_firstname}</td>
-                      <td>{player.player_lastname}</td>
-                      <td>{player.position_player}</td>                      
+                      <td>{player.first_name_player}</td>
+                      <td>{player.last_name_player}</td>
+                      <td>{player.role_player}</td>
                       <td><IoIosStats /></td>
                       <td><FiEdit3 /></td>
                       <td><AiOutlineDelete /></td>
-                    </tr>     
+                    </tr>
                   ))}
-                              
+
                 </tbody>
               </Table>
-            </Col> 
-          </Row> 
+            </Col>
+          </Row>
         </Container>
-          
-      </div>    
-    
-  )
+
+        <Modal show={this.state.show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Inviter un joueur :</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Col><IoMdFootball size={28} /> Rien de plus simple <IoMdFootball size={28} /> </Col>
+            <Col>Renseignez juste son adresse mail, afin de lui envoyer le lien d'invitation</Col>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+      </div>
+    )
+  }
 };
 
 // == Export

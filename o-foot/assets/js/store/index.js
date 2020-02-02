@@ -8,6 +8,7 @@ import registerMiddleware from './middlewares/registerMiddleware';
 import loginMiddleware from './middlewares/loginMiddleware';
 import userProfilMiddleware from './middlewares/userProfilMiddleware';
 import createTeamMiddleware from './middlewares/createTeamMiddleware';
+import teamMiddleWare from './middlewares/teamMiddleware';
 import updateTeamMiddleware from './middlewares/updateTeamMiddleware';
 
 // eslint-disable-next-line no-underscore-dangle
@@ -22,6 +23,7 @@ const enhancers = composeEnhancers(
    loginMiddleware,
    registerMiddleware,
    createTeamMiddleware,
+   teamMiddleWare,
    updateTeamMiddleware,
   ),
 );

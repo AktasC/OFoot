@@ -19,7 +19,7 @@ import WhoAreWe from './WhoAreWe';
 import EventList from './Calendar/EventList';
 import UserProfile from '~/containers/UserProfile';
 import TeamDashboard from '~/containers/Page/TeamDashboard';
-import List from './Players/List';
+import List from '~/containers/Page/Players/List';
 import Page404 from './Page404';
 
 
