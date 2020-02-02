@@ -8,7 +8,7 @@ import { addNotification } from '../addNotification';
 const userProfilMiddleWare = (store) => (next) => (action) => {
 
   const token = localStorage.getItem('token');
-      const userId = localStorage.getItem('userId');
+  const userId = localStorage.getItem('userId');
 
   switch (action.type) {    
     case USER_PROFIL_INFO:

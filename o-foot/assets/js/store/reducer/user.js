@@ -3,7 +3,8 @@ const initialState = {
   logged: false,
   userId: localStorage.getItem('userId'),
   token: localStorage.getItem('token'),
-  updateData: false,  
+  updateData: false,
+  isManager: false,
 };
 
 export const UPDATE_TOKEN = 'UPDATE_TOKEN';
