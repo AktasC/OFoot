@@ -19,7 +19,7 @@ class UserEdit extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();  
     const errorsUserEdit = []; 
-    if(firstname === '' || lastname === '' || email === '') {
+    if(this.state.firstname === '' || this.state.lastname === '' || this.state.email === '') {
       errorsUserEdit.push('Merci de compléter chacun des champs');
       console.log('non non non');
     this.noSubmit(errorsUserEdit);  
