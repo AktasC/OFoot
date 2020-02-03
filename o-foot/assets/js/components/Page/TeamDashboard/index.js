@@ -11,25 +11,25 @@ import './team-dashboard.scss';
 
 import teamData from './team.json';
 
-const TeamDashboard = ( teamInformations ) => { 
+const TeamDashboard = (teamInformations) => {
   console.log(teamInformations);
 
   /* console.log("from TeamDashboard teamInfooooos:", teamInformations.teamInformations); */
-  
+
   return (
-    
-      <div id="teamDashboard">        
 
-        <Container>
-          <div className="sweatband">
-            <h2>DASHBOARD ÉQUIPE</h2>
-          </div>
+    <div id="teamDashboard">
 
-          <Row className="full-dashboard">
-            <Col className="infos-part">
-              <TeamInfosCard teamData={teamInformations.teamInformations}/> 
-            </Col>              
-            <Col className="func-part">
+      <Container>
+        <div className="sweatband">
+          <h2>DASHBOARD ÉQUIPE</h2>
+        </div>
+
+        <Row className="full-dashboard">
+          <Col className="infos-part">
+            <TeamInfosCard teamData={teamInformations.teamInformations} />
+          </Col>
+          <Col className="func-part">
             <NavLink to={`/event/list/${teamInformations.teamInformations.id}`} className="link">
               <Row className="func-part-row calendar">
                 <Col className="func-part-col">
@@ -37,23 +37,25 @@ const TeamDashboard = ( teamInformations ) => {
                 </Col>
               </Row>
             </NavLink>
+            <NavLink to="/players/list" className="link">
               <Row className="func-part-row effectif">
                 <Col className="func-part-col">
                   <div></div>
                 </Col>
               </Row>
-              <Row className="func-part-row statistics">
-                <Col className="func-part-col">
-                  <div className="statistic-players"></div>
-                </Col>
-                <Col className="func-part-col">
+            </NavLink>
+            <Row className="func-part-row statistics">
+              <Col className="func-part-col">
+                <div className="statistic-players"></div>
+              </Col>
+              <Col className="func-part-col">
                 <div className="statistic-team"></div>
-                </Col>
-              </Row>
-            </Col>
-          </Row> 
-        </Container>          
-      </div> 
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   )
 };
 
