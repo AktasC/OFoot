@@ -7,6 +7,9 @@ import {
 } from '~/store/reducer/userProfil';
 
 const mapStateToProps = (state) => ({
+  first_name: state.userProfil.userInformations.first_name,
+  last_name: state.userProfil.userInformations.last_name,
+  mail: state.userProfil.userInformations.email,
 });
 
 const mapDispatchToProps = (dispatch) => ({

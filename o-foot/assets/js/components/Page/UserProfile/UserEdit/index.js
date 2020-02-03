@@ -30,6 +30,7 @@ class UserEdit extends React.Component {
   render() {
 
     const { firstname, lastname, email } = this.state; 
+    const { first_name, last_name, mail} = this.props;
 
   
     return (
@@ -55,7 +56,7 @@ class UserEdit extends React.Component {
                   type="text"
                   name="firstname"
                   value={firstname}
-                  placeholder={firstname}
+                  placeholder={first_name}
                   onChange={this.handleChange}
                 />
               
@@ -64,7 +65,7 @@ class UserEdit extends React.Component {
                   className="editUserInput"
                   type="text"
                   name="lastname"
-                  placeholder={lastname}
+                  placeholder={last_name}
                   value={lastname}
                   onChange={this.handleChange}
                 />
@@ -74,7 +75,7 @@ class UserEdit extends React.Component {
                   className="editUserInput"
                   type="email" 
                   name="email" 
-                  placeholder={email} 
+                  placeholder={mail} 
                   value={email}
                   onChange={this.handleChange}
                />
