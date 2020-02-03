@@ -24,7 +24,6 @@ class UserProfile extends React.Component {
   render () {
     
     const { userInformations } = this.props;
-    console.log(userInformations);
     
     return (
       <div id="userProfile">    
@@ -68,7 +67,7 @@ class UserProfile extends React.Component {
             <Tab eventKey="edit-profil" title="Éditer mon profil">
               {/* On mettra ici notre composant EditProfil */}
               
-              <UserEdit userInfo={userInformations}/>
+              <UserEdit userInformations={userInformations}/>
             
             </Tab>
             <Tab eventKey="edit-password" title="Éditer mon mot de passe">
