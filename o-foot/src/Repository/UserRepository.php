@@ -41,11 +41,12 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $qb = $this->createQueryBuilder('u')
             ->select('u.id,u.email,u.first_name')
             ->where('u.email LIKE :key')
-            ->setParameter('key' , '%'.$email.'%')
+            ->setParameter('key', '%'.$email.'%')
             ->getQuery();
- 
+
         return $qb->getResult();
     }
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

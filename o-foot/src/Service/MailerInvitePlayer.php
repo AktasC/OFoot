@@ -14,9 +14,9 @@ class MailerInvitePlayer
     {
         $this->mailer = $mailer;
     }
+
     public function dataEmail($userData, $team)
     {
-        
         foreach ($userData as $user) {
             $this->emailInvitePlayer($user, $team);
         }
@@ -26,12 +26,12 @@ class MailerInvitePlayer
     {
         $email = (new TemplatedEmail())
             ->from(new Address('teamOfoot@gmail.com', 'O\'Foot'))
-            ->to(new Address($user['email'],$user['first_name']))
+            ->to(new Address($user['email'], $user['first_name']))
             ->subject('Invitation à rejoindre l\'équipe!')
             ->htmlTemplate('email/joinTeam.html.twig')
             ->context([
                 'user' => $user,
-                'team' => $team
+                'team' => $team,
             ]);
 
         $this->mailer->send($email);
