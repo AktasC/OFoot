@@ -9,13 +9,26 @@ class UserEdit extends React.Component {
 
   constructor(props) {
     super (props); 
-    console.log(props);
-    this.state= {
-      firstname: this.props.userInformations.first_name,
-      lastname: this.props.userInformations.last_name,
-      email: this.props.userInformations.email,
+    console.log(this.props);
+    this.state = {
+      firstname: '',
+      lastname: '',
+      email: '',
     };
+
+    this.setState({
+      firstname: this.props.userInfo.first_name,
+      lastname: this.props.userInfo.last_name,
+      email: this.props.userInfo.email,
+    });
+
+    console.log('new state' + this.state[0])
   }
+
+  
+    
+
+  
 
   onSubmit = (event) => {
     event.preventDefault();  
@@ -30,7 +43,8 @@ class UserEdit extends React.Component {
   }
 
   render() {
-
+    console.log("Current firstname = " + this.state.firstname);
+    console.log(this.props);
     const { firstname, lastname, email  } = this.state; 
     /* const { first_name, last_name, mail, errorsUserEdit, noSubmit } = this.props; */
 
