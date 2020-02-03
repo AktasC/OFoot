@@ -60,13 +60,9 @@ class TeamController extends AbstractController
      */
     public function getManager(SerializerInterface $serializer, Team $team)
     {
-        /**
-         * On récupère dans la variable $data l'objet de la sérialisation des atttributs de team que l'on récupère
-         * via les attributs 'groups' => 'api_v1'.
-         */
+        /* Si l'user est également le manager, return true, sinon return false */
         $data = $this->getUser() == $team->getManager();
 
-        // on retourne $data au format json
         return $this->json($data);
     }
 
