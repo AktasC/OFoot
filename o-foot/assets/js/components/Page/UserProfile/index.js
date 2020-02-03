@@ -67,7 +67,7 @@ class UserProfile extends React.Component {
             <Tab eventKey="edit-profil" title="Éditer mon profil">
               {/* On mettra ici notre composant EditProfil */}
               
-              <UserEdit userInformations={this.props.userInformations}/>
+              <UserEdit />
             
             </Tab>
             <Tab eventKey="edit-password" title="Éditer mon mot de passe">
