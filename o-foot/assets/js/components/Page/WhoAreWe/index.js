@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, Butt } from 'react-bootstrap';
 import Avatar from 'react-avatar';
 
 // Import scss
@@ -23,9 +23,9 @@ const WhoAreWe = () => (
             <Row>
                 <Col>
                     <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                            <Card.Title>Cascao Pedro</Card.Title>
                             <Card.Text>
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
@@ -37,9 +37,9 @@ const WhoAreWe = () => (
                 </Col>
                 <Col>
                     <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                            <Card.Title>Cascao Pedro</Card.Title>
                             <Card.Text>
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
@@ -51,9 +51,9 @@ const WhoAreWe = () => (
                 </Col>
                 <Col>
                     <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                            <Card.Title>Cascao Pedro</Card.Title>
                             <Card.Text>
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
@@ -65,9 +65,9 @@ const WhoAreWe = () => (
                 </Col>
                 <Col>
                     <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                            <Card.Title>Cascao Pedro</Card.Title>
                             <Card.Text>
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
@@ -79,9 +79,9 @@ const WhoAreWe = () => (
                 </Col>
                 <Col>
                     <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                            <Card.Title>Cascao Pedro</Card.Title>
                             <Card.Text>
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
