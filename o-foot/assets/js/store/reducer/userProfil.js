@@ -5,7 +5,6 @@ const initialState = {
   new_password: '',
   new_password_check: '',
   errors: [],
-  errorsUserEdit: [],
 };
 
 export const USER_PROFIL_INFO = 'USER_PROFIL_INFO';
@@ -15,7 +14,6 @@ export const NO_SUBMIT = 'NO_SUBMIT';
 export const SUBMIT_CHANGE_PASSWORD = 'SUBMIT_CHANGE_PASSWORD';
 export const EMPTY_INPUTS = 'EMPTY_INPUTS';
 export const USER_INFOS_UPDATE = 'USER_INFOS_UPDATE';
-const NO_SUBMIT_USER_EDIT = 'NO_SUBMIT_USER_EDIT';
 
 // ---- reducer
 const reducer = (state = initialState, action = {}) => {
@@ -36,12 +34,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         errors: action.value,
-      };
-
-    case NO_SUBMIT_USER_EDIT:
-      return {
-        ...state,
-        errorsUserEdit: action.value,
       };
 
     case EMPTY_INPUTS:
@@ -93,9 +85,5 @@ export const userInfosUpdate = (value) => ({
   value,
 });
 
-export const dontSubmitUserEditForm = (value) => ({
-  type: NO_SUBMIT_USER_EDIT,
-  value,
-});
 // ---- export
 export default reducer;

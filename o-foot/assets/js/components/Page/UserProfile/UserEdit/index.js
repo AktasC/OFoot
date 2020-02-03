@@ -9,23 +9,18 @@ class UserEdit extends React.Component {
 
   constructor(props) {
     super (props); 
+    console.log(props);
     this.state= {
-      firstname: this.props.firstname,
-      lastname: this.props.lastname,
-      emai: this.props.email,
+      firstname: this.props.userInformations.first_name,
+      lastname: this.props.userInformations.last_name,
+      email: this.props.userInformations.email,
     };
   }
 
   onSubmit = (event) => {
     event.preventDefault();  
-    const errorsUserEdit = []; 
-    if(this.state.firstname === '' || this.state.lastname === '' || this.state.email === '') {
-      errorsUserEdit.push('Merci de compléter chacun des champs');
-      console.log('non non non');
-    this.noSubmit(errorsUserEdit);  
-    } else {
     this.props.onSubmitUpdateUserInfos(this.state);
-    }
+  
   }  
 
   handleChange = (event) => {
@@ -37,7 +32,7 @@ class UserEdit extends React.Component {
   render() {
 
     const { firstname, lastname, email  } = this.state; 
-    const { first_name, last_name, mail, errorsUserEdit, noSubmit } = this.props;
+    /* const { first_name, last_name, mail, errorsUserEdit, noSubmit } = this.props; */
 
   
     return (
@@ -63,7 +58,7 @@ class UserEdit extends React.Component {
                   type="text"
                   name="firstname"
                   value={firstname}
-                  placeholder={first_name}
+                  placeholder="Votre prénom"
                   onChange={this.handleChange}
                 />
               
@@ -72,7 +67,7 @@ class UserEdit extends React.Component {
                   className="editUserInput"
                   type="text"
                   name="lastname"
-                  placeholder={last_name}
+                  placeholder="Votre Nom"
                   value={lastname}
                   onChange={this.handleChange}
                 />
@@ -82,7 +77,7 @@ class UserEdit extends React.Component {
                   className="editUserInput"
                   type="email" 
                   name="email" 
-                  placeholder={mail} 
+                  placeholder="Votre Mail"
                   value={email}
                   onChange={this.handleChange}
                />
@@ -91,7 +86,6 @@ class UserEdit extends React.Component {
       
           <Row>
             <Col>
-            {(errorsUserEdit.length > 0) && errorsUserEdit.map((error, i) => (<div key={i}><p>{error}</p></div>))}
               <Button className="editButton" variant="primary" type="submit">
                 Enregistrer les modifications
               </Button>
