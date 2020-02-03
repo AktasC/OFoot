@@ -18,7 +18,6 @@ class TeamDashboard extends React.Component {
   }
 
   componentDidMount() {
-
       this.props.loadCalendarTeamInfo();
     }
   
