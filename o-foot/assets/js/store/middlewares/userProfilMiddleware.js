@@ -1,141 +1,143 @@
 import axios from 'axios';
 import qs from 'qs';
 
-import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO, SUBMIT_CHANGE_PASSWORD, emptyInputs, CALENDAR_INFO  } from '../reducer/userProfil';
-import { modifyPassword } from '../reducer/loginForm'
+import {
+  USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO, SUBMIT_CHANGE_PASSWORD, emptyInputs, CALENDAR_INFO,
+} from '../reducer/userProfil';
+import { modifyPassword } from '../reducer/loginForm';
 import { addNotification } from '../addNotification';
 import { loadInfoCalendarFromAxios } from '../reducer/calendar';
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
-
   const token = localStorage.getItem('token');
-      const userId = localStorage.getItem('userId');
+  const userId = localStorage.getItem('userId');
 
-  switch (action.type) {    
+
+  switch (action.type) {
     case USER_PROFIL_INFO:
-      
+
       axios({
         method: 'get',
         url: `/api/v1/users/${userId}`,
-        headers: { 'Authorization': `Bearer ${token}` }       
+        headers: { Authorization: `Bearer ${token}` },
       })
-      
-      .then(function (response) {
-        console.log('from axios:', response.data); 
-        const actionLoadInfo = loadInfoFromAxios(response.data);  
-        store.dispatch(actionLoadInfo);
-      })
-      .catch(function (error) {
-        console.log("error from appel appel axios:", error);
-      });         
+
+        .then((response) => {
+          console.log('from axios:', response.data);
+          const actionLoadInfo = loadInfoFromAxios(response.data);
+          store.dispatch(actionLoadInfo);
+        })
+        .catch((error) => {
+          console.log('error from appel appel axios:', error);
+        });
       break;
-    
+
     case MODIFY_INFO:
 
       const {
         firstname,
         lastname,
         email,
-        pictureuser
+        pictureuser,
       } = store.getState().userProfil;
-      
+
       axios({
         method: 'post',
         url: `/api/v1/users/edit/${userId}`,
-        headers: { 'Authorization': `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token}` },
         data: {
           first_name: firstname,
-          email: email, 
+          email,
           last_name: lastname,
           picture_user: pictureuser,
-          birthdate: null, 
-        }      
+          birthdate: null,
+        },
       })
-      
-      .then(function (response) { 
-        console.log(response.config.data);
-        store.dispatch(changesDone(response.config.data));
-        addNotification('change-done');
-      })
-      .catch(function (error) {
-        addNotification('change-not-done');
-      });         
+
+        .then((response) => {
+          console.log(response.config.data);
+          store.dispatch(changesDone(response.config.data));
+          addNotification('change-done');
+        })
+        .catch((error) => {
+          addNotification('change-not-done');
+        });
       break;
 
-      case SUBMIT_CHANGE_PASSWORD:
+    case SUBMIT_CHANGE_PASSWORD:
 
-        const {
-          new_password,
-        } = store.getState().userProfil;
-        
-        axios({
-          method: 'post',
-          url: `/api/v1/users/edit/password/${userId}`,
-          headers: { 'Authorization': `Bearer ${token}` },
-          data: {
-            password: new_password,
-          }      
-        })
-        
-        .then(function (response) { 
+      const {
+        new_password,
+      } = store.getState().userProfil;
+
+      axios({
+        method: 'post',
+        url: `/api/v1/users/edit/password/${userId}`,
+        headers: { Authorization: `Bearer ${token}` },
+        data: {
+          password: new_password,
+        },
+      })
+
+        .then((response) => {
           addNotification('change-done');
           store.dispatch(emptyInputs());
           store.dispatch(modifyPassword(action.value));
         })
-        .catch(function (error) {
+        .catch((error) => {
           addNotification('change-not-done');
           store.dispatch(emptyInputs());
-        });         
-        break;
+        });
+      break;
 
-      case CALENDAR_INFO :
-      console.log('calendar info')
+    case CALENDAR_INFO:
+      const { currentTeamId } = store.getState().team;
+
       axios({
         method: 'get',
-        url: `/api/v1/events`,
-        headers: { 'Authorization': `Bearer ${token}` }       
+        url: `/api/v1/events/team/${currentTeamId}`,
+        headers: { Authorization: `Bearer ${token}` },
       })
-      
-      .then(function (response) { 
-        // séparation des objets   
-        const eventDataGames = response.data[0];
-        const eventDataPractices = response.data[1]; 
 
-        // modification key date_time_game/practice
-        const objectRenameKeys = require('object-rename-keys');
+        .then((response) => {
+        // séparation des objets
+          console.log(response);
+          const eventDataGames = response.data[0];
+          const eventDataPractices = response.data[1];
 
-        var changes = {
+          // modification key date_time_game/practice
+          const objectRenameKeys = require('object-rename-keys');
+
+          const changes = {
 	        date_time_game: 'date_time',
-        };
+          };
 
-        const eventDataGamesRename = objectRenameKeys(eventDataGames, changes);
+          const eventDataGamesRename = objectRenameKeys(eventDataGames, changes);
 
-        var changesPractice = {
+          const changesPractice = {
         	date_time_practice: 'date_time',
-        };
+          };
 
-        const eventDataPracticesRename = objectRenameKeys(eventDataPractices, changesPractice);
+          const eventDataPracticesRename = objectRenameKeys(eventDataPractices, changesPractice);
 
-        // Fusion des objets
-        const eventDataMix = eventDataGamesRename.concat(eventDataPracticesRename);
+          // Fusion des objets
+          const eventDataMix = eventDataGamesRename.concat(eventDataPracticesRename);
 
-        //classement par ordre chronologique
-        const eventDataMixChronological = eventDataMix.sort(function (a, b) {
-          if (a.date_time > b.date_time) return 1;
-          if (a.date_time < b.date_time) return -1;
-          return 0;
+          // classement par ordre chronologique
+          const eventDataMixChronological = eventDataMix.sort((a, b) => {
+            if (a.date_time > b.date_time) return 1;
+            if (a.date_time < b.date_time) return -1;
+            return 0;
+          });
+
+          // filtrer par team_id
+          // const event = eventDataMixChronological.filter(x => x.team_id === 15);
+          const actionLoadInfoCalendar = loadInfoCalendarFromAxios(eventDataMixChronological);
+          store.dispatch(actionLoadInfoCalendar);
+        })
+        .catch((error) => {
+          console.log('error from appel appel axios:', error);
         });
-        
-        // filtrer par team_id
-        //const event = eventDataMixChronological.filter(x => x.team_id === 15);
-        const actionLoadInfoCalendar = loadInfoCalendarFromAxios(eventDataMixChronological);  
-        store.dispatch(actionLoadInfoCalendar);
-
-        
-      })
-      .catch(function (error) {
-        console.log("error from appel appel axios:", error);
-      });         
       break;
 
     default:
