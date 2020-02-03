@@ -95,7 +95,7 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
 
       axios({
         method: 'get',
-        url: `/api/v1/events/team/${currentTeamId}`,
+        url: `/api/v1/events/team/35`,
         headers: { Authorization: `Bearer ${token}` },
       })
 
