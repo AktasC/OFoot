@@ -9,9 +9,9 @@ import { AiOutlineDelete } from 'react-icons/ai';
 // Import scss
 import './list.scss';
 
-class List extends React.Component { 
+class List extends React.Component {
   constructor(props) {
-    super(props);    
+    super(props);
     this.props.loadPlayersList();
 
     this.state = {
@@ -31,10 +31,10 @@ class List extends React.Component {
       [event.target.name]: event.target.value
     });
   }
-  
+ 
   render() {
 
-    {/* Permet l'ouverture et la fermeture via un state local (non géré par reux ou store) de ma modal */}
+    {/* Permet l'ouverture et la fermeture via un state local (non géré par reux ou store) de ma modal */ }
     const handleClose = () => {
       this.setState({
         show: false
@@ -46,9 +46,9 @@ class List extends React.Component {
       });
     }
 
-    return (      
-      
-      <div id="list">        
+    return (
+
+      <div id="list">
 
         <Container>
           <div className="sweatband">
@@ -70,7 +70,7 @@ class List extends React.Component {
                     <th>N°</th>
                     <th>Nom</th>
                     <th>Prénom</th>
-                    <th>Poste</th>                    
+                    <th>Poste</th>
                     <th className="smallin">Stats</th>
                     <th className="smallin">Édit.</th>
                     <th className="smallin">Supp.</th>
@@ -82,24 +82,24 @@ class List extends React.Component {
                       <td>{i}</td>
                       <td>{player.first_name_player}</td>
                       <td>{player.last_name_player}</td>
-                      <td>{player.role_player}</td>                      
+                      <td>{player.role_player}</td>
                       <td><IoIosStats /></td>
                       <td><FiEdit3 /></td>
                       <td><AiOutlineDelete /></td>
-                    </tr>     
+                    </tr>
                   ))}
-                              
+
                 </tbody>
               </Table>
-            </Col> 
-          </Row> 
+            </Col>
+          </Row>
         </Container>
 
         <Modal size="lg" show={this.state.show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Inviter un joueur :</Modal.Title>
           </Modal.Header>
-          <Modal.Body>            
+          <Modal.Body>
             <Col>Renseignez juste son adresse mail, afin de lui envoyer le lien d'invitation</Col>
 
             <Form id="editInfos" onSubmit={this.onSubmit}>
@@ -126,8 +126,8 @@ class List extends React.Component {
             </Button>            
           </Modal.Footer>
         </Modal>
-          
-      </div> 
+
+      </div>
     )
   }
 };

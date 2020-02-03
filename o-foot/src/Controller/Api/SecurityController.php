@@ -26,8 +26,8 @@ class SecurityController extends AbstractController
 
         // Si l'user existe, on renvoit son ID. Autrement, on renvoit null
         return $this->json([
-            'user' => $user ? $user->getId() : null, ]
-        );
+            'user' => $user ? $user->getId() : null,
+        ]);
     }
 
     /**

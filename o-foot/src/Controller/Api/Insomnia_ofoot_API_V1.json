@@ -1,1 +1,1158 @@
-{"_type":"export","__export_format":4,"__export_date":"2020-01-30T22:14:50.821Z","__export_source":"insomnia.desktop.app:v7.0.3","resources":[{"_id":"req_df2bf926cd3e4e9886ead1bf09a8b654","authentication":{},"body":{"mimeType":"application/x-www-form-urlencoded","params":[{"id":"pair_3d91dd6c06974afe8e5a37e2ced57e7f","name":"registration_form[first_name]","value":"pedro"},{"id":"pair_912bb3dd8ec84f5981c91d600e5f3595","name":"registration_form[last_name]","value":"cascao"},{"id":"pair_432d0cdbf72c4be89f8ec1df2d450c2f","name":"registration_form[email]","value":"pedrocascao@test.io"},{"id":"pair_4f7ee46289dd45e39b31a95d7742fa3f","name":"registration_form[password]","value":"pedrocascao"}]},"created":1579773383834,"description":"","headers":[{"id":"pair_7742528e488b44bdafc65aee8c94eae4","name":"Content-Type","value":"application/x-www-form-urlencoded"}],"isPrivate":false,"metaSortKey":-1579773383834,"method":"POST","modified":1580420918318,"name":"Registration Form","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/register","_type":"request"},{"_id":"fld_92b9ff65ca034c099fdd9c2a31fdb507","created":1579773277966,"description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1579773277966,"modified":1579773277966,"name":"O'Foot","parentId":"wrk_f25a150b81ce4c2796379ff87a7d3374","_type":"request_group"},{"_id":"wrk_f25a150b81ce4c2796379ff87a7d3374","created":1573044431386,"description":"","modified":1573044431386,"name":"Insomnia","parentId":null,"_type":"workspace"},{"_id":"req_d40250fedf1049d6a23799fe324efce4","authentication":{},"body":{"mimeType":"application/json","text":"{\n  \"username\":\"pedro@test.io\",\n  \"password\":\"pedrotest\"\n}"},"created":1579773945511,"description":"","headers":[{"id":"pair_223c95c207b64040b8e0b999e6477dc5","name":"Content-Type","value":"application/json"},{"id":"pair_10daba46872d436ea72e0473b5f662a1","name":"","value":""}],"isPrivate":false,"metaSortKey":-1579773383784,"method":"POST","modified":1580220786963,"name":"Login","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/login_check","_type":"request"},{"_id":"req_633210806f48486c9e821c797cf081e9","authentication":{},"body":{"mimeType":"multipart/form-data","params":[{"id":"pair_d82c4d7e8b1e4e3cb4cca477f382adf6","name":"","value":""}]},"created":1579774157871,"description":"","headers":[{"id":"pair_0996afcae48d482d922157e0b0e0715d","name":"Content-Type","value":"multipart/form-data"},{"id":"pair_2190e23c291f49599f594fa1ea42ff8d","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383734,"method":"GET","modified":1580420944510,"name":"User show","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/users/26","_type":"request"},{"_id":"req_f1af227af6854e9fb7d433eba651fc27","authentication":{},"body":{"mimeType":"application/json","text":"{\n    \"first_name\": \"mickael\",\n    \"last_name\": \"jordan\",\n\t\t\"email\": \"jordan23@gmail.com\",\n\t\t\"picture_user\": \"jordan23.jpg\"\n}"},"created":1579777689572,"description":"","headers":[{"id":"pair_b77deca9636b4fe5a8440ed7eef5273d","name":"Content-Type","value":"application/json"},{"id":"pair_86f5293afad04eeb8837b3c2df344f7f","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383709,"method":"POST","modified":1580421000361,"name":"User edit profile","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/users/edit/2","_type":"request"},{"_id":"req_7b16026a929a4907a691e8c9a27ca9fc","authentication":{},"body":{"mimeType":"application/json","text":"{\n    \"password\": \"jordan23\"\n}"},"created":1579778134959,"description":"","headers":[{"id":"pair_093d5aa0e6ce428f8a0446b113f7bc5a","name":"Content-Type","value":"application/json"},{"id":"pair_fd4d1ba3a83347cf8cec609c0cc62ac4","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383696.5,"method":"POST","modified":1580421043340,"name":"User edit password","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/users/edit/password/2","_type":"request"},{"_id":"req_ba31e522b6b448f0873b45eaf0a106b2","authentication":{},"body":{"mimeType":"application/json","text":"{\n    \"address_team\": \"11 rue d'Orly\",\n    \"city_team\": \"Orly\",\n\t\t\"stadium_team\": \"ADP\",\n\t\t\"team_name\": \"Carlessimo\"\n}"},"created":1579777281456,"description":"","headers":[{"id":"pair_6424637ea07d44c3a977ad40495403b3","name":"Content-Type","value":"application/json"},{"id":"pair_2a5b469fcea1409c89113b61eeecae8f","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383684,"method":"POST","modified":1580421130152,"name":"Team new","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/teams/user/26/new","_type":"request"},{"_id":"req_427b05351486400cbeb0ab18585f2176","authentication":{},"body":{"mimeType":"multipart/form-data","params":[]},"created":1579790666306,"description":"","headers":[{"id":"pair_028be3d811164cb08907bb11dfd02422","name":"Content-Type","value":"multipart/form-data"},{"id":"pair_0ccf001dbed440bc87e94dcffe92c3c6","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383634,"method":"GET","modified":1580421168837,"name":"Team show","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/teams/27","_type":"request"},{"_id":"req_28ea912d5f4d4f32a4ea11ed645aba03","authentication":{},"body":{"mimeType":"multipart/form-data","params":[]},"created":1580420297207,"description":"","headers":[{"id":"pair_ad2525025d81439690f46aa151b791c7","name":"Content-Type","value":"multipart/form-data"},{"id":"pair_dd6c2b5d735e43079164cf1fb9a59d66","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383632.4375,"method":"GET","modified":1580421178373,"name":"Team List","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/teams/","_type":"request"},{"_id":"req_322c80a6eb9847d4a9a6045a3995aef9","authentication":{},"body":{"mimeType":"multipart/form-data","params":[]},"created":1579811392059,"description":"","headers":[{"id":"pair_5b07d8f11c814d199c89b942ec8a58c6","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"},{"id":"pair_e5d13a6e64794ce48a6b2ad45c73f761","name":"Content-Type","value":"multipart/form-data"}],"isPrivate":false,"metaSortKey":-1579773383630.875,"method":"GET","modified":1580421333281,"name":"PlayersByTeam","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/teams/12/players","_type":"request"},{"_id":"req_4f6c2ef09276440ea5e06fb6aa9b0573","authentication":{},"body":{"mimeType":"multipart/form-data","params":[]},"created":1580420368764,"description":"","headers":[{"id":"pair_b1837daa378c4eddb2a5ba674cf54ea9","name":"Content-Type","value":"multipart/form-data"},{"id":"pair_b3d8d000ef4840a18f8b8133e66d06dd","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383630.0938,"method":"GET","modified":1580421352680,"name":"Team stats","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/teams/stats/1","_type":"request"},{"_id":"req_e966a9304bc74e0aa310b1a900c0ab49","authentication":{},"body":{"mimeType":"application/json","text":"{\n    \"address_team\": \"Hollywood Street\",\n    \"city_team\": \"Los Angeles\",\n\t\t\"stadium_team\": \"Staples Center\",\n\t\t\"team_name\": \"Los Angeles Lakers\"\n}"},"created":1579875403303,"description":"","headers":[{"id":"pair_27f9dbf3018f4331aa11b18f4c4f19e3","name":"Content-Type","value":"application/json"},{"id":"pair_6d7ca606f7f54e76a87fe762959bfba8","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383629.3125,"method":"POST","modified":1580421441644,"name":"Team edit","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/teams/edit/15","_type":"request"},{"_id":"req_5ded5bc705484cf9bf580561904e0208","authentication":{},"body":{"mimeType":"application/json","text":""},"created":1580295617354,"description":"","headers":[{"id":"pair_3e6e6e308bfa4eba8c48ca1424947607","name":"Content-Type","value":"application/json"},{"id":"pair_f4f8df46b21d431a9ae115d62a6b8b1f","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383627.75,"method":"DELETE","modified":1580421479754,"name":"Team Leave","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/teams/27/remove/26","_type":"request"},{"_id":"req_2b82da1fdb27414ca0a613d947e604a1","authentication":{},"body":{"mimeType":"application/json","text":""},"created":1580420493658,"description":"","headers":[{"id":"pair_2b428e7b28424e29afeee22fa3635a41","name":"Content-Type","value":"application/json"},{"id":"pair_f4e2346089e24e728c17bf6677ca1c95","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383621.5,"method":"DELETE","modified":1580421494202,"name":"Team delete","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/teams/delete/2","_type":"request"},{"_id":"req_f18bebab1c3a47ca91727171f3457c6f","authentication":{},"body":{"mimeType":"multipart/form-data","params":[]},"created":1580224040497,"description":"","headers":[{"id":"pair_2d2ec4ab08ac47f68420dfba3b05cc79","name":"Content-Type","value":"multipart/form-data"},{"id":"pair_1bc56f273ab64da7befd96ec77423f97","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383615.25,"method":"GET","modified":1580421510925,"name":"Player List","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/players/","_type":"request"},{"_id":"req_441d91b005304b16a9205b831fd7a7e5","authentication":{},"body":{"mimeType":"multipart/form-data","params":[]},"created":1579813085839,"description":"","headers":[{"id":"pair_149f5386e6be4df9b0319085fbb1cec7","name":"Content-Type","value":"multipart/form-data"},{"id":"pair_2ce79d6bb54b49b89a87e44f70c65607","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383609,"method":"GET","modified":1580421521194,"name":"Player show","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/players/14","_type":"request"},{"_id":"req_425fcd51c6dc442297dffca95afebd2b","authentication":{},"body":{"mimeType":"application/json","text":"{\n\t\t\"first_name_player\": \"Mesut\",\n    \"last_name_player\": \"Ozil\",\n    \"number_jersey_player\": 8\n}"},"created":1579817803684,"description":"","headers":[{"id":"pair_b1118e876c5d4a38b20d993eca4b697a","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"},{"id":"pair_0ee1011b180349f7a734feb54b43ae1f","name":"Content-Type","value":"application/json"}],"isPrivate":false,"metaSortKey":-1579773383596.5,"method":"POST","modified":1580421769878,"name":"Player edit","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/players/edit/1","_type":"request"},{"_id":"req_84bbe87174854326ab42be134a71dd17","authentication":{},"body":{"mimeType":"application/json","text":""},"created":1579869402433,"description":"","headers":[{"id":"pair_74ec787673fe49d3a25d42f3715106c9","name":"Content-Type","value":"application/json"},{"id":"pair_ed2fb5d7433747d7a01c61bbbbf65f64","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383534,"method":"DELETE","modified":1580421856658,"name":"Player Delete","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/players/delete/3","_type":"request"},{"_id":"req_f4c91dcdc95c44a4bd052f27966f0b3d","authentication":{},"body":{"mimeType":"multipart/form-data","params":[]},"created":1580326585838,"description":"","headers":[{"id":"pair_7ed31cfb6ad64b18aa4a1e07a6c3e207","name":"Content-Type","value":"multipart/form-data"},{"id":"pair_9d3194467fee40dba6df6e9fae89d641","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383521.5,"method":"GET","modified":1580421868509,"name":"Events List","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/events/","_type":"request"},{"_id":"req_1ec87a8a0cd94efe9ac59cbc6a182de3","authentication":{},"body":{"mimeType":"application/json","text":"{\n    \"address_game\": \"Denver avenue\",\n    \"date_time_game\": \"2020-01-31 15:00:00\",\n\t\t\"domicile_exterieur\": \"Domicile\",\n    \"opponent_team\": \"Denver Nuggets\",\n\t\t\"stadium_game\": \"Denver\"\n}"},"created":1580128494067,"description":"","headers":[{"id":"pair_051ea350b8644425b88dc17f6fa0d087","name":"Content-Type","value":"application/json"},{"id":"pair_32f2d6bd5b9047feaf8c7b095ee41ea2","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383509,"method":"POST","modified":1580421890512,"name":"Game new","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/games/teams/1/new","_type":"request"},{"_id":"req_3c6bc615575e4100a7966470219ce57c","authentication":{},"body":{"mimeType":"multipart/form-data","params":[]},"created":1579909593797,"description":"","headers":[{"id":"pair_95c6e3344f5b4070ac701529f3406d65","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"},{"id":"pair_eecec39ddf974f1a9f53686ab5104c9e","name":"Content-Type","value":"multipart/form-data"}],"isPrivate":false,"metaSortKey":-1579773383502.75,"method":"GET","modified":1580421946435,"name":"Game List","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/games/","_type":"request"},{"_id":"req_a6531af812014b229cdf190f8415b0fa","authentication":{},"body":{"mimeType":"multipart/form-data","params":[]},"created":1580051594688,"description":"","headers":[{"id":"pair_7d932d03d0624919ad2c516127f5f615","name":"Content-Type","value":"multipart/form-data"},{"id":"pair_eb4ed438bbc54a03a234f29b451654e8","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383499.625,"method":"GET","modified":1580421957785,"name":"Game show","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/games/1","_type":"request"},{"_id":"req_e7bd2bc674b94e458fbe26500b7417f5","authentication":{},"body":{"mimeType":"application/json","text":"{\n    \"address_game\": \"Chicago avenue\",\n    \"date_time_game\": \"2020-01-31 15:00:00\",\n\t\t\"domicile_exterieur\": \"Domicile\",\n    \"opponent_team\": \"Bulls\",\n\t\t\"stadium_game\": \"Bulls Center\"\n}"},"created":1580161258592,"description":"","headers":[{"id":"pair_45e6916e891c4cf68321c6d577875732","name":"Content-Type","value":"application/json"},{"id":"pair_3ebd60773f5641839ea38c8b55c3d55b","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383496.5,"method":"POST","modified":1580421987196,"name":"Game informations edit","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/games/1/edit-information/1","_type":"request"},{"_id":"req_e0359a1975b94197bbca907e2b5adc9d","authentication":{},"body":{"mimeType":"application/json","text":"{\n    \"assist_game\": 2,\n    \"goal_conceded_game\": 1,\n\t\t\"goal_scored_game\": 4,\n    \"red_card_game\": 1,\n\t\t\"yellow_card_game\": 1\n}"},"created":1580164063435,"description":"","headers":[{"id":"pair_6966e57cc72844ddaef3a2d8bd3d7537","name":"Content-Type","value":"application/json"},{"id":"pair_fc11e7c6cf19400e9b32ab6d03c5bdf0","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383490.25,"method":"POST","modified":1580422019841,"name":"Game edit score","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/games/4/edit-score/3","_type":"request"},{"_id":"req_5381bd2abb074b968144c4ae9b2e52e9","authentication":{},"body":{"mimeType":"application/json","text":""},"created":1580206032899,"description":"","headers":[{"id":"pair_82f3b03fda6f43b7b1ff8746eebc0d21","name":"Content-Type","value":"application/json"},{"id":"pair_5731a8569fc446bb9487fd036a827a5c","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383340.25,"method":"DELETE","modified":1580422051736,"name":"Game delete","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/games/delete/3","_type":"request"},{"_id":"req_11054714e2534932b3af65062c3a6a66","authentication":{},"body":{"mimeType":"application/json","text":"{\n    \"address_practice\": \"11 boulevard du stade\",\n    \"date_time_practice\": \"2020-01-31 15:00:00\",\n\t\t\"stadium_practice\": \"Balard 9\"\n}"},"created":1580158649493,"description":"","headers":[{"id":"pair_53ed07e7b7a343f2ace660beaccff3aa","name":"Content-Type","value":"application/json"},{"id":"pair_c7b22a6cbe5b4e7eab3e9a8b69f11a60","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383334,"method":"POST","modified":1580422070693,"name":"Practice new","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/practices/teams/1/new","_type":"request"},{"_id":"req_b83662b59e724e83808357c738f637b9","authentication":{},"body":{"mimeType":"multipart/form-data","params":[]},"created":1580222289651,"description":"","headers":[{"id":"pair_63be947cddab4a0e84570e3937ae4d49","name":"Content-Type","value":"multipart/form-data"},{"id":"pair_1cbbe7486df449b7a3a765b8a130ca75","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383327.75,"method":"GET","modified":1580422090611,"name":"Pratice show","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/practices/15","_type":"request"},{"_id":"req_e1efcae636994756b78ae5ddec72f0ae","authentication":{},"body":{"mimeType":"multipart/form-data","params":[]},"created":1580222175443,"description":"","headers":[{"id":"pair_3e070f675d1047d493befcd92f43945b","name":"Content-Type","value":"multipart/form-data"},{"id":"pair_b2771e89b78c458a9fe40037c9319ebe","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383321.5,"method":"GET","modified":1580422106808,"name":"Practice List","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/practices/","_type":"request"},{"_id":"req_58588360e9214e7f92b7902f090541d4","authentication":{},"body":{"mimeType":"application/json","text":"{\n    \"address_practice\": \"Chicago avenue\",\n    \"date_time_practice\": \"2020-01-31 15:00:00\",\n\t\t\"stadium_practice\": \"Bulls Center\"\n}"},"created":1580222410477,"description":"","headers":[{"id":"pair_d3846d6b7db64c13854fa269a0f6dd6f","name":"Content-Type","value":"application/json"},{"id":"pair_107211acb1704bd59356e8c12e93c5d1","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383259,"method":"POST","modified":1580422120781,"name":"Practice Edit","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/practices/1/edit/15","_type":"request"},{"_id":"req_07c28026eaac4ff393b8c2f0b8f66bad","authentication":{},"body":{"mimeType":"application/json","text":""},"created":1580222766505,"description":"","headers":[{"id":"pair_65d1ba5b4c7542c5a1cccbe319101d4b","name":"Content-Type","value":"application/json"},{"id":"pair_3b8e66b3b54c441586d4d88f20f09bf9","name":"Authorization","value":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"}],"isPrivate":false,"metaSortKey":-1579773383209,"method":"DELETE","modified":1580422150785,"name":"Practice Delete","parameters":[],"parentId":"fld_92b9ff65ca034c099fdd9c2a31fdb507","settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingSendCookies":true,"settingStoreCookies":true,"url":"https://localhost:8001/api/v1/practices/delete/15","_type":"request"},{"_id":"env_93e17fbc87120c9b98064dfa3bbc478f51dbcd01","color":null,"created":1573044431484,"data":{},"dataPropertyOrder":null,"isPrivate":false,"metaSortKey":1573044431484,"modified":1573044431484,"name":"Base Environment","parentId":"wrk_f25a150b81ce4c2796379ff87a7d3374","_type":"environment"},{"_id":"jar_93e17fbc87120c9b98064dfa3bbc478f51dbcd01","cookies":[{"creation":"2020-01-06T09:19:37.822Z","domain":"127.0.0.1","expires":"2019-01-06T09:47:18.000Z","hostOnly":true,"httpOnly":true,"id":"06950875605486573","key":"sf_redirect","lastAccessed":"2020-01-06T09:47:19.782Z","maxAge":0,"path":"/","value":"deleted"},{"creation":"2020-01-20T13:07:32.943Z","domain":"localhost","expires":"2019-01-21T14:49:52.000Z","hostOnly":true,"httpOnly":true,"id":"4304540359388167","key":"sf_redirect","lastAccessed":"2020-01-21T14:49:53.426Z","maxAge":0,"path":"/","value":"deleted"},{"creation":"2020-01-20T14:38:31.019Z","domain":"localhost","expires":"1970-01-01T00:00:01.000Z","hostOnly":true,"httpOnly":true,"id":"21752342773522448","key":"PHPSESSID","lastAccessed":"2020-01-22T12:24:07.206Z","maxAge":0,"path":"/","secure":true,"value":"deleted"}],"created":1573044431488,"modified":1579695847225,"name":"Default Jar","parentId":"wrk_f25a150b81ce4c2796379ff87a7d3374","_type":"cookie_jar"}]}
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2020-01-30T22:14:50.821Z",
+    "__export_source": "insomnia.desktop.app:v7.0.3",
+    "resources": [
+        {
+            "_id": "req_df2bf926cd3e4e9886ead1bf09a8b654",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/x-www-form-urlencoded",
+                "params": [
+                    {
+                        "id": "pair_3d91dd6c06974afe8e5a37e2ced57e7f",
+                        "name": "registration_form[first_name]",
+                        "value": "pedro"
+                    },
+                    {
+                        "id": "pair_912bb3dd8ec84f5981c91d600e5f3595",
+                        "name": "registration_form[last_name]",
+                        "value": "cascao"
+                    },
+                    {
+                        "id": "pair_432d0cdbf72c4be89f8ec1df2d450c2f",
+                        "name": "registration_form[email]",
+                        "value": "pedrocascao@test.io"
+                    },
+                    {
+                        "id": "pair_4f7ee46289dd45e39b31a95d7742fa3f",
+                        "name": "registration_form[password]",
+                        "value": "pedrocascao"
+                    }
+                ]
+            },
+            "created": 1579773383834,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_7742528e488b44bdafc65aee8c94eae4",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383834,
+            "method": "POST",
+            "modified": 1580420918318,
+            "name": "Registration Form",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/register",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "created": 1579773277966,
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1579773277966,
+            "modified": 1579773277966,
+            "name": "O'Foot",
+            "parentId": "wrk_f25a150b81ce4c2796379ff87a7d3374",
+            "_type": "request_group"
+        },
+        {
+            "_id": "wrk_f25a150b81ce4c2796379ff87a7d3374",
+            "created": 1573044431386,
+            "description": "",
+            "modified": 1573044431386,
+            "name": "Insomnia",
+            "parentId": null,
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_d40250fedf1049d6a23799fe324efce4",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"username\":\"pedrocascao@test.io\",\n  \"password\":\"pedrocascao\"\n}"
+            },
+            "created": 1579773945511,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_223c95c207b64040b8e0b999e6477dc5",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_10daba46872d436ea72e0473b5f662a1",
+                    "name": "",
+                    "value": ""
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383784,
+            "method": "POST",
+            "modified": 1580220786963,
+            "name": "Login",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/login_check",
+            "_type": "request"
+        },
+        {
+            "_id": "req_633210806f48486c9e821c797cf081e9",
+            "authentication": {},
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_d82c4d7e8b1e4e3cb4cca477f382adf6",
+                        "name": "",
+                        "value": ""
+                    }
+                ]
+            },
+            "created": 1579774157871,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_0996afcae48d482d922157e0b0e0715d",
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                },
+                {
+                    "id": "pair_2190e23c291f49599f594fa1ea42ff8d",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383734,
+            "method": "GET",
+            "modified": 1580420944510,
+            "name": "User show",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/users/26",
+            "_type": "request"
+        },
+        {
+            "_id": "req_f1af227af6854e9fb7d433eba651fc27",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n    \"first_name\": \"mickael\",\n    \"last_name\": \"jordan\",\n\t\t\"email\": \"jordan23@gmail.com\",\n\t\t\"picture_user\": \"jordan23.jpg\"\n}"
+            },
+            "created": 1579777689572,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_b77deca9636b4fe5a8440ed7eef5273d",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_86f5293afad04eeb8837b3c2df344f7f",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383709,
+            "method": "POST",
+            "modified": 1580421000361,
+            "name": "User edit profile",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/users/edit/2",
+            "_type": "request"
+        },
+        {
+            "_id": "req_7b16026a929a4907a691e8c9a27ca9fc",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n    \"password\": \"jordan23\"\n}"
+            },
+            "created": 1579778134959,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_093d5aa0e6ce428f8a0446b113f7bc5a",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_fd4d1ba3a83347cf8cec609c0cc62ac4",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383696.5,
+            "method": "POST",
+            "modified": 1580421043340,
+            "name": "User edit password",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/users/edit/password/2",
+            "_type": "request"
+        },
+        {
+            "_id": "req_ba31e522b6b448f0873b45eaf0a106b2",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n    \"address_team\": \"11 rue d'Orly\",\n    \"city_team\": \"Orly\",\n\t\t\"stadium_team\": \"ADP\",\n\t\t\"team_name\": \"Carlessimo\"\n}"
+            },
+            "created": 1579777281456,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_6424637ea07d44c3a977ad40495403b3",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_2a5b469fcea1409c89113b61eeecae8f",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383684,
+            "method": "POST",
+            "modified": 1580421130152,
+            "name": "Team new",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/teams/user/26/new",
+            "_type": "request"
+        },
+        {
+            "_id": "req_427b05351486400cbeb0ab18585f2176",
+            "authentication": {},
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "created": 1579790666306,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_028be3d811164cb08907bb11dfd02422",
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                },
+                {
+                    "id": "pair_0ccf001dbed440bc87e94dcffe92c3c6",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383634,
+            "method": "GET",
+            "modified": 1580421168837,
+            "name": "Team show",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/teams/27",
+            "_type": "request"
+        },
+        {
+            "_id": "req_28ea912d5f4d4f32a4ea11ed645aba03",
+            "authentication": {},
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "created": 1580420297207,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_ad2525025d81439690f46aa151b791c7",
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                },
+                {
+                    "id": "pair_dd6c2b5d735e43079164cf1fb9a59d66",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383632.4375,
+            "method": "GET",
+            "modified": 1580421178373,
+            "name": "Team List",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/teams/",
+            "_type": "request"
+        },
+        {
+            "_id": "req_322c80a6eb9847d4a9a6045a3995aef9",
+            "authentication": {},
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "created": 1579811392059,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_5b07d8f11c814d199c89b942ec8a58c6",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                },
+                {
+                    "id": "pair_e5d13a6e64794ce48a6b2ad45c73f761",
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383630.875,
+            "method": "GET",
+            "modified": 1580421333281,
+            "name": "PlayersByTeam",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/teams/12/players",
+            "_type": "request"
+        },
+        {
+            "_id": "req_4f6c2ef09276440ea5e06fb6aa9b0573",
+            "authentication": {},
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "created": 1580420368764,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_b1837daa378c4eddb2a5ba674cf54ea9",
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                },
+                {
+                    "id": "pair_b3d8d000ef4840a18f8b8133e66d06dd",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383630.0938,
+            "method": "GET",
+            "modified": 1580421352680,
+            "name": "Team stats",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/teams/stats/1",
+            "_type": "request"
+        },
+        {
+            "_id": "req_e966a9304bc74e0aa310b1a900c0ab49",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n    \"address_team\": \"Hollywood Street\",\n    \"city_team\": \"Los Angeles\",\n\t\t\"stadium_team\": \"Staples Center\",\n\t\t\"team_name\": \"Los Angeles Lakers\"\n}"
+            },
+            "created": 1579875403303,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_27f9dbf3018f4331aa11b18f4c4f19e3",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_6d7ca606f7f54e76a87fe762959bfba8",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383629.3125,
+            "method": "POST",
+            "modified": 1580421441644,
+            "name": "Team edit",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/teams/edit/15",
+            "_type": "request"
+        },
+        {
+            "_id": "req_5ded5bc705484cf9bf580561904e0208",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": ""
+            },
+            "created": 1580295617354,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_3e6e6e308bfa4eba8c48ca1424947607",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_f4f8df46b21d431a9ae115d62a6b8b1f",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383627.75,
+            "method": "DELETE",
+            "modified": 1580421479754,
+            "name": "Team Leave",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/teams/27/remove/26",
+            "_type": "request"
+        },
+        {
+            "_id": "req_2b82da1fdb27414ca0a613d947e604a1",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": ""
+            },
+            "created": 1580420493658,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_2b428e7b28424e29afeee22fa3635a41",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_f4e2346089e24e728c17bf6677ca1c95",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383621.5,
+            "method": "DELETE",
+            "modified": 1580421494202,
+            "name": "Team delete",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/teams/delete/2",
+            "_type": "request"
+        },
+        {
+            "_id": "req_f18bebab1c3a47ca91727171f3457c6f",
+            "authentication": {},
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "created": 1580224040497,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_2d2ec4ab08ac47f68420dfba3b05cc79",
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                },
+                {
+                    "id": "pair_1bc56f273ab64da7befd96ec77423f97",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383615.25,
+            "method": "GET",
+            "modified": 1580421510925,
+            "name": "Player List",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/players/",
+            "_type": "request"
+        },
+        {
+            "_id": "req_441d91b005304b16a9205b831fd7a7e5",
+            "authentication": {},
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "created": 1579813085839,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_149f5386e6be4df9b0319085fbb1cec7",
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                },
+                {
+                    "id": "pair_2ce79d6bb54b49b89a87e44f70c65607",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383609,
+            "method": "GET",
+            "modified": 1580421521194,
+            "name": "Player show",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/players/14",
+            "_type": "request"
+        },
+        {
+            "_id": "req_425fcd51c6dc442297dffca95afebd2b",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\t\"first_name_player\": \"Mesut\",\n    \"last_name_player\": \"Ozil\",\n    \"number_jersey_player\": 8\n}"
+            },
+            "created": 1579817803684,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_b1118e876c5d4a38b20d993eca4b697a",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                },
+                {
+                    "id": "pair_0ee1011b180349f7a734feb54b43ae1f",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383596.5,
+            "method": "POST",
+            "modified": 1580421769878,
+            "name": "Player edit",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/players/edit/1",
+            "_type": "request"
+        },
+        {
+            "_id": "req_84bbe87174854326ab42be134a71dd17",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": ""
+            },
+            "created": 1579869402433,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_74ec787673fe49d3a25d42f3715106c9",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_ed2fb5d7433747d7a01c61bbbbf65f64",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383534,
+            "method": "DELETE",
+            "modified": 1580421856658,
+            "name": "Player Delete",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/players/delete/3",
+            "_type": "request"
+        },
+        {
+            "_id": "req_f4c91dcdc95c44a4bd052f27966f0b3d",
+            "authentication": {},
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "created": 1580326585838,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_7ed31cfb6ad64b18aa4a1e07a6c3e207",
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                },
+                {
+                    "id": "pair_9d3194467fee40dba6df6e9fae89d641",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383521.5,
+            "method": "GET",
+            "modified": 1580421868509,
+            "name": "Events List",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/events/",
+            "_type": "request"
+        },
+        {
+            "_id": "req_1ec87a8a0cd94efe9ac59cbc6a182de3",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n    \"address_game\": \"Denver avenue\",\n    \"date_time_game\": \"2020-01-31 15:00:00\",\n\t\t\"domicile_exterieur\": \"Domicile\",\n    \"opponent_team\": \"Denver Nuggets\",\n\t\t\"stadium_game\": \"Denver\"\n}"
+            },
+            "created": 1580128494067,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_051ea350b8644425b88dc17f6fa0d087",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_32f2d6bd5b9047feaf8c7b095ee41ea2",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383509,
+            "method": "POST",
+            "modified": 1580421890512,
+            "name": "Game new",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/games/teams/1/new",
+            "_type": "request"
+        },
+        {
+            "_id": "req_3c6bc615575e4100a7966470219ce57c",
+            "authentication": {},
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "created": 1579909593797,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_95c6e3344f5b4070ac701529f3406d65",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                },
+                {
+                    "id": "pair_eecec39ddf974f1a9f53686ab5104c9e",
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383502.75,
+            "method": "GET",
+            "modified": 1580421946435,
+            "name": "Game List",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/games/",
+            "_type": "request"
+        },
+        {
+            "_id": "req_a6531af812014b229cdf190f8415b0fa",
+            "authentication": {},
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "created": 1580051594688,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_7d932d03d0624919ad2c516127f5f615",
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                },
+                {
+                    "id": "pair_eb4ed438bbc54a03a234f29b451654e8",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383499.625,
+            "method": "GET",
+            "modified": 1580421957785,
+            "name": "Game show",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/games/1",
+            "_type": "request"
+        },
+        {
+            "_id": "req_e7bd2bc674b94e458fbe26500b7417f5",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n    \"address_game\": \"Chicago avenue\",\n    \"date_time_game\": \"2020-01-31 15:00:00\",\n\t\t\"domicile_exterieur\": \"Domicile\",\n    \"opponent_team\": \"Bulls\",\n\t\t\"stadium_game\": \"Bulls Center\"\n}"
+            },
+            "created": 1580161258592,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_45e6916e891c4cf68321c6d577875732",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_3ebd60773f5641839ea38c8b55c3d55b",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383496.5,
+            "method": "POST",
+            "modified": 1580421987196,
+            "name": "Game informations edit",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/games/1/edit-information/1",
+            "_type": "request"
+        },
+        {
+            "_id": "req_e0359a1975b94197bbca907e2b5adc9d",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n    \"assist_game\": 2,\n    \"goal_conceded_game\": 1,\n\t\t\"goal_scored_game\": 4,\n    \"red_card_game\": 1,\n\t\t\"yellow_card_game\": 1\n}"
+            },
+            "created": 1580164063435,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_6966e57cc72844ddaef3a2d8bd3d7537",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_fc11e7c6cf19400e9b32ab6d03c5bdf0",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383490.25,
+            "method": "POST",
+            "modified": 1580422019841,
+            "name": "Game edit score",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/games/4/edit-score/3",
+            "_type": "request"
+        },
+        {
+            "_id": "req_5381bd2abb074b968144c4ae9b2e52e9",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": ""
+            },
+            "created": 1580206032899,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_82f3b03fda6f43b7b1ff8746eebc0d21",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_5731a8569fc446bb9487fd036a827a5c",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383340.25,
+            "method": "DELETE",
+            "modified": 1580422051736,
+            "name": "Game delete",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/games/delete/3",
+            "_type": "request"
+        },
+        {
+            "_id": "req_11054714e2534932b3af65062c3a6a66",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n    \"address_practice\": \"11 boulevard du stade\",\n    \"date_time_practice\": \"2020-01-31 15:00:00\",\n\t\t\"stadium_practice\": \"Balard 9\"\n}"
+            },
+            "created": 1580158649493,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_53ed07e7b7a343f2ace660beaccff3aa",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_c7b22a6cbe5b4e7eab3e9a8b69f11a60",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383334,
+            "method": "POST",
+            "modified": 1580422070693,
+            "name": "Practice new",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/practices/teams/1/new",
+            "_type": "request"
+        },
+        {
+            "_id": "req_b83662b59e724e83808357c738f637b9",
+            "authentication": {},
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "created": 1580222289651,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_63be947cddab4a0e84570e3937ae4d49",
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                },
+                {
+                    "id": "pair_1cbbe7486df449b7a3a765b8a130ca75",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383327.75,
+            "method": "GET",
+            "modified": 1580422090611,
+            "name": "Pratice show",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/practices/15",
+            "_type": "request"
+        },
+        {
+            "_id": "req_e1efcae636994756b78ae5ddec72f0ae",
+            "authentication": {},
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "created": 1580222175443,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_3e070f675d1047d493befcd92f43945b",
+                    "name": "Content-Type",
+                    "value": "multipart/form-data"
+                },
+                {
+                    "id": "pair_b2771e89b78c458a9fe40037c9319ebe",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383321.5,
+            "method": "GET",
+            "modified": 1580422106808,
+            "name": "Practice List",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/practices/",
+            "_type": "request"
+        },
+        {
+            "_id": "req_58588360e9214e7f92b7902f090541d4",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n    \"address_practice\": \"Chicago avenue\",\n    \"date_time_practice\": \"2020-01-31 15:00:00\",\n\t\t\"stadium_practice\": \"Bulls Center\"\n}"
+            },
+            "created": 1580222410477,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_d3846d6b7db64c13854fa269a0f6dd6f",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_107211acb1704bd59356e8c12e93c5d1",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383259,
+            "method": "POST",
+            "modified": 1580422120781,
+            "name": "Practice Edit",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/practices/1/edit/15",
+            "_type": "request"
+        },
+        {
+            "_id": "req_07c28026eaac4ff393b8c2f0b8f66bad",
+            "authentication": {},
+            "body": {
+                "mimeType": "application/json",
+                "text": ""
+            },
+            "created": 1580222766505,
+            "description": "",
+            "headers": [
+                {
+                    "id": "pair_65d1ba5b4c7542c5a1cccbe319101d4b",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "id": "pair_3b8e66b3b54c441586d4d88f20f09bf9",
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODA0MjA5MzEsImV4cCI6MTU4MDQyNDUzMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGVkcm9AdGVzdC5pbyJ9.FBrgi6Wq6FhZxF9liIUj3eEYWQNqaxc9EMM1D4A-P2b4LrTRe0LKQPNu9YnwDTFJ1F14puFsUIIbHnJBowp_C_mInQ3jcTWYxA6qw9G71Rujp_Dq1mvwil23EYRBjpGnkDV-t2zvNrQrp8qmaua4Kjan4nz1baC3EcuIG0OmZU7K1S1iY6e4UlEB-OZD4fnfAtU33Vll36aS0Z3ZMuzu4oT-xePhoqdbFIUxYN2b-WfQQLWk4wyDFDCN2C5g9HOfuirtv2G3i6tB5Y90nE2iTXqIj3JNVEw8E7HGCrlP7MdDR-qgPPs7B94N2lzsgqFFQWArCx1HNPBZUljCGaFVbkzKgUPuMZaU0nu-W5bY95xwdhLfBC_hgpahYGY38Wd7p_P5WijjmlsLbyJXAdyv6yTOFlviqdLCp_QrbeRuBEj9zqWTwFPi6nzOsDs_7CYERAWaF27lp5NWhmZ0sPdBRMROjTS9t2jJymYXiXjlCZT4nRmuBmEzr_a2YZdTsAZq1f4avTrcsgdjeekgunf_5Ut8zQPsq6BO7YvN7EkkFXQhKgegRrNooNR8DDbviZWcgrLQwYkBDWbV5xVOtlkmnrTPtIqpr78_RRNz9TrMcSI6uTm-u3OzGfCCf07haXW_SzdXvvTe7ooPPUTFa5O0bKtzMNe9uEU7JIOaTpoekoo"
+                }
+            ],
+            "isPrivate": false,
+            "metaSortKey": -1579773383209,
+            "method": "DELETE",
+            "modified": 1580422150785,
+            "name": "Practice Delete",
+            "parameters": [],
+            "parentId": "fld_92b9ff65ca034c099fdd9c2a31fdb507",
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingSendCookies": true,
+            "settingStoreCookies": true,
+            "url": "https://localhost:8001/api/v1/practices/delete/15",
+            "_type": "request"
+        },
+        {
+            "_id": "env_93e17fbc87120c9b98064dfa3bbc478f51dbcd01",
+            "color": null,
+            "created": 1573044431484,
+            "data": {},
+            "dataPropertyOrder": null,
+            "isPrivate": false,
+            "metaSortKey": 1573044431484,
+            "modified": 1573044431484,
+            "name": "Base Environment",
+            "parentId": "wrk_f25a150b81ce4c2796379ff87a7d3374",
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_93e17fbc87120c9b98064dfa3bbc478f51dbcd01",
+            "cookies": [
+                {
+                    "creation": "2020-01-06T09:19:37.822Z",
+                    "domain": "127.0.0.1",
+                    "expires": "2019-01-06T09:47:18.000Z",
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "06950875605486573",
+                    "key": "sf_redirect",
+                    "lastAccessed": "2020-01-06T09:47:19.782Z",
+                    "maxAge": 0,
+                    "path": "/",
+                    "value": "deleted"
+                },
+                {
+                    "creation": "2020-01-20T13:07:32.943Z",
+                    "domain": "localhost",
+                    "expires": "2019-01-21T14:49:52.000Z",
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "4304540359388167",
+                    "key": "sf_redirect",
+                    "lastAccessed": "2020-01-21T14:49:53.426Z",
+                    "maxAge": 0,
+                    "path": "/",
+                    "value": "deleted"
+                },
+                {
+                    "creation": "2020-01-20T14:38:31.019Z",
+                    "domain": "localhost",
+                    "expires": "1970-01-01T00:00:01.000Z",
+                    "hostOnly": true,
+                    "httpOnly": true,
+                    "id": "21752342773522448",
+                    "key": "PHPSESSID",
+                    "lastAccessed": "2020-01-22T12:24:07.206Z",
+                    "maxAge": 0,
+                    "path": "/",
+                    "secure": true,
+                    "value": "deleted"
+                }
+            ],
+            "created": 1573044431488,
+            "modified": 1579695847225,
+            "name": "Default Jar",
+            "parentId": "wrk_f25a150b81ce4c2796379ff87a7d3374",
+            "_type": "cookie_jar"
+        }
+    ]
+}
