@@ -181,7 +181,7 @@ class TeamController extends AbstractController
     {
         $data = $serializer->deserialize($request->getContent(), 'App\Entity\User', 'json');
 
-        $userData = $ur->findOneByEmail($data->getUsername());
+        $userData = $ur->findRecipients($data->getUsername());
 
         $MailerInvitePlayer->dataEmail($userData, $team);
 
