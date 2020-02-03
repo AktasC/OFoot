@@ -4,6 +4,7 @@ import qs from 'qs';
 import { USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO, SUBMIT_CHANGE_PASSWORD, emptyInputs } from '../reducer/userProfil';
 import { modifyPassword } from '../reducer/loginForm'
 import { addNotification } from '../addNotification';
+import { loadInfoCalendarFromAxios } from '../reducer/calendar';
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
 

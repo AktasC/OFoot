@@ -1,23 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col, Row, Button } from 'react-bootstrap';
+import { Col, Row, Button, Modal } from 'react-bootstrap';
+import { FaPlus } from 'react-icons/fa';
 
 // Import scss
 import './list.scss';
 
+import AddEvent from '~/containers/Page/Calendar/EventList/AddEvent';
 
-const List = ({eventData}) => {
+class List extends React.Component {
 
-// gestion date au format iso 8601
-const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minutes: '2-digit' };
-function dateFromISO8601(isostr) {
+    constructor(props) {
+        super(props);
+        console.log(props);
+    
+        this.state = {
+          showAddEvent: false
+        };
+      }
+
+render () {
+
+    const eventData= this.props.eventData; 
+
+    // gestion date au format iso 8601
+    const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minutes: '2-digit' };
+    function dateFromISO8601(isostr) {
     var parts = isostr.match(/\d+/g);
     return new Date(parts[0], parts[1] - 1, parts[2], parts[3], parts[4], parts[5]);
-}
+    }
+
+    const handleShowAddEvent = () => {
+        this.setState({
+        showAddEvent: true,
+        });
+      }
+
+    const handleCloseAddEvent = () => {
+        this.setState({
+        showAddEvent: false,
+        });
+      }
 
 return (
     <div id="list">
+        <div className='title-h3'>
         <h3> Tous vos événements </h3>
+          <Button onClick={handleShowAddEvent}><FaPlus size={22} /> Ajouter un événement </Button>
+        </div>
 
     {eventData.map((event, id) => (
         <Row key={id} className={event.opponent_team === undefined ? " card-event practice" :  "card-event match"}>
@@ -60,10 +90,30 @@ return (
             </Row>   
     )
     )}
+
+        <Modal id="addEventModal" size="lg" show={this.state.showAddEvent} onHide={handleCloseAddEvent}>
+          <Modal.Header closeButton>
+            <Modal.Title>Ajouter un événement</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+
+            <Col>
+              <AddEvent />
+            </Col>
+
+          </Modal.Body>
+          <Modal.Footer>            
+            <Button className="custom-btn" onClick={handleCloseAddEvent}>Close</Button>
+          </Modal.Footer>
+        </Modal>
        
     </div>
  
 );
+
+}
+
+
 }
 
 export default List;
