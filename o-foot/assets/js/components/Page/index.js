@@ -18,7 +18,7 @@ import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
 import UserProfile from '~/containers/UserProfile';
 import TeamDashboard from '~/containers/Page/TeamDashboard';
-import EventList from '~/containers/Page/Calendar';
+import EventList from '~/containers/Page/Calendar/EventList';
 import List from './Players/List';
 import Page404 from './Page404';
 

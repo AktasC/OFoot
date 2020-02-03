@@ -4,6 +4,7 @@ const initialState = {
     };
 
     export const LOAD_INFOS_CALENDAR_AXIOS = 'LOAD_INFOS_CALENDAR_AXIOS'; 
+    export const CALENDAR_INFO = 'CALENDAR_INFO';
   
     // ---- reducer
     const reducer = (state = initialState, action = {}) => {
@@ -23,5 +24,9 @@ const initialState = {
       value,
     })
   
+    export const teamCalendarInfo = () => ({
+      type: CALENDAR_INFO,
+    })
+
      // ---- export
     export default reducer;

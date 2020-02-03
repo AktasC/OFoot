@@ -6,7 +6,7 @@ import { FaPlus } from 'react-icons/fa';
 // Import scss
 import './list.scss';
 
-import AddEvent from '~/containers/Page/Calendar/AddEvent';
+import AddEvent from '~/containers/Page/Calendar/EventList/AddEvent';
 
 class List extends React.Component {
 

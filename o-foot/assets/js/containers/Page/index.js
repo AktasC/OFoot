@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import Page from '~/components/Page';
 
 
-import { userProfilInfo, teamCalendarInfo  } from '~/store/reducer/userProfil';
+import { userProfilInfo } from '~/store/reducer/userProfil';
 import { resetUpdateData } from '../../store/reducer/user';
+import { teamCalendarInfo } from '~/store/reducer/calendar';
 
 
 const mapStateToProps = (state) => {

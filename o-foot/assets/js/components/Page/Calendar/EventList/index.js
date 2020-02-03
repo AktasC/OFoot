@@ -7,7 +7,6 @@ import { Col, Container } from 'react-bootstrap';
 import './eventlist.scss';
 
 // Infos
-//import eventData from './event.json';
 
 // Import composant
 import Overview from './Overview';
