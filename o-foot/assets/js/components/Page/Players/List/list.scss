@@ -19,3 +19,10 @@
     margin: 1em .5em;
   }
 }
+
+#editInfos {
+  & .align {
+    display: flex;
+    align-items: center;
+  }
+}

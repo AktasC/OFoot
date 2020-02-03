@@ -56,6 +56,17 @@ class TeamController extends AbstractController
     }
 
     /**
+     * @Route("/{id}/manager", name="get_manager", requirements={"id": "\d+"}, methods={"GET"})
+     */
+    public function getManager(SerializerInterface $serializer, Team $team)
+    {
+        /* Si l'user est également le manager, return true, sinon return false */
+        $data = $this->getUser() == $team->getManager();
+
+        return $this->json($data);
+    }
+
+    /**
      * @Route("/stats/{id}", name="show_stats", requirements={"id": "\d+"}, methods={"GET"})
      */
     public function showStats(SerializerInterface $serializer, Team $team)
