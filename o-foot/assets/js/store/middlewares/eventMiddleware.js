@@ -8,7 +8,7 @@ const eventMiddleWare = (store) => (next) => (action) => {
 
   switch (action.type) {
     case CALENDAR_INFO:
-      const { currentTeamId } = store.getState().team;
+      // const { currentTeamId } = store.getState().team;
 
       axios({
         method: 'get',
