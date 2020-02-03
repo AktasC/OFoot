@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import Avatar from 'react-avatar';
 
 // Import scss
@@ -18,6 +18,81 @@ const WhoAreWe = () => (
                 <div className="header-title">Créateurs O'Foot</div>
             </div>
         </header>
+
+        <div className="section">
+            <Row>
+                <Col>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                            <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                            </Card.Text>
+                            <Card.Link href="#">Product Owner</Card.Link>
+                            <Card.Link href="#">Symfony</Card.Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                            <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                            </Card.Text>
+                            <Card.Link href="#">Product Owner</Card.Link>
+                            <Card.Link href="#">Symfony</Card.Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                            <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                            </Card.Text>
+                            <Card.Link href="#">Product Owner</Card.Link>
+                            <Card.Link href="#">Symfony</Card.Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                            <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                            </Card.Text>
+                            <Card.Link href="#">Product Owner</Card.Link>
+                            <Card.Link href="#">Symfony</Card.Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                            <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                            </Card.Text>
+                            <Card.Link href="#">Product Owner</Card.Link>
+                            <Card.Link href="#">Symfony</Card.Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+        </div>
     </div>
 );
 
