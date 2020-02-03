@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { PLAYERS_INFOS, INVITE_PLAYER, updatePlayersList } from '../reducer/team';
+import { addNotification } from '../addNotification';
 
 const teamMiddleWare = (store) => (next) => (action) => {
 
@@ -26,6 +27,8 @@ const teamMiddleWare = (store) => (next) => (action) => {
 
     case INVITE_PLAYER:
       console.log('coucou depuis middleware:', action.value);
+
+      addNotification('invite-player-success');
 
       /* const token = localStorage.getItem('token');
       const teamId = store.getState().team.currentTeamId;
