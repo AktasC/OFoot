@@ -189,7 +189,7 @@ class TeamController extends AbstractController
     }
 
     /**
-     *@Route("/rejoin/{user_id}/{team_id}", name="rejoin",requirements={"id": "\d+"}, methods={"POST"})
+     *@Route("/join/{user_id}/{team_id}", name="join",requirements={"id": "\d+"}, methods={"POST"})
      *@ParamConverter("team", options={"mapping": {"team_id": "id"}})
      *@ParamConverter("user", options={"mapping": {"user_id": "id"}})
      */
@@ -199,7 +199,9 @@ class TeamController extends AbstractController
 
         $player
             ->setTeam($team)
-            ->setUser($user);
+            ->setUser($user)
+            ->setFirstNamePlayer($user->getFirstName())
+            ->setLastNamePlayer($user->getLastName);
 
         $entityManager = $this->getDoctrine()->getManager();
 
