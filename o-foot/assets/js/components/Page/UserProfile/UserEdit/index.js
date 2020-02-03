@@ -12,7 +12,7 @@ class UserEdit extends React.Component {
     this.state= {
       firstname: this.props.firstname,
       lastname: this.props.lastname,
-      emai: this.props.email,
+      email: this.props.email,
     };
   }
 
