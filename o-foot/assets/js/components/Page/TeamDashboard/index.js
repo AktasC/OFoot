@@ -26,10 +26,10 @@ const TeamDashboard = (teamInformations) => {
         </div>
 
         <Row className="full-dashboard">
-          <Col className="infos-part">
+          <Col lg={6} md={12} sm={12} xs={12} className="infos-part">
             <TeamInfosCard teamData={teamInformations.teamInformations} />
           </Col>
-          <Col className="func-part">
+          <Col lg={6} md={12} sm={12} xs={12} className="func-part">
             <NavLink to={`/event/list/${teamInformations.teamInformations.id}`} className="link">
               <Row className="func-part-row calendar">
                 <Col className="func-part-col">

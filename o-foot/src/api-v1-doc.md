@@ -67,6 +67,8 @@ Version 1.0
 |/api/register | app_register | POST |
 |/api/login| app_login | GET |
 |/api/logout| app_logout | GET |
+|---|---|---|
+|/api/v1/events/team/{id}| list | GET |
 
 
 ## Les contrôleurs
@@ -134,3 +136,5 @@ Version 1.0
 |/api/register | Api\RegistrationController | POST |
 |/api/login| Api\SecurityController | GET |
 |/api/logout| Api\SecurityController | GET |
+|---|---|---|
+|/api/v1/events/team/{id}| Api\V1\EventController| ->list() |

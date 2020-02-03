@@ -44,7 +44,7 @@ class TeamInfosEditForm extends React.Component {
             <Col lg={{ span: 8, offset: 2 }} md={{ span: 8, offset: 2 }} sm={{ span: 8, offset: 2 }} xs={{ span: 8, offset: 2 }}>
               <Form id="editInfos" onSubmit={this.onSubmit}>
                 <Form.Row>
-                  <Col className="input" lg={6} md={6} sm={21} xs={12}>
+                  <Col className="input" lg={6} md={12} sm={12} xs={12}>
                     <Form.Control
                       onChange={this.handleChange}
                       value={teamNameValue}
@@ -53,7 +53,7 @@ class TeamInfosEditForm extends React.Component {
                     />
                   </Col>
 
-                  <Col className="input" lg={6} md={6} sm={21} xs={12}>
+                  <Col className="input" lg={6} md={12} sm={12} xs={12}>
                     <Form.Control
                       onChange={this.handleChange}
                       value={teamStadiumValue}
@@ -64,7 +64,7 @@ class TeamInfosEditForm extends React.Component {
                 </Form.Row>
 
                 <Form.Row>
-                  <Col className="input" lg={6} md={6} sm={21} xs={12}>
+                  <Col className="input" lg={6} md={12} sm={12} xs={12}>
                     <Form.Control
                       onChange={this.handleChange}
                       value={teamAddressValue}
@@ -73,7 +73,7 @@ class TeamInfosEditForm extends React.Component {
                     />
                   </Col>
 
-                  <Col className="input" lg={6} md={6} sm={21} xs={12}>
+                  <Col className="input" lg={6} md={12} sm={12} xs={12}>
                     <Form.Control
                       onChange={this.handleChange}
                       value={teamCityValue}
