@@ -4,7 +4,6 @@ import Page from '~/components/Page';
 
 import { userProfilInfo } from '~/store/reducer/userProfil';
 import { resetUpdateData } from '~/store/reducer/user';
-import { teamCalendarInfo } from '~/store/reducer/calendar';
 
 
 const mapStateToProps = (state) => ({
@@ -19,11 +18,6 @@ const mapDispatchToProps = (dispatch) => ({
   loadUserInfo: () => {
     console.log('je charge les données');
     const action = userProfilInfo();
-    dispatch(action);
-  },
-
-  loadCalendarTeamInfo: () => {
-    const action = teamCalendarInfo();
     dispatch(action);
   },
 

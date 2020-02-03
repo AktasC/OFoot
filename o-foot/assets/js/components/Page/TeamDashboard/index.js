@@ -2,7 +2,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Col, Row, Container } from 'react-bootstrap';
-
 import TeamInfosCard from './TeamInfosCard';
 import CalendarWidget from './Widget/CalendarWidget';
 
@@ -11,8 +10,22 @@ import './team-dashboard.scss';
 
 import teamData from './team.json';
 
-const TeamDashboard = (teamInformations) => {
-  console.log(teamInformations);
+class TeamDashboard extends React.Component {
+
+  constructor(props) {
+    super(props);
+    console.log(props);
+  }
+
+  componentDidMount() {
+
+      this.props.loadCalendarTeamInfo();
+    }
+  
+
+  render() {
+  
+  const { teamInformations } = this.props;
 
   /* console.log("from TeamDashboard teamInfooooos:", teamInformations.teamInformations); */
 
@@ -27,10 +40,10 @@ const TeamDashboard = (teamInformations) => {
 
         <Row className="full-dashboard">
           <Col lg={6} md={12} sm={12} xs={12} className="infos-part">
-            <TeamInfosCard teamData={teamInformations.teamInformations} />
+            <TeamInfosCard teamData={teamInformations} />
           </Col>
           <Col lg={6} md={12} sm={12} xs={12} className="func-part">
-            <NavLink to={`/event/list/${teamInformations.teamInformations.id}`} className="link">
+            <NavLink to={`/event/list/${teamInformations.id}`} className="link">
               <Row className="func-part-row calendar">
                 <Col className="func-part-col">
                   <CalendarWidget />
@@ -58,6 +71,7 @@ const TeamDashboard = (teamInformations) => {
     </div>
   )
 };
+}
 
 // == Export
 export default TeamDashboard;

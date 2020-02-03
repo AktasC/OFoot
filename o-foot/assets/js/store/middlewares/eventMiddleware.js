@@ -8,11 +8,11 @@ const eventMiddleWare = (store) => (next) => (action) => {
 
   switch (action.type) {
     case CALENDAR_INFO:
-      // const { currentTeamId } = store.getState().team;
+      const { currentTeamId } = store.getState().team;
 
       axios({
         method: 'get',
-        url: '/api/v1/events/team/35',
+        url: `/api/v1/events/team/${currentTeamId}`,
         headers: { Authorization: `Bearer ${token}` },
       })
 

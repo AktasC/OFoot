@@ -36,12 +36,10 @@ class Page extends React.Component {
 
     if (this.props.logged == true || this.props.addTeam == true) {
       this.props.loadUserInfo();
-      this.props.loadCalendarTeamInfo();
     }
 
     if (this.props.logged == true || this.props.updateData == true) {
       this.props.loadUserInfo();
-      this.props.loadCalendarTeamInfo();
       if (this.props.updateData == true) {
         this.props.handleResetUpdateData();
       }
