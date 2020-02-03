@@ -149,6 +149,7 @@ class Team
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="managed_teams", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("api_v1")
      */
     private $manager;
 

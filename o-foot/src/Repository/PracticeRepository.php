@@ -19,9 +19,13 @@ class PracticeRepository extends ServiceEntityRepository
         parent::__construct($registry, Practice::class);
     }
 
-    public function findAllOrdered()
+    public function findPracticesByTeam($id)
     {
         return $this->createQueryBuilder('p')
+            ->select('p,t')
+            ->leftJoin('p.team', 't')
+            ->where('p.team = :id')
+            ->setParameter('id', $id)
             ->orderBy('p.date_time_practice', 'ASC')
             ->getQuery()
             ->getResult()
