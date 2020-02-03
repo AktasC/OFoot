@@ -17,19 +17,19 @@ const TeamDashboard = (teamInformations) => {
   /* console.log("from TeamDashboard teamInfooooos:", teamInformations.teamInformations); */
 
   return (
-    
-      <div id="teamDashboard">        
 
-        <Container>
-          <div className="sweatband">
-            <h2>DASHBOARD ÉQUIPE</h2>
-          </div>
+    <div id="teamDashboard">
 
-          <Row className="full-dashboard">
-            <Col lg={6} md={12} sm={12} xs={12} className="infos-part">
-              <TeamInfosCard teamData={teamInformations.teamInformations}/> 
-            </Col>              
-            <Col lg={6} md={12} sm={12} xs={12} className="func-part">
+      <Container>
+        <div className="sweatband">
+          <h2>DASHBOARD ÉQUIPE</h2>
+        </div>
+
+        <Row className="full-dashboard">
+          <Col lg={6} md={12} sm={12} xs={12} className="infos-part">
+            <TeamInfosCard teamData={teamInformations.teamInformations} />
+          </Col>
+          <Col lg={6} md={12} sm={12} xs={12} className="func-part">
             <NavLink to={`/event/list/${teamInformations.teamInformations.id}`} className="link">
               <Row className="func-part-row calendar">
                 <Col className="func-part-col">

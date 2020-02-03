@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 import Page from '~/components/Page';
+
+
+import { userProfilInfo } from '~/store/reducer/userProfil';
 import { resetUpdateData } from '~/store/reducer/user';
-import { userProfilInfo, teamCalendarInfo } from '~/store/reducer/userProfil';
+import { teamCalendarInfo } from '~/store/reducer/calendar';
+
 
 const mapStateToProps = (state) => ({
   logged: state.user.logged,
@@ -22,6 +26,7 @@ const mapDispatchToProps = (dispatch) => ({
     const action = teamCalendarInfo();
     dispatch(action);
   },
+
   handleResetUpdateData: () => {
     const action = resetUpdateData();
     dispatch(action);

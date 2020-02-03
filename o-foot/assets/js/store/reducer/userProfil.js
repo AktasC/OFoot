@@ -22,7 +22,7 @@ const initialState = {
   export const NO_SUBMIT = 'NO_SUBMIT'; 
   export const SUBMIT_CHANGE_PASSWORD = 'SUBMIT_CHANGE_PASSWORD'; 
   export const EMPTY_INPUTS = 'EMPTY_INPUTS';  
-  export const CALENDAR_INFO = 'CALENDAR_INFO';
+  
 
   // ---- reducer
   const reducer = (state = initialState, action = {}) => {
@@ -145,9 +145,6 @@ const initialState = {
     type: EMPTY_INPUTS,
   })
 
-  export const teamCalendarInfo = () => ({
-    type: CALENDAR_INFO,
-  })
 
    // ---- export
   export default reducer;

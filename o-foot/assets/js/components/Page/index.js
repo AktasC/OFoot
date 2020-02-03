@@ -17,7 +17,7 @@ import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
 import UserProfile from '~/containers/UserProfile';
 import TeamDashboard from '~/containers/Page/TeamDashboard';
-import EventList from '~/containers/Page/Calendar';
+import EventList from '~/containers/Page/Calendar/EventList';
 import List from '~/containers/Page/Players/List';
 import Page404 from './Page404';
 
@@ -33,6 +33,12 @@ class Page extends React.Component {
   }
 
   componentDidUpdate() {
+
+    if (this.props.logged == true || this.props.addTeam == true) {
+      this.props.loadUserInfo();
+      this.props.loadCalendarTeamInfo();
+    }
+
     if (this.props.logged == true || this.props.updateData == true) {
       this.props.loadUserInfo();
       this.props.loadCalendarTeamInfo();
@@ -40,7 +46,7 @@ class Page extends React.Component {
         this.props.handleResetUpdateData();
       }
     }
-  }
+  };
 
   render() {
 
