@@ -12,10 +12,10 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  loadPlayersList: () => {    
+  loadPlayersList: () => {
     const action = playersInfos();
     dispatch(action);
-  }
+  },
 });
 
 const ListContainer = connect(
