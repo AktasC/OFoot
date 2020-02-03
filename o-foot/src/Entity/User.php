@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -18,16 +19,19 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("api_v1")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Groups("api_v1")
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
+     * @Groups("api_v1")
      */
     private $roles = [];
 
@@ -44,16 +48,19 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Groups("api_v1")
      */
     private $first_name;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Groups("api_v1")
      */
     private $last_name;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $picture_user;
 
@@ -74,13 +81,22 @@ class User implements UserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Team", inversedBy="users")
+     * @Groups("api_v1")
      */
     private $teams;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Team", mappedBy="manager")
+     */
+    private $managed_teams;
 
     public function __construct()
     {
         $this->players = new ArrayCollection();
         $this->teams = new ArrayCollection();
+        $this->roles = ['ROLE_USER'];
+        $this->created_at = new \DateTime();
+        $this->managed_teams = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -285,6 +301,37 @@ class User implements UserInterface
     {
         if ($this->teams->contains($team)) {
             $this->teams->removeElement($team);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Team[]
+     */
+    public function getManagedTeams(): Collection
+    {
+        return $this->managed_teams;
+    }
+
+    public function addManagedTeam(Team $managedTeam): self
+    {
+        if (!$this->managed_teams->contains($managedTeam)) {
+            $this->managed_teams[] = $managedTeam;
+            $managedTeam->setManager($this);
+        }
+
+        return $this;
+    }
+
+    public function removeManagedTeam(Team $managedTeam): self
+    {
+        if ($this->managed_teams->contains($managedTeam)) {
+            $this->managed_teams->removeElement($managedTeam);
+            // set the owning side to null (unless already changed)
+            if ($managedTeam->getManager() === $this) {
+                $managedTeam->setManager(null);
+            }
         }
 
         return $this;

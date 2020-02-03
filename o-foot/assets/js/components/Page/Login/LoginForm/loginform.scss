@@ -1,0 +1,15 @@
+#loginForm {
+
+    & .form-control {
+      margin: 10px auto;
+      box-shadow: 2px 2px 5px black;
+      width: 40%;
+    }
+    & button {
+      margin-top: 2em;
+    }
+
+    & .wrong {
+      border: 1px solid red; 
+    }
+}

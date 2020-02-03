@@ -1,5 +1,5 @@
 var Encore = require('@symfony/webpack-encore');
-
+var path = require('path')
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
 if (!Encore.isRuntimeEnvironmentConfigured()) {
@@ -7,7 +7,7 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 }
 
 Encore
-    .setOutputPath('public/build/')
+    .setOutputPath('./public/build/')
 
     .setPublicPath('/build')
 
@@ -47,7 +47,10 @@ Encore
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
-    //.enableIntegrityHashes(Encore.isProduction())
+    .enableIntegrityHashes(Encore.isProduction())
 ;
 
-module.exports = Encore.getWebpackConfig();
+let config = Encore.getWebpackConfig();
+config.resolve.alias["~"] = path.resolve(__dirname, 'assets/js');
+config.resolve.alias["Utils"] = path.resolve(__dirname, 'assets/utils');
+module.exports = config;

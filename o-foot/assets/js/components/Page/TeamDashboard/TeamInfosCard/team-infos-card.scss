@@ -1,0 +1,52 @@
+#teamInfosCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & .edit {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+
+    & button {
+      background-color: transparent;
+      border-color: transparent;
+
+      & svg {
+        color: #212532;
+      }
+    }
+    & button:focus {
+      box-shadow: none;
+    }
+  }
+  
+  & .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+    background-color: white;
+    width: 100%; 
+    padding: 0;   
+
+    & .card-header-title {
+        
+      & h4, p {
+          margin-bottom: 0;
+      }
+    }
+  }
+
+  & .card-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+
+    & p {
+      margin-bottom: 0;
+    }
+  }
+
+}

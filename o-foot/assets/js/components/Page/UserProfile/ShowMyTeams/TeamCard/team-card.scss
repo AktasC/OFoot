@@ -1,0 +1,16 @@
+#teamCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  & .team-thumb {
+    max-width: 100%;
+    height: 240px;
+    margin: auto;
+    object-fit: cover;
+  }
+
+  & .avatar-custom {
+    object-fit: cover;
+  }
+}

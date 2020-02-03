@@ -19,6 +19,17 @@ class PlayerRepository extends ServiceEntityRepository
         parent::__construct($registry, Player::class);
     }
 
+    public function findPlayersByTeam($id)
+    {
+        $qb = $this->createQueryBuilder('p');
+        $qb->select('p,t');
+        $qb->leftJoin('p.team', 't');
+        $qb->where('p.team = :id')
+                   ->setParameter('id', $id);
+
+        return $qb->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Player[] Returns an array of Player objects
     //  */

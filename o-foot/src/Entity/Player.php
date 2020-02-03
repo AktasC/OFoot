@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PlayerRepository")
@@ -20,66 +21,73 @@ class Player
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $assist_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $defeat_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $draw_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $goal_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
-    private $match_player;
+    private $game_player;
 
     /**
      * @ORM\Column(type="smallint")
+     * @Groups("api_v1")
      */
     private $number_jersey_player;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $picture_player;
 
     /**
-     * @ORM\Column(type="string", length=128)
+     * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $player_name;
 
     /**
-     * @ORM\Column(type="string", length=128, nullable=true)
-     */
-    private $position_player;
-
-    /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $red_card_player;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Groups("api_v1")
      */
     private $role_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $victory_player;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $yellow_card_player;
 
@@ -102,6 +110,7 @@ class Player
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="players")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("api_v1")
      */
     private $team;
 
@@ -121,15 +130,27 @@ class Player
     private $practices;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Match", inversedBy="players")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Game", inversedBy="players")
      */
-    private $matchs;
+    private $games;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
+     */
+    private $first_name_player;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
+     */
+    private $last_name_player;
 
     public function __construct()
     {
         $this->composition = new ArrayCollection();
         $this->practices = new ArrayCollection();
-        $this->matchs = new ArrayCollection();
+        $this->games = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -185,14 +206,14 @@ class Player
         return $this;
     }
 
-    public function getMatchPlayer(): ?int
+    public function getGamePlayer(): ?int
     {
-        return $this->match_player;
+        return $this->game_player;
     }
 
-    public function setMatchPlayer(?int $match_player): self
+    public function setGamePlayer(?int $game_player): self
     {
-        $this->match_player = $match_player;
+        $this->game_player = $game_player;
 
         return $this;
     }
@@ -229,18 +250,6 @@ class Player
     public function setPlayerName(string $player_name): self
     {
         $this->player_name = $player_name;
-
-        return $this;
-    }
-
-    public function getPositionPlayer(): ?string
-    {
-        return $this->position_player;
-    }
-
-    public function setPositionPlayer(?string $position_player): self
-    {
-        $this->position_player = $position_player;
 
         return $this;
     }
@@ -406,27 +415,51 @@ class Player
     }
 
     /**
-     * @return Collection|Match[]
+     * @return Collection|Game[]
      */
-    public function getMatchs(): Collection
+    public function getGames(): Collection
     {
-        return $this->matchs;
+        return $this->games;
     }
 
-    public function addMatch(Match $match): self
+    public function addGame(Game $match): self
     {
-        if (!$this->matchs->contains($match)) {
-            $this->matchs[] = $match;
+        if (!$this->games->contains($match)) {
+            $this->games[] = $match;
         }
 
         return $this;
     }
 
-    public function removeMatch(Match $match): self
+    public function removeGame(Game $match): self
     {
-        if ($this->matchs->contains($match)) {
-            $this->matchs->removeElement($match);
+        if ($this->games->contains($match)) {
+            $this->games->removeElement($match);
         }
+
+        return $this;
+    }
+
+    public function getFirstNamePlayer(): ?string
+    {
+        return $this->first_name_player;
+    }
+
+    public function setFirstNamePlayer(?string $first_name_player): self
+    {
+        $this->first_name_player = $first_name_player;
+
+        return $this;
+    }
+
+    public function getLastNamePlayer(): ?string
+    {
+        return $this->last_name_player;
+    }
+
+    public function setLastNamePlayer(?string $last_name_player): self
+    {
+        $this->last_name_player = $last_name_player;
 
         return $this;
     }

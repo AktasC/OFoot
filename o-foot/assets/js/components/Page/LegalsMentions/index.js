@@ -6,9 +6,9 @@ import './legals-mentions.scss';
 
 
 const LegalsMentions = () => (
-    
+
     <h2 className="title">MentionsLégales</h2>
- 
+
 );
 
 export default LegalsMentions;

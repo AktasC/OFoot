@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TeamRepository")
@@ -15,91 +16,103 @@ class Team
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("api_v1")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $address_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $assist_team;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $championship_team;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $city_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $defeat_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $draw_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $goal_team;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
+     * @Groups("api_v1")
      */
     private $logo_team;
 
     /**
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
-    private $manager_team;
+    private $game_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
-     */
-    private $match_team;
-
-    /**
-     * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $presence_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $red_card_team;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $stadium_team;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("api_v1")
      */
     private $team_name;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $practice_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $victory_team;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
+     * @Groups("api_v1")
      */
     private $yellow_card_team;
 
@@ -124,21 +137,28 @@ class Team
     private $players;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Match", mappedBy="team", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Game", mappedBy="team", orphanRemoval=true, cascade={"persist", "remove"})
      */
-    private $matchs;
+    private $games;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Practice", mappedBy="team", orphanRemoval=true)
      */
     private $practices;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="managed_teams", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $manager;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
         $this->players = new ArrayCollection();
-        $this->matchs = new ArrayCollection();
+        $this->games = new ArrayCollection();
         $this->practices = new ArrayCollection();
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int
@@ -146,14 +166,14 @@ class Team
         return $this->id;
     }
 
-    public function getAdressTeam(): ?string
+    public function getAddressTeam(): ?string
     {
-        return $this->adress_team;
+        return $this->address_team;
     }
 
-    public function setAdressTeam(string $adress_team): self
+    public function setAddressTeam(string $address_team): self
     {
-        $this->adress_team = $adress_team;
+        $this->address_team = $address_team;
 
         return $this;
     }
@@ -242,26 +262,14 @@ class Team
         return $this;
     }
 
-    public function getManagerTeam(): ?int
+    public function getGameTeam(): ?int
     {
-        return $this->manager_team;
+        return $this->game_team;
     }
 
-    public function setManagerTeam(int $manager_team): self
+    public function setGameTeam(?int $game_team): self
     {
-        $this->manager_team = $manager_team;
-
-        return $this;
-    }
-
-    public function getMatchTeam(): ?int
-    {
-        return $this->match_team;
-    }
-
-    public function setMatchTeam(?int $match_team): self
-    {
-        $this->match_team = $match_team;
+        $this->game_team = $game_team;
 
         return $this;
     }
@@ -434,27 +442,27 @@ class Team
     }
 
     /**
-     * @return Collection|Match[]
+     * @return Collection|Game[]
      */
-    public function getMatchs(): Collection
+    public function getGames(): Collection
     {
-        return $this->matchs;
+        return $this->games;
     }
 
-    public function addMatch(Match $match): self
+    public function addGame(Game $match): self
     {
-        if (!$this->matchs->contains($match)) {
-            $this->matchs[] = $match;
+        if (!$this->games->contains($match)) {
+            $this->games[] = $match;
             $match->setTeam($this);
         }
 
         return $this;
     }
 
-    public function removeMatch(Match $match): self
+    public function removeGame(Game $match): self
     {
-        if ($this->matchs->contains($match)) {
-            $this->matchs->removeElement($match);
+        if ($this->games->contains($match)) {
+            $this->games->removeElement($match);
             // set the owning side to null (unless already changed)
             if ($match->getTeam() === $this) {
                 $match->setTeam(null);
@@ -491,6 +499,18 @@ class Team
                 $practice->setTeam(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getManager(): ?User
+    {
+        return $this->manager;
+    }
+
+    public function setManager(?User $manager): self
+    {
+        $this->manager = $manager;
 
         return $this;
     }

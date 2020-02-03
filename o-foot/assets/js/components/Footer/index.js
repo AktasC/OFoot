@@ -7,14 +7,14 @@ import './footer.scss';
 
 
 const Footer = () => (
-    
-    <div id="footer">
-        <div id="footer-links">
-          <NavLink to="mentions-legales" className="link">Mentions Légales</NavLink>
-          <NavLink to="qui-sommes-nous" className="link">Qui Sommes-Nous ?</NavLink>
-        </div>
+
+  <div id="footer">
+    <div id="footer-links">
+      <NavLink to="/legals-mentions" className="link">Mentions Légales</NavLink>
+      <NavLink to="/who-are-we" className="link">Qui Sommes-Nous ?</NavLink>
     </div>
- 
+  </div>
+
 );
 
 export default Footer;
