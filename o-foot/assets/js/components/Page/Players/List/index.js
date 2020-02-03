@@ -1,7 +1,7 @@
 // == Import : npm
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Row, Container, Table, Button, Modal } from 'react-bootstrap';
+import { Col, Row, Container, Table, Button, Modal, Form } from 'react-bootstrap';
 import { IoIosStats, IoIosSend } from 'react-icons/io';
 import { FiEdit3 } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
@@ -28,7 +28,7 @@ class List extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    console.log('bien envoyé Roger')
+    console.log('bien envoyé Roger');
     this.props.handleSubmitInvitePlayer(this.state.mailValue);
   }  
 
@@ -42,20 +42,17 @@ class List extends React.Component {
 
     {/* Permet l'ouverture et la fermeture via un state local (non géré par redux ou store) de mes modals Cf le state du dessus */ }
     const handleClose = (value) => {
-      console.log(value);
       this.setState({
         [value]: false,        
       });
     }
-    const handleShow = (value) => {
-      console.log(value);
+    const handleShow = (value) => {      
       this.setState({
         [value]: true,
       });
     }
 
-    const getPlayerId = (value) => {
-      console.log(value);
+    const getPlayerId = (value) => {      
       this.setState({
         playerId: value,
       });
@@ -92,18 +89,16 @@ class List extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.props.playersList.map((player, i) => (
-                    
-                      <tr onClick={() => {handleShow('show1'), getPlayerId('1') }}>
-                        <td>{i}</td>
-                        <td>{player.first_name_player}</td>
-                        <td>{player.last_name_player}</td>
-                        <td>{player.role_player}</td>
-                        <td><IoIosStats /></td>
-                        <td><FiEdit3 /></td>
-                        <td><AiOutlineDelete /></td>
-                      </tr>
-                    
+                  {this.props.playersList.map((player, i) => (                    
+                    <tr onClick={() => {handleShow('show1'), getPlayerId(`${player.id}`) }}>
+                      <td>{i}</td>
+                      <td>{player.first_name_player}</td>
+                      <td>{player.last_name_player}</td>
+                      <td>{player.role_player}</td>
+                      <td><IoIosStats /></td>
+                      <td><FiEdit3 /></td>
+                      <td><AiOutlineDelete /></td>
+                    </tr>                    
                   ))}
 
                 </tbody>
@@ -140,16 +135,13 @@ class List extends React.Component {
           <Modal.Footer>
             <Button variant="secondary" onClick={() => {handleClose('show') }}>
               Close
-            </Button>
-            <Button variant="primary" onClick={() => {handleClose('show') }}>
-              Save Changes
-            </Button>
+            </Button>            
           </Modal.Footer>
         </Modal>
 
         <Modal size="lg" show={this.state.show1} onHide={() => {handleClose('show1') }}>
           <Modal.Header closeButton>
-            <Modal.Title>Fiche Joueur</Modal.Title>
+            <Modal.Title></Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Col>

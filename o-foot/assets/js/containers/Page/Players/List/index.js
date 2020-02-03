@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
   handleSubmitInvitePlayer: (value) => {
     const action = invitePlayer(value);
     dispatch(action);
-  }
+  },
 });
 
 const ListContainer = connect(

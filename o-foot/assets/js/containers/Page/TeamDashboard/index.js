@@ -9,10 +9,10 @@ const mapStateToProps = (state, ownProps) => {
   const teamId = ownProps.match.params.teamId;
   const teams = state.userProfil.userInformations['teams'];
 
-  const teamInfosById = getTeamInfosById(teamId, teams);  
-  
-  return { 
-    teamInformations: teamInfosById,   
+  const teamInfosById = getTeamInfosById(teamId, teams);
+
+  return {
+    teamInformations: teamInfosById,
   };
 };
 

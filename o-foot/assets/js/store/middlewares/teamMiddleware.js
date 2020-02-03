@@ -1,28 +1,29 @@
 import axios from 'axios';
 
-import { PLAYERS_INFOS, INVITE_PLAYER, updatePlayersList } from '../reducer/team';
+import { PLAYERS_INFOS, INVITE_PLAYER, LOAD_PLAYER_INFOS, updatePlayersList } from '../reducer/team';
 import { addNotification } from '../addNotification';
 
 const teamMiddleWare = (store) => (next) => (action) => {
 
+  const token = localStorage.getItem('token');
+  const teamId = store.getState().team.currentTeamId;
+
   switch (action.type) {
     case PLAYERS_INFOS:
-      const token = localStorage.getItem('token');
-      const teamId = store.getState().team.currentTeamId;
 
       axios({
         method: 'get',
         url: `/api/v1/teams/${teamId}/players`,
         headers: { 'Authorization': `Bearer ${token}` }
       })
-      
-      .then(function (response) {        
-        const actionupdatePlayersList = updatePlayersList(response.data);
-        store.dispatch(actionupdatePlayersList);
-      })
-      .catch(function (error) {
-        console.log("error from appel appel axios:", error);
-      });
+
+        .then(function (response) {
+          const actionupdatePlayersList = updatePlayersList(response.data);
+          store.dispatch(actionupdatePlayersList);
+        })
+        .catch(function (error) {
+          console.log("error from appel appel axios:", error);
+        });
       break;
 
     case INVITE_PLAYER:
@@ -32,22 +33,23 @@ const teamMiddleWare = (store) => (next) => (action) => {
 
       /* const token = localStorage.getItem('token');
       const teamId = store.getState().team.currentTeamId;
-      
+
       axios({
         method: 'get',
         url: `/api/v1/teams/${teamId}/players`,
-        headers: { 'Authorization': `Bearer ${token}` }       
+        headers: { 'Authorization': `Bearer ${token}` }
       })
-      
-      .then(function (response) {        
-        const actionupdatePlayersList = updatePlayersList(response.data);  
+
+      .then(function (response) {
+        const actionupdatePlayersList = updatePlayersList(response.data);
         store.dispatch(actionupdatePlayersList);
       })
       .catch(function (error) {
         console.log("error from appel appel axios:", error);
-      });         
-      break; */
-    
+      });
+      */
+      break;
+
     default:
       // par défaut, je laisse passer l'action
       next(action);
