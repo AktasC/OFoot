@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-import { PLAYERS_INFOS, updatePlayersList } from '../reducer/team';
+import { PLAYERS_INFOS, INVITE_PLAYER, updatePlayersList } from '../reducer/team';
+import { addNotification } from '../addNotification';
 
 const teamMiddleWare = (store) => (next) => (action) => {
 
@@ -23,6 +24,29 @@ const teamMiddleWare = (store) => (next) => (action) => {
         console.log("error from appel appel axios:", error);
       });         
       break;
+
+    case INVITE_PLAYER:
+      console.log('coucou depuis middleware:', action.value);
+
+      addNotification('invite-player-success');
+
+      /* const token = localStorage.getItem('token');
+      const teamId = store.getState().team.currentTeamId;
+      
+      axios({
+        method: 'get',
+        url: `/api/v1/teams/${teamId}/players`,
+        headers: { 'Authorization': `Bearer ${token}` }       
+      })
+      
+      .then(function (response) {        
+        const actionupdatePlayersList = updatePlayersList(response.data);  
+        store.dispatch(actionupdatePlayersList);
+      })
+      .catch(function (error) {
+        console.log("error from appel appel axios:", error);
+      });         
+      break; */
     
     default:
       // par défaut, je laisse passer l'action
