@@ -1,34 +1,49 @@
-{# Base.html.twig sert d'entrypoint pour notre React
-    Ce n'est donc pas une bonne idée de l'extend.
-    Welcome.html.twig ne devrait rien appeler en dehors de son namespae (templates/email)
-#}
-{% extends "base.html.twig" %}
+<!DOCTYPE html>
+<html lang="fr">
 
-{% block body %}
-<div class="container">
-    <div class="row d-flex">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>
+        {% block title %}{{ email.subject }}{% endblock %}
+    </title>
+    {% block stylesheets %}
 
-        <div class="col">
-            <h1 class="text-center">Bienvenue {{ email.toName }} !</h1>
-            <div>
-                <p>
-                    <code>
+    {% endblock %}
+</head>
+
+<body>
+
+    {% block body %}
+    <div class="container">
+        <div class="row d-flex">
+
+            <div class="col">
+                <h1 class="text-center">Bonjour et Bienvenue {{ email.toName }} !</h1>
+                <div>
+                    <p>
+                        <code>
                         {{ email.to[0].address }}
                     </code>
-                </p>
-                <p>
-                    <a href="#">Veuillez cliquer sur ce lien pour activer votre compte.</a>
+                    </p>
+                    <p>
+                        <a href="#">Veuillez cliquer sur ce lien pour activer votre compte.</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p class="block">
+                    L'équipe
+                    <em>O'Foot</em>
                 </p>
             </div>
-        </div>
 
-        <div class="footer">
-            <p class="block">
-                L'équipe
-                <em>O'Foot</em>
-            </p>
         </div>
-
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
+    {% endblock %}
+</body>
+
+</html>
