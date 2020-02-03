@@ -70,4 +70,8 @@ p {
     border: #c55900;
     box-shadow: 0 0 0 0.2rem rgba(239, 108, 0, .5);
   }
+
+  & input {
+    margin: .5em 0;
+  }
 }

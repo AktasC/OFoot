@@ -140,6 +140,21 @@ export const addNotification = ( status ) => {
       }) 
       break;
 
+    case 'invite-player-success':
+      store.addNotification({
+        title: 'Félicitations !',
+        message: 'L\'invitation est bien envoyée à votre joueur.\nVous pouvez fermer cette fenêtre.',
+        type: 'success',                         // 'default', 'success', 'info', 'warning'
+        container: 'bottom-left',
+        animationIn: ["animated", "fadeIn"],     // animate.css classes
+        animationOut: ["animated", "fadeOut"],   // animate.css classes
+        dismiss: {
+          duration: 3000,
+          showIcon: true
+        }
+      }) 
+      break; 
+
     default:
     store.addNotification({
       title: 'Votre attention s\'il vous plaît !',

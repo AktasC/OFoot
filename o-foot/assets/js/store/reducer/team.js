@@ -19,6 +19,7 @@ export const PLAYERS_INFOS = 'PLAYERS_INFOS';
 export const RESET_ADD_TEAM_INPUT = 'RESET_ADD_TEAM_INPUT';
 export const TEAM_INFOS_UPDATE = 'TEAM_INFOS_UPDATE';
 export const UPDATE_PLAYERS_LIST = 'UPDATE_PLAYERS_LIST';
+export const INVITE_PLAYER = 'INVITE_PLAYER';
   
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -85,6 +86,11 @@ export const playersInfos = () => ({
 
 export const updatePlayersList = (value) => ({
   type: UPDATE_PLAYERS_LIST,
+  value
+});
+
+export const invitePlayer = (value) => ({
+  type: INVITE_PLAYER,
   value
 });
 

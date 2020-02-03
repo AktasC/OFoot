@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import List from '../../../../components/Page/Players/List';
 
-import { playersInfos } from '../../../../store/reducer/team';
+import { playersInfos, invitePlayer } from '../../../../store/reducer/team';
 
 const mapStateToProps = (state) => {
   return {
@@ -16,6 +16,10 @@ const mapDispatchToProps = (dispatch) => ({
     const action = playersInfos();
     dispatch(action);
   },
+  handleSubmitInvitePlayer: (value) => {
+    const action = invitePlayer(value);
+    dispatch(action);
+  }
 });
 
 const ListContainer = connect(
