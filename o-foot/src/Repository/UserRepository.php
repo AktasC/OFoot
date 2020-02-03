@@ -36,7 +36,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
-    public function findOneByEmail($email)
+    public function findRecipients($email)
     {
         $qb = $this->createQueryBuilder('u')
             ->select('u.id,u.email,u.first_name')
