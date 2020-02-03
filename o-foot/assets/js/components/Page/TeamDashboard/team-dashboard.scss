@@ -125,3 +125,14 @@
 
   }
 }
+
+@media screen and (max-width: 992px) {
+  #teamDashboard {
+    .calendar {
+      border-radius: 0;
+    }
+    .statistics {
+      border-radius: 0 0px 10px 10px;
+    }
+  }  
+}
