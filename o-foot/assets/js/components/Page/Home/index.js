@@ -21,7 +21,7 @@ const Home = () => {
       <div className="home-pres">
         <h1 className="home-title">Bienvenue sur O'Foot !</h1>
         
-        <div className="30 home-subtitle">O'Foot vous permet de gérer facilement et rapidement votre saison sportive. Que vous soyez joueur, entraineur ou membre du staff technique les fonctionnalités O'Foot vous aideront à gagner du temps afin d'en passer plus sur le terrain !</div>
+        <div className="30 home-subtitle">O'Foot vous permet de gérer facilement et rapidement votre saison sportive. Que vous soyez joueur, entraîneur ou membre du staff technique les fonctionnalités O'Foot vous aideront à gagner du temps afin d'en passer plus sur le terrain !</div>
 
         <div className="home-buttons">            
           <NavLink to="register">
