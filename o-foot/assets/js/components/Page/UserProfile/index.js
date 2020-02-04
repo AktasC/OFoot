@@ -34,15 +34,15 @@ class UserProfile extends React.Component {
             <div className="sweatband">
               <h2>Welcome {userInformations.first_name} !</h2>
             </div>          
-            <Row className="">
+            <Row className="user-infos">
               <Col lg={12} md={12} sm={12} xs={12}> 
                 <Card>
                   <Card.Header >MES INFORMATIONS</Card.Header>
                   <Card.Body>
-                    { userInformations.picture_User != null ? <Avatar className="avatar-custom" src={userInformations.picture_user} size="100" round={true} /> : <Avatar name={`${userInformations.first_name} ${userInformations.last_name}`} size="150" size="100" round={true} /> }
+                    { userInformations.picture_User != '' ? <Avatar className="avatar-custom" src={userInformations.picture_user} size="100" round={true} /> : <Avatar name={`${userInformations.first_name} ${userInformations.last_name}`} size="150" size="100" round={true} /> }
                     <Card.Title>{userInformations.first_name} {userInformations.last_name}</Card.Title>
                     <Card.Text>
-                    Mail : {userInformations.email} 
+                      Mail : {userInformations.email} 
                     </Card.Text>                
                   </Card.Body>
                 </Card>
