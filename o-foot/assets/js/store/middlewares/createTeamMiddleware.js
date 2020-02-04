@@ -18,7 +18,6 @@ const registerMiddleware = (store) => (next) => (action) => {
         teamCityValue,
       } = store.getState().team;
 
-
       const config = {
         headers: { Authorization: `Bearer ${token}` },
       };

@@ -2,15 +2,16 @@ import axios from 'axios';
 import qs from 'qs';
 
 import {
-  USER_PROFIL_INFO, loadInfoFromAxios, MODIFY_INFO, SUBMIT_CHANGE_PASSWORD, emptyInputs,
+  USER_PROFIL_INFO, USER_INFOS_UPDATE, loadInfoFromAxios, SUBMIT_CHANGE_PASSWORD, emptyInputs,
 } from '../reducer/userProfil';
 import { modifyPassword } from '../reducer/loginForm';
 import { addNotification } from '../addNotification';
+import { updateData } from '../reducer/user';
+
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
   const token = localStorage.getItem('token');
   const userId = localStorage.getItem('userId');
-
 
   switch (action.type) {
     case USER_PROFIL_INFO:
@@ -31,14 +32,14 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         });
       break;
 
-    case MODIFY_INFO:
+    case USER_INFOS_UPDATE:
 
+      // eslint-disable-next-line no-case-declarations
       const {
         firstname,
         lastname,
         email,
-        pictureuser,
-      } = store.getState().userProfil;
+      } = action.value;
 
       axios({
         method: 'post',
@@ -48,14 +49,14 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
           first_name: firstname,
           email,
           last_name: lastname,
-          picture_user: pictureuser,
+          picture_user: null,
           birthdate: null,
         },
       })
 
         .then((response) => {
           console.log(response.config.data);
-          store.dispatch(changesDone(response.config.data));
+          store.dispatch(updateData());
           addNotification('change-done');
         })
         .catch((error) => {
