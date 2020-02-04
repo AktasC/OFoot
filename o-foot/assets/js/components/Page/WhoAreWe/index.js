@@ -21,24 +21,23 @@ const WhoAreWe = () => (
         </header>
 
         <div className="section">
-            {presentation.map((func, i) => (
-            <WhoAreWe key={i} {...func} />
-            ))}
-            <Row>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img className ="img" variant="top" src={func.image} />
-                        <Card.Body>
-                            <Card.Title className="title">{func.name}</Card.Title>
-                            <Card.Text className="text">
-                            {func.content}
-                            </Card.Text>
-                            <Card.Link className="role" href="#">{func.role}</Card.Link>
-                            <Card.Link className="langage" href="#">{func.langage}</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
+            {presentation.map((func, i) => (            
+                <Row>
+                    <Col className="bloc">
+                        <Card key={i} style={{ width: '18rem' }}>
+                            <Card.Img className ="img" variant="top" src={func.image} />
+                            <Card.Body>
+                                <Card.Title className="title">{func.name}</Card.Title>
+                                <Card.Text className="text">
+                                {func.content}
+                                </Card.Text>
+                                <Card.Link className="role" href="#">{func.role}</Card.Link>
+                                <Card.Link className="langage" href="#">{func.langage}</Card.Link>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+            ))}            
         </div>
     </div>
 );

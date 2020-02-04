@@ -37,6 +37,12 @@
 
     & .section {
         margin: 0 auto 2em;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    & .bloc {
+        margin-right: 3em;
     }
 
     & .title {
@@ -46,5 +52,6 @@
 
     & .text {
         color: black;
+        text-align: left;
     }
 }
