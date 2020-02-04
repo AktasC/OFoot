@@ -4,7 +4,6 @@ import UserEdit from '~/components/Page/UserProfile/UserEdit';
 
 import {
   userInfosUpdate,
-  dontSubmitUserEditForm,
 } from '~/store/reducer/userProfil';
 
 const mapStateToProps = (state) => ({
@@ -17,11 +16,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onSubmitUpdateUserInfos: (value) => {
     const action = userInfosUpdate(value);
-    dispatch(action);
-  },
-
-  noSubmit: (value) => {
-    const action = dontSubmitUserEditForm(value);
     dispatch(action);
   },
 });
