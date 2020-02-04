@@ -32,8 +32,10 @@ const WhoAreWe = () => (
                                 <Card.Text className="text">
                                 {func.content}
                                 </Card.Text>
-                                <Card.Link className="role" href="#">{func.role}</Card.Link>
-                                <Card.Link className="langage" href="#">{func.langage}</Card.Link>
+                                <div className="status">
+                                    <div>{func.role}</div>
+                                    <div>{func.langage}</div>                                    
+                                </div>
                             </Card.Body>
                         </Card>
                     </Col>                    
