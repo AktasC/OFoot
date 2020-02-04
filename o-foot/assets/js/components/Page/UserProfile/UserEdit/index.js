@@ -18,15 +18,8 @@ class UserEdit extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();  
-    const errorsUserEdit = []; 
-    if(this.state.firstname === '' || this.state.lastname === '' || this.state.email === '') {
-      errorsUserEdit.push('Merci de compléter chacun des champs');
-      console.log('non non non');
-    this.noSubmit(errorsUserEdit);  
-    } else {
     this.props.onSubmitUpdateUserInfos(this.state);
-    }
-  }  
+    } 
 
   handleChange = (event) => {
     this.setState({
@@ -91,7 +84,6 @@ class UserEdit extends React.Component {
       
           <Row>
             <Col>
-            {(errorsUserEdit.length > 0) && errorsUserEdit.map((error, i) => (<div key={i}><p>{error}</p></div>))}
               <Button className="editButton" variant="primary" type="submit">
                 Enregistrer les modifications
               </Button>
