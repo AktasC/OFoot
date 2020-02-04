@@ -5,8 +5,8 @@
     "title": "Créer son équipe",
     "classColor": "lighten",
     "classPosition": "right",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "img": "https://d3949ah8cpww7d.cloudfront.net/static/2.237.011/themes/v2/images/frontend/presentation/fr/slide-perso.png"
+    "content": "Via l'application O'Foot, il est possible de créer sa propre équipe de football. Pour cela, rien de plus simple. Créer votre compte utilisateur en renseignant vos informations personnelles, connectez-vous et accédez à votre dashboard utilisateur. Grâce à une interface simple et fonctionnelle, il suffit de cliquer sur créer une équipe et le tour est joué. Alors, qu'attendez-vous ?",
+    "img": "/img/fonctionnalities/creation-equipe.png"
   },
   {
     "id": 2,
@@ -14,8 +14,8 @@
     "title": "Gérer son effectif",
     "classColor": "darken",
     "classPosition": "left",
-    "content": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "img": "https://d3949ah8cpww7d.cloudfront.net/static/2.237.011/themes/v2/images/frontend/presentation/fr/slide-compo.png"
+    "content": "L’application O’Foot permet une gestion simplifiée de votre calendrier. Une fois un événement créé , un mail de convocation est immédiatement envoyé aux joueurs de votre équipe. Ils peuvent ainsi répondre favorablement ou non à la convocation envoyée. Grâce à l’interface, il est également possible de visualiser la liste de vos joueurs présents pour chaque type d'événement. Pratique pour préparer votre séance ou votre causerie d’avant match.",
+    "img": "/img/fonctionnalities/effectif.png"
   },
   { 
     "id": 3,   
@@ -23,8 +23,8 @@
     "title": "Créer ses évenements",
     "classColor": "lighten",
     "classPosition": "right",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "img": "https://d3949ah8cpww7d.cloudfront.net/static/2.237.011/themes/v2/images/frontend/presentation/fr/slide-dispo.png"
+    "content": "Le coach de l’équipe peut gérer facilement les entraînements et les matchs de football en les planifiant pour la saison en cours. Il peut ainsi avoir de la visibilité sur l’ensemble des participants et mettre à jour leurs présences. Point important : les utilisateurs-joueurs peuvent également avoir accès aux informations liées aux matchs et entraînements. Il suffit pour cela de sélectionner un événement en particulier. Cependant, ils n’ont pas de droit de création, de modification et de suppression. Ces droits sont exclusivement dédiés au coach",
+    "img": "/img/fonctionnalities/event.png"
   },
   {   
     "id": 4, 
@@ -32,8 +32,8 @@
     "title": "Gérer les stats",
     "classColor": "darken",
     "classPosition": "left",
-    "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    "img": "https://d3949ah8cpww7d.cloudfront.net/static/2.237.011/themes/v2/images/frontend/presentation/fr/slide-stats.png"
+    "content": "Dans l’application O’Foot, il est possible de renseigner le score de chaque match mais aussi les statistiques des joueurs : le nombre de buts marqués, concédés, les buteurs, nombre de cartons… afin d’améliorer le suivi de la saison et analyser les résultats. Une fois le score et les statistiques renseignés, vous pouvez vous rendre directement dans l’espace statistiques et visualiser l’ensemble des données globales de l'équipe mais également par joueur. Idéal pour une analyse complète de la saison.",
+    "img": "/img/fonctionnalities/stats.png"
   }
 ]
 
