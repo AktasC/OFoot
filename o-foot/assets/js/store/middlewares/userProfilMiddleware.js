@@ -8,6 +8,7 @@ import { modifyPassword } from '../reducer/loginForm';
 import { addNotification } from '../addNotification';
 import { updateData } from '../reducer/user';
 
+
 const userProfilMiddleWare = (store) => (next) => (action) => {
   const token = localStorage.getItem('token');
   const userId = localStorage.getItem('userId');
