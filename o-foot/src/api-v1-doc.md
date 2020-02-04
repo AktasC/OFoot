@@ -58,7 +58,7 @@ Version 1.0
 |/api/v1/teams/stats/{id} | api_v1_show_stats | GET |
 |/api/v1/teams/delete/{id} | api_v1_teams_delete | DELETE |
 |/api/v1/teams/{id}/invite | api_v1_teams_invite_player | POST |
-|/api/v1/teams/join/{user_id}/{team_id}| api_v1_teams_join | POST |
+|/api/v1/teams/join/{user_id}/{team_id}| api_v1_teams_join_team | POST |
 |---|---|---|
 |/api/v1/users/ | api_v1_users_list | GET  |
 |/api/v1/users/{id}  | api_v1_users_show | GET |
