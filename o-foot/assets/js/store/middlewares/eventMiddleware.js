@@ -13,7 +13,7 @@ const eventMiddleWare = (store) => (next) => (action) => {
       console.log('calendar info')
       axios({
         method: 'get',
-        url: `/api/v1/events`,
+        url: `https://ofoot.club/api/v1/events`,
         headers: { 'Authorization': `Bearer ${token}` }       
       })
       

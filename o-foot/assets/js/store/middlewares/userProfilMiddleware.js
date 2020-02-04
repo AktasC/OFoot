@@ -18,7 +18,7 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
 
       axios({
         method: 'get',
-        url: `/api/v1/users/${userId}`,
+        url: `https://ofoot.club/api/v1/users/${userId}`,
         headers: { Authorization: `Bearer ${token}` },
       })
 
@@ -43,7 +43,7 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
 
       axios({
         method: 'post',
-        url: `/api/v1/users/edit/${userId}`,
+        url: `https://ofoot.club/api/v1/users/edit/${userId}`,
         headers: { Authorization: `Bearer ${token}` },
         data: {
           first_name: firstname,
@@ -72,7 +72,7 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
 
       axios({
         method: 'post',
-        url: `/api/v1/users/edit/password/${userId}`,
+        url: `https://ofoot.club/api/v1/users/edit/password/${userId}`,
         headers: { Authorization: `Bearer ${token}` },
         data: {
           password: new_password,

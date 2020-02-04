@@ -37,7 +37,7 @@ const addEventMiddleware = (store) => (next) => (action) => {
             stadium_practice: stadium
           }      
 
-          axios.post(`/api/v1/practices/teams/${currentTeamId}/new`, data, config)
+          axios.post(`https://ofoot.club/api/v1/practices/teams/${currentTeamId}/new`, data, config)
     
           .then(function (response) {
             addNotification('create-event-success');
@@ -61,7 +61,7 @@ const addEventMiddleware = (store) => (next) => (action) => {
             
               }      
     
-              axios.post(`/api/v1/games/teams/${currentTeamId}/new`, data, config)
+              axios.post(`https://ofoot.club/api/v1/games/teams/${currentTeamId}/new`, data, config)
         
               .then(function (response) {
                 addNotification('create-event-success');

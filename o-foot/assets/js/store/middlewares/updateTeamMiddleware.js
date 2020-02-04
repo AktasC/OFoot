@@ -31,7 +31,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         team_name: teamNameValue
       }      
 
-      axios.post(`/api/v1/teams/edit/${teamId}`, data, config)
+      axios.post(`https://ofoot.club/api/v1/teams/edit/${teamId}`, data, config)
 
       .then(function (response) {
         addNotification('modify-team-success');

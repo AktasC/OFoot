@@ -12,7 +12,7 @@ const teamMiddleWare = (store) => (next) => (action) => {
     case PLAYERS_INFOS:
       axios({
         method: 'get',
-        url: `/api/v1/teams/${teamId}/players`,
+        url: `https://ofoot.club/api/v1/teams/${teamId}/players`,
         headers: { 'Authorization': `Bearer ${token}` }
       })
 
@@ -30,7 +30,7 @@ const teamMiddleWare = (store) => (next) => (action) => {
       
       axios({
         method: 'post',
-        url: `/api/v1/teams/${teamId}/invite`,
+        url: `https://ofoot.club/api/v1/teams/${teamId}/invite`,
         headers: { 'Authorization': `Bearer ${token}` },
         data: {
           email: action.value,

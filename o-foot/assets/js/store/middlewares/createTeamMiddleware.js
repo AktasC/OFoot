@@ -29,7 +29,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         team_name: teamNameValue
       }      
 
-      axios.post(`/api/v1/teams/user/${userId}/new`, data, config)
+      axios.post(`https://ofoot.club/api/v1/teams/user/${userId}/new`, data, config)
 
       .then(function (response) {
         addNotification('create-team-success');
