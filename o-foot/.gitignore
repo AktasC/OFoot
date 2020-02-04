@@ -23,5 +23,8 @@ yarn.lock
 ###< symfony/webpack-encore-bundle ###
 
 ###> lexik/jwt-authentication-bundle ###
-
 ###< lexik/jwt-authentication-bundle ###
+
+###> php-cs-fixer ###
+.php_cs.cache
+###< php-cs-fixer ### 
