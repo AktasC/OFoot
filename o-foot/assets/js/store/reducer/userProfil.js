@@ -21,7 +21,8 @@ const initialState = {
   export const CHANGE_INPUT = 'CHANGE_INPUT';
   export const NO_SUBMIT = 'NO_SUBMIT'; 
   export const SUBMIT_CHANGE_PASSWORD = 'SUBMIT_CHANGE_PASSWORD'; 
-  export const EMPTY_INPUTS = 'EMPTY_INPUTS'; 
+  export const EMPTY_INPUTS = 'EMPTY_INPUTS';  
+  
 
   // ---- reducer
   const reducer = (state = initialState, action = {}) => {
@@ -143,5 +144,7 @@ const initialState = {
   export const emptyInputs = () => ({
     type: EMPTY_INPUTS,
   })
+
+
    // ---- export
   export default reducer;

@@ -10,6 +10,8 @@ import userProfilMiddleware from './middlewares/userProfilMiddleware';
 import createTeamMiddleware from './middlewares/createTeamMiddleware';
 import teamMiddleWare from './middlewares/teamMiddleware';
 import updateTeamMiddleware from './middlewares/updateTeamMiddleware';
+import addEventMiddleware from './middlewares/addEventMiddleware';
+import eventMiddleWare from './middlewares/eventMiddleware';
 
 // eslint-disable-next-line no-underscore-dangle
 // https://github.com/zalmoxisus/redux-devtools-extension
@@ -25,6 +27,8 @@ const enhancers = composeEnhancers(
    createTeamMiddleware,
    teamMiddleWare,
    updateTeamMiddleware,
+   addEventMiddleware,
+   eventMiddleWare
   ),
 );
 
