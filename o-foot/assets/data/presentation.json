@@ -20,7 +20,7 @@
     {
         "id": 3,
         "name": "Aktas Cebrail",
-        "content": "Né dans une famille de fanatiques du football, j'ai toujours détesté ce sport mais cela n'a pas empêché O'Foot de m'inspirer sur de nombreux plans et à de nombreuses reprises (de volée) !\nDevOps dans l'âme, j'ai pu travailler à la fois en Front-End qu'en Back-End et ai été en charge du CI/CD.\nAujourd'hui O'Foot est bien plus qu'un projet, c'est une famille ❤️ ",
+        "content": "Né dans une famille de fanatiques du football, j'ai toujours détesté ce sport mais cela n'a pas empêché O'Foot de m'inspirer sur de nombreux plans et à de nombreuses reprises (de volée) !\nDevOps dans l'âme, j'ai pu travailler tant en Front-End qu'en Back-End et ai été en charge du CI/CD.\nAujourd'hui O'Foot est bien plus qu'un projet, c'est une famille ❤️ ",
         "image": "img/presentation/Cebrail.jpg",
         "role": "Git Master",
         "langage": "React / Symfony"
