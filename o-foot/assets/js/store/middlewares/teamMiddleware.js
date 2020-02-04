@@ -8,9 +8,8 @@ const teamMiddleWare = (store) => (next) => (action) => {
   const token = localStorage.getItem('token');
   const teamId = store.getState().team.currentTeamId;
 
-  switch (action.type) {
+  switch (action.type) {    
     case PLAYERS_INFOS:
-
       axios({
         method: 'get',
         url: `/api/v1/teams/${teamId}/players`,
@@ -27,29 +26,25 @@ const teamMiddleWare = (store) => (next) => (action) => {
       break;
 
     case INVITE_PLAYER:
-      console.log('coucou depuis middleware:', action.value);
-
-      addNotification('invite-player-success');
-
-      /* const token = localStorage.getItem('token');
-      const teamId = store.getState().team.currentTeamId;
-
+      console.log('coucou depuis middleware:', action.value);           
+      
       axios({
-        method: 'get',
-        url: `/api/v1/teams/${teamId}/players`,
-        headers: { 'Authorization': `Bearer ${token}` }
+        method: 'post',
+        url: `/api/v1/teams/${teamId}/invite`,
+        headers: { 'Authorization': `Bearer ${token}` },
+        data: {
+          email: action.value,
+        }     
       })
-
-      .then(function (response) {
-        const actionupdatePlayersList = updatePlayersList(response.data);
-        store.dispatch(actionupdatePlayersList);
+      
+      .then(function (response) {        
+        addNotification('invite-player-success'); 
       })
       .catch(function (error) {
         console.log("error from appel appel axios:", error);
-      });
-      */
+      });         
       break;
-
+ 
     default:
       // par défaut, je laisse passer l'action
       next(action);

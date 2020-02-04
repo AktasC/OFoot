@@ -16,9 +16,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         teamAddressValue,
         teamStadiumValue,    
         teamCityValue,    
-      } = store.getState().team;
-
-      
+      } = store.getState().team;      
 
       let config = {        
         headers: { 'Authorization': `Bearer ${token}` }        
