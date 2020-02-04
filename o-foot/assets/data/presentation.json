@@ -20,7 +20,7 @@
     {
         "id": 3,
         "name": "Aktas Cebrail",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "content": "Né dans une famille de fanatiques du football, j'ai toujours détesté ce sport mais cela n'a pas empêché O'Foot de m'inspirer sur de nombreux plans et à de nombreuses reprises (de volée) !\nDevOps dans l'âme, j'ai pu travailler à la fois en Front-End qu'en Back-End et ai été en charge du CI/CD.\nAujourd'hui O'Foot est bien plus qu'un projet, c'est une famille ❤️ ",
         "image": "img/presentation/Cebrail.jpg",
         "role": "Git Master",
         "langage": "React / Symfony"
