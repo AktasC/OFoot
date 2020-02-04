@@ -31,7 +31,7 @@ security:
             anonymous: true
             
         mailer:
-            pattern: ^/api/v1/teams/rejoin/
+            pattern: ^/api/v1/teams/join/
             stateless: true
             anonymous: true
 
@@ -51,7 +51,7 @@ security:
                 path: app_logout
 
     access_control:
-        - { path: ^/api/v1/teams/rejoin/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/v1/teams/join/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/login_check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
