@@ -5,7 +5,7 @@
     "title": "Créer son équipe",
     "classColor": "lighten",
     "classPosition": "right",
-    "content": "Via l'application O'Foot, il est possible de créer sa propre équipe de football. Pour cela, rien de plus simple. Créer votre compte utilisateur en renseignant vos informations personnelles, connectez-vous et accédez à votre dashboard utilisateur. Grâce à une interface simple et fonctionnelle, il suffit de cliquez sur créer une équipe et le tout est joué. Alors, qu'attendez-vous ?",
+    "content": "Via l'application O'Foot, il est possible de créer sa propre équipe de football. Pour cela, rien de plus simple. Créer votre compte utilisateur en renseignant vos informations personnelles, connectez-vous et accédez à votre dashboard utilisateur. Grâce à une interface simple et fonctionnelle, il suffit de cliquer sur créer une équipe et le tour est joué. Alors, qu'attendez-vous ?",
     "img": "/img/fonctionnalities/creation-equipe.png"
   },
   {
@@ -32,7 +32,7 @@
     "title": "Gérer les stats",
     "classColor": "darken",
     "classPosition": "left",
-    "content": "Dans l’application O’Foot, il est possible de renseigner le score de chaque match mais aussi les statistiques des joueurs : le nombre de buts marqués, concédés, les buteurs, nombre de cartons… afin d’améliorer le suivi de la saison et analyser les résultats. Une fois le score et les statistiques renseignés, vous pouvez vous rendre directement dans l’espace statistiques et visualiser l’ensemble des données globales de l'équipes mais également par joueurs. Idéal pour une analyse complète de la saison.",
+    "content": "Dans l’application O’Foot, il est possible de renseigner le score de chaque match mais aussi les statistiques des joueurs : le nombre de buts marqués, concédés, les buteurs, nombre de cartons… afin d’améliorer le suivi de la saison et analyser les résultats. Une fois le score et les statistiques renseignés, vous pouvez vous rendre directement dans l’espace statistiques et visualiser l’ensemble des données globales de l'équipe mais également par joueur. Idéal pour une analyse complète de la saison.",
     "img": "/img/fonctionnalities/stats.png"
   }
 ]
