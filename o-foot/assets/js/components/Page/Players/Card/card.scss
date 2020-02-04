@@ -1,0 +1,97 @@
+#card {
+  font-family: Poppins;
+   
+  & .sweatband {
+  padding: 2em;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.7)), url(/img/player_card/player.jpg);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 2em;
+  color: white;
+  text-align: center;
+  }
+
+  & .row {
+    margin: 3em 0;
+  }
+
+  & .avatar-custom {
+    object-fit: cover;
+  }
+
+  & .sb-avatar {
+    box-shadow: 1px 1px 10px #c1c1c1;
+  }
+
+  & .left-part {
+    position: relative; 
+    z-index: 1;   
+    display: flex;
+  }
+
+  & .inline-infos {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  & .number-jersey { 
+    position: absolute;
+    display: flex;
+    align-items: center;
+    font-size: 11em;
+    font-weight: 900;
+    font-family: Poppins;
+    color: rgba(239, 108, 0, 0.25);
+    left: 120px;
+    z-index: -1;    
+  }
+
+  & .player-name {
+    font-size: 1.3em;
+    font-weight: 900;
+  }
+
+  & .stats {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  & .stats-line{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 1.5em 0;
+  }
+
+  & .stats-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & .stats-icons {
+    width: 30px;
+  }
+
+  & .jersey-icons {
+    width: 20px;
+  }
+
+  & .stats-value {  
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: .5em;
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+  #card {
+    .inline-infos {
+      margin-bottom: 5em;
+    }
+  }
+}
