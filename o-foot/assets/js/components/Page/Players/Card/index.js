@@ -36,21 +36,37 @@ const Card = ({ playerId, playersList }) => {
             </div>
           </Col>
           <Col lg={6} md={12} sm={12} xs={12} className="stats">
-            <div className="stats-block goals">
-              <img className="stats-icons" src="/img/player_card/stats/goal.svg" alt="scoring goal" />
-              <div className="stats-value">{playerInfo.goal_player}</div>
+            <div className="stats-line">
+              <div className="stats-block goals">
+                <img className="stats-icons" src="/img/player_card/stats/goal.svg" alt="scoring goal" />
+                <div className="stats-value">{playerInfo.goal_player}</div>
+              </div>
+              <div className="stats-block assists">
+                <img className="stats-icons" src="/img/player_card/stats/boot.svg" alt="assist goal" />
+                <div className="stats-value">{playerInfo.assist_player}</div>              
+              </div>
+              <div className="stats-block yellow-card">
+                <img className="stats-icons" src="/img/player_card/stats/yellow.svg" alt="yellow card" />
+                <div className="stats-value">{playerInfo.yellow_card_player}</div>              
+              </div>
+              <div className="stats-block red-card">
+                <img className="stats-icons" src="/img/player_card/stats/red.svg" alt="red card" />
+                <div className="stats-value">{playerInfo.red_card_player}</div>              
+              </div>
             </div>
-            <div className="stats-block assists">
-              <img className="stats-icons" src="/img/player_card/stats/boot.svg" alt="assist goal" />
-              <div className="stats-value">{playerInfo.assist_player}</div>              
-            </div>
-            <div className="stats-block yellow-card">
-              <img className="stats-icons" src="/img/player_card/stats/yellow.svg" alt="yellow card" />
-              <div className="stats-value">{playerInfo.yellow_card_player}</div>              
-            </div>
-            <div className="stats-block red-card">
-              <img className="stats-icons" src="/img/player_card/stats/red.svg" alt="red card" />
-              <div className="stats-value">{playerInfo.red_card_player}</div>              
+            <div className="stats-line">
+              <div className="stats-block victory">
+                <div>Vict</div>
+                <div className="stats-value">{playerInfo.victory_player}</div>
+              </div>
+              <div className="stats-block draw">
+                <div>Nuls</div>
+                <div className="stats-value">{playerInfo.draw_player}</div>              
+              </div>
+              <div className="stats-block defeat">
+                <div>Déf.</div>
+                <div className="stats-value">{playerInfo.defeat_player}</div>              
+              </div>              
             </div>
           </Col>
         </Row>
