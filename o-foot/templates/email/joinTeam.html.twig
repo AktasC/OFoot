@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>
+        {% block title %}{{ email.subject }}{% endblock %}
+    </title>
+    {% block stylesheets %}
+   
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+    <div class="container">
+
+        <div class="content">
+            <h1 class="text-center">Invitation à rejoindre l'équipe!</h1>
+
+            <p class="block">
+                Salut {{ user.first_name}}.
+            </p>
+            <p class="block">
+                Tu es invité à rejoindre : {{team.teamName}}.
+            </p>
+
+            <div>
+                <p class="block">
+                    Voici un petit récapitulatif de cette équipe :
+                    <p>
+                        <ul>
+                            <li>
+                                Ville: {{team.cityTeam}}
+                            </li>
+                            <li>
+                                Adresse: {{ team.addressTeam}}
+                            </li>
+                            <li>
+                                Stade: {{team.stadiumTeam}}
+                            </li>
+                        </ul>
+            </div>
+
+            <div class="block">
+                <a href="{{ path('api_v1_teams_join_team', {'user_id': user.id ,'team_id': team.id }) }}">Clique sur ce lien pour rejoindre l'équipe</a>
+            </div>
+
+            <div class="footer">
+                <p class="block">
+                    L'équipe
+                    <em>O'Foot</em>
+                </p>
+            </div>
+
+        </div>
+    {% endblock %}
+</body>
+
+</html>

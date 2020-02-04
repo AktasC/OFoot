@@ -9,38 +9,34 @@ class UserEdit extends React.Component {
 
   constructor(props) {
     super (props); 
+    this.state= {
+      firstname: this.props.firstname,
+      lastname: this.props.lastname,
+      email: this.props.email,
+    };
   }
 
+  onSubmit = (event) => {
+    event.preventDefault();  
+    this.props.onSubmitUpdateUserInfos(this.state);
+    } 
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
 
   render() {
 
-    const { pictureuser, firstname, lastname, email, handleSubmit, handleEmailChange, handleNameChange, handleAvatarChange, handleLastNameChange } = this.props; 
+    const { firstname, lastname, email  } = this.state; 
+    const { first_name, last_name, mail, errorsUserEdit, noSubmit } = this.props;
 
-    const onSubmit = (evt) => {
-      evt.preventDefault();
-      handleSubmit();
-    }
-  
-    const onChangeAvatar = (evt) => {
-      handleAvatarChange(evt.target.value); 
-    }
-  
-    const onChangeFirstname = (evt) => {
-      handleNameChange(evt.target.value); 
-    }
-  
-    const onChangeLastname = (evt) => {
-      handleLastNameChange(evt.target.value); 
-    }
-  
-    const onChangeEmail = (evt) => {
-      handleEmailChange(evt.target.value); 
-    }
   
     return (
       <div id="userEdit">
   
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={this.onSubmit}>
       
           <Row className="editUserInputs">
             <Col className="colUserEdit">
@@ -49,7 +45,7 @@ class UserEdit extends React.Component {
                   className="editUserInput"
                   type="file"
                   name="picture_user"
-                  onChange={onChangeAvatar}
+                  onChange={this.handleChange}
                 />
             </Col>
       
@@ -58,18 +54,20 @@ class UserEdit extends React.Component {
                 <Form.Control
                   className="editUserInput"
                   type="text"
-                  name="first_name"
+                  name="firstname"
                   value={firstname}
-                  onChange={onChangeFirstname}
+                  placeholder={first_name}
+                  onChange={this.handleChange}
                 />
               
               <Form.Label>Modifier le nom de famille</Form.Label>
                 <Form.Control
                   className="editUserInput"
                   type="text"
-                  name="last_name"
+                  name="lastname"
+                  placeholder={last_name}
                   value={lastname}
-                  onChange={onChangeLastname}
+                  onChange={this.handleChange}
                 />
           
               <Form.Label> Modifier l'adresse email</Form.Label>
@@ -77,9 +75,9 @@ class UserEdit extends React.Component {
                   className="editUserInput"
                   type="email" 
                   name="email" 
-                  placeholder="" 
+                  placeholder={mail} 
                   value={email}
-                  onChange={onChangeEmail}
+                  onChange={this.handleChange}
                />
             </Col>
           </Row>

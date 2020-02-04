@@ -1,35 +1,33 @@
 import { connect } from 'react-redux';
 
-import PasswordEdit from '../../../components/Page/UserProfile/PasswordEdit';
+import PasswordEdit from '~/components/Page/UserProfile/PasswordEdit';
 
-import { changeInput, noSubmitForm, submitChangePassword } from '../../../store/reducer/userProfil';
+import { changeInput, noSubmitForm, submitChangePassword } from '~/store/reducer/userProfil';
 
-const mapStateToProps = (state) => {
-  return { 
-    current_password: state.userProfil.current_password, 
-    new_password: state.userProfil.new_password, 
-    new_password_check: state.userProfil.new_password_check,
-    PasswordValue: state.loginForm.PasswordValue, 
-    errors: state.userProfil.errors,
-  };
-};
+const mapStateToProps = (state) => ({
+  current_password: state.userProfil.current_password,
+  new_password: state.userProfil.new_password,
+  new_password_check: state.userProfil.new_password_check,
+  PasswordValue: state.loginForm.PasswordValue,
+  errors: state.userProfil.errors,
+});
 
 const mapDispatchToProps = (dispatch) => ({
 
-    handleChangeValue: (value, name) => {
-      const action = changeInput(value, name); 
-      dispatch(action); 
-    },
+  handleChangeValue: (value, name) => {
+    const action = changeInput(value, name);
+    dispatch(action);
+  },
 
-    noSubmit: (value) => {
-        const action = noSubmitForm(value); 
-        dispatch(action); 
-    },
+  noSubmit: (value) => {
+    const action = noSubmitForm(value);
+    dispatch(action);
+  },
 
-    submitForm: (value) => {
-        const action = submitChangePassword(value);
-        dispatch(action); 
-    }
+  submitForm: (value) => {
+    const action = submitChangePassword(value);
+    dispatch(action);
+  },
 
 });
 

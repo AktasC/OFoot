@@ -1,5 +1,6 @@
 // == Import : npm
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Col, Row, Container } from 'react-bootstrap';
 
 import TeamInfosCard from './TeamInfosCard';
@@ -10,49 +11,53 @@ import './team-dashboard.scss';
 
 import teamData from './team.json';
 
-const TeamDashboard = ( teamInformations ) => { 
+const TeamDashboard = (teamInformations) => {
+  console.log(teamInformations);
 
   /* console.log("from TeamDashboard teamInfooooos:", teamInformations.teamInformations); */
-  
+
   return (
-    
-      <div id="teamDashboard">        
 
-        <Container>
-          <div className="sweatband">
-            <h2>DASHBOARD ÉQUIPE</h2>
-          </div>
+    <div id="teamDashboard">
 
-          <Row className="full-dashboard">
-            <Col className="infos-part">
-              <TeamInfosCard teamData={teamInformations.teamInformations}/> 
-            </Col>              
-            <Col className="func-part">
+      <Container>
+        <div className="sweatband">
+          <h2>DASHBOARD ÉQUIPE</h2>
+        </div>
+
+        <Row className="full-dashboard">
+          <Col lg={6} md={12} sm={12} xs={12} className="infos-part">
+            <TeamInfosCard teamData={teamInformations.teamInformations} />
+          </Col>
+          <Col lg={6} md={12} sm={12} xs={12} className="func-part">
+            <NavLink to={`/event/list/${teamInformations.teamInformations.id}`} className="link">
               <Row className="func-part-row calendar">
                 <Col className="func-part-col">
                   <CalendarWidget />
                 </Col>
               </Row>
+            </NavLink>
+            <NavLink to="/players/list" className="link">
               <Row className="func-part-row effectif">
                 <Col className="func-part-col">
                   <div></div>
                 </Col>
               </Row>
-              <Row className="func-part-row statistics">
-                <Col className="func-part-col">
-                  <div className="statistic-players"></div>
-                </Col>
-                <Col className="func-part-col">
+            </NavLink>
+            <Row className="func-part-row statistics">
+              <Col className="func-part-col">
+                <div className="statistic-players"></div>
+              </Col>
+              <Col className="func-part-col">
                 <div className="statistic-team"></div>
-                </Col>
-              </Row>
-            </Col>
-          </Row> 
-        </Container>          
-      </div> 
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   )
 };
 
 // == Export
 export default TeamDashboard;
-

@@ -8,13 +8,18 @@ import './team-card.scss';
 
 
 
-const TeamCard = ({ team }) => { 
+const TeamCard = ({ team, handleUpdateCurrentTeamId }) => { 
 
   const {
     logo_team,
     team_name,
     id
   } = team;
+
+  const updateTeamId = () => {
+    console.log("je met à jour", id)
+    handleUpdateCurrentTeamId(id);
+  }
 
   return (
     <div id="teamInfosCard">
@@ -23,7 +28,7 @@ const TeamCard = ({ team }) => {
       <h5>{team_name}</h5>
       
       <NavLink to={`/team/${id}`} className="link">
-        <Button>Accéder au Dashboard Équipe</Button>
+        <Button onClick={updateTeamId} >Accéder au Dashboard Équipe</Button>
       </NavLink>
           
     </div>

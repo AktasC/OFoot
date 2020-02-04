@@ -10,7 +10,7 @@ export const addNotification = ( status ) => {
     case 'register-success':
       store.addNotification({
         title: 'Félicitation !',
-        message: 'Votre inscription à bien été prise en compte, veuillez vous connecter maintenant',
+        message: 'Votre inscription a bien été prise en compte, bienvenue chez O\'Foot !',
         type: 'success',                         // 'default', 'success', 'info', 'warning'
         container: 'bottom-left',
         animationIn: ["animated", "fadeIn"],     // animate.css classes
@@ -23,8 +23,8 @@ export const addNotification = ( status ) => {
       break; 
     case 'register-error': 
       store.addNotification({
-        title: 'Votre attention svp !',
-        message: 'Hum, nous avons rencontré un problème, Veuillez réessayer',
+        title: 'Votre attention s\'il vous plaît !',
+        message: 'Hum, nous avons rencontré un problème.\nVeuillez réessayer',
         type: 'danger',                         // 'default', 'success', 'info', 'warning'
         container: 'bottom-left',
         animationIn: ["animated", "fadeIn"],     // animate.css classes
@@ -37,8 +37,8 @@ export const addNotification = ( status ) => {
       break;
     case 'create-team-success':
       store.addNotification({
-        title: 'Félicitation !',
-        message: 'Votre équipe est crée',
+        title: 'Félicitations !',
+        message: 'Votre équipe a bien été créée !',
         type: 'success',                         // 'default', 'success', 'info', 'warning'
         container: 'bottom-left',
         animationIn: ["animated", "fadeIn"],     // animate.css classes
@@ -49,6 +49,21 @@ export const addNotification = ( status ) => {
         }
       }) 
       break;
+    
+      case 'create-event-success':
+        store.addNotification({
+          title: 'Bien joué !',
+          message: 'Votre événement est bien enregistré !',
+          type: 'success',                         // 'default', 'success', 'info', 'warning'
+          container: 'bottom-left',
+          animationIn: ["animated", "fadeIn"],     // animate.css classes
+          animationOut: ["animated", "fadeOut"],   // animate.css classes
+          dismiss: {
+            duration: 5000,
+            showIcon: true
+          }
+        }) 
+        break;
       
     case 'login-success':
       store.addNotification({
@@ -67,8 +82,8 @@ export const addNotification = ( status ) => {
       
     case 'login-error':
       store.addNotification({
-        title: 'Votre attention svp !',
-        message: 'Vos informations sont incorrectes, veuillez réessayer',
+        title: 'Votre attention s\'il vous plaît !',
+        message: 'Vos informations semblent incorrectes, veuillez réessayer',
         type: 'danger',                         // 'default', 'success', 'info', 'warning'
         container: 'bottom-left',
         animationIn: ["animated", "fadeIn"],     // animate.css classes
@@ -79,11 +94,41 @@ export const addNotification = ( status ) => {
         }
       }) 
       break; 
-    
+      
+    case 'modify-team-success':
+      store.addNotification({
+        title: 'Félicitations Coach !',
+        message: 'Votre équipe a bien été modifiée.\nVous pouvez fermer cette fenêtre.',
+        type: 'success',                         // 'default', 'success', 'info', 'warning'
+        container: 'bottom-left',
+        animationIn: ["animated", "fadeIn"],     // animate.css classes
+        animationOut: ["animated", "fadeOut"],   // animate.css classes
+        dismiss: {
+          duration: 5000,
+          showIcon: true
+        }
+      }) 
+      break;   
+      
+    case 'modify-team-error':
+      store.addNotification({
+        title: 'Votre attention s\'il vous plaît !',
+        message: 'Un problème est survenu, veuillez réessayer',
+        type: 'danger',                         // 'default', 'success', 'info', 'warning'
+        container: 'bottom-left',
+        animationIn: ["animated", "fadeIn"],     // animate.css classes
+        animationOut: ["animated", "fadeOut"],   // animate.css classes
+        dismiss: {
+          duration: 5000,
+          showIcon: true
+        }
+      }) 
+      break; 
+
     case 'change-done':
       store.addNotification({
-        title: 'Bravo !',
-        message: 'Les modifications ont bien été prises en compte',
+        title: 'Félicitations !',
+        message: 'Vos modifications ont bien été prises en compte.',
         type: 'success',                         // 'default', 'success', 'info', 'warning'
         container: 'bottom-left',
         animationIn: ["animated", "fadeIn"],     // animate.css classes
@@ -94,11 +139,11 @@ export const addNotification = ( status ) => {
         }
       }) 
       break; 
-    
+  
     case 'change-not-done':
       store.addNotification({
         title: 'Oups !',
-        message: 'Un problème est survenu, vous pouvez réessayer',
+        message: 'Un problème est survenu, veuillez réessayer.',
         type: 'danger',                         // 'default', 'success', 'info', 'warning'
         container: 'bottom-left',
         animationIn: ["animated", "fadeIn"],     // animate.css classes
@@ -110,11 +155,11 @@ export const addNotification = ( status ) => {
       }) 
       break;
 
-      default:
+    case 'invite-player-success':
       store.addNotification({
-        title: 'Votre attention svp !',
-        message: 'Réessayez, si l\'erreur se répete, contactez un administrateur',
-        type: 'info',                         // 'default', 'success', 'info', 'warning'
+        title: 'Félicitations !',
+        message: 'L\'invitation est bien envoyée à votre joueur.\nVous pouvez fermer cette fenêtre.',
+        type: 'success',                         // 'default', 'success', 'info', 'warning'
         container: 'bottom-left',
         animationIn: ["animated", "fadeIn"],     // animate.css classes
         animationOut: ["animated", "fadeOut"],   // animate.css classes
@@ -123,7 +168,22 @@ export const addNotification = ( status ) => {
           showIcon: true
         }
       }) 
-      break;
+      break; 
+
+    default:
+    store.addNotification({
+      title: 'Votre attention s\'il vous plaît !',
+      message: 'Réessayez, si l\'erreur persiste, contactez un administrateur.',
+      type: 'info',                         // 'default', 'success', 'info', 'warning'
+      container: 'bottom-left',
+      animationIn: ["animated", "fadeIn"],     // animate.css classes
+      animationOut: ["animated", "fadeOut"],   // animate.css classes
+      dismiss: {
+        duration: 3000,
+        showIcon: true
+      }
+    }) 
+    break;
 
   }  
 

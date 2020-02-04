@@ -1,18 +1,18 @@
 import { connect } from 'react-redux';
 
-import { getTeamInfosById } from '../../../../utils/selectors/selectors';
+import { getTeamInfosById } from 'Utils/selectors/selectors';
 
-import TeamDashboard from '../../../components/Page/TeamDashboard';
+import TeamDashboard from '~/components/Page/TeamDashboard';
 
 const mapStateToProps = (state, ownProps) => {
 
   const teamId = ownProps.match.params.teamId;
   const teams = state.userProfil.userInformations['teams'];
 
-  const teamInfosById = getTeamInfosById(teamId, teams);  
-  
-  return { 
-    teamInformations: teamInfosById,   
+  const teamInfosById = getTeamInfosById(teamId, teams);
+
+  return {
+    teamInformations: teamInfosById,
   };
 };
 

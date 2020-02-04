@@ -13,13 +13,15 @@ import './page.scss';
 import { store } from 'react-notifications-component';
 import Home from './Home';
 import Register from './Register';
-import Login from '../../containers/Login';
+import Login from '~/containers/Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
-import UserProfile from '../../containers/UserProfile';
-import TeamDashboard from '../../containers/Page/TeamDashboard';
-import List from './Players/List';
+import UserProfile from '~/containers/UserProfile';
+import TeamDashboard from '~/containers/Page/TeamDashboard';
+import EventList from '~/containers/Page/Calendar/EventList';
+import List from '~/containers/Page/Players/List';
 import Page404 from './Page404';
+
 
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
@@ -27,35 +29,46 @@ import 'animate.css';
 class Page extends React.Component {
 
   constructor(props) {
-    super(props);    
+    super(props);
+    console.log(props);
   }
 
-  componentDidUpdate() {    
+  componentDidUpdate() {
+
     if (this.props.logged == true || this.props.addTeam == true) {
-      this.props.loadUserInfo(); 
-    }    
-  }
+      this.props.loadUserInfo();
+      this.props.loadCalendarTeamInfo();
+    }
+
+    if (this.props.logged == true || this.props.updateData == true) {
+      this.props.loadUserInfo();
+      this.props.loadCalendarTeamInfo();
+      if (this.props.updateData == true) {
+        this.props.handleResetUpdateData();
+      }
+    }
+  };
 
   render() {
 
     const { signupDone, logged, userId } = this.props;
 
-    console.log('from render:', userId);    
-    
+    console.log('from render:', userId);
+
     return (
-      <div id="page">    
+      <div id="page">
 
         <Switch>
-          <Route path={'/team/:teamId'} component={TeamDashboard} />    
-          
+          <Route path={'/team/:teamId'} component={TeamDashboard} />
+          <Route path={'/event/list/:teamId'} component={EventList} />
           <Route exact path={`/user/profile/${userId}`}>
             <UserProfile />
           </Route>
           <Route path='/register'>
-            {signupDone ? <Redirect to="login" /> : <Register />}   
+            {signupDone ? <Redirect to="login" /> : <Register />}
           </Route>
           <Route path='/players/list'>
-            <List />  
+            <List />
           </Route>
           <Route path='/legals-mentions'>
             <LegalsMentions />
@@ -64,18 +77,18 @@ class Page extends React.Component {
             <WhoAreWe />
           </Route>
           <Route exact path='/'>
-            {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Home />}        
+            {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Home />}
           </Route>
           <Route path='/login'>
-            {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Login />} 
+            {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Login />}
           </Route>
           <Route component={Page404} />
         </Switch>
-            
+
       </div>
     );
   }
- 
+
 };
 
 Page.propTypes = {

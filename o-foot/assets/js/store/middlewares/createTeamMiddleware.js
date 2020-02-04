@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { CREATE_TEAM, resetAddTeamInput } from '../reducer/team';
 import { addNotification } from '../addNotification';
-import { addTeam } from '../reducer/user';
+import { updateData } from '../reducer/user';
 
 const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -16,9 +16,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         teamAddressValue,
         teamStadiumValue,    
         teamCityValue,    
-      } = store.getState().team;
-
-      
+      } = store.getState().team;      
 
       let config = {        
         headers: { 'Authorization': `Bearer ${token}` }        
@@ -35,7 +33,7 @@ const registerMiddleware = (store) => (next) => (action) => {
 
       .then(function (response) {
         addNotification('create-team-success');
-        store.dispatch(addTeam());
+        store.dispatch(updateData());
         store.dispatch(resetAddTeamInput());
       })
       .catch(function (error) {
