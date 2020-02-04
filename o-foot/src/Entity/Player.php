@@ -16,6 +16,7 @@ class Player
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("api_v1")
      */
     private $id;
 
@@ -152,9 +153,7 @@ class Player
         $this->practices = new ArrayCollection();
         $this->games = new ArrayCollection();
         $this->created_at = new \DateTime();
-        $this->first_name_player = 'Prénom';
-        $this->last_name_player = 'Nom';
-        $this->number_jersey_player = '1';
+        $this->number_jersey_player = 0;
         $this->role_player = 'Joueur';
     }
 

@@ -3,13 +3,12 @@ const initialState = {
   // la valeur courante de l'input
   teamNameValue: '',
   teamAddressValue: '',
-  teamStadiumValue: '',    
-  teamCityValue: '', 
-  playersList: [],
+  teamStadiumValue: '',
   teamCityValue: '',
+  playersList: [],
   currentTeamId: '',
 };
-  
+
 // --- action types
 
 const CHANGE_INPUT = 'CHANGE_INPUT';
@@ -19,6 +18,8 @@ export const PLAYERS_INFOS = 'PLAYERS_INFOS';
 export const RESET_ADD_TEAM_INPUT = 'RESET_ADD_TEAM_INPUT';
 export const TEAM_INFOS_UPDATE = 'TEAM_INFOS_UPDATE';
 export const UPDATE_PLAYERS_LIST = 'UPDATE_PLAYERS_LIST';
+export const INVITE_PLAYER = 'INVITE_PLAYER';
+
   
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -85,7 +86,12 @@ export const playersInfos = () => ({
 
 export const updatePlayersList = (value) => ({
   type: UPDATE_PLAYERS_LIST,
-  value
+  value,
+});
+
+export const invitePlayer = (value) => ({
+  type: INVITE_PLAYER,
+  value,
 });
 
 // --- export

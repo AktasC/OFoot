@@ -36,7 +36,17 @@ const showMyTeams = ( teams ) => {
     autoplay: true,
     autoplaySpeed: 8000,
     slidesToShow: nbSlideToShow,
-    slidesToScroll: 2, 
+    slidesToScroll: 2,
+    initialSlide: 0,
+    responsive: [      
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
   };  
 
   return (

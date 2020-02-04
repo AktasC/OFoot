@@ -1,23 +1,24 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-<div class="container">
+	<div class="container">
 
-    <div class="row d-flex">
-        <div class="col">
+		<div class="row d-flex">
+			<div class="col">
 
-            <h1 class="text-center">Bienvenue {{ email.toName }}!</h1>
-            
-            <p>
-               
-            <p><code>{{ email.to[0].address }}</code></p>
-            
-            <p>
-                <a href="#">Cliquer ici pour vous valider votre email</a>
-                
-            </p>
-            <p>L’équipe O'Foot</p>
-        </div>
-    </div>
-</div>
+				<h1 class="text-center">Bienvenue
+					{{ email.toName }}!</h1>
+				<p></p>
+				<p>
+					<code>{{ email.to[0].address }}</code>
+				</p>
+
+				<p>
+					<a href="#">Cliquer ici pour vous valider votre email</a>
+
+				</p>
+				<p>L’équipe O'Foot</p>
+			</div>
+		</div>
+	</div>
 {% endblock %}

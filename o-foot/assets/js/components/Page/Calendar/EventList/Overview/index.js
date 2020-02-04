@@ -35,7 +35,7 @@ const Overview = () => (
         <div id="calendarWidget">        
             <Container>
   
-                <Row key="1" className="event-card entrainement">
+                <Row key="2" className="event-card entrainement">
                     <Col className="infos-col">
                         <div className="date">
                             13/02/2020
