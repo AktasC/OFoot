@@ -1,23 +1,21 @@
 #qui-sommes-nous {
-
+    margin: 2em 0;
     display: flex;
     flex-direction: column;
     align-self: center;
     font-family: Poppins;
 
-    & .header {
-        padding: 6em 2em;
-        margin:  0;
-        position: relative;
-    }
+    & .sweatband {
+        padding: 3em;
+        background: linear-gradient( rgba(0, 0, 0, .55), rgba(0, 0, 0, 0.70) ),url('/img/presentation/macron.gif');    
+        background-size: cover;
+        background-position: 0% 20%;
+        margin-bottom: 2em;
+        color: white;
 
-     & .header-h1 {
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: normal;
-        color: #ef6c00;
-        position: relative;
-        margin-bottom: 4em;
+        & h2 {
+            text-transform: uppercase;
+        }
     }
 
      & .header-title {
@@ -29,22 +27,26 @@
         margin-top: 4em;
         margin-bottom: 4em;
         width: 14em;
-        background: #ef6c00;
-        position : absolute;
-        left: 45%;
-        top: 60%;
+        background: #ef6c00;        
     }
 
     & .section {
         margin: 0 auto 2em;
         display: flex;
         flex-wrap: wrap;
-    }
 
-    & .bloc {
-        margin-right: 3em;
-    }
+        & .card {
+            margin: .5em 0;
+            box-shadow: 1px 1px 15px #ccc;
+        }
 
+        & .card-img-top {
+            min-height: 200px;
+            object-fit: cover;
+            border-radius: 2px 2px 0px 0px;
+        }
+    }
+    
     & .title {
         color: #ef6c00;
         text-transform: uppercase;

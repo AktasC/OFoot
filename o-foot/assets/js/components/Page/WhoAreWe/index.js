@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Row, Col, Card} from 'react-bootstrap';
+import {Row, Col, Card, Container} from 'react-bootstrap';
 
 // Import scss
 import './who-are-we.scss';
@@ -11,20 +11,21 @@ import presentation from '~/../data/presentation';
 const WhoAreWe = () => (
 
     <div id="qui-sommes-nous">
-        <header className="header">
-            <h1 className="header-h1">
-                Mas que un projecto
-            </h1>
-            <div className="">
-                <div className="header-title">Créateurs O'Foot</div>
-            </div>
-        </header>
-
-        <div className="section">
-            {presentation.map((func, i) => (            
+        
+        <Container>
+        
+            <div className="sweatband">
+                <h2>PARCE QUE C'EST NOTRE PROJEEEEEET !</h2>
+            </div>                
+            
+            <div className="header-title">Créateurs O'Foot</div>
+                       
+        
+            <div className="section">
                 <Row>
-                    <Col className="bloc">
-                        <Card key={i} style={{ width: '18rem' }}>
+                {presentation.map((func, i) => (
+                    <Col lg={4} md={6} sm={12} xs={12}>
+                        <Card key={i}>
                             <Card.Img className ="img" variant="top" src={func.image} />
                             <Card.Body>
                                 <Card.Title className="title">{func.name}</Card.Title>
@@ -35,11 +36,13 @@ const WhoAreWe = () => (
                                 <Card.Link className="langage" href="#">{func.langage}</Card.Link>
                             </Card.Body>
                         </Card>
-                    </Col>
-                </Row>
-            ))}            
-        </div>
+                    </Col>                    
+                ))}  
+                </Row>          
+            </div>
+        </Container>
     </div>
 );
 
 export default WhoAreWe;
+

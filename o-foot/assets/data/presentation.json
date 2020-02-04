@@ -11,9 +11,9 @@
     {
         "id": 2,
         "name": "Rassicot Mickael",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "content": "Passionné de Football, ce projet s'est imposé à moi ! Lead Dev Front et grand adorateur que Kyky, mon surnom : M'Bickael. \n Fan de Paris de la 1ère heure, je n'ai qu'une chose à dire, \"Vive notre Projet et Ici c'est Paris!!\". Dédicace à mon collègue de promo Jérémy lui aussi grand fan de la meilleure équipe de France !",
         "image": "img/presentation/Mickael.jpg",
-        "role": "Lead Front",
+        "role": "Lead Dev Front",
         "langage": "React"
     },
 
