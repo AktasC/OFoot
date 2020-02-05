@@ -25,7 +25,7 @@ class MailerInvitePlayer
     public function emailInvitePlayer($user, $team)
     {
         $email = (new TemplatedEmail())
-            ->from(new Address('teamOfoot@gmail.com', 'O\'Foot'))
+            ->from(new Address('teamofoot75@gmail.com', 'O\'Foot'))
             ->to(new Address($user['email'], $user['first_name']))
             ->subject('Invitation à rejoindre l\'équipe!')
             ->htmlTemplate('email/joinTeam.html.twig')

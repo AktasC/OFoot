@@ -19,7 +19,7 @@ class MailerRegister
     public function emailRegister(User $user)
     {
         $email = (new TemplatedEmail())
-            ->from(new Address('teamOfoot@gmail.com', 'O\'Foot'))
+            ->from(new Address('teamofoot75@gmail.com', 'O\'Foot'))
             ->to(new Address($user->getUsername(), $user->getFirstName()))
             ->subject('Bienvenue sur O\'foot !')
             ->htmlTemplate('email/welcome.html.twig')
