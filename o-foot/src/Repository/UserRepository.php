@@ -47,6 +47,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ->getQuery()
         ->getResult()
     ;
+    }
 
     public function findRecipients($email)
     {
@@ -57,7 +58,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getQuery();
 
         return $qb->getResult();
-
     }
 
     // /**
