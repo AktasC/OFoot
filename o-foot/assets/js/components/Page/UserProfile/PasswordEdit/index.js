@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 // Import scss
 import './passwordEdit.scss'
 
-const PasswordEdit = ({ current_password, new_password, new_password_check, handleChangeValue, PasswordValue, errors, noSubmit, submitForm }) => {
+const PasswordEdit = ({ current_password, new_password, new_password_check, handleChangeValue, passwordValue, errors, noSubmit, submitForm }) => {
 
   
   const onSubmitForm = (evt) => {
@@ -15,7 +15,7 @@ const PasswordEdit = ({ current_password, new_password, new_password_check, hand
     if(current_password === '' || new_password === '' || new_password_check === '') {
       errors.push('Merci de compléter chacun des champs');
       noSubmit(errors);
-    } else if (current_password != PasswordValue & current_password!='') {
+    } else if (current_password !== passwordValue & current_password!='') {
       errors.push('Le mot de passe n\'est pas valide'); 
       noSubmit(errors);
     } else if (new_password !== new_password_check & new_password!=='' & new_password_check!==''){
