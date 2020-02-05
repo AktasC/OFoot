@@ -11,8 +11,14 @@
     color: white;
   }
 
+  & .user-infos {
+    & .avatar-custom {
+      object-fit: cover;
+    }
+  }
+
   & .avatar-custom {
-    object-fit: cover;
+    object-fit: contain;
   }
 
   & .container {

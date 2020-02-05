@@ -11,6 +11,7 @@ const Card = ({ playerId, playersList }) => {
 
   const playerInfo = getPlayerInfosById(playerId, playersList);
   console.log("Caaard:", playerInfo);
+  console.log(playerInfo.picture_player);
 
   return (
 
