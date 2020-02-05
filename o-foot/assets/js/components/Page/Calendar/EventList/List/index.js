@@ -75,9 +75,9 @@ return (
 
                           {event.opponent_team === undefined 
                           ? 
-                          <div className="detail"> {event.stadium_practice} - {event.adress_practice} </div> 
+                          <div className="detail"> {event.stadium_practice} - {event.address_practice} </div> 
                           : 
-                          <div className="detail"> {event.stadium_game} - {event.adress_game} </div> 
+                          <div className="detail"> {event.stadium_game} - {event.address_game} </div> 
                           }
                     </Col> 
 

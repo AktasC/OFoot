@@ -62,7 +62,7 @@ class AddEvent extends React.Component {
                     <Col>
                       <Form id="addEvent" onSubmit={onSubmit}>
                         <Form.Row className="radios">
-                          <Col className="radio">
+                          <Col className="radio_btn">
                           <Form.Check
                             type='radio'
                             name='type-event'
@@ -82,7 +82,7 @@ class AddEvent extends React.Component {
                           </Col>
 
                           {selectedOption === 'match' && 
-                          <Col className="radio">
+                          <Col className="radio_btn">
                           <Form.Check
                             type='radio'
                             name='match'

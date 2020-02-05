@@ -1,16 +1,16 @@
-#teamCard {
+#teamInfosCard {
   display: flex;
   flex-direction: column;
   align-items: center;
   
-  & .team-thumb {
+  /* & .team-thumb {
     max-width: 100%;
     height: 240px;
     margin: auto;
     object-fit: cover;
-  }
+  } */
 
   & .avatar-custom {
-    object-fit: cover;
+    object-fit: contain;
   }
 }
