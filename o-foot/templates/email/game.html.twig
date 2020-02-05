@@ -14,9 +14,7 @@
 	<body>
 	{% block body %}
 	<div class="container">
-		<div class="header text-center">
-			<img class="logo" src="{{ absolute_url(asset('https://images.unsplash.com/photo-1527871252447-4ce32da643c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80')) }}" alt="coupe-ballon">
-		</div>
+	
 		<div class="content">
 			<h1 class="text-center">Nouveau match!</h1>
 			
@@ -35,7 +33,7 @@
 					- Stade : {{ game.stadiumGame }}
 				</p>
 				<p class="block">
-					- Équipe adversaire : {{ game.opponentTeam }}
+					- Équipe adverse : {{ game.opponentTeam }}
 				</p>
 			</div>
 

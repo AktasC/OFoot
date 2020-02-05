@@ -27,7 +27,7 @@ class MailerGame
         $email = implode($emailUser);
 
         $email = (new TemplatedEmail())
-            ->from(new Address('teamOfoot@gmail.com', 'O\'Foot'))
+            ->from(new Address('teamofoot75@gmail.com', 'O\'Foot'))
             ->to($email)
             ->subject('Invitation au match!')
             ->htmlTemplate('email/game.html.twig')
