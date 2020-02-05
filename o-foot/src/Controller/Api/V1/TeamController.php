@@ -190,9 +190,14 @@ class TeamController extends AbstractController
      */
     public function invitePlayer(MailerInvitePlayer $MailerInvitePlayer, Request $request, SerializerInterface $serializer, Team $team, UserRepository $ur)
     {
+
         $data = $serializer->deserialize($request->getContent(), 'App\Entity\User', 'json');
 
         $userData = $ur->findRecipients($data->getUsername());
+
+        if(empty($userData)){
+            return $this->json('addresse mail non valide');
+        }
 
         $MailerInvitePlayer->dataEmail($userData, $team);
 
@@ -212,7 +217,7 @@ class TeamController extends AbstractController
             ->setTeam($team)
             ->setUser($user)
             ->setFirstNamePlayer($user->getFirstName())
-            ->setLastNamePlayer($user->getLastName);
+            ->setLastNamePlayer($user->getLastName());
 
         $entityManager = $this->getDoctrine()->getManager();
 
