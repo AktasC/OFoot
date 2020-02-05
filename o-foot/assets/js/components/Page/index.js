@@ -10,7 +10,6 @@ import {
 // Import scss
 import './page.scss';
 
-import { store } from 'react-notifications-component';
 import Home from './Home';
 import Register from './Register';
 import Login from '~/containers/Login';
@@ -37,12 +36,10 @@ class Page extends React.Component {
 
     if (this.props.logged == true || this.props.addTeam == true) {
       this.props.loadUserInfo();
-      this.props.loadCalendarTeamInfo();
     }
 
     if (this.props.logged == true || this.props.updateData == true) {
       this.props.loadUserInfo();
-      this.props.loadCalendarTeamInfo();
       if (this.props.updateData == true) {
         this.props.handleResetUpdateData();
       }
