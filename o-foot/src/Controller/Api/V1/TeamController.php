@@ -190,12 +190,11 @@ class TeamController extends AbstractController
      */
     public function invitePlayer(MailerInvitePlayer $MailerInvitePlayer, Request $request, SerializerInterface $serializer, Team $team, UserRepository $ur)
     {
-
         $data = $serializer->deserialize($request->getContent(), 'App\Entity\User', 'json');
 
         $userData = $ur->findRecipients($data->getUsername());
 
-        if(empty($userData)){
+        if (empty($userData)) {
             return $this->json('addresse mail non valide');
         }
 
@@ -205,7 +204,7 @@ class TeamController extends AbstractController
     }
 
     /**
-     *@Route("/join/{user_id}/{team_id}", name="join_team",requirements={"id": "\d+"}, methods={"POST"})
+     *@Route("/join/{user_id}/{team_id}", name="join_team",requirements={"id": "\d+"}, methods={"GET"})
      *@ParamConverter("team", options={"mapping": {"team_id": "id"}})
      *@ParamConverter("user", options={"mapping": {"user_id": "id"}})
      */
@@ -225,6 +224,6 @@ class TeamController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->json('Tu fais partie de cette équipe!');
+        return $this->redirectToRoute('default');
     }
 }
