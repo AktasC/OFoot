@@ -81,11 +81,7 @@ class UserController extends AbstractController
         // On crée une nouvelle variable $data, qui stocke la sérialisation de l'entité User en Json
         $data = $serializer->deserialize($request->getContent(), 'App\Entity\User', 'json');
 
-        // On indique à $user quels champs nous aimerions modifier grâce aux méthodes ->Set récupéré dans l'entité $user
-        // On associe les méthodes get de chaque champs afin de récupérer le champs à modifier
-        // Ici on récupére l'ancien password, on le modifie et on l'encode en BDD
-        $user
-            ->setPassword($encoder->encodePassword($user, $user->getPassword()));
+        $user->setPassword($encoder->encodePassword($user, $data->getPassword()));
 
         // On récupére l'EntityManager
         $entityManager = $this->getDoctrine()->getManager();
