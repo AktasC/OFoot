@@ -4,13 +4,11 @@ import TeamCard from '../../../../components/Page/UserProfile/ShowMyTeams/TeamCa
 
 import { updateCurrentTeamId } from '../../../../store/reducer/team';
 
-const mapStateToProps = (state) => {
-  return {
-  };
-};
+const mapStateToProps = (state) => ({
+});
 
-const mapDispatchToProps = (dispatch) => ({ 
-  handleUpdateCurrentTeamId: (value) => {    
+const mapDispatchToProps = (dispatch) => ({
+  handleUpdateCurrentTeamId: (value) => {
     const action = updateCurrentTeamId(value);
     dispatch(action);
   },

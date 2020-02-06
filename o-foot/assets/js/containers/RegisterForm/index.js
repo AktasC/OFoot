@@ -1,5 +1,12 @@
 import { connect } from 'react-redux';
 
+import {
+  isInputEmpty,
+  isInputEmptyFirstname,
+  checkEmptiness,
+  checkValidity,
+  checkValidityPassword,
+} from 'Utils/validation';
 import RegisterForm from '~/components/Page/Register/RegisterForm';
 
 import {
@@ -16,13 +23,6 @@ import {
   dontRegisterUser,
 } from '~/store/reducer/registerForm';
 
-import {
-  isInputEmpty,
-  isInputEmptyFirstname,
-  checkEmptiness,
-  checkValidity,
-  checkValidityPassword,
-} from 'Utils/validation';
 
 // eslint-disable-next-line arrow-body-style
 const mapStateToProps = (state) => {
@@ -65,8 +65,7 @@ const mapDispatchToProps = (dispatch) => ({
     if (checkEmptiness(errorLastName) === false) {
       const action = LastNameInvalid(errorLastName);
       dispatch(action);
-    }
-    else if (checkEmptiness(errorLastName) === true) {
+    } else if (checkEmptiness(errorLastName) === true) {
       const action = LastNameValid();
       dispatch(action);
     }
@@ -77,8 +76,7 @@ const mapDispatchToProps = (dispatch) => ({
     if (checkEmptiness(errorFirstName) === false) {
       const action = FirstNameInvalid(errorFirstName);
       dispatch(action);
-    }
-    else if (checkEmptiness(errorFirstName) === true) {
+    } else if (checkEmptiness(errorFirstName) === true) {
       const action = FirstNameValid();
       dispatch(action);
     }
@@ -89,8 +87,7 @@ const mapDispatchToProps = (dispatch) => ({
     if (checkEmptiness(errorsEmail) === false) {
       const action = emailRegisterInvalid(errorsEmail);
       dispatch(action);
-    }
-    else if (checkEmptiness(errorsEmail) === true) {
+    } else if (checkEmptiness(errorsEmail) === true) {
       const action = emailRegisterValid();
       dispatch(action);
     }
@@ -101,8 +98,7 @@ const mapDispatchToProps = (dispatch) => ({
     if (checkEmptiness(errorsPassword) === false) {
       const action = PasswordRegisterInvalid(errorsPassword);
       dispatch(action);
-    }
-    else if (checkEmptiness(errorsPassword) === true) {
+    } else if (checkEmptiness(errorsPassword) === true) {
       const action = PasswordRegisterValid();
       dispatch(action);
     }

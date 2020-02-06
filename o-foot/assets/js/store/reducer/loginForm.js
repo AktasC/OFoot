@@ -17,7 +17,7 @@ const VALID_EMAIL = 'VALID_EMAIL';
 const INVALID_PASSWORD = 'INVALID_PASSWORD';
 const VALID_PASSWORD = 'VALID_PASSWORD';
 const DONT_CONNECT_USER = 'DONT_CONNECT_USER';
-const MODIFY_PASSWORD ='MODIFY_PASSWORD';
+const MODIFY_PASSWORD = 'MODIFY_PASSWORD';
 
 // --- Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -66,11 +66,11 @@ const reducer = (state = initialState, action = {}) => {
         emailValidCheck: false,
       };
 
-    case MODIFY_PASSWORD: 
+    case MODIFY_PASSWORD:
       return {
-        ...state, 
-        PasswordValue : action.value, 
-      }
+        ...state,
+        PasswordValue: action.value,
+      };
 
 
     default: return state;
@@ -118,8 +118,8 @@ export const dontConnectUser = () => ({
 
 export const modifyPassword = (value) => ({
   type: MODIFY_PASSWORD,
-  value, 
-})
+  value,
+});
 
 // --- export
 export default reducer;

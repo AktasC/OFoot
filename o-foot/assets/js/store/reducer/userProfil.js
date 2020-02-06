@@ -48,8 +48,8 @@ const reducer = (state = initialState, action = {}) => {
     default: return state;
   }
 };
-  
-  export const userProfilInfo = () => ({
+
+export const userProfilInfo = () => ({
   type: USER_PROFIL_INFO,
 });
 

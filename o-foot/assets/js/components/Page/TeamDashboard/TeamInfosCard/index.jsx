@@ -9,28 +9,26 @@ import TeamInfosEditForm from '../../../../containers/Page/TeamDashboard/TeamInf
 import './team-infos-card.scss';
 
 class TeamInfosCard extends React.Component {
-
   constructor(props) {
     super(props);
     console.log(props);
 
     this.state = {
-      show: false
+      show: false,
     };
   }
 
   render() {
-
     const handleClose = () => {
       this.setState({
-        show: false
+        show: false,
       });
-    }
+    };
     const handleShow = () => {
       this.setState({
         show: true,
       });
-    }
+    };
 
     const {
       logo_team,
@@ -38,8 +36,8 @@ class TeamInfosCard extends React.Component {
       championship_team,
       stadium_team,
       address_team,
-      city_team
-    } = this.props.teamData
+      city_team,
+    } = this.props.teamData;
 
     return (
       <div id="teamInfosCard">
@@ -49,7 +47,7 @@ class TeamInfosCard extends React.Component {
         </div>
 
         <div className="card-header">
-          <Avatar className="avatar-custom" src={logo_team} size="100" round={true} />
+          <Avatar className="avatar-custom" src={logo_team} size="100" round />
           <div className="card-header-title">
             <h4>{team_name}</h4>
             <p>{championship_team}</p>
@@ -78,14 +76,14 @@ class TeamInfosCard extends React.Component {
             </Col>
 
           </Modal.Body>
-          <Modal.Footer>            
+          <Modal.Footer>
             <Button className="custom-btn" onClick={handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
 
       </div>
-    )
+    );
   }
-};
+}
 
 export default TeamInfosCard;

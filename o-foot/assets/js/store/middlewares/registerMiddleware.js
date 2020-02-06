@@ -9,7 +9,7 @@ import { addNotification } from '../addNotification';
 
 const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case REGISTER_USER:
+    case REGISTER_USER: {
       const {
         inputLastnameValue,
         inputFirstnameValue,
@@ -55,10 +55,12 @@ const registerMiddleware = (store) => (next) => (action) => {
           addNotification('register-error');
         });
       break;
+    }
 
-    default:
+    default: {
       // par défaut, je laisse passer l'action
       next(action);
+    }
   }
 };
 

@@ -207,7 +207,7 @@ export const emailRegisterInvalid = (value) => ({
   value,
 });
 
-export const emailRegisterValid = (value) => ({
+export const emailRegisterValid = () => ({
   type: VALID_EMAIL,
 });
 

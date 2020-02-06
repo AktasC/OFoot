@@ -25,15 +25,11 @@ const eventMiddleWare = (store) => (next) => (action) => {
           // modification key date_time_game/practice
           const objectRenameKeys = require('object-rename-keys');
 
-          const changes = {
-	        date_time_game: 'date_time',
-          };
+          const changes = { date_time_game: 'date_time' };
 
           const eventDataGamesRename = objectRenameKeys(eventDataGames, changes);
 
-          const changesPractice = {
-        	date_time_practice: 'date_time',
-          };
+          const changesPractice = { date_time_practice: 'date_time' };
 
           const eventDataPracticesRename = objectRenameKeys(eventDataPractices, changesPractice);
 

@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import EventList from '~/components/Page/Calendar/EventList';
 
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        eventData: state.calendar.teamCalendarInformations,
-      };    
-};
+const mapStateToProps = (state, ownProps) => ({
+  eventData: state.calendar.teamCalendarInformations,
+});
 
 const mapDispatchToProps = (dispatch) => ({
 

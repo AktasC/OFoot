@@ -14,8 +14,7 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
   const userId = localStorage.getItem('userId');
 
   switch (action.type) {
-    case USER_PROFIL_INFO:
-
+    case USER_PROFIL_INFO: {
       axios({
         method: 'get',
         url: `/api/v1/users/${userId}`,
@@ -31,9 +30,8 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
           console.log('error from appel appel axios:', error);
         });
       break;
-
-    case USER_INFOS_UPDATE:
-
+    }
+    case USER_INFOS_UPDATE: {
       // eslint-disable-next-line no-case-declarations
       const {
         firstname,
@@ -61,9 +59,8 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
           addNotification('change-not-done');
         });
       break;
-
-    case SUBMIT_CHANGE_PASSWORD:
-
+    }
+    case SUBMIT_CHANGE_PASSWORD: {
       const {
         new_password,
       } = store.getState().userProfil;
@@ -87,6 +84,7 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
           store.dispatch(emptyInputs());
         });
       break;
+    }
 
     default:
       // par défaut, je laisse passer l'action
