@@ -49,8 +49,6 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
           first_name: firstname,
           email,
           last_name: lastname,
-          picture_user: null,
-          birthdate: null,
         },
       })
 
