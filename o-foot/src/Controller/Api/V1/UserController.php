@@ -38,13 +38,27 @@ class UserController extends AbstractController
 
         // On indique à $user quels champs nous aimerions modifier grâce aux méthodes ->Set récupéré dans l'entité $user
         // On associe les méthodes get de chaque champs afin de récupérer le champs à modifier
-        $user
-            ->setFirstName($data->getFirstName())
-            ->setLastName($data->getLastName())
-            ->setEmail($data->getEmail())
-            ->setBirthdate($data->getBirthdate())
-            // ->setPictureUser($data->getPictureUser())
-            ->setUpdatedAt(new \DateTime());
+        if ($data->getFirstName()) {
+            $user->setFirstName($data->getFirstname());
+        }
+
+        if ($data->getLastName()) {
+            $user->setLastName($data->getLastname());
+        }
+
+        if ($data->getEmail()) {
+            $user->setEmail($data->getEmail());
+        }
+
+        if ($data->getBirthDate()) {
+            $user->setBirthdate($data->getBirthDate());
+        }
+
+        if ($data->getPictureUser()) {
+            $user->setPictureUser($data->getPictureUser());
+        }
+
+        $user->setUpdatedAt(new \DateTime());
 
         // On récupére l'EntityManager
         $entityManager = $this->getDoctrine()->getManager();
@@ -56,7 +70,7 @@ class UserController extends AbstractController
         $entityManager->flush();
 
         // On retourne $user au format JSON
-        return $this->json('Profil utilisateur mis à jour avec succés');
+        return $this->json('User profile edited successfully.');
     }
 
     /**
