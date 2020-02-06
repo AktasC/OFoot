@@ -221,6 +221,7 @@ class TeamController extends AbstractController
 
         $entityManager = $this->getDoctrine()->getManager();
 
+        $entityManager->persist($user);
         $entityManager->persist($player);
 
         $entityManager->flush();
