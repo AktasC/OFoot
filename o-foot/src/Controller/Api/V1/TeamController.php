@@ -217,6 +217,7 @@ class TeamController extends AbstractController
             ->setUser($user)
             ->setFirstNamePlayer($user->getFirstName())
             ->setLastNamePlayer($user->getLastName());
+        $user->addTeam($team);
 
         $entityManager = $this->getDoctrine()->getManager();
 
