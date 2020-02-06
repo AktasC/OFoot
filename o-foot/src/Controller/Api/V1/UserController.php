@@ -43,7 +43,7 @@ class UserController extends AbstractController
             ->setLastName($data->getLastName())
             ->setEmail($data->getEmail())
             ->setBirthdate($data->getBirthdate())
-            ->setPictureUser($data->getPictureUser())
+            // ->setPictureUser($data->getPictureUser())
             ->setUpdatedAt(new \DateTime());
 
         // On récupére l'EntityManager
