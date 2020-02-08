@@ -53,8 +53,7 @@ const RegisterForm = ({
     evt.preventDefault();
     if (inputEmailValue === '' && inputPasswordValue === '' && inputLastnameValue === '' && inputFirstnameValue === '') {
       emptyInputsRegister();
-    }
-    else if (EmailRegisterValidCheck === true && PasswordRegisterValidCheck === true && LastnameValidCheck === true && FirstnameValidCheck === true) {
+    } else if (EmailRegisterValidCheck === true && PasswordRegisterValidCheck === true && LastnameValidCheck === true && FirstnameValidCheck === true) {
       submitFormRegister();
     }
   };
@@ -115,7 +114,7 @@ const RegisterForm = ({
               name="password"
               placeholder="Mot de Passe"
             />
-          
+
             {!PasswordRegisterValidCheck && <div>{ErrorMessageInvalidPasswordRegister.password}</div>}
           </Col>
         </Form.Row>

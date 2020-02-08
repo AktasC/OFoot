@@ -1,13 +1,11 @@
 import { connect } from 'react-redux';
 
-import TeamInfosEditForm from '../../../../../components/Page/TeamDashboard/TeamInfosCard/TeamInfosEditForm';
+import TeamInfosEditForm from '~/components/Page/TeamDashboard/TeamInfosCard/TeamInfosEditForm';
 
-import { teamInfosUpdate } from '../../../../../store/reducer/team';
+import { teamInfosUpdate } from '~/store/reducer/team';
 
-const mapStateToProps = (state) => {  
-  return { 
-  };
-};
+const mapStateToProps = (state) => ({
+});
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmitUpdateTeamInfos: (value) => {

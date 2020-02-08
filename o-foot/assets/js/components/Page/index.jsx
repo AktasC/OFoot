@@ -26,14 +26,12 @@ import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 
 class Page extends React.Component {
-
   constructor(props) {
     super(props);
     console.log(props);
   }
 
   componentDidUpdate() {
-
     if (this.props.logged == true || this.props.addTeam == true) {
       this.props.loadUserInfo();
     }
@@ -44,10 +42,9 @@ class Page extends React.Component {
         this.props.handleResetUpdateData();
       }
     }
-  };
+  }
 
   render() {
-
     const { signupDone, logged, userId } = this.props;
 
     console.log('from render:', userId);
@@ -56,27 +53,27 @@ class Page extends React.Component {
       <div id="page">
 
         <Switch>
-          <Route path={'/team/:teamId'} component={TeamDashboard} />
-          <Route path={'/event/list/:teamId'} component={EventList} />
+          <Route path="/team/:teamId" component={TeamDashboard} />
+          <Route path="/event/list/:teamId" component={EventList} />
           <Route exact path={`/user/profile/${userId}`}>
             <UserProfile />
           </Route>
-          <Route path='/register'>
+          <Route path="/register">
             {signupDone ? <Redirect to="login" /> : <Register />}
           </Route>
-          <Route path='/players/list'>
+          <Route path="/players/list">
             <List />
           </Route>
-          <Route path='/legals-mentions'>
+          <Route path="/legals-mentions">
             <LegalsMentions />
           </Route>
-          <Route path='/who-are-we'>
+          <Route path="/who-are-we">
             <WhoAreWe />
           </Route>
-          <Route exact path='/'>
+          <Route exact path="/">
             {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Home />}
           </Route>
-          <Route path='/login'>
+          <Route path="/login">
             {logged ? <Redirect to={`/user/profile/${userId}`} /> : <Login />}
           </Route>
           <Route component={Page404} />
@@ -85,8 +82,7 @@ class Page extends React.Component {
       </div>
     );
   }
-
-};
+}
 
 Page.propTypes = {
   logged: PropTypes.bool,

@@ -11,40 +11,42 @@ const registerMiddleware = (store) => (next) => (action) => {
       console.log(action);
 
       const token = localStorage.getItem('token');
-      const teamId = store.getState().team.currentTeamId;    
-           
+      const teamId = store.getState().team.currentTeamId;
+
       const {
         teamNameValue,
         teamAddressValue,
-        teamStadiumValue,    
-        teamCityValue,    
-      } = action.value;      
+        teamStadiumValue,
+        teamCityValue,
+      } = action.value;
 
-      let config = {        
-        headers: { 'Authorization': `Bearer ${token}` }        
-      }
+      const config = {
+        headers: { Authorization: `Bearer ${token}` },
+      };
 
-      let data = {        
-        address_team: teamAddressValue, 
-        city_team: teamCityValue,           
-        stadium_team: teamStadiumValue, 
-        team_name: teamNameValue
-      }      
+      const data = {
+        address_team: teamAddressValue,
+        city_team: teamCityValue,
+        stadium_team: teamStadiumValue,
+        team_name: teamNameValue,
+      };
 
       axios.post(`/api/v1/teams/edit/${teamId}`, data, config)
 
-      .then(function (response) {
-        addNotification('modify-team-success');
-        store.dispatch(updateData());        
-      })
-      .catch(function (error) {
-        addNotification('modify-team-error')
-      }); 
+        .then((response) => {
+          addNotification('modify-team-success');
+          store.dispatch(updateData());
+        })
+        .catch((error) => {
+          addNotification('modify-team-error');
+        });
+      break;
     }
 
-    default:
+    default: {
       // par défaut, je laisse passer l'action
       next(action);
+    }
   }
 };
 

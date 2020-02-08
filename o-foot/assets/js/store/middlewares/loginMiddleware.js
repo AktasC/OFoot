@@ -5,7 +5,7 @@ import { addNotification } from '../addNotification';
 
 const loginMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case CONNECT_USER:
+    case CONNECT_USER: {
       const {
         emailValue,
         passwordValue,
@@ -46,9 +46,10 @@ const loginMiddleware = (store) => (next) => (action) => {
         });
 
       break;
-
-    default:
+    }
+    default: {
       next(action);
+    }
   }
 };
 

@@ -17,7 +17,7 @@ const reducer = combineReducers({
   userProfil,
   team,
   calendar,
-  event
+  event,
 });
 
 export default reducer;

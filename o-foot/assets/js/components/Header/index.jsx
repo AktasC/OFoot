@@ -11,25 +11,25 @@ import './header.scss';
 
 
 const Header = ({ logged, disconnect }) => {
-
   const disconnectionRequested = () => {
     disconnect();
   };
-  
-  return(
 
-  <Navbar id="header" collapseOnSelect expand="lg" fixed="top">
-    
-    <NavLink to="/" className="link">
-      <Navbar.Brand className="header-title">
-        <img src="https://image.flaticon.com/icons/svg/861/861512.svg" alt="Logo" />
+  return (
+
+    <Navbar id="header" collapseOnSelect expand="lg" fixed="top">
+
+      <NavLink to="/" className="link">
+        <Navbar.Brand className="header-title">
+          <img src="https://image.flaticon.com/icons/svg/861/861512.svg" alt="Logo" />
           O'FOOT
-      </Navbar.Brand>
-    </NavLink>
+        </Navbar.Brand>
+      </NavLink>
 
-    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
-    {!logged && 
+      {!logged
+    && (
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="mr-auto" />
       <Nav>
@@ -43,9 +43,10 @@ const Header = ({ logged, disconnect }) => {
         </NavDropdown>
       </Nav>
     </Navbar.Collapse>
-    }
+    )}
 
-    {logged && 
+      {logged
+    && (
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="mr-auto" />
       <Nav>
@@ -59,16 +60,16 @@ const Header = ({ logged, disconnect }) => {
         </NavDropdown>
       </Nav>
     </Navbar.Collapse>
-    }
-  </Navbar>
+    )}
+    </Navbar>
 
-);
-}
+  );
+};
 
 export default Header;
 
 
 Header.propTypes = {
-  logged: PropTypes.bool, 
-  disconnect: PropTypes.func.isRequired
+  logged: PropTypes.bool,
+  disconnect: PropTypes.func.isRequired,
 };

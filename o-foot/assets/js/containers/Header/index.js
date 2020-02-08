@@ -4,15 +4,13 @@ import Header from '~/components/Header';
 
 import { disconnectUser } from '~/store/reducer/user';
 
-const mapStateToProps = (state) => {
-  return {
-    logged: state.user.logged,
-  };
-};
+const mapStateToProps = (state) => ({
+  logged: state.user.logged,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   disconnect: () => {
-    console.log('deco en cours');    
+    console.log('deco en cours');
     const action = disconnectUser();
     dispatch(action);
   },
