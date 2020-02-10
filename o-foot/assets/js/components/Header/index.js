@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
-  Nav, Navbar, NavDropdown,
+  Nav, Navbar, NavDropdown, Button,
 } from 'react-bootstrap';
 import { FaUserCog } from 'react-icons/fa';
 import { IoIosMenu } from 'react-icons/io';
@@ -13,10 +13,12 @@ import { IoIosMenu } from 'react-icons/io';
 import './header.scss';
 
 
-const Header = ({ logged, disconnect }) => {
+const Header = ({ logged, disconnect, currentTeamId }) => {
   const disconnectionRequested = () => {
     disconnect();
   };
+
+  const location = useLocation();
 
   return (
 
@@ -28,6 +30,15 @@ const Header = ({ logged, disconnect }) => {
           O'FOOT
         </Navbar.Brand>
       </NavLink>
+
+      { (location.pathname.indexOf('event') !== -1 || location.pathname.indexOf('players') !== -1)
+    && (
+      <>
+        <NavLink to={`/team/${currentTeamId}`}>
+          <Button> Retour au dashboard </Button>
+        </NavLink>
+      </>
+    )}
 
 
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -78,4 +89,5 @@ export default Header;
 Header.propTypes = {
   logged: PropTypes.bool,
   disconnect: PropTypes.func.isRequired,
+  currentTeamId: PropTypes.string,
 };

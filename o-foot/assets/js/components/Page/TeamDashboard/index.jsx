@@ -40,7 +40,7 @@ class TeamDashboard extends React.Component {
               <TeamInfosCard teamData={teamInformations} />
             </Col>
             <Col lg={6} md={12} sm={12} xs={12} className="func-part">
-              <NavLink to={`/event/list/${teamInformations.id}`} className="link">
+              <NavLink to="/event/list" className="link">
                 <Row className="func-part-row calendar">
                   <Col className="func-part-col">
                     <CalendarWidget />
