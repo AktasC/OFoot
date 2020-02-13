@@ -1,23 +1,51 @@
-{% extends "base.html.twig" %}
 
-{% block body %}
-<div class="container">
+<!DOCTYPE html>
+<html lang="fr">
 
-    <div class="row d-flex">
-        <div class="col">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>
+        {% block title %}{{ email.subject }}{% endblock %}
+    </title>
+    {% block stylesheets %}
 
-            <h1 class="text-center">Bienvenue {{ email.toName }}!</h1>
-            
-            <p>
-               
-            <p><code>{{ email.to[0].address }}</code></p>
-            
-            <p>
-                <a href="#">Cliquer ici pour vous valider votre email</a>
-                
-            </p>
-            <p>L’équipe O'Foot</p>
+    {% endblock %}
+</head>
+
+<body>
+
+    {% block body %}
+    <div class="container">
+        <div class="row d-flex">
+
+            <div class="col">
+                <h1 class="text-center">Bonjour et Bienvenue {{ email.toName }} !</h1>
+                <div>
+                    <p>
+                        <code>
+                        {{ email.to[0].address }}
+                    </code>
+                    </p>
+                    <p>
+                        <a href="#">Veuillez cliquer sur ce lien pour activer votre compte.</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p class="block">
+                    L'équipe
+                    <em>O'Foot</em>
+                </p>
+            </div>
+
         </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
+    
+</body>
+
+</html>
+

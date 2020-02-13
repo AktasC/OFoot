@@ -2,10 +2,13 @@
 
 namespace App\Controller\Api\V1;
 
+use App\Entity\Player;
 use App\Entity\Team;
 use App\Entity\User;
 use App\Repository\PlayerRepository;
 use App\Repository\TeamRepository;
+use App\Repository\UserRepository;
+use App\Service\MailerInvitePlayer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -52,6 +55,17 @@ class TeamController extends AbstractController
         $data = $serializer->normalize($team, null, ['groups' => 'api_v1']);
 
         // on retourne $data au format json
+        return $this->json($data);
+    }
+
+    /**
+     * @Route("/{id}/manager", name="get_manager", requirements={"id": "\d+"}, methods={"GET"})
+     */
+    public function getManager(SerializerInterface $serializer, Team $team)
+    {
+        /* Si l'user est également le manager, return true, sinon return false */
+        $data = $this->getUser() == $team->getManager();
+
         return $this->json($data);
     }
 
@@ -119,7 +133,7 @@ class TeamController extends AbstractController
         ->setChampionshipTeam($data->getChampionshipTeam())
         ->setCityTeam($data->getCityTeam())
         ->setStadiumTeam($data->getStadiumTeam())
-        ->setLogoTeam($data->getLogoTeam())
+        // ->setLogoTeam($data->getLogoTeam())
         ->setTeamName($data->getTeamName())
         ->setUpdatedAt(new \DateTime());
 
@@ -169,5 +183,49 @@ class TeamController extends AbstractController
         $entityManager->flush();
 
         return $this->json('Tu as bien quitté l\'équipe');
+    }
+
+    /**
+     * @Route("/{id}/invite", name="invite_player",requirements={"id": "\d+"}, methods={"POST"})
+     */
+    public function invitePlayer(MailerInvitePlayer $MailerInvitePlayer, Request $request, SerializerInterface $serializer, Team $team, UserRepository $ur)
+    {
+        $data = $serializer->deserialize($request->getContent(), 'App\Entity\User', 'json');
+
+        $userData = $ur->findRecipients($data->getUsername());
+
+        if (empty($userData)) {
+            return $this->json('addresse mail non valide');
+        }
+
+        $MailerInvitePlayer->dataEmail($userData, $team);
+
+        return $this->json('Invitation envoyée');
+    }
+
+    /**
+     *@Route("/join/{user_id}/{team_id}", name="join_team",requirements={"id": "\d+"}, methods={"GET"})
+     *@ParamConverter("team", options={"mapping": {"team_id": "id"}})
+     *@ParamConverter("user", options={"mapping": {"user_id": "id"}})
+     */
+    public function addPlayerInTeamByEmail(User $user, Team $team)
+    {
+        $player = new Player();
+
+        $player
+            ->setTeam($team)
+            ->setUser($user)
+            ->setFirstNamePlayer($user->getFirstName())
+            ->setLastNamePlayer($user->getLastName());
+        $user->addTeam($team);
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entityManager->persist($user);
+        $entityManager->persist($player);
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('default');
     }
 }

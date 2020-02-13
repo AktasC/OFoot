@@ -1,0 +1,22 @@
+#addEvent {
+    padding: 0em 2em; 
+    display: flex;
+    flex-direction: column; 
+
+    & .radio_btn {
+         padding: 1em 2em; 
+
+         & label {
+            margin: .2em 1em;
+         }
+    }
+
+    & .input {
+        margin: .8em;
+    }
+
+    & .custom-btn {
+        align-self: center;
+        margin: .8em;
+    }
+}

@@ -2,11 +2,12 @@
 
 namespace App\Controller\Api\V1;
 
+use App\Entity\Team;
 use App\Repository\GameRepository;
 use App\Repository\PracticeRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/api/v1/events", name="api_v1_events_")
@@ -14,17 +15,19 @@ use Symfony\Component\Serializer\SerializerInterface;
 class EventController extends AbstractController
 {
     /**
-     * @Route("/", name="list", methods={"GET"})
+     * @Route("/team/{id}", name="list", methods={"GET"})
      */
-    public function list(GameRepository $gameRepository, PracticeRepository $practiceRepository, SerializerInterface $serializer)
+    public function list(GameRepository $gameRepository, PracticeRepository $practiceRepository, SerializerInterface $serializer, Team $team)
     {
         // On crée $games qui va chercher la fonction findAllGames présente dans gameRepository
         // Cette fonction permet de récupérer l'ensemble des matchs triés par date_time_game
-        $games = $gameRepository->findAllOrdered();
+        // On y associe l'id de la team afin de récupérer la liste des games par team
+        $games = $gameRepository->findGamesByTeam($team);
 
         // Je créé la variable $games qui va chercher la fonction findAllPractices présente dans gameRepository
         // Cette fonction permet de récupérer l'ensemble des matchs triés par date_time_practice
-        $practices = $practiceRepository->findAllOrdered();
+        // On y associe l'id de la team afin de récupérer la liste des practices par team
+        $practices = $practiceRepository->findPracticesByTeam($team);
 
         // On crée un tableau avec $games et $practices
         $events = [$games, $practices];

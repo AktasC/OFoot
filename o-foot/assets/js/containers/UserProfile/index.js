@@ -2,11 +2,9 @@ import { connect } from 'react-redux';
 
 import UserProfile from '~/components/Page/UserProfile';
 
-const mapStateToProps = (state) => {
-  return { 
-    userInformations: state.userProfil.userInformations,
-  };
-};
+const mapStateToProps = (state) => ({
+  userInformations: state.userProfil.userInformations,
+});
 
 const mapDispatchToProps = (dispatch) => ({
 });

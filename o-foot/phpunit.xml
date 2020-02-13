@@ -23,5 +23,10 @@
         <server name="KERNEL_CLASS" value="App\Kernel"/>
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="/foobar/"/>
         <env name="DATABASE_URL" value="mysql://root:Ereul9Aeng@127.0.0.1:3306/ofoot?serverVersion=5.7"/>
+
+        <!-- ###+ symfony/google-mailer ### -->
+        <!-- Gmail SHOULD NOT be used on production, use it in development only. -->
+        <!-- MAILER_DSN=gmail://USERNAME:PASSWORD@default -->
+        <!-- ###- symfony/google-mailer ### -->
     </php>
 </phpunit>

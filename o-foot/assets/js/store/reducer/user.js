@@ -16,34 +16,34 @@ export const RESET_UPDATE_DATA = 'RESET_UPDATE_DATA';
 // ---- reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case UPDATE_TOKEN:      
-    return {
-      ...state,      
-      token: localStorage.setItem('token', action.value),
-    };
-    case LOG_USER:      
+    case UPDATE_TOKEN:
+      return {
+        ...state,
+        token: localStorage.setItem('token', action.value),
+      };
+    case LOG_USER:
       return {
         ...state,
         logged: true,
         userId: localStorage.setItem('userId', action.value),
-      };    
-    case DISCONNECT_USER:      
+      };
+    case DISCONNECT_USER:
       return {
         ...state,
         logged: false,
         userId: localStorage.removeItem('userId'),
       };
-    case UPDATE_DATA:      
-    return {
-      ...state,
-      updateData: true,      
-    };
-    case RESET_UPDATE_DATA:      
-    return {
-      ...state,
-      updateData: false,      
-    };
-    
+    case UPDATE_DATA:
+      return {
+        ...state,
+        updateData: true,
+      };
+    case RESET_UPDATE_DATA:
+      return {
+        ...state,
+        updateData: false,
+      };
+
     default: return state;
   }
 };
