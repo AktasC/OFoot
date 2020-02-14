@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import {
   Col, Row, Button, Modal,
 } from 'react-bootstrap';
-import { FaPlus } from 'react-icons/fa';
+import { FiPlus } from 'react-icons/fi';
+import { IoIosArrowBack } from 'react-icons/io';
 
 // Import scss
 import './list.scss';
@@ -47,12 +48,15 @@ class List extends React.Component {
 
     return (
       <div id="list">
-        <div className="title-h3">
+        <div className="buttons">
           <NavLink to={`/team/${currentTeamId}`}>
-            <Button> Retour au dashboard </Button>
+            <Button>
+              <IoIosArrowBack />
+              Retour au dashboard
+            </Button>
           </NavLink>
           <Button onClick={handleShowAddEvent}>
-            <FaPlus size={22} />
+            <FiPlus size={20} />
             Ajouter un événement
           </Button>
         </div>
@@ -125,10 +129,10 @@ class List extends React.Component {
             </Col>
 
             <Col className="participate-col">
-              <Col className="buttons-col">
+              <div className="buttons-col">
                 <Button className="btn-answer" variant="success">Je participe</Button>
                 <Button className="btn-answer" variant="danger">Je ne participe pas</Button>
-              </Col>
+              </div>
             </Col>
           </Row>
         ))}

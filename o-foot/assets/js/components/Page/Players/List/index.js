@@ -5,6 +5,7 @@ import { Col, Row, Container, Table, Button, Modal, Form } from 'react-bootstrap
 import { IoIosStats, IoIosSend } from 'react-icons/io';
 import { FiEdit3 } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
+import { IoIosArrowBack } from 'react-icons/io';
 import Card from '../Card';
 
 
@@ -69,15 +70,13 @@ class List extends React.Component {
             <h2>LISTE DES JOUEURS</h2>
           </div>
 
-          <Row>
-            <Col>
+          <div className="buttons">
+          <NavLink to={`/team/${currentTeamId}`}>
+                <Button> <IoIosArrowBack /> Retour au dashboard </Button>
+          </NavLink>
               <Button onClick={() => {handleShow('show') }}><IoIosSend /> Inviter joueur</Button>
               {/* <Button><IoIosAddCircleOutline /> Ajouter joueur</Button> */}
-            </Col>
-              <NavLink to={`/team/${currentTeamId}`}>
-                <Button> Retour au dashboard </Button>
-              </NavLink>
-          </Row>
+          </div>
 
           <Row className="">
             <Col className="">
