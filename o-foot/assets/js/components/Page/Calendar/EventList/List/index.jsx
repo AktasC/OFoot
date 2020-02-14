@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Col, Row, Button, Modal,
@@ -21,7 +22,7 @@ class List extends React.Component {
   }
 
   render() {
-    const { eventData } = this.props;
+    const { eventData, currentTeamId } = this.props;
 
     // gestion date au format iso 8601
     const options = {
@@ -47,12 +48,12 @@ class List extends React.Component {
     return (
       <div id="list">
         <div className="title-h3">
-          <h3> Tous vos événements </h3>
+          <NavLink to={`/team/${currentTeamId}`}>
+            <Button> Retour au dashboard </Button>
+          </NavLink>
           <Button onClick={handleShowAddEvent}>
             <FaPlus size={22} />
-            {' '}
             Ajouter un événement
-            {' '}
           </Button>
         </div>
 
@@ -62,9 +63,7 @@ class List extends React.Component {
               {event.opponent_team === undefined
                 ? (
                   <div className="date date-practice">
-                    {' '}
                     {dateFromISO8601(`${event.date_time}`).toLocaleDateString('fr-FR', options)}
-                    {' '}
                   </div>
                 )
                 : (
