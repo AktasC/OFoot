@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Col, Row, Container, Table, Button, Modal, Form } from 'react-bootstrap';
 import { IoIosStats, IoIosSend } from 'react-icons/io';
 import { FiEdit3 } from 'react-icons/fi';
@@ -58,6 +58,8 @@ class List extends React.Component {
       });
     }
 
+    const {currentTeamId} = this.props; 
+
     return (
 
       <div id="list">
@@ -72,6 +74,9 @@ class List extends React.Component {
               <Button onClick={() => {handleShow('show') }}><IoIosSend /> Inviter joueur</Button>
               {/* <Button><IoIosAddCircleOutline /> Ajouter joueur</Button> */}
             </Col>
+              <NavLink to={`/team/${currentTeamId}`}>
+                <Button> Retour au dashboard </Button>
+              </NavLink>
           </Row>
 
           <Row className="">
