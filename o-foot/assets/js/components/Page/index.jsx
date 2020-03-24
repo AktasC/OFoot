@@ -12,7 +12,7 @@ import './page.scss';
 
 import Home from './Home';
 import Register from './Register';
-import Login from '~/containers/Login';
+import Login from './Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
 import UserProfile from '~/containers/UserProfile';

@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button, Col } from 'react-bootstrap';
 
-
 // Import scss
 import './loginform.scss';
 
@@ -19,7 +18,6 @@ const LoginForm = ({
   passwordValidCheck,
   errorMessagePassword,
   emptyInputs,
-
 }) => {
   const onChangeInputEmail = (event) => {
     blurInputEmail(event.target.value);
