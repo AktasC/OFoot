@@ -27,7 +27,25 @@
 // Override Bootsrap CSS
 #header .dropdown-link {
   color: inherit;
+  display: flex;
+  padding: .5em 1em;
 }
 #header .dropdown-link:hover {
   text-decoration: none;
+  background-color: #f8f9fa;
+}
+#header .dropdown-menu {
+  min-width: 10.2rem;
+}
+#header .navbar-toggler {
+  color: white;
+}
+#header .navbar-toggler:focus {
+  outline: none;
+}
+
+@media screen and (max-width:992px){
+  #header .dropdown-link:hover {
+    background-color: rgba(#f8f9fa, .15);
+  }
 }
