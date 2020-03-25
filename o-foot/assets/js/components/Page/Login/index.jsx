@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 
 // Import scss
@@ -10,7 +9,11 @@ const Login = () => (
   <div id="login">
 
     <Container>
-      <Row lg={{ span: 8, offset: 3 }} md={{ span: 6, offset: 3 }} sm={{ span: 6, offset: 3 }} xs={12}>
+      <Row
+        lg={{ span: 8, offset: 3 }}
+        md={{ span: 6, offset: 3 }}
+        sm={{ span: 6, offset: 3 }}
+        xs={12}>
         <Col className="box">
           <h2 className="title">Se Connecter</h2>
           <p>Renseigner ci-dessous votre adresse mail et votre mot de passe.</p>
@@ -23,9 +26,5 @@ const Login = () => (
 
   </div>
 );
-
-/* Login.propTypes = {
-  signupDone: PropTypes.bool.isRequired,
-}; */
 
 export default Login;
