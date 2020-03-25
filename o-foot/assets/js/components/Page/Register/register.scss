@@ -1,21 +1,28 @@
 #register {
-   display: flex;
-   align-content: center;
-   justify-content: center;
+  height: 88vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 
-   & .box {
-       padding: 2em 4em;
-       background-color: #212532;
-       border-radius: 5px;
-       box-shadow: 2px 2px 15px #ccc;
+  & .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+  }
 
-       & p {
-           padding: 0 5em 2em;
-       }
-   }
+  & .box {
+    padding: 2em 4em;
+      border-radius: 5px;
+      box-shadow: 2px 2px 15px #ccc;
+      background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .8)), url("/img/pelouse_bg.png");
 
-   & .title {
+    & p {
+      padding: 0 5em 2em;
+    }
+  }
+
+  & .title {
     text-transform: uppercase;
     margin: 1em 0 1em;    
-   }
+  }
 }
