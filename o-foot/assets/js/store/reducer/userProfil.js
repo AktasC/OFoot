@@ -1,6 +1,6 @@
 // initial state
 const initialState = {
-  userInformations: [],
+  userInformations: {},
   current_password: '',
   new_password: '',
   new_password_check: '',

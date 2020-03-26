@@ -1,5 +1,4 @@
 import axios from 'axios';
-import qs from 'qs';
 
 import {
   USER_PROFIL_INFO, USER_INFOS_UPDATE, loadInfoFromAxios, SUBMIT_CHANGE_PASSWORD, emptyInputs,
@@ -31,11 +30,12 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         });
       break;
     }
+
     case USER_INFOS_UPDATE: {
       // eslint-disable-next-line no-case-declarations
       const {
-        firstname,
-        lastname,
+        first_name,
+        last_name,
         email,
       } = action.value;
 
@@ -44,14 +44,13 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         url: `/api/v1/users/edit/${userId}`,
         headers: { Authorization: `Bearer ${token}` },
         data: {
-          first_name: firstname,
+          first_name,
           email,
-          last_name: lastname,
+          last_name,
         },
       })
 
         .then((response) => {
-          console.log(response.config.data);
           store.dispatch(updateData());
           addNotification('change-done');
         })
@@ -60,6 +59,7 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         });
       break;
     }
+
     case SUBMIT_CHANGE_PASSWORD: {
       const {
         new_password,
