@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
 
-  submitForm: (value) => {
+  onSubmit: (value) => {
     const action = submitChangePassword(value);
     dispatch(action);
   },
