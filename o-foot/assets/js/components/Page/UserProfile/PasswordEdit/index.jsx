@@ -13,35 +13,8 @@ const PasswordEdit = ({ onSubmit }) => {
 
   const onSubmitForm = (data, e) => {
     e.preventDefault();
-    console.log( ">>> Change PWD >>>:", data);
-    /* onSubmit(data); */
+    onSubmit(data);
   };
-
-  /* const onSubmitForm = (evt) => {
-    evt.preventDefault();
-    const errors = [];
-    if (current_password === '' || new_password === '' || new_password_check === '') {
-      errors.push('Merci de compléter chacun des champs');
-      noSubmit(errors);
-    } else if (current_password != PasswordValue & current_password != '') {
-      errors.push('Le mot de passe n\'est pas valide');
-      noSubmit(errors);
-    } else if (new_password !== new_password_check & new_password !== '' & new_password_check !== '') {
-      errors.push('Les mots de passe ne correspondent pas');
-      noSubmit(errors);
-    } else if (new_password.length < 6 & new_password !== '') {
-      errors.push('Le mot de passe doit contenir au moins 6 caractères');
-      noSubmit(errors);
-    } else {
-      submitForm(evt.target.new_password_check.value);
-    }
-  };
-
-  const onValueChange = (evt) => {
-    handleChangeValue(evt.target.value, evt.target.name);
-  }; */
-
-  console.log(">>> Errors >>>", errors.newPwd);
 
   return (
     <div id="passwordEdit">
@@ -61,6 +34,10 @@ const PasswordEdit = ({ onSubmit }) => {
                     name="actualPwd"
                     ref={register({
                       required: 'Champs requis',
+                      minLength: {
+                        value: 6,
+                        message: 'Votre mot de passe contient au moins 6 caractères',
+                      },
                     })}
                   />
                   {errors.actualPwd && errors.actualPwd.message}
@@ -71,7 +48,7 @@ const PasswordEdit = ({ onSubmit }) => {
                   <Form.Control
                     className={classNames('form-control', { wrong: errors.newPwd })}
                     onBlur={() => triggerValidation('newPwd')}
-                    /* onChange={() => triggerValidation('newPwd')} */
+                    onChange={() => triggerValidation('newPwd')}
                     name="newPwd"
                     ref={register({
                       required: 'Champs requis',
@@ -94,7 +71,7 @@ const PasswordEdit = ({ onSubmit }) => {
                   <Form.Control
                     className={classNames('form-control', { wrong: errors.confirmNewPwd })}
                     onBlur={() => triggerValidation('confirmNewPwd')}
-                    /* onChange={() => triggerValidation('confirmNewPwd')} */
+                    onChange={() => triggerValidation('confirmNewPwd')}
                     name="confirmNewPwd"
                     ref={register({
                       required: 'Champs requis',
@@ -122,13 +99,7 @@ const PasswordEdit = ({ onSubmit }) => {
 };
 
 PasswordEdit.propTypes = {
-  current_password: PropTypes.string.isRequired,
-  new_password: PropTypes.string.isRequired,
-  new_password_check: PropTypes.string.isRequired,
-  handleChangeValue: PropTypes.func.isRequired,
-  PasswordValue: PropTypes.string.isRequired,
-  noSubmit: PropTypes.func.isRequired,
-  submitForm: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default PasswordEdit;

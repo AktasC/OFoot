@@ -1,9 +1,6 @@
 import axios from 'axios';
 
-import {
-  USER_PROFIL_INFO, USER_INFOS_UPDATE, loadInfoFromAxios, SUBMIT_CHANGE_PASSWORD, emptyInputs,
-} from '../reducer/userProfil';
-import { modifyPassword } from '../reducer/loginForm';
+import { USER_PROFIL_INFO, USER_INFOS_UPDATE, loadInfoFromAxios, CHANGE_PASSWORD } from '../reducer/userProfil';
 import { addNotification } from '../addNotification';
 import { updateData } from '../reducer/user';
 
@@ -60,28 +57,34 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
       break;
     }
 
-    case SUBMIT_CHANGE_PASSWORD: {
-      const {
-        new_password,
-      } = store.getState().userProfil;
+    case CHANGE_PASSWORD: {
 
-      axios({
-        method: 'post',
-        url: `/api/v1/users/edit/password/${userId}`,
-        headers: { Authorization: `Bearer ${token}` },
-        data: {
-          password: new_password,
-        },
+      const email = store.getState().userProfil.userInformations.email;
+      const actualPwd = action.value.actualPwd;
+      const newPwd = action.value.newPwd;
+
+      axios.post('/api/login_check', {
+        username: email,
+        password: actualPwd,
       })
-
-        .then((response) => {
-          addNotification('change-done');
-          store.dispatch(emptyInputs());
-          store.dispatch(modifyPassword(action.value));
+        .then(() => {
+          axios({
+            method: 'post',
+            url: `/api/v1/users/edit/password/${userId}`,
+            headers: { Authorization: `Bearer ${token}` },
+            data: {
+              password: newPwd,
+            },
+          })
+            .then(() => {
+              addNotification('change-done');
+            })
+            .catch(() => {
+              addNotification('change-not-done');
+            });
         })
-        .catch((error) => {
-          addNotification('change-not-done');
-          store.dispatch(emptyInputs());
+        .catch(() => {
+          addNotification('modify-pwd-not-allowed');
         });
       break;
     }
