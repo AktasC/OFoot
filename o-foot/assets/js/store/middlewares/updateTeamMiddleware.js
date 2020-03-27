@@ -7,17 +7,15 @@ import { addNotification } from '../addNotification';
 const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case TEAM_INFOS_UPDATE: {
-      console.log('Yeaaah im in the middleware');
-      console.log(action);
 
       const token = localStorage.getItem('token');
       const teamId = store.getState().team.currentTeamId;
 
       const {
-        teamNameValue,
-        teamAddressValue,
-        teamStadiumValue,
-        teamCityValue,
+        team_name,
+        address_team,
+        stadium_team,
+        city_team,
       } = action.value;
 
       const config = {
@@ -25,10 +23,10 @@ const registerMiddleware = (store) => (next) => (action) => {
       };
 
       const data = {
-        address_team: teamAddressValue,
-        city_team: teamCityValue,
-        stadium_team: teamStadiumValue,
-        team_name: teamNameValue,
+        address_team,
+        city_team,
+        stadium_team,
+        team_name,
       };
 
       axios.post(`/api/v1/teams/edit/${teamId}`, data, config)
