@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { getTeamInfosById } from 'Utils/selectors/selectors';
 
 import TeamDashboard from '~/components/Page/TeamDashboard';
-import { resetUpdateData } from '~/store/reducer/user';
 import { teamCalendarInfo } from '~/store/reducer/calendar';
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,11 +19,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   loadCalendarTeamInfo: () => {
     const action = teamCalendarInfo();
-    dispatch(action);
-  },
-
-  handleResetUpdateData: () => {
-    const action = resetUpdateData();
     dispatch(action);
   },
 });
