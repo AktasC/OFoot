@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import Avatar from 'react-avatar';
 
 // Import scss
 import './team-card.scss';
-
 
 const TeamCard = ({ team, handleUpdateCurrentTeamId }) => {
   const {
@@ -15,11 +15,11 @@ const TeamCard = ({ team, handleUpdateCurrentTeamId }) => {
   } = team;
 
   const updateTeamId = () => {
-    console.log('je met à jour', id);
     handleUpdateCurrentTeamId(id);
   };
 
   return (
+
     <div id="teamInfosCard">
 
       { logo_team != null ? <Avatar className="avatar-custom" src={logo_team} size="100" round /> : <Avatar name={team_name} size="150" size="100" round /> }
@@ -30,7 +30,19 @@ const TeamCard = ({ team, handleUpdateCurrentTeamId }) => {
       </NavLink>
 
     </div>
+
   );
+};
+
+TeamCard.propTypes = {
+  team: PropTypes.objectOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      logo_team: PropTypes.string.isRequired,
+      team_name: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+  handleUpdateCurrentTeamId: PropTypes.func.isRequired,
 };
 
 export default TeamCard;

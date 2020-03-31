@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import TeamCard from '../../../../components/Page/UserProfile/ShowMyTeams/TeamCard';
+import TeamCard from '~/components/Page/UserProfile/ShowMyTeams/TeamCard';
 
-import { updateCurrentTeamId } from '../../../../store/reducer/team';
+import { updateCurrentTeamId } from '~/store/reducer/team';
 
 const mapStateToProps = (state) => ({
 });
