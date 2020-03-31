@@ -6,13 +6,14 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
+import { browserHistory } from 'react-router';
 
 // Import scss
 import './page.scss';
 
 import Home from './Home';
 import Register from './Register';
-import Login from '~/containers/Login';
+import Login from './Login';
 import LegalsMentions from './LegalsMentions';
 import WhoAreWe from './WhoAreWe';
 import UserProfile from '~/containers/UserProfile';
@@ -26,35 +27,37 @@ import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 
 class Page extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-  }
-
   componentDidUpdate() {
-    if (this.props.logged == true || this.props.addTeam == true) {
-      this.props.loadUserInfo();
+
+    const {
+      logged,
+      /* addTeam, */
+      updateData,
+      loadUserInfo,
+      handleResetUpdateData,
+    } = this.props;
+
+    if (logged === true /* || addTeam === true */) {
+      loadUserInfo();
     }
 
-    if (this.props.logged == true || this.props.updateData == true) {
-      this.props.loadUserInfo();
-      if (this.props.updateData == true) {
-        this.props.handleResetUpdateData();
+    if (logged === true || updateData === true) {
+      loadUserInfo();
+      if (updateData === true) {
+        handleResetUpdateData();
       }
     }
   }
 
   render() {
     const { signupDone, logged, userId } = this.props;
-
-    console.log('from render:', userId);
-
+  
     return (
       <div id="page">
 
         <Switch>
           <Route path="/team/:teamId" component={TeamDashboard} />
-          <Route path="/event/list/:teamId" component={EventList} />
+          <Route path="/event/list" component={EventList} />
           <Route exact path={`/user/profile/${userId}`}>
             <UserProfile />
           </Route>
@@ -85,9 +88,16 @@ class Page extends React.Component {
 }
 
 Page.propTypes = {
-  logged: PropTypes.bool,
+  logged: PropTypes.bool.isRequired,
   signupDone: PropTypes.bool.isRequired,
   userId: PropTypes.string,
+  loadUserInfo: PropTypes.func.isRequired,
+  updateData: PropTypes.bool.isRequired,
+  handleResetUpdateData: PropTypes.func.isRequired,
+};
+
+Page.defaultProps = {
+  userId: 'null',
 };
 
 export default Page;

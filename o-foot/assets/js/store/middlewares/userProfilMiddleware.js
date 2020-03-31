@@ -4,7 +4,7 @@ import qs from 'qs';
 import {
   USER_PROFIL_INFO, USER_INFOS_UPDATE, loadInfoFromAxios, SUBMIT_CHANGE_PASSWORD, emptyInputs,
 } from '../reducer/userProfil';
-import { modifyPassword } from '../reducer/loginForm';
+/* import { modifyPassword } from '../reducer/loginForm'; */
 import { addNotification } from '../addNotification';
 import { updateData } from '../reducer/user';
 
@@ -77,7 +77,7 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         .then((response) => {
           addNotification('change-done');
           store.dispatch(emptyInputs());
-          store.dispatch(modifyPassword(action.value));
+          /* store.dispatch(modifyPassword(action.value)); */
         })
         .catch((error) => {
           addNotification('change-not-done');
