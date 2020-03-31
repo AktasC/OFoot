@@ -1,9 +1,11 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Col, Row, Button, Modal,
 } from 'react-bootstrap';
-import { FaPlus } from 'react-icons/fa';
+import { FiPlus } from 'react-icons/fi';
+import { IoIosArrowBack } from 'react-icons/io';
 
 // Import scss
 import './list.scss';
@@ -21,7 +23,7 @@ class List extends React.Component {
   }
 
   render() {
-    const { eventData } = this.props;
+    const { eventData, currentTeamId } = this.props;
 
     // gestion date au format iso 8601
     const options = {
@@ -46,13 +48,16 @@ class List extends React.Component {
 
     return (
       <div id="list">
-        <div className="title-h3">
-          <h3> Tous vos événements </h3>
+        <div className="buttons">
+          <NavLink to={`/team/${currentTeamId}`}>
+            <Button>
+              <IoIosArrowBack />
+              Retour au dashboard
+            </Button>
+          </NavLink>
           <Button onClick={handleShowAddEvent}>
-            <FaPlus size={22} />
-            {' '}
+            <FiPlus size={20} />
             Ajouter un événement
-            {' '}
           </Button>
         </div>
 
@@ -62,9 +67,7 @@ class List extends React.Component {
               {event.opponent_team === undefined
                 ? (
                   <div className="date date-practice">
-                    {' '}
                     {dateFromISO8601(`${event.date_time}`).toLocaleDateString('fr-FR', options)}
-                    {' '}
                   </div>
                 )
                 : (
@@ -126,10 +129,10 @@ class List extends React.Component {
             </Col>
 
             <Col className="participate-col">
-              <Col className="buttons-col">
+              <div className="buttons-col">
                 <Button className="btn-answer" variant="success">Je participe</Button>
                 <Button className="btn-answer" variant="danger">Je ne participe pas</Button>
-              </Col>
+              </div>
             </Col>
           </Row>
         ))}

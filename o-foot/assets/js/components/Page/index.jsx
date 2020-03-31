@@ -6,6 +6,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
+import { browserHistory } from 'react-router';
 
 // Import scss
 import './page.scss';
@@ -50,13 +51,13 @@ class Page extends React.Component {
 
   render() {
     const { signupDone, logged, userId } = this.props;
-
+  
     return (
       <div id="page">
 
         <Switch>
           <Route path="/team/:teamId" component={TeamDashboard} />
-          <Route path="/event/list/:teamId" component={EventList} />
+          <Route path="/event/list" component={EventList} />
           <Route exact path={`/user/profile/${userId}`}>
             <UserProfile />
           </Route>

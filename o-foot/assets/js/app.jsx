@@ -13,21 +13,12 @@ import store from './store';
 // Composant racine
 import App from './components/App';
 
-const breakpoints = {
-  small: 744,
-  medium: 992,
-  large: 1440,
-  xlarge: Infinity,
-};
-
 // == Render
 // 1. Le composant racine (celui qui contient l'ensemble de l'app)
 const rootComponent = (
   <Provider store={store}>
     <Router>
-      <BreakpointsProvider breakpoints={breakpoints}>
-        <App />
-      </BreakpointsProvider>
+      <App />
     </Router>
   </Provider>
 );

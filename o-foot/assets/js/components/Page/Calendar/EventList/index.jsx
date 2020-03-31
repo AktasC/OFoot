@@ -9,10 +9,9 @@ import './eventlist.scss';
 // Infos
 
 // Import composant
-import Overview from './Overview';
 import List from './List';
 
-const EventList = ({ eventData }) => (
+const EventList = ({ eventData, currentTeamId }) => (
 
   <div id="event-list">
 
@@ -21,8 +20,7 @@ const EventList = ({ eventData }) => (
         <h2>AGENDA DES EVENEMENTS</h2>
       </div>
       <Col className="full-event">
-        <Overview eventData={eventData} />
-        <List eventData={eventData} />
+        <List eventData={eventData} currentTeamId={currentTeamId} />
       </Col>
     </Container>
   </div>
