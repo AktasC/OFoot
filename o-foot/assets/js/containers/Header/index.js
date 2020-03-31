@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 
-import Header from '~/components/Header';
+import Header from '~/components/Header/index.jsx';
 
 import { disconnectUser } from '~/store/reducer/user';
 
 const mapStateToProps = (state) => ({
   logged: state.user.logged,
+  currentTeamId: state.team.currentTeamId,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   disconnect: () => {
-    console.log('deco en cours');
     const action = disconnectUser();
     dispatch(action);
   },

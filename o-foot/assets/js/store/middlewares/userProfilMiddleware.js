@@ -58,7 +58,6 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
     }
 
     case CHANGE_PASSWORD: {
-
       const email = store.getState().userProfil.userInformations.email;
       const actualPwd = action.value.actualPwd;
       const newPwd = action.value.newPwd;
