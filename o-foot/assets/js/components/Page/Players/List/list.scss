@@ -18,6 +18,11 @@
   & button {
     margin: 1em .5em;
   }
+
+  & .buttons {
+    display: flex; 
+    justify-content: center;
+  }
 }
 
 #editInfos {
