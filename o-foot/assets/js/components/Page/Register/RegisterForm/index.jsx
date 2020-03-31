@@ -1,154 +1,109 @@
 import React from 'react';
-import { Form, Button, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import { Form, Button, Col } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import classNames from 'classnames';
 
 // Import scss
 import './register-form.scss';
 
-const RegisterForm = ({
-  // Différents states traité depuis le reducer
-  onValueChange,
-  onSubmit,
-  inputLastnameValue,
-  inputFirstnameValue,
-  inputEmailValue,
-  inputPasswordValue,
-  blurInputLastName,
-  LastnameValidCheck,
-  ErrorMessageInvalidLastname,
-  blurInputFirstName,
-  FirstnameValidCheck,
-  ErrorMessageInvalidFirstname,
-  blurInputEmailRegister,
-  EmailRegisterValidCheck,
-  ErrorMessageInvalidEmailRegister,
-  blurInputPasswordRegister,
-  PasswordRegisterValidCheck,
-  ErrorMessageInvalidPasswordRegister,
-  emptyInputsRegister,
-  submitFormRegister,
-  meta,
-}) => {
-  const onChangeInputLastName = (event) => {
-    blurInputLastName(event.target.value);
-  };
+const RegisterForm = ({ submitForm }) => {
 
-  const onChangeInputFirstName = (event) => {
-    blurInputFirstName(event.target.value);
-  };
+  const {
+    handleSubmit, register, errors, triggerValidation,
+  } = useForm();
 
-  const onChangeInputEmailRegister = (event) => {
-    blurInputEmailRegister(event.target.value);
-  };
-
-  const onChangeInputPasswordRegister = (event) => {
-    blurInputPasswordRegister(event.target.value);
-  };
-
-  const handleChange = (event) => {
-    onValueChange(event.target.value, event.target.name);
-  };
-
-  const onSubmitRegister = (evt) => {
-    evt.preventDefault();
-    if (inputEmailValue === '' && inputPasswordValue === '' && inputLastnameValue === '' && inputFirstnameValue === '') {
-      emptyInputsRegister();
-    } else if (EmailRegisterValidCheck === true && PasswordRegisterValidCheck === true && LastnameValidCheck === true && FirstnameValidCheck === true) {
-      submitFormRegister();
-    }
+  const onSubmitForm = (data, e) => {
+    e.preventDefault();
+    submitForm(data);
   };
 
   return (
     <div id="registerForm">
 
-      <Form onSubmit={onSubmitRegister}>
+      <Form onSubmit={handleSubmit(onSubmitForm)}>
         <Form.Row>
+
           <Col>
             <Form.Control
-              className={!LastnameValidCheck ? 'wrong' : ''}
-              onChange={handleChange}
-              value={inputLastnameValue}
-              onBlur={onChangeInputLastName}
-              name="lastname"
+              className={classNames('form-control', { wrong: errors.lastname })}
               placeholder="Nom"
+              onBlur={() => triggerValidation('lastname')}
+              onChange={() => triggerValidation('lastname')}
+              name="lastname"
+              ref={register({
+                required: 'Champs requis',
+              })}
             />
-
-            {!LastnameValidCheck && <div>{ErrorMessageInvalidLastname.input}</div>}
+            {errors.lastname && errors.lastname.message}
           </Col>
 
           <Col>
             <Form.Control
-              className={!FirstnameValidCheck ? 'wrong' : ''}
-              onChange={handleChange}
-              value={inputFirstnameValue}
-              onBlur={onChangeInputFirstName}
-              name="firstname"
+              className={classNames('form-control', { wrong: errors.firstname })}
               placeholder="Prénom"
+              onBlur={() => triggerValidation('firstname')}
+              onChange={() => triggerValidation('firstname')}
+              name="firstname"
+              ref={register({
+                required: 'Champs requis',
+              })}
             />
-
-            {!FirstnameValidCheck && <div>{ErrorMessageInvalidFirstname.input}</div>}
+            {errors.firstname && errors.firstname.message}
           </Col>
 
         </Form.Row>
+
         <Form.Row>
           <Col>
             <Form.Control
-              className={!EmailRegisterValidCheck ? 'wrong' : ''}
-              onChange={handleChange}
-              value={inputEmailValue}
-              name="email"
+              className={classNames('form-control', { wrong: errors.email })}
               placeholder="Email"
-              onBlur={onChangeInputEmailRegister}
+              onBlur={() => triggerValidation('email')}
+              onChange={() => triggerValidation('email')}
+              name="email"
+              ref={register({
+                required: 'Champs requis',
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                  message: 'Votre adresse mail est incorrecte',
+                },
+              })}
             />
-
-            {!EmailRegisterValidCheck && <div>{ErrorMessageInvalidEmailRegister.email}</div>}
+            {errors.email && errors.email.message}
           </Col>
 
           <Col>
             <Form.Control
-              className={!PasswordRegisterValidCheck ? 'wrong' : ''}
-              onChange={handleChange}
-              value={inputPasswordValue}
-              onBlur={onChangeInputPasswordRegister}
-              type="password"
-              name="password"
+              className={classNames('form-control', { wrong: errors.password })}
               placeholder="Mot de Passe"
+              type="password"
+              onBlur={() => triggerValidation('password')}
+              onChange={() => triggerValidation('password')}
+              name="password"
+              ref={register({
+                required: 'Champs requis',
+                minLength: {
+                  value: 6,
+                  message: 'Votre mot de passe doit contenir au moins 6 caractères',
+                },
+              })}
             />
-
-            {!PasswordRegisterValidCheck && <div>{ErrorMessageInvalidPasswordRegister.password}</div>}
+            {errors.password && errors.password.message}
           </Col>
         </Form.Row>
 
-        {/* <Form.Row>
-        <input type="hidden" name="token" value={meta}></input>
-      </Form.Row> */}
         <Button variant="primary" type="submit">
           S'inscrire
         </Button>
+
       </Form>
-
     </div>
-
   );
 };
 
 RegisterForm.propTypes = {
-  onValueChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  inputLastnameValue: PropTypes.string.isRequired,
-  inputFirstnameValue: PropTypes.string.isRequired,
-  inputEmailValue: PropTypes.string.isRequired,
-  inputPasswordValue: PropTypes.string.isRequired,
-  blurInputLastName: PropTypes.func.isRequired,
-  LastnameValidCheck: PropTypes.bool.isRequired,
-  blurInputFirstName: PropTypes.func.isRequired,
-  FirstnameValidCheck: PropTypes.bool.isRequired,
-  blurInputEmailRegister: PropTypes.func.isRequired,
-  EmailRegisterValidCheck: PropTypes.bool.isRequired,
-  blurInputPasswordRegister: PropTypes.func.isRequired,
-  PasswordRegisterValidCheck: PropTypes.bool.isRequired,
-  emptyInputsRegister: PropTypes.func.isRequired,
-  submitFormRegister: PropTypes.func.isRequired,
+  submitForm: PropTypes.func.isRequired,
 };
 
 export default RegisterForm;
