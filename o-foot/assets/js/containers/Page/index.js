@@ -10,13 +10,12 @@ const mapStateToProps = (state) => ({
   logged: state.user.logged,
   signupDone: state.registerForm.signupDone,
   updateData: state.user.updateData,
-  token: localStorage.getItem('token'),
+  /* token: localStorage.getItem('token'), */
   userId: localStorage.getItem('userId'),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   loadUserInfo: () => {
-    console.log('je charge les données');
     const action = userProfilInfo();
     dispatch(action);
   },
