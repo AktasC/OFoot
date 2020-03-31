@@ -156,6 +156,21 @@ export const addNotification = (status) => {
       });
       break;
     }
+    case 'modify-pwd-not-allowed': {
+      store.addNotification({
+        title: 'Oups !',
+        message: 'Votre mot de passe actuel ne correspond pas',
+        type: 'danger', // 'default', 'success', 'info', 'warning'
+        container: 'bottom-left',
+        animationIn: ['animated', 'fadeIn'], // animate.css classes
+        animationOut: ['animated', 'fadeOut'], // animate.css classes
+        dismiss: {
+          duration: 3000,
+          showIcon: true,
+        },
+      });
+      break;
+    }
     case 'invite-player-success': {
       store.addNotification({
         title: 'Félicitations !',
