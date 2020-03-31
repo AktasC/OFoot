@@ -2,19 +2,14 @@ import { connect } from 'react-redux';
 
 import UserEdit from '~/components/Page/UserProfile/UserEdit';
 
-import {
-  userInfosUpdate,
-} from '~/store/reducer/userProfil';
+import { userInfosUpdate } from '~/store/reducer/userProfil';
 
 const mapStateToProps = (state) => ({
-  first_name: state.userProfil.userInformations.first_name,
-  last_name: state.userProfil.userInformations.last_name,
-  mail: state.userProfil.userInformations.email,
-  errorsUserEdit: state.userProfil.errorsUserEdit,
+  userInformations: state.userProfil.userInformations,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmitUpdateUserInfos: (value) => {
+  onSubmit: (value) => {
     const action = userInfosUpdate(value);
     dispatch(action);
   },

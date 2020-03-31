@@ -7,15 +7,15 @@ const loginMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CONNECT_USER: {
       const {
-        emailValue,
-        passwordValue,
-      } = store.getState().loginForm;
+        email,
+        password,
+      } = action.value;
 
       const token = localStorage.getItem('token');
 
       axios.post('/api/login_check', {
-        username: emailValue,
-        password: passwordValue,
+        username: email,
+        password,
       })
         .then((response) => {
           store.dispatch(updateToken(response.data.token));
@@ -26,8 +26,8 @@ const loginMiddleware = (store) => (next) => (action) => {
             url: '/api/login',
             headers: { Authorization: `Bearer ${token}` },
             data: {
-              email: emailValue,
-              password: passwordValue,
+              email,
+              password,
             },
           })
             .then((response) => {

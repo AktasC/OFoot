@@ -1,29 +1,21 @@
 import React from 'react';
-import {
-  Container, Row, Col, Form, Button,
-} from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import classNames from 'classnames';
 import { IoIosAddCircleOutline } from 'react-icons/io';
 
 // Import scss
 import './create-new-team.scss';
 
-const CreateNewTeam = ({
-  onValueChange,
-  onSubmitCreateTeam,
-  teamNameValue,
-  teamAddressValue,
-  teamStadiumValue,
-  teamCityValue,
-}) => {
-  const onSubmit = (event) => {
-    console.log('hey submit');
-    event.preventDefault();
-    onSubmitCreateTeam();
-  };
+const CreateNewTeam = ({ onSubmit }) => {
+  const { handleSubmit, register, errors, triggerValidation } = useForm();
 
-
-  const handleChange = (event) => {
-    onValueChange(event.target.value, event.target.name);
+  const onSubmitForm = (data, e) => {
+    e.preventDefault();
+    onSubmit(data);
+    // Permet de reset les inputs suite au Submit
+    e.target.reset();
   };
 
   return (
@@ -32,47 +24,67 @@ const CreateNewTeam = ({
       <Container>
         <Row>
           <Col lg={{ span: 8, offset: 2 }} md={{ span: 8, offset: 2 }} sm={{ span: 8, offset: 2 }} xs={{ span: 8, offset: 2 }}>
-            <Form onSubmit={onSubmit}>
+            <Form onSubmit={handleSubmit(onSubmitForm)}>
               <Form.Row>
 
-                <Col className="input" lg={6} md={6} sm={21} xs={12}>
+                <Col className="input" lg={6} md={6} sm={12} xs={12}>
+                  <Form.Label>Nom de votre équipe</Form.Label>
                   <Form.Control
-                    onChange={handleChange}
-                    value={teamNameValue}
-                    name="teamNameValue"
-                    placeholder="Nom de votre équipe"
+                    className={classNames('form-control', { wrong: errors.teamName })}
+                    onBlur={() => triggerValidation('teamName')}
+                    onChange={() => triggerValidation('teamName')}
+                    name="teamName"
+                    ref={register({
+                      required: 'Champs requis',
+                    })}
                   />
+                  {errors.teamName && errors.teamName.message}
                 </Col>
 
-                <Col className="input" lg={6} md={6} sm={21} xs={12}>
+                <Col className="input" lg={6} md={6} sm={12} xs={12}>
+                  <Form.Label>Nom du stade</Form.Label>
                   <Form.Control
-                    onChange={handleChange}
-                    value={teamStadiumValue}
-                    name="teamStadiumValue"
-                    placeholder="Nom du Stade"
+                    className={classNames('form-control', { wrong: errors.teamStadium })}
+                    onBlur={() => triggerValidation('teamStadium')}
+                    onChange={() => triggerValidation('teamStadium')}
+                    name="teamStadium"
+                    ref={register({
+                      required: 'Champs requis',
+                    })}
                   />
+                  {errors.teamStadium && errors.teamStadium.message}
                 </Col>
 
               </Form.Row>
 
               <Form.Row>
 
-                <Col className="input" lg={6} md={6} sm={21} xs={12}>
+                <Col className="input" lg={6} md={6} sm={12} xs={12}>
+                  <Form.Label>Adresse du stade</Form.Label>
                   <Form.Control
-                    onChange={handleChange}
-                    value={teamAddressValue}
-                    name="teamAddressValue"
-                    placeholder="Adresse du Stade"
+                    className={classNames('form-control', { wrong: errors.teamAddress })}
+                    onBlur={() => triggerValidation('teamAddress')}
+                    onChange={() => triggerValidation('teamAddress')}
+                    name="teamAddress"
+                    ref={register({
+                      required: 'Champs requis',
+                    })}
                   />
+                  {errors.teamAddress && errors.teamAddress.message}
                 </Col>
 
-                <Col className="input" lg={6} md={6} sm={21} xs={12}>
+                <Col className="input" lg={6} md={6} sm={12} xs={12}>
+                  <Form.Label>Ville du stade</Form.Label>
                   <Form.Control
-                    onChange={handleChange}
-                    value={teamCityValue}
-                    name="teamCityValue"
-                    placeholder="Ville du Stade"
+                    className={classNames('form-control', { wrong: errors.teamCity })}
+                    onBlur={() => triggerValidation('teamCity')}
+                    onChange={() => triggerValidation('teamCity')}
+                    name="teamCity"
+                    ref={register({
+                      required: 'Champs requis',
+                    })}
                   />
+                  {errors.teamCity && errors.teamCity.message}
                 </Col>
 
               </Form.Row>
@@ -90,6 +102,10 @@ const CreateNewTeam = ({
 
     </div>
   );
+};
+
+CreateNewTeam.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default CreateNewTeam;

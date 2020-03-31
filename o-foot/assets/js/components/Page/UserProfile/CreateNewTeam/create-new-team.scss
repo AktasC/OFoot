@@ -1,4 +1,5 @@
 #createNewTeam {
+  margin: 2em; 
   
   & .input {
     margin: .5em 0;
@@ -7,4 +8,12 @@
   & button {
     margin-top: 1em;
   } 
+
+  & label {
+    font-weight: 700;
+}
+
+  & .wrong {
+    border-left: 4px solid #f44336; 
+  }
 }

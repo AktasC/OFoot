@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 // Import scss
 import './register.scss';
-import RegisterForm from '~/containers/RegisterForm';
+import RegisterForm from '~/containers/Register/RegisterForm';
 
 const Register = () => (
 

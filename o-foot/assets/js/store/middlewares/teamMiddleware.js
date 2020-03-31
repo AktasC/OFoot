@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import {
-  PLAYERS_INFOS, INVITE_PLAYER, LOAD_PLAYER_INFOS, updatePlayersList,
-} from '../reducer/team';
+import { CREATE_TEAM, PLAYERS_INFOS, INVITE_PLAYER, updatePlayersList } from '../reducer/team';
+import { updateData } from '../reducer/user';
+
 import { addNotification } from '../addNotification';
 
 const teamMiddleWare = (store) => (next) => (action) => {
@@ -10,6 +10,40 @@ const teamMiddleWare = (store) => (next) => (action) => {
   const teamId = store.getState().team.currentTeamId;
 
   switch (action.type) {
+    case CREATE_TEAM: {
+      const userId = localStorage.getItem('userId');
+
+      const {
+        teamName,
+        teamAddress,
+        teamStadium,
+        teamCity,
+      } = action.value;
+
+      const config = {
+        headers: { Authorization: `Bearer ${token}` },
+      };
+
+      const data = {
+        address_team: teamAddress,
+        city_team: teamCity,
+        stadium_team: teamStadium,
+        team_name: teamName,
+      };
+
+      axios.post(`/api/v1/teams/user/${userId}/new`, data, config)
+
+        .then((response) => {
+          addNotification('create-team-success');
+          store.dispatch(updateData());
+        })
+        .catch((error) => {
+          addNotification('create-team-error');
+        });
+
+      break;
+    }
+
     case PLAYERS_INFOS: {
       axios({
         method: 'get',
@@ -28,8 +62,6 @@ const teamMiddleWare = (store) => (next) => (action) => {
     }
 
     case INVITE_PLAYER: {
-      console.log('coucou depuis middleware:', action.value);
-
       axios({
         method: 'post',
         url: `/api/v1/teams/${teamId}/invite`,
