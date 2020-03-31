@@ -5,6 +5,7 @@ import EventList from '~/components/Page/Calendar/EventList';
 
 const mapStateToProps = (state, ownProps) => ({
   eventData: state.calendar.teamCalendarInformations,
+  currentTeamId: state.team.currentTeamId,
 });
 
 const mapDispatchToProps = (dispatch) => ({

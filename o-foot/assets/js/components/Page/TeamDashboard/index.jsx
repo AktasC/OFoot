@@ -18,12 +18,10 @@ const TeamDashboard = ({ loadCalendarTeamInfo, teamInformations }) => {
   return (
 
     <div id="teamDashboard">
-
       <Container>
         <div className="sweatband">
           <h2>DASHBOARD ÉQUIPE</h2>
         </div>
-
         <Row className="full-dashboard">
           <Col lg={6} md={12} sm={12} xs={12} className="infos-part">
             <TeamInfosCard teamData={teamInformations} />

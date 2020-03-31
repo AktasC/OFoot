@@ -15,7 +15,6 @@
         "jquery": "^3.4.1",
         "node-sass": "^4.13.0",
         "popper.js": "^1.16.0",
-        "react-dom": "^16.12.0",
         "regenerator-runtime": "^0.13.2",
         "sass-loader": "^7.0.1",
         "webpack-notifier": "^1.6.0"
@@ -36,6 +35,7 @@
         "animate.css": "^3.7.2",
         "axios": "^0.19.1",
         "bootstrap": "^4.4.1",
+        "classnames": "^2.2.6",
         "eslint-config-airbnb-base": "^14.0.0",
         "moment": "^2.24.0",
         "object-rename-keys": "^1.2.1",
@@ -44,12 +44,16 @@
         "react": "^16.12.0",
         "react-avatar": "^3.9.0",
         "react-bootstrap": "^1.0.0-beta.16",
+        "react-hook-form": "^5.1.3",
+        "react-dom": "^16.12.0",
         "react-icons": "^3.8.0",
         "react-notifications-component": "^2.2.7",
         "react-redux": "^7.1.3",
+        "react-router": "^5.1.2",
         "react-router-dom": "^5.1.2",
         "react-slick": "^0.25.2",
         "react-spring": "^8.0.27",
+        "react-with-breakpoints": "^4.0.4",
         "reactstrap": "^8.2.0",
         "redux": "^4.0.5"
     }
