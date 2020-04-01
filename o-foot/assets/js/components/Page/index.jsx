@@ -51,7 +51,7 @@ class Page extends React.Component {
 
   render() {
     const { signupDone, logged, userId } = this.props;
-  
+
     return (
       <div id="page">
 
