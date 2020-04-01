@@ -12,11 +12,6 @@ const AddEvent = ({
   eventOptionChange,
   selectedOptionMatch,
   matchOptionChange,
-  onValueChange,
-  opponent,
-  date_time,
-  stadium,
-  adress,
   onSubmitAddEvent,
 }) => {
   const {
@@ -32,13 +27,9 @@ const AddEvent = ({
     matchOptionChange(evt.target.value);
   };
 
-  const handleChangeAddEvent = (event) => {
-    onValueChange(event.target.value, event.target.name);
-  };
-
-  const onSubmit = (evt) => {
+  const onSubmit = (data, evt) => {
     evt.preventDefault();
-    onSubmitAddEvent();
+    onSubmitAddEvent(data);
   };
 
 
@@ -48,7 +39,7 @@ const AddEvent = ({
       <Container>
         <Row>
           <Col>
-            <Form id="addEvent" onSubmit={onSubmit}>
+            <Form id="addEvent" onSubmit={handleSubmit(onSubmit)}>
               <Form.Row className="radios">
                 <Col className="radio_btn">
                   <Form.Check
@@ -97,8 +88,7 @@ const AddEvent = ({
                           <Col className="input">
                             <Form.Control
                               name="opponent"
-
-                              placeholder="Aversaire"
+                              placeholder="Adversaire"
                               onBlur={() => triggerValidation('opponent')}
                               onChange={() => triggerValidation('opponent')}
                               ref={register({
@@ -114,27 +104,39 @@ const AddEvent = ({
                   placeholder="Date et Heure"
                   type="datetime-local"
                   name="date_time"
-                  value={date_time}
-                  onChange={handleChangeAddEvent}
+                  onBlur={() => triggerValidation('date_time')}
+                  onChange={() => triggerValidation('date_time')}
+                  ref={register({
+                    required: 'Merci de renseigner une date',
+                  })}
                 />
+                {errors.date_time && errors.date_time.message}
               </Col>
 
               <Col className="input">
                 <Form.Control
                   name="stadium"
                   placeholder="Stade"
-                  value={stadium}
-                  onChange={handleChangeAddEvent}
+                  onBlur={() => triggerValidation('stadium')}
+                  onChange={() => triggerValidation('stadium')}
+                  ref={register({
+                    required: 'Champs requis',
+                  })}
                 />
+                {errors.stadium && errors.stadium.message}
               </Col>
 
               <Col className="input">
                 <Form.Control
                   name="adress"
                   placeholder="Adresse"
-                  value={adress}
-                  onChange={handleChangeAddEvent}
+                  onBlur={() => triggerValidation('adress')}
+                  onChange={() => triggerValidation('adress')}
+                  ref={register({
+                    required: 'Champs requis',
+                  })}
                 />
+                {errors.adress && errors.adress.message}
               </Col>
 
               <Button className="custom-btn" type="submit">Ajouter l'événement</Button>

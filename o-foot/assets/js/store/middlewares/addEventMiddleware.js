@@ -14,11 +14,14 @@ const addEventMiddleware = (store) => (next) => (action) => {
       const {
         selectedOption,
         selectedOptionMatch,
+      } = store.getState().event;
+
+      const {
         opponent,
         date_time,
         stadium,
         adress,
-      } = store.getState().event;
+      } = action.value;
 
       const {
         currentTeamId,
