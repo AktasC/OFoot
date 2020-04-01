@@ -27,4 +27,9 @@ const EventList = ({ eventData, currentTeamId }) => (
 
 );
 
+EventList.propTypes = {
+  eventData: PropTypes.array.isRequired,
+  currentTeamId: PropTypes.number.isRequired,
+};
+
 export default EventList;

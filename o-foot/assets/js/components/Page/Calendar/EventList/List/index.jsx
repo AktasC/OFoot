@@ -15,8 +15,6 @@ import AddEvent from '~/containers/Page/Calendar/EventList/AddEvent';
 class List extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
-
     this.state = {
       showAddEvent: false,
     };
@@ -72,9 +70,7 @@ class List extends React.Component {
                 )
                 : (
                   <div className="date">
-                    {' '}
                     {dateFromISO8601(`${event.date_time}`).toLocaleDateString('fr-FR', options)}
-                    {' '}
                   </div>
                 )}
             </Col>
@@ -90,40 +86,32 @@ class List extends React.Component {
                 )}
               {event.opponent_team != undefined && (
               <div className="opponent">
-                {' '}
                 {event.opponent_team}
-                {' '}
               </div>
               ) }
               {event.opponent_team != undefined && (
               <div className="where">
-                {' '}
                 {event.domicile_exterieur}
-                {' '}
               </div>
               ) }
 
               {event.opponent_team === undefined
                 ? (
                   <div className="detail">
-                    {' '}
                     {event.stadium_practice}
                     {' '}
                     -
                     {' '}
                     {event.address_practice}
-                    {' '}
                   </div>
                 )
                 : (
                   <div className="detail">
-                    {' '}
                     {event.stadium_game}
                     {' '}
                     -
                     {' '}
                     {event.address_game}
-                    {' '}
                   </div>
                 )}
             </Col>
@@ -158,5 +146,10 @@ class List extends React.Component {
     );
   }
 }
+
+List.propTypes = {
+  eventData: PropTypes.array.isRequired,
+  currentTeamId: PropTypes.number.isRequired,
+};
 
 export default List;
