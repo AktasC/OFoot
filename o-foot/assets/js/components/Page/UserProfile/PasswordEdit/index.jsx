@@ -29,6 +29,7 @@ const PasswordEdit = ({ onSubmit }) => {
                   <Form.Label>Mot de passe actuel</Form.Label>
                   <Form.Control
                     className={classNames('form-control', { wrong: errors.actualPwd })}
+                    type="password"
                     onBlur={() => triggerValidation('actualPwd')}
                     onChange={() => triggerValidation('actualPwd')}
                     name="actualPwd"
@@ -47,6 +48,7 @@ const PasswordEdit = ({ onSubmit }) => {
                   <Form.Label>Nouveau mot de passe</Form.Label>
                   <Form.Control
                     className={classNames('form-control', { wrong: errors.newPwd })}
+                    type="password"
                     onBlur={() => triggerValidation('newPwd')}
                     onChange={() => triggerValidation('newPwd')}
                     name="newPwd"
@@ -70,6 +72,7 @@ const PasswordEdit = ({ onSubmit }) => {
                   <Form.Label>Confirmation du mot de passe</Form.Label>
                   <Form.Control
                     className={classNames('form-control', { wrong: errors.confirmNewPwd })}
+                    type="password"
                     onBlur={() => triggerValidation('confirmNewPwd')}
                     onChange={() => triggerValidation('confirmNewPwd')}
                     name="confirmNewPwd"
