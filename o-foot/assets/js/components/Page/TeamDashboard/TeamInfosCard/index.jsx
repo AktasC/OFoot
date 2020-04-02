@@ -69,16 +69,14 @@ const TeamInfosCard = ({teamData}) => {
 }
 
 TeamInfosCard.propTypes = {
-  teamData: PropTypes.objectOf(
-    PropTypes.shape({
-      logo_team: PropTypes.string.isRequired,
-      team_name: PropTypes.string.isRequired,
-      championship_team: PropTypes.string.isRequired,
-      stadium_team: PropTypes.string.isRequired,
-      address_team: PropTypes.string.isRequired,
-      city_team: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  teamData: PropTypes.shape({
+    logo_team: PropTypes.string,
+    team_name: PropTypes.string,
+    championship_team: PropTypes.string,
+    stadium_team: PropTypes.string,
+    address_team: PropTypes.string,
+    city_team: PropTypes.string,
+  }).isRequired,
 };
 
 export default TeamInfosCard;

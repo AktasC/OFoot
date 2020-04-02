@@ -106,9 +106,9 @@ const UserEdit = ({ onSubmit, userInformations }) => {
 UserEdit.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   userInformations: PropTypes.shape({
-    first_name: PropTypes.string.isRequired,
-    last_name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
+    email: PropTypes.string,
   }).isRequired,
 };
 

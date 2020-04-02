@@ -18,7 +18,6 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
       })
 
         .then((response) => {
-          console.log('from axios:', response.data);
           const actionLoadInfo = loadInfoFromAxios(response.data);
           store.dispatch(actionLoadInfo);
         })
