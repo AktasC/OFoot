@@ -3,7 +3,8 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Col, Row, Container } from 'react-bootstrap';
-import TeamInfosCard from './TeamInfosCard';
+
+import TeamInfosCard from '~/containers/Page/TeamDashboard/TeamInfosCard';
 import CalendarWidget from './Widget/CalendarWidget';
 
 // Import scss

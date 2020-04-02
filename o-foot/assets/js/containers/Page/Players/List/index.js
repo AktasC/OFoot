@@ -7,7 +7,7 @@ import { invitePlayer } from '~/store/reducer/team';
 const mapStateToProps = (state) => ({
   playersList: state.team.playersList,
   currentTeamId: state.team.currentTeamId,
-  isAdmin: state.user.isAdmin,
+  isManager: state.user.isManager,
 });
 
 const mapDispatchToProps = (dispatch) => ({

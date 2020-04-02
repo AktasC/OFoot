@@ -2,12 +2,13 @@ import axios from 'axios';
 
 import { USER_PROFIL_INFO, USER_INFOS_UPDATE, loadInfoFromAxios, CHANGE_PASSWORD } from '../reducer/userProfil';
 import { addNotification } from '../addNotification';
-import { updateData } from '../reducer/user';
+import { updateData, IS_MANAGER,  updateIsManager } from '../reducer/user';
 
 
 const userProfilMiddleWare = (store) => (next) => (action) => {
   const token = localStorage.getItem('token');
   const userId = localStorage.getItem('userId');
+  const teamId = store.getState().team.currentTeamId;
 
   switch (action.type) {
     case USER_PROFIL_INFO: {
@@ -83,6 +84,23 @@ const userProfilMiddleWare = (store) => (next) => (action) => {
         })
         .catch(() => {
           addNotification('modify-pwd-not-allowed');
+        });
+      break;
+    }
+
+    case IS_MANAGER: {
+      axios({
+        method: 'get',
+        url: `/api/v1/teams/${teamId}/manager`,
+        headers: { Authorization: `Bearer ${token}` },
+      })
+
+        .then((response) => {
+          const actionUpdateIsManager = updateIsManager(response.data);
+          store.dispatch(actionUpdateIsManager);
+        })
+        .catch((error) => {
+          console.log('error from appel appel axios:', error);
         });
       break;
     }

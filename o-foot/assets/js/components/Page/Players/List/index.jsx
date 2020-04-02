@@ -15,7 +15,7 @@ import Card from '../Card';
 // Import scss
 import './list.scss';
 
-const List = ({ playersList, currentTeamId, onSubmit, isAdmin }) => {
+const List = ({ playersList, currentTeamId, onSubmit, isManager }) => {
 
   const { handleSubmit, register, errors, triggerValidation } = useForm();
 
@@ -45,10 +45,12 @@ const List = ({ playersList, currentTeamId, onSubmit, isAdmin }) => {
               Retour au dashboard
             </Button>
           </NavLink>
-          <Button onClick={() => {setShow(true) }}>
-            <IoIosSend />
-            Inviter joueur
-          </Button>
+          {isManager && (
+            <Button onClick={() => {setShow(true); }}>
+              <IoIosSend />
+              Inviter joueur
+            </Button>
+          )}
           {/* <Button><IoIosAddCircleOutline /> Ajouter joueur</Button> */}
         </div>
 
@@ -62,7 +64,7 @@ const List = ({ playersList, currentTeamId, onSubmit, isAdmin }) => {
                   <th>Prénom</th>
                   <th>Poste</th>
                   <th className="smallin">Stats</th>
-                  {isAdmin && (
+                  {isManager && (
                     <>
                       <th className="smallin">Édit.</th>
                       <th className="smallin">Supp.</th>
@@ -83,7 +85,7 @@ const List = ({ playersList, currentTeamId, onSubmit, isAdmin }) => {
                     >
                       <IoIosStats />
                     </td>
-                    {isAdmin && (
+                    {isManager && (
                       <>
                         <td className="clikable"><FiEdit3 /></td>
                         <td className="clikable"><AiOutlineDelete /></td>
@@ -156,7 +158,7 @@ const List = ({ playersList, currentTeamId, onSubmit, isAdmin }) => {
 
 List.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  isAdmin: PropTypes.bool.isRequired,
+  isManager: PropTypes.bool.isRequired,
   currentTeamId: PropTypes.number.isRequired,
   playersList: PropTypes.arrayOf(
     PropTypes.shape({

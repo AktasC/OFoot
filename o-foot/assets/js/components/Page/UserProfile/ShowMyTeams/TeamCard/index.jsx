@@ -7,7 +7,7 @@ import Avatar from 'react-avatar';
 // Import scss
 import './team-card.scss';
 
-const TeamCard = ({ team, handleUpdateCurrentTeamId }) => {
+const TeamCard = ({ team, handleUpdateCurrentTeamId, handleIsManager }) => {
   const {
     logo_team,
     team_name,
@@ -16,6 +16,7 @@ const TeamCard = ({ team, handleUpdateCurrentTeamId }) => {
 
   const updateTeamId = () => {
     handleUpdateCurrentTeamId(id);
+    handleIsManager();
   };
 
   return (
@@ -41,6 +42,7 @@ TeamCard.propTypes = {
     team_name: PropTypes.string,
   }).isRequired,
   handleUpdateCurrentTeamId: PropTypes.func.isRequired,
+  handleIsManager: PropTypes.func.isRequired,
 };
 
 export default TeamCard;

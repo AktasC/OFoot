@@ -9,7 +9,7 @@ import TeamInfosEditForm from '~/containers/Page/TeamDashboard/TeamInfosCard/Tea
 // Import scss
 import './team-infos-card.scss';
 
-const TeamInfosCard = ({teamData}) => {
+const TeamInfosCard = ({ teamData, isManager }) => {
   const [show, setShow] = useState(false);
 
   const {
@@ -24,9 +24,11 @@ const TeamInfosCard = ({teamData}) => {
   return (
     <div id="teamInfosCard">
 
-      <div className="edit">
-        <Button onClick={() => setShow(true)}><FiEdit3 size={22} /></Button>
-      </div>
+      { isManager && (
+        <div className="edit">
+          <Button onClick={() => setShow(true)}><FiEdit3 size={22} /></Button>
+        </div>
+      )}
 
       <div className="card-header">
         <Avatar className="avatar-custom" src={logo_team} size="100" round />
@@ -77,6 +79,7 @@ TeamInfosCard.propTypes = {
     address_team: PropTypes.string,
     city_team: PropTypes.string,
   }).isRequired,
+  isManager: PropTypes.bool.isRequired,
 };
 
 export default TeamInfosCard;
