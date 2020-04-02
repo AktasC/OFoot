@@ -67,11 +67,10 @@ const teamMiddleWare = (store) => (next) => (action) => {
         url: `/api/v1/teams/${teamId}/invite`,
         headers: { Authorization: `Bearer ${token}` },
         data: {
-          email: action.value,
+          email: action.value.email,
         },
       })
-
-        .then((response) => {
+        .then(() => {
           addNotification('invite-player-success');
         })
         .catch((error) => {

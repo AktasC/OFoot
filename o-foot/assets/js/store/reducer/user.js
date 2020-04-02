@@ -4,6 +4,7 @@ const initialState = {
   userId: localStorage.getItem('userId'),
   token: localStorage.getItem('token'),
   updateData: false,
+  isAdmin: false,
 };
 
 export const UPDATE_TOKEN = 'UPDATE_TOKEN';

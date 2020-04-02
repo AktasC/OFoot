@@ -9,10 +9,11 @@ import CalendarWidget from './Widget/CalendarWidget';
 // Import scss
 import './team-dashboard.scss';
 
-const TeamDashboard = ({ loadCalendarTeamInfo, teamInformations }) => {
+const TeamDashboard = ({ loadCalendarTeamInfo, teamInformations, loadPlayersList }) => {
 
   useEffect(() => {
     loadCalendarTeamInfo();
+    loadPlayersList();
   });
 
   return (
@@ -58,6 +59,7 @@ const TeamDashboard = ({ loadCalendarTeamInfo, teamInformations }) => {
 
 TeamDashboard.propTypes = {
   loadCalendarTeamInfo: PropTypes.func.isRequired,
+  loadPlayersList: PropTypes.func.isRequired,
   teamInformations: PropTypes.PropTypes.shape({
     id: PropTypes.number.isRequired,
   }).isRequired,
