@@ -35,13 +35,11 @@ const TeamCard = ({ team, handleUpdateCurrentTeamId }) => {
 };
 
 TeamCard.propTypes = {
-  team: PropTypes.objectOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      logo_team: PropTypes.string.isRequired,
-      team_name: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  team: PropTypes.shape({
+    id: PropTypes.number,
+    logo_team: PropTypes.string,
+    team_name: PropTypes.string,
+  }).isRequired,
   handleUpdateCurrentTeamId: PropTypes.func.isRequired,
 };
 

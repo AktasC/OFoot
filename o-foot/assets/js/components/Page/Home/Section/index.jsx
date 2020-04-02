@@ -7,8 +7,6 @@ import './section.scss';
 
 
 const Section = (func) => {
-  console.log(func);
-
   const divStyle = {
     backgroundImage: `url(${func.img})`,
     width: 'auto',
