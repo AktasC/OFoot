@@ -137,7 +137,7 @@ class List extends React.Component {
 
           </Modal.Body>
           <Modal.Footer>
-            <Button className="custom-btn" onClick={handleCloseAddEvent}>Close</Button>
+            <Button className="custom-btn" onClick={handleCloseAddEvent}>Fermer</Button>
           </Modal.Footer>
         </Modal>
 

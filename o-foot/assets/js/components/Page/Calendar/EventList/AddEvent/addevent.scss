@@ -19,4 +19,12 @@
         align-self: center;
         margin: .8em;
     }
+      
+      & .wrong {
+        border-left: 4px solid #f44336; 
+      }
+
+      & .errorMessage {
+          color: #717172;
+      }
 }

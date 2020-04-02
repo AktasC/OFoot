@@ -2,7 +2,7 @@
 const initialState = {
   // la valeur courante de l'input
   selectedOption: 'entrainement',
-  selectedOptionMatch: undefined,
+  selectedOptionMatch: 'domicile',
 };
 
 // --- action types
@@ -31,7 +31,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         selectedOption: 'entrainement',
-        selectedOptionMatch: undefined,
+        selectedOptionMatch: 'domicile',
       };
 
 
