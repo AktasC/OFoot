@@ -1,7 +1,7 @@
 // --- initial state
 const initialState = {
   // la valeur courante de l'input
-  playersList: [],
+  playersList: {},
   currentTeamId: '',
 };
 

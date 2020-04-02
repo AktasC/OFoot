@@ -1,16 +1,16 @@
 // == Import : npm
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Col, Row, Container } from 'react-bootstrap';
-import { getPlayerInfosById } from 'Utils/selectors/selectors';
 import Avatar from 'react-avatar';
+
+import { getPlayerInfosById } from 'Utils/selectors/selectors';
 
 // Import scss
 import './card.scss';
 
 const Card = ({ playerId, playersList }) => {
   const playerInfo = getPlayerInfosById(playerId, playersList);
-  console.log('Caaard:', playerInfo);
-  console.log(playerInfo.picture_player);
 
   return (
 
@@ -26,7 +26,7 @@ const Card = ({ playerId, playersList }) => {
             <div className="inline-infos">
               <div className="number-jersey">{playerInfo.number_jersey_player}</div>
               <div className="avatar">
-                { playerInfo.picture_player != null ? <Avatar className="avatar-custom" src={playerInfo.picture_player} size="100" round /> : <Avatar name={`${playerInfo.first_name_player} ${playerInfo.last_name_player}`} size="150" size="100" round /> }
+                { playerInfo.picture_player != null ? <Avatar className="avatar-custom" src={playerInfo.picture_player} size="100" round /> : <Avatar name={`${playerInfo.first_name_player} ${playerInfo.last_name_player}`} size="100" round /> }
               </div>
               <div className="infos">
                 <div className="player-name">
@@ -79,6 +79,22 @@ const Card = ({ playerId, playersList }) => {
 
     </div>
   );
+};
+
+Card.propTypes = {
+  playerId: PropTypes.number,
+  playersList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      first_name_player: PropTypes.string.isRequired,
+      last_name_player: PropTypes.string.isRequired,
+      role_player: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
+
+Card.defaultProps = {
+  playerId: 0,
 };
 
 
