@@ -88,10 +88,10 @@ const AddEvent = ({
               {selectedOption === 'match'
                   && (
                   <Col className="input">
+                    <Form.Label for="opponent">Adversaire</Form.Label>
                     <Form.Control
                       className={classNames('form-control', { wrong: errors.opponent })}
                       name="opponent"
-                      placeholder="Adversaire"
                       onBlur={() => triggerValidation('opponent')}
                       onChange={() => triggerValidation('opponent')}
                       ref={register({
@@ -105,9 +105,9 @@ const AddEvent = ({
                   )}
 
               <Col className="input">
+                <Form.Label for="date_time">Date et heure</Form.Label>
                 <Form.Control
                   className={classNames('form-control', { wrong: errors.date_time })}
-                  placeholder="Date et Heure"
                   type="datetime-local"
                   name="date_time"
                   onBlur={() => triggerValidation('date_time')}
@@ -122,10 +122,10 @@ const AddEvent = ({
               </Col>
 
               <Col className="input">
+                <Form.Label for="stadium">Stade</Form.Label>
                 <Form.Control
                   className={classNames('form-control', { wrong: errors.stadium })}
                   name="stadium"
-                  placeholder="Stade"
                   onBlur={() => triggerValidation('stadium')}
                   onChange={() => triggerValidation('stadium')}
                   ref={register({
@@ -138,10 +138,10 @@ const AddEvent = ({
               </Col>
 
               <Col className="input">
+                <Form.Label for="adress">Adresse</Form.Label>
                 <Form.Control
                   className={classNames('form-control', { wrong: errors.adress })}
                   name="adress"
-                  placeholder="Adresse"
                   onBlur={() => triggerValidation('adress')}
                   onChange={() => triggerValidation('adress')}
                   ref={register({
